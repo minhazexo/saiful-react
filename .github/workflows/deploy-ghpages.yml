@@ -1,0 +1,80 @@
+name: Deploy frontend to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Required for `actions/deploy-pages` (OIDC token)
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Cancel any in-progress deploy when a new push lands
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build static bundle
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: npm
+          cache-dependency-path: saiful-react/package-lock.json
+
+      - name: Install client dependencies
+        working-directory: saiful-react
+        run: npm ci --no-audit --no-fund
+
+      - name: Build static bundle
+        working-directory: saiful-react
+        env:
+          # Project page base path (matches the repo name). Override here if
+          # the repo is renamed, or set to "/" for a user/org page.
+          VITE_BASE_PATH: /${{ github.event.repository.name }}/
+          # HashRouter keeps deep links working on a static host
+          VITE_ROUTER: hash
+          # Demo mode: short-circuits every API call so the SPA renders
+          # without a backend. Set to 'false' (or remove the line) once the
+          # backend is live and you set VITE_API_URL.
+          VITE_DEMO_MODE: 'true'
+          # Intentionally NO VITE_API_URL — pure static viewing build
+        run: npm run build
+
+      - name: Mirror index.html as 404.html
+        working-directory: saiful-react/dist
+        # GitHub Pages serves 404.html for unknown paths; mirroring it lets
+        # search-engine crawlers that cached a non-hash URL still load the SPA.
+        run: cp index.html 404.html
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: saiful-react/dist
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

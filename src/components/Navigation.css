@@ -1,0 +1,334 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: var(--nav-h, 70px);
+  position: relative;
+  gap: 16px;
+  /* Keep logo, links, and CTAs on a single line on desktop */
+  flex-wrap: nowrap;
+  min-width: 0;
+}
+
+.nav-logo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--dark);
+  text-decoration: none;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.nav-logo span {
+  color: var(--orange);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  min-width: 0;
+  /* Sit right after the logo; the CTA group will be pushed to the right via margin-left:auto */
+}
+
+.nav-links li {
+  flex-shrink: 0;
+}
+
+.nav-links a {
+  color: var(--text-dark);
+  font-weight: 500;
+  font-size: 14px;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.nav-links a:hover {
+  color: var(--orange);
+}
+
+/* Mobile-only CTA list items are hidden on desktop */
+.nav-mobile-cta {
+  display: none;
+}
+
+.nav-cta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  /* Pin the lang switcher + Contact + Book Free Call group to the far right edge */
+  margin-left: auto;
+}
+
+.nav-mobile-lang {
+  width: 100%;
+  padding: 8px 0;
+}
+
+.nav-cta-icon {
+  display: none;
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* Show phone icon, hide full "Book Free Call" text on medium desktop so it fits */
+@media (max-width: 1280px) {
+  .nav-cta-icon {
+    display: inline-flex;
+  }
+
+  .nav-cta-label {
+    display: none;
+  }
+}
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.btn-primary {
+  background: var(--orange);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #e56a00;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-dark);
+  border: 1px solid var(--border);
+}
+
+.btn-outline:hover {
+  background: var(--surface);
+  border-color: var(--orange);
+}
+
+.btn-dark {
+  background: var(--dark);
+  color: white;
+}
+
+.btn-dark:hover {
+  background: #1a2742;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  gap: 6px;
+  padding: 0;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 8px;
+  /* position: relative is REQUIRED for z-index to apply. Without it,
+     the toggle sits in the "auto" layer below the position:fixed menu
+     (z-index 999) and gets visually clipped by the off-screen menu's
+     bounding box. */
+  position: relative;
+  z-index: 1100;
+  flex-shrink: 0;
+}
+
+.nav-toggle:hover {
+  background: var(--surface);
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--dark);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Hamburger -> X animation when menu is open */
+.nav-toggle[aria-expanded='true'] span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded='true'] span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.nav-toggle[aria-expanded='true'] span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.nav-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.4);
+  border: none;
+  cursor: pointer;
+  z-index: 998;
+}
+
+/* Tighter spacing on medium desktop / laptop screens so all 8 links + CTAs fit on one line */
+@media (max-width: 1280px) {
+  .nav-links {
+    gap: 16px;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+  }
+
+  .nav-inner {
+    gap: 8px;
+  }
+
+  .nav-cta {
+    gap: 6px;
+  }
+
+  .nav-cta .btn {
+    padding: 7px 12px;
+  }
+}
+
+/* Even tighter on narrow desktop screens so the Blog link stays visible */
+@media (max-width: 1180px) {
+  .nav-links {
+    gap: 12px;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+  }
+
+  .nav-cta .btn-outline {
+    padding: 6px 10px;
+  }
+}
+
+/* Switch to mobile menu earlier — 8 links + CTAs won't fit cleanly under 1100px */
+@media (max-width: 1100px) {
+  .nav-inner {
+    height: var(--nav-h, 60px);
+  }
+
+  .nav-logo {
+    font-size: 20px;
+  }
+
+  .nav-links {
+    display: flex;
+    position: fixed;
+    top: var(--nav-h, 60px);
+    left: 0;
+    right: 0;
+    max-height: calc(100vh - var(--nav-h, 60px));
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: white;
+    padding: 16px 24px 32px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid var(--border);
+    overflow-y: auto;
+    z-index: 999;
+    /* Framer Motion controls `x` (transform). Keep visibility/pointer-events CSS-toggled. */
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .nav-links.active {
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .nav-links li {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 1;
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links a {
+    font-size: 16px;
+    display: block;
+  }
+
+  /* Show the mobile CTAs */
+  .nav-mobile-cta {
+    display: block;
+    padding: 16px 0 0;
+    border-bottom: none !important;
+  }
+
+  .nav-mobile-cta .btn {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 16px;
+  }
+
+  .nav-mobile-cta + .nav-mobile-cta {
+    padding-top: 8px;
+  }
+
+  .nav-cta {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav > .nav-backdrop {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-inner {
+    height: var(--nav-h, 60px);
+  }
+}

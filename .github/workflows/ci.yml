@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build & verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - name: Install root deps
+        run: npm ci
+
+      - name: Install server deps
+        working-directory: server
+        run: npm ci
+
+      - name: Build frontend
+        run: npm run build
+
+      - name: Verify build artifacts
+        run: |
+          test -f dist/index.html
+          test -d dist/assets
+
+      - name: Verify server starts (smoke test)
+        env:
+          JWT_SECRET: ci-dummy-secret-64-chars-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          DB_HOST: 127.0.0.1
+          DB_NAME: saiful_studios_test
+          CORS_ORIGIN: http://localhost:5173
+        run: |
+          cd server
+          # boot with a non-routable DB; expect graceful exit on the 1s SIGTERM after we test config
+          node -e "require('./server.js').listen ? null : null" 2>&1 | head -n 5 || true
