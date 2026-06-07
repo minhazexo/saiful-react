@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import Navigation from './Navigation';
@@ -34,9 +34,17 @@ export default function PublicLayout() {
     <>
       <DemoBanner />
       <Navigation />
-      <AnimatePresence mode="wait" initial={false}>
+      <AnimatePresence mode="wait">
         {shouldReduceMotion ? (
-          <Outlet key={location.pathname} />
+          <div key={location.pathname}>
+            <Suspense fallback={
+              <div className="page-loader" role="status" aria-live="polite">
+                <div className="page-loader-spinner" aria-hidden="true" />
+              </div>
+            }>
+              <Outlet />
+            </Suspense>
+          </div>
         ) : (
           <motion.main
             key={location.pathname}
@@ -44,7 +52,13 @@ export default function PublicLayout() {
             animate={pageTransition.animate}
             exit={pageTransition.exit}
           >
-            <Outlet />
+            <Suspense fallback={
+              <div className="page-loader" role="status" aria-live="polite">
+                <div className="page-loader-spinner" aria-hidden="true" />
+              </div>
+            }>
+              <Outlet />
+            </Suspense>
           </motion.main>
         )}
       </AnimatePresence>
