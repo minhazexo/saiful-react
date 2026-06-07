@@ -33,11 +33,9 @@ jobs:
           cache: npm
 
       - name: Install client dependencies
-        working-directory: saiful-react
         run: npm ci --no-audit --no-fund
 
       - name: Build static bundle
-        working-directory: saiful-react
         env:
           # Project page base path (matches the repo name). Override here if
           # the repo is renamed, or set to "/" for a user/org page.
@@ -52,7 +50,7 @@ jobs:
         run: npm run build
 
       - name: Mirror index.html as 404.html
-        working-directory: saiful-react/dist
+        working-directory: dist
         # GitHub Pages serves 404.html for unknown paths; mirroring it lets
         # search-engine crawlers that cached a non-hash URL still load the SPA.
         run: cp index.html 404.html
@@ -63,7 +61,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: saiful-react/dist
+          path: dist
 
   deploy:
     name: Deploy to GitHub Pages
