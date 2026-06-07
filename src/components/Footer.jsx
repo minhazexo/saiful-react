@@ -128,7 +128,7 @@ function Footer() {
             <div className="footer-contact">
               <div className="footer-contact-item">
                 <span aria-hidden="true">📧</span>{' '}
-                <a href="mailto:hello@saifulstudios.com">hello@saifulstudios.com</a>
+                <a href="mailto:saifulstudios@gmail.com">saifulstudios@gmail.com</a>
               </div>
               <div className="footer-contact-item">
                 <span aria-hidden="true">📍</span> {t('footer.locationValue')}

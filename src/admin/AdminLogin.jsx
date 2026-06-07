@@ -85,7 +85,7 @@ function AdminLogin() {
 
           <p className="signup-text">
             {t('admin.login.signupPrompt')}{' '}
-            <a href="mailto:hello@saifulstudios.com">{t('admin.login.signupLink')}</a>
+            <a href="mailto:saifulstudios@gmail.com">{t('admin.login.signupLink')}</a>
           </p>
         </div>
       </div>

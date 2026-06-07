@@ -285,7 +285,7 @@
       "emailLabel": "Email Address",
       "emailPlaceholder": "your@email.com",
       "whatsappLabel": "WhatsApp Number",
-      "whatsappPlaceholder": "+880 1X XX XXX XXX",
+      "whatsappPlaceholder": "01866290587",
       "submit": "Download Free Roadmap",
       "submitting": "Sending…",
       "success": "Success! Check your email in a minute.",
@@ -425,7 +425,7 @@
       "emailLabel": "Email *",
       "emailPlaceholder": "your@email.com",
       "whatsappLabel": "WhatsApp *",
-      "whatsappPlaceholder": "+880 1X XX XXX XXX",
+      "whatsappPlaceholder": "01866290587",
       "stageLabel": "Where are you in your journey? *",
       "stagePlaceholder": "Select your stage",
       "stageOptions": {
@@ -585,7 +585,7 @@
     "emailLabel": "Email *",
     "emailPlaceholder": "your@email.com",
     "whatsappLabel": "WhatsApp Number *",
-    "whatsappPlaceholder": "+880 1X XX XXX XXX",
+    "whatsappPlaceholder": "01866290587",
     "serviceLabel": "Service Interest",
     "servicePlaceholder": "Select a service",
     "services": {
@@ -609,9 +609,9 @@
     "info": {
       "title": "Contact Information",
       "email": "Email",
-      "emailValue": "hello@saifulstudios.com",
+      "emailValue": "saifulstudios@gmail.com",
       "whatsapp": "WhatsApp",
-      "whatsappValue": "+880 1X XX XXX XXX",
+      "whatsappValue": "01866290587",
       "location": "Location",
       "locationValue": "Dhaka, Bangladesh",
       "hours": "Business Hours",
