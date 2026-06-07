@@ -1,0 +1,243 @@
+.modules-section {
+  background: var(--surface);
+}
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.module-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  transition: all var(--t);
+  position: relative;
+  text-align: left;
+}
+
+.module-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--orange-soft);
+}
+
+.module-number {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-family: var(--font-heading);
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--orange-soft);
+  line-height: 1;
+}
+
+.module-icon {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.module-card h3 {
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.module-card p {
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.academy-pricing {
+  background: #fff;
+}
+
+.pricing-box {
+  max-width: 560px;
+  margin: 0 auto;
+  background: #fff;
+  border: 2px solid var(--orange);
+  border-radius: var(--radius);
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(255, 122, 0, 0.15);
+}
+
+.pricing-box .price {
+  font-family: var(--font-heading);
+  font-size: 64px;
+  font-weight: 900;
+  color: var(--dark);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.pricing-box .price-strike {
+  text-decoration: line-through;
+  color: var(--text-muted);
+  font-size: 22px;
+  margin-right: 12px;
+  font-weight: 500;
+}
+
+.pricing-box .price-tag {
+  display: inline-block;
+  background: var(--orange);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 700;
+  margin-left: 12px;
+  vertical-align: middle;
+}
+
+.pricing-features {
+  list-style: none;
+  text-align: left;
+  margin: 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pricing-features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.enrollment-section {
+  background: linear-gradient(135deg, var(--dark), var(--dark-2));
+  color: #fff;
+}
+
+.enrollment-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.enrollment-content h2 {
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.enrollment-content > p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+
+.enrollment-perks {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.enrollment-perk {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.enrollment-perk-icon {
+  font-size: 18px;
+  color: var(--success);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.enrollment-form {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 40px;
+  border-radius: var(--radius);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.enrollment-form h3 {
+  color: #fff;
+  margin-bottom: 24px;
+}
+
+.enrollment-form .form-group label {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.enrollment-form input,
+.enrollment-form select,
+.enrollment-form textarea {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.enrollment-form input::placeholder,
+.enrollment-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 1024px) {
+  .modules-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .enrollment-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .modules-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .module-card {
+    padding: 24px 20px;
+  }
+
+  .module-number {
+    font-size: 28px;
+    right: 16px;
+    top: 14px;
+  }
+
+  .pricing-box {
+    padding: 24px 20px;
+  }
+
+  .pricing-box .price {
+    font-size: 44px;
+  }
+
+  .pricing-box .price-strike {
+    font-size: 18px;
+    margin-right: 6px;
+  }
+
+  .pricing-box .price-tag {
+    margin-left: 6px;
+  }
+
+  .pricing-features {
+    margin: 24px 0;
+    gap: 10px;
+  }
+
+  .pricing-features li {
+    font-size: 14px;
+  }
+
+  .enrollment-form {
+    padding: 24px;
+  }
+}
