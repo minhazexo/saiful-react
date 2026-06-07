@@ -31,7 +31,6 @@ jobs:
         with:
           node-version: 20.x
           cache: npm
-          cache-dependency-path: saiful-react/package-lock.json
 
       - name: Install client dependencies
         working-directory: saiful-react
