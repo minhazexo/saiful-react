@@ -64,7 +64,7 @@ function Navigation() {
     <nav className="nav" aria-label={t('nav.primaryLabel')}>
       <div className="nav-inner container">
         <Link to="/" className="nav-logo" onClick={closeMobileMenu}>
-          <img src="/images/SS-Color-Logo.png" alt={t('common.brand')} />
+          <img src={`${import.meta.env.BASE_URL}images/SS-Color-Logo.png`} alt={t('common.brand')} />
         </Link>
 
         <motion.ul

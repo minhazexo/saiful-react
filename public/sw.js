@@ -1,5 +1,6 @@
 const CACHE_NAME = 'saiful-studios-v1';
-const PRECACHE_URLS = ['/', '/offline.html'];
+const BASE = self.location.pathname.replace(/\/sw\.js$/, '').replace(/\/$/, '') || '';
+const PRECACHE_URLS = [(BASE || '/'), BASE + '/offline.html'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -20,10 +21,10 @@ self.addEventListener('fetch', (event) => {
   if (request.method !== 'GET') return;
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
-  if (url.pathname.startsWith('/api/') || url.pathname.startsWith('/admin')) return;
+  if (url.pathname.startsWith(BASE + '/api/') || url.pathname.startsWith(BASE + '/admin')) return;
   if (request.mode === 'navigate') {
     event.respondWith(
-      fetch(request).catch(() => caches.match('/offline.html').then((res) => res || caches.match('/')))
+      fetch(request).catch(() => caches.match(BASE + '/offline.html').then((res) => res || caches.match((BASE || '/'))))
     );
     return;
   }
