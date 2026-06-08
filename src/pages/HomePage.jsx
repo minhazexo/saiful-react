@@ -7,6 +7,7 @@ import FAQ from '../components/FAQ';
 import Seo from '../components/Seo';
 import { MotionFadeUp, MotionStaggerContainer, MotionStaggerItem } from '../motion/MotionFadeUp';
 import { fadeUp, fadeUpSmall, staggerContainer, staggerGrid, buttonHover } from '../motion/presets';
+import { assetPath } from '../utils/assets';
 import './HomePage.css';
 
 const STAT_NUMBERS = [
@@ -155,7 +156,7 @@ function HomePage() {
             >
               {/* Portrait */}
               <motion.div className="hero-portrait" variants={fadeUp}>
-                <img src="/images/My-Design.png" alt="Saiful Islam - Founder" />
+                <img src={assetPath('/images/My-Design.png')} alt="Saiful Islam - Founder" />
               </motion.div>
 
               {/* Service Card */}
@@ -426,7 +427,7 @@ function HomePage() {
             <motion.div className="founder-image-wrap" variants={fadeUp}>
               <img
                 className="founder-image"
-                src="/images/gpt-image-1.5-high-fidelity_a_Create_a_professiona.png"
+                src={assetPath('/images/gpt-image-1.5-high-fidelity_a_Create_a_professiona.png')}
                 alt="Saiful Islam"
               />
               <div className="founder-exp-badge">
