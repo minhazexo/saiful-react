@@ -138,8 +138,11 @@ function Navigation() {
           </li>
         </motion.ul>
 
-        <div className="nav-cta">
+        <div className="nav-lang-cta">
           <LanguageSwitcher variant="compact" />
+        </div>
+
+        <div className="nav-cta">
           <Link to="/contact" className="btn btn-outline">
             {t('nav.contact')}
           </Link>

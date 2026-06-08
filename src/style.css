@@ -41,7 +41,7 @@
   --container-max: 1200px;
 
   /* Nav height (overridden in @media) */
-  --nav-h: 70px;
+  --nav-h: 90px;
 
   /* Radius */
   --radius-sm: 10px;
@@ -609,7 +609,7 @@ ul {
   :root {
     --section-pad: 50px;
     --container-pad: 18px;
-    --nav-h: 60px;
+    --nav-h: 70px;
   }
 
   .grid-2,

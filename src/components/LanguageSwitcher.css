@@ -10,9 +10,9 @@
 }
 
 .lang-switcher-btn {
-  position: relative;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   padding: 6px 12px;
   background: transparent;
@@ -25,25 +25,10 @@
   cursor: pointer;
   transition:
     background 0.2s ease,
-    color 0.2s ease,
-    transform 0.15s ease;
+    color 0.2s ease;
   white-space: nowrap;
   line-height: 1;
-}
-
-.lang-switcher-active-bg {
-  position: absolute;
-  inset: 0;
-  background: var(--dark, #0f172a);
-  border-radius: var(--radius-pill, 50px);
-  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.18);
-  z-index: 0;
-}
-
-.lang-switcher-btn > .lang-short,
-.lang-switcher-btn > .lang-full {
-  position: relative;
-  z-index: 1;
+  min-width: 38px;
 }
 
 .lang-switcher-btn:hover:not(.active) {
@@ -52,16 +37,9 @@
 }
 
 .lang-switcher-btn.active {
+  background: var(--dark, #0f172a);
   color: #fff;
-}
-
-/* Static fallback when Framer Motion is not rendering the animated pill
-   (e.g. users with reduced-motion enabled where JS avoids the layoutId bg). */
-@media (prefers-reduced-motion: reduce) {
-  .lang-switcher-btn.active {
-    background: var(--dark, #0f172a);
-    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.18);
-  }
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.18);
 }
 
 .lang-switcher-btn:focus-visible {

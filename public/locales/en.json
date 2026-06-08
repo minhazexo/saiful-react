@@ -74,9 +74,17 @@
     "socialInstagram": "Instagram",
     "socialYouTube": "YouTube",
     "socialLinkedIn": "LinkedIn"
-  },
-  "home": {
+  },    "home": {
     "eyebrow": "#1 E-commerce Partner in Bangladesh",
+    "helperCardTitle1": "Helping Bangladeshi",
+    "helperCardTitle2": "Entrepreneurs",
+    "helperCardDesc": "Build, launch & grow your online business",
+    "helperServices": {
+      "brand": "Logo & Brand Identity",
+      "website": "E-commerce Website",
+      "social": "Social Media Marketing",
+      "ai": "AI Marketing System"
+    },
     "heroTitle1": "Launch, Build & Grow Your",
     "heroTitle2": "E-commerce Business",
     "heroSubtitle": "We help Bangladeshi entrepreneurs launch and grow profitable e-commerce businesses through Branding, Website Development, AI Marketing Systems and Growth Strategies.",
@@ -88,6 +96,17 @@
     "founderName": "Saiful Islam",
     "founderRole": "Founder & E-com Strategist",
     "founderBadge": "10+ years experience",
+    "heroServiceCardTitle": "Helping Entrepreneurs\nBuild & Scale\nE-commerce Brands",
+    "heroServices": {
+      "brand": "Logo & Brand Identity Design",
+      "social": "Social Media Setup",
+      "website": "E-commerce Website Setup",
+      "ai": "AI Marketing Systems",
+      "growth": "Sales Growth Strategy"
+    },
+    "heroProfileTitle": "Meet Saiful Islam",
+    "heroProfileRole": "Founder & E-commerce Strategist",
+    "heroProfileExp": "10+ Years Experience",
     "dashboardUrl": "saifulstudios.com/dashboard",
     "revenue30d": "Revenue (30d)",
     "aiPowered": "AI-Powered",
@@ -154,20 +173,31 @@
     },
     "framework": {
       "eyebrow": "The Framework",
-      "title": "Learn → Setup → Grow",
-      "subtitle": "A proven 3-stage system that has helped 2,000+ founders go from idea to revenue.",
-      "learn": {
-        "title": "Learn",
-        "desc": "Master the fundamentals of e-commerce, branding, and AI tools in our Academy."
-      },
-      "setup": {
-        "title": "Setup",
-        "desc": "Build a real, sellable brand with our Setup team — store, logo, pages, payment."
-      },
-      "grow": {
-        "title": "Grow",
-        "desc": "Scale with our Growth Partners — AI marketing, ads, automation, and SOPs."
-      }
+      "title": "Your E-commerce Roadmap",
+      "subtitle": "A proven 6-step framework to take your business from idea to scale.",        "idea": {
+          "title": "Idea",
+          "desc": "Validate your business idea with market research and find your winning product niche."
+        },
+        "learn": {
+          "title": "Learn",
+          "desc": "Master the fundamentals of e-commerce, branding, and AI tools in our Academy."
+        },
+        "setup": {
+          "title": "Setup",
+          "desc": "Build a real, sellable brand with our Setup team — store, logo, pages, payment."
+        },
+        "launch": {
+          "title": "Launch",
+          "desc": "Go live with a high-converting website, payment gateway, and professional branding."
+        },
+        "grow": {
+          "title": "Grow",
+          "desc": "Scale with our Growth Partners — AI marketing, ads, automation, and SOPs."
+        },
+        "scale": {
+          "title": "Scale",
+          "desc": "Expand to new markets, multiply revenue streams, and build a sustainable brand empire."
+        }
     },
     "packages": {
       "eyebrow": "Packages",

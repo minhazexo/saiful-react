@@ -6,7 +6,7 @@ const LanguageContext = createContext(null);
 
 const STORAGE_KEY = 'saiful-language';
 const SUPPORTED_LANGUAGES = ['en', 'bn'];
-const DEFAULT_LANGUAGE = 'en';
+const DEFAULT_LANGUAGE = 'bn';
 const BUNDLED = { en, bn };
 
 function detectLanguageFromPath(pathname) {
@@ -23,13 +23,10 @@ function getInitialLanguage() {
     const fromUrl =
       typeof window !== 'undefined' ? detectLanguageFromPath(window.location.pathname) : null;
     if (fromUrl) return fromUrl;
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored && SUPPORTED_LANGUAGES.includes(stored)) {
-      return stored;
-    }
   } catch {
     // ignore
   }
+  // Always start with the configured default language ('bn')
   return DEFAULT_LANGUAGE;
 }
 

@@ -1,4 +1,3 @@
-import { motion, useReducedMotion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import './LanguageSwitcher.css';
 
@@ -7,11 +6,8 @@ const LABELS = {
   bn: { short: 'BN', full: 'বাংলা' },
 };
 
-const PILL_LAYOUT_ID = 'lang-switcher-active-pill';
-
 function LanguageSwitcher({ variant = 'desktop' }) {
   const { language, setLanguage, supportedLanguages, t } = useLanguage();
-  const shouldReduceMotion = useReducedMotion();
 
   const handleSelect = (lang) => {
     if (lang === language) return;
@@ -36,14 +32,6 @@ function LanguageSwitcher({ variant = 'desktop' }) {
             aria-label={t('common.selectLanguage') + ' — ' + LABELS[lang].full}
             lang={lang}
           >
-            {isActive && !shouldReduceMotion && (
-              <motion.span
-                aria-hidden="true"
-                layoutId={PILL_LAYOUT_ID}
-                className="lang-switcher-active-bg"
-                transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-              />
-            )}
             <span className="lang-short" aria-hidden="true">
               {LABELS[lang].short}
             </span>

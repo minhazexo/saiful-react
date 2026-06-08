@@ -17,9 +17,11 @@ const STAT_NUMBERS = [
 ];
 
 const STAGE_KEYS = ['academy', 'setup', 'growth'];
+const STAGE_ICONS_PDF = ['🎓', '🛠️', '🚀'];
 const PROBLEM_KEYS = ['noBrand', 'noWebsite', 'noContent', 'noMarketing', 'noGrowth'];
 const SOLUTION_KEYS = ['brand', 'website', 'content', 'marketing'];
-const FRAMEWORK_KEYS = ['learn', 'setup', 'grow'];
+const FRAMEWORK_KEYS = ['idea', 'learn', 'setup', 'launch', 'grow', 'scale'];
+const FRAMEWORK_ICONS = ['💡', '👥', '⚙️', '🚀', '📈', '🏆'];
 const PACKAGE_KEYS = ['academy', 'setup', 'growth'];
 const AI_TOOL_KEYS = ['canva', 'chatgpt', 'gemini', 'capcut'];
 const WORKFLOW_KEYS = ['research', 'create', 'produce', 'distribute', 'optimize'];
@@ -82,7 +84,7 @@ function HomePage() {
     <div className="home-page">
       <Seo title="" description={t('seo.defaultDescription')} path="/" />
       <section className="hero-section">
-        <div className="container">
+        <div className="hero-container">
           <div className="hero-grid">
             <motion.div
               className="hero-content"
@@ -90,59 +92,54 @@ function HomePage() {
               initial="hidden"
               animate="visible"
             >
-              <motion.div className="hero-eyebrow" variants={fadeUpSmall}>
+              <motion.div className="hero-badge" variants={fadeUpSmall}>
                 <span className="pulse-dot"></span>
                 <span>{t('home.eyebrow')}</span>
               </motion.div>
-              <motion.h1 variants={fadeUp}>
-                {t('home.heroTitle1')}
-                <br />
-                <span className="gradient-text">{t('home.heroTitle2')}</span>
+              <motion.h1 className="hero-title" variants={fadeUp}>
+                <span className="hero-title-navy">
+                  Launch, Build &amp;<br />Grow Your
+                </span>
+                <span className="hero-title-orange">
+                  E-commerce<br />Business
+                </span>
               </motion.h1>
-              <motion.p className="hero-sub" variants={fadeUpSmall}>
+              <motion.p className="hero-description" variants={fadeUpSmall}>
                 {t('home.heroSubtitle')}
               </motion.p>
               <motion.div className="hero-actions" variants={fadeUpSmall}>
                 <motion.button
-                  className="btn btn-primary"
+                  className="hero-btn hero-btn-primary"
                   onClick={() => navigate('/contact')}
                   variants={buttonHover}
                   initial="rest"
                   whileHover="hover"
                   whileTap="tap"
                 >
-                  📅 {t('home.bookFreeConsultation')}
+                  <span>📅</span> {t('home.bookFreeConsultation')}
                 </motion.button>
                 <motion.button
-                  className="btn btn-dark"
+                  className="hero-btn hero-btn-secondary"
                   onClick={() => navigate('/academy')}
                   variants={buttonHover}
                   initial="rest"
                   whileHover="hover"
                   whileTap="tap"
                 >
-                  🎓 {t('home.joinAcademy')}
+                  <span>🎓</span> {t('home.joinAcademy')}
                 </motion.button>
               </motion.div>
 
               <motion.div className="hero-social-proof" variants={fadeUpSmall}>
-                <div className="avatars">
-                  <div className="avatar" style={{ background: '#FF7A00' }}>
-                    S
-                  </div>
-                  <div className="avatar" style={{ background: '#2563EB' }}>
-                    R
-                  </div>
-                  <div className="avatar" style={{ background: '#10B981' }}>
-                    N
-                  </div>
-                  <div className="avatar" style={{ background: '#F59E0B' }}>
-                    T
-                  </div>
+                <div className="hero-avatars">
+                  <div className="hero-avatar" style={{ background: '#FF7A00' }}>S</div>
+                  <div className="hero-avatar" style={{ background: '#2563EB' }}>R</div>
+                  <div className="hero-avatar" style={{ background: '#10B981' }}>N</div>
+                  <div className="hero-avatar" style={{ background: '#F59E0B' }}>T</div>
                 </div>
                 <div>
-                  <div className="stars">★★★★★</div>
-                  <div className="proof-text">
+                  <div className="hero-stars">★★★★★</div>
+                  <div className="hero-proof-text">
                     {t('home.trustedBy')} <strong>{t('home.trustedByCount')}</strong>{' '}
                     {t('home.trustedBySuffix')}
                   </div>
@@ -156,44 +153,68 @@ function HomePage() {
               initial="hidden"
               animate="visible"
             >
-              <motion.div className="founder-card" variants={fadeUp}>
-                <div className="founder-avatar">SI</div>
-                <div>
-                  <div className="founder-name">{t('home.founderName')}</div>
-                  <div className="founder-role">{t('home.founderRole')}</div>
-                  <div className="founder-badge">{t('home.founderBadge')}</div>
+              {/* Portrait */}
+              <motion.div className="hero-portrait" variants={fadeUp}>
+                <img src="/images/My-Design.png" alt="Saiful Islam - Founder" />
+              </motion.div>
+
+              {/* Service Card */}
+              <motion.div className="service-card" variants={fadeUp}
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 6, ease: 'easeInOut', repeat: Infinity }}
+              >
+                <div className="service-card-header">
+                  <h3>{t('home.heroServiceCardTitle')}</h3>
+                </div>
+                <div className="service-card-list">
+                  <div className="service-card-item">
+                    <div className="service-card-icon">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF8A00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <span>{t('home.heroServices.brand')}</span>
+                  </div>
+                  <div className="service-card-item">
+                    <div className="service-card-icon">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF8A00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <span>{t('home.heroServices.social')}</span>
+                  </div>
+                  <div className="service-card-item">
+                    <div className="service-card-icon">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF8A00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    </div>
+                    <span>{t('home.heroServices.website')}</span>
+                  </div>
+                  <div className="service-card-item">
+                    <div className="service-card-icon">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF8A00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
+                    <span>{t('home.heroServices.ai')}</span>
+                  </div>
+                  <div className="service-card-item">
+                    <div className="service-card-icon">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF8A00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <span>{t('home.heroServices.growth')}</span>
+                  </div>
                 </div>
               </motion.div>
 
-              <motion.div className="dashboard-mock" variants={fadeUp}>
-                <div className="mock-header">
-                  <span className="mock-dot red"></span>
-                  <span className="mock-dot yellow"></span>
-                  <span className="mock-dot green"></span>
-                  <span className="mock-title">{t('home.dashboardUrl')}</span>
+              {/* Glassmorphism Profile Card */}
+              <motion.div className="glass-card" variants={fadeUp}
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 7, ease: 'easeInOut', repeat: Infinity, delay: 1 }}
+              >
+                <div className="glass-card-avatar">
+                  <div className="glass-card-avatar-inner">SI</div>
                 </div>
-                <div className="mock-body">
-                  <div className="mock-stat">
-                    <div className="mock-stat-label">{t('home.revenue30d')}</div>
-                    <div className="mock-stat-value">৳4,82,500</div>
-                    <div className="mock-stat-up">↑ 38%</div>
+                <div className="glass-card-info">
+                  <div className="glass-card-name">{t('home.heroProfileTitle')}</div>
+                  <div className="glass-card-role">{t('home.heroProfileRole')}</div>
+                  <div className="glass-card-exp">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF8A00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    {t('home.heroProfileExp')}
                   </div>
-                  <div className="mock-bars">
-                    <div className="mock-bar" style={{ height: '40%' }}></div>
-                    <div className="mock-bar" style={{ height: '60%' }}></div>
-                    <div className="mock-bar" style={{ height: '50%' }}></div>
-                    <div className="mock-bar" style={{ height: '80%' }}></div>
-                    <div className="mock-bar" style={{ height: '70%' }}></div>
-                    <div className="mock-bar" style={{ height: '95%' }}></div>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div className="float-badge" variants={fadeUp}>
-                <span>🤖</span>
-                <div>
-                  <div className="badge-title">{t('home.aiPowered')}</div>
-                  <div className="badge-sub">{t('home.aiPoweredSub')}</div>
                 </div>
               </motion.div>
             </motion.div>
@@ -240,7 +261,7 @@ function HomePage() {
                   {t('home.startHere.step')} {i + 1}
                 </div>
                 <div className="stage-icon">
-                  {key === 'academy' ? '🎓' : key === 'setup' ? '🏗️' : '🚀'}
+                  {STAGE_ICONS_PDF[i]}
                 </div>
                 <h3>{t(`home.startHere.stages.${key}.title`)}</h3>
                 <p>{t(`home.startHere.stages.${key}.desc`)}</p>
@@ -287,17 +308,18 @@ function HomePage() {
 
             <motion.div className="problems-col problems-good-col" variants={fadeUp}>
               <h3 className="problems-title problems-good">✅ {t('home.problems.howWeHelp')}</h3>
-              <div className="solutions-list">
+              <ul className="problems-list">
                 {SOLUTION_KEYS.map((key) => (
-                  <div key={key} className="solution-item">
-                    <div className="solution-icon">✅</div>
-                    <div>
-                      <h4>{t(`home.problems.solutions.${key}.title`)}</h4>
-                      <p>{t(`home.problems.solutions.${key}.desc`)}</p>
-                    </div>
-                  </div>
+                  <li key={key}>
+                    <span className="problem-icon">✅</span>
+                    <span>
+                      <strong>{t(`home.problems.solutions.${key}.title`)}</strong>
+                      <br />
+                      <small className="solution-desc">{t(`home.problems.solutions.${key}.desc`)}</small>
+                    </span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </motion.div>
           </motion.div>
         </div>
@@ -313,7 +335,8 @@ function HomePage() {
 
           <MotionStaggerContainer className="framework-grid">
             {FRAMEWORK_KEYS.map((key, i) => {
-              const color = i === 0 ? 'var(--orange)' : i === 1 ? 'var(--blue)' : 'var(--dark)';
+              const colors = ['var(--orange)', 'var(--blue)', '#10b981', 'var(--orange)', 'var(--blue)', '#10b981'];
+              const color = colors[i];
               return (
                 <MotionStaggerItem
                   key={key}
@@ -321,7 +344,7 @@ function HomePage() {
                   style={{ borderColor: color }}
                 >
                   <div className="framework-step" style={{ background: color }}>
-                    0{i + 1}
+                    {FRAMEWORK_ICONS[i]}
                   </div>
                   <h3>{t(`home.framework.${key}.title`)}</h3>
                   <p>{t(`home.framework.${key}.desc`)}</p>
@@ -401,9 +424,11 @@ function HomePage() {
             viewport={{ once: true, amount: 0.25 }}
           >
             <motion.div className="founder-image-wrap" variants={fadeUp}>
-              <div className="founder-image-placeholder">
-                <div className="founder-initial">SI</div>
-              </div>
+              <img
+                className="founder-image"
+                src="/images/gpt-image-1.5-high-fidelity_a_Create_a_professiona.png"
+                alt="Saiful Islam"
+              />
               <div className="founder-exp-badge">
                 <strong>10+</strong>
                 <span>{t('home.founder.yearsExp')}</span>
