@@ -1,0 +1,856 @@
+{
+  "common": {
+    "brand": "Saiful",
+    "brandFull": "Saiful Studios",
+    "loading": "Loading…",
+    "loadingPosts": "Loading posts…",
+    "loadingCases": "Loading case studies…",
+    "error": "Error",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "submit": "Submit",
+    "sending": "Sending…",
+    "sendingDots": "Sending…",
+    "submitting": "Submitting…",
+    "success": "Success",
+    "previous": "Previous",
+    "next": "Next",
+    "search": "Search",
+    "all": "All",
+    "other": "Other",
+    "or": "Or",
+    "yes": "Yes",
+    "no": "No",
+    "back": "Back",
+    "minRead": "min read",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "language": "Language",
+    "switchLanguage": "Switch language",
+    "english": "English",
+    "bangla": "বাংলা",
+    "bengali": "Bengali",
+    "skipToContent": "Skip to content",
+    "selectLanguage": "Select language"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "academy": "Academy",
+    "setup": "Business Setup",
+    "growth": "Growth",
+    "ai": "AI System",
+    "caseStudies": "Case Studies",
+    "blog": "Blog",
+    "contact": "Contact",
+    "bookFreeCall": "Book Free Call",
+    "primaryLabel": "Primary"
+  },
+  "footer": {
+    "tagline": "E-commerce Business Launch & Growth Partner. Helping Bangladeshi entrepreneurs build profitable online businesses through branding, technology and AI marketing.",
+    "services": "Services",
+    "company": "Company",
+    "contact": "Contact",
+    "academy": "E-commerce Academy",
+    "businessSetup": "Business Setup",
+    "growthServices": "Growth Services",
+    "aiMarketing": "AI Marketing System",
+    "aboutUs": "About Us",
+    "blog": "Blog",
+    "email": "Email",
+    "location": "Location",
+    "locationValue": "Dhaka, Bangladesh",
+    "businessHours": "Sat–Thu, 9AM–8PM",
+    "rights": "All rights reserved",
+    "builtFor": "Built for Bangladeshi entrepreneurs",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "copyright": "© {{year}} Saiful Studios. {{rights}}.",
+    "tagline2": "{{brand}} · {{builtFor}} · {{privacy}} · {{terms}}",
+    "socialFacebook": "Facebook",
+    "socialInstagram": "Instagram",
+    "socialYouTube": "YouTube",
+    "socialLinkedIn": "LinkedIn"
+  },    "home": {
+    "eyebrow": "#1 E-commerce Partner in Bangladesh",
+    "helperCardTitle1": "Helping Bangladeshi",
+    "helperCardTitle2": "Entrepreneurs",
+    "helperCardDesc": "Build, launch & grow your online business",
+    "helperServices": {
+      "brand": "Logo & Brand Identity",
+      "website": "E-commerce Website",
+      "social": "Social Media Marketing",
+      "ai": "AI Marketing System"
+    },
+    "heroTitle1": "Launch, Build & Grow Your",
+    "heroTitle2": "E-commerce Business",
+    "heroSubtitle": "We help Bangladeshi entrepreneurs launch and grow profitable e-commerce businesses through Branding, Website Development, AI Marketing Systems and Growth Strategies.",
+    "bookFreeConsultation": "Book Free Consultation",
+    "joinAcademy": "Join E-commerce Academy",
+    "trustedBy": "Trusted by",
+    "trustedByCount": "2,000+",
+    "trustedBySuffix": "Bangladeshi founders",
+    "founderName": "Saiful Islam",
+    "founderRole": "Founder & E-com Strategist",
+    "founderBadge": "10+ years experience",
+    "heroServiceCardTitle": "Helping Entrepreneurs\nBuild & Scale\nE-commerce Brands",
+    "heroServices": {
+      "brand": "Logo & Brand Identity Design",
+      "social": "Social Media Setup",
+      "website": "E-commerce Website Setup",
+      "ai": "AI Marketing Systems",
+      "growth": "Sales Growth Strategy"
+    },
+    "heroProfileTitle": "Meet Saiful Islam",
+    "heroProfileRole": "Founder & E-commerce Strategist",
+    "heroProfileExp": "10+ Years Experience",
+    "dashboardUrl": "saifulstudios.com/dashboard",
+    "revenue30d": "Revenue (30d)",
+    "aiPowered": "AI-Powered",
+    "aiPoweredSub": "Marketing on autopilot",
+    "stats": {
+      "designProjects": "Design Projects Delivered",
+      "industriesServed": "Industries Served",
+      "yearsExperience": "Years of Experience",
+      "consultations": "Business Consultations"
+    },
+    "startHere": {
+      "eyebrow": "Start Here",
+      "title": "Choose your journey",
+      "subtitle": "Three clear paths — pick the one that matches where you are today.",
+      "stages": {
+        "academy": {
+          "title": "I Want To Start A Business",
+          "desc": "Learn everything you need to launch a profitable e-commerce business from zero — even with no prior experience.",
+          "cta": "Join the Academy"
+        },
+        "setup": {
+          "title": "I Need Business Setup",
+          "desc": "Get your brand identity, website, and entire business infrastructure built by experts — ready to sell in weeks.",
+          "cta": "Setup My Business"
+        },
+        "growth": {
+          "title": "I Want More Sales",
+          "desc": "Already running? Let us supercharge your marketing, content strategy, and ad campaigns for explosive growth.",
+          "cta": "Grow My Business"
+        }
+      }
+    },
+    "problems": {
+      "eyebrow": "Sound familiar?",
+      "title": "The problems you face — and how we solve them",
+      "subtitle": "If you have felt any of these, you are not alone — and you are not stuck.",
+      "holdingBack": "What's holding you back",
+      "howWeHelp": "How Saiful Studios helps",
+      "items": {
+        "noBrand": "No Brand Identity or Logo",
+        "noWebsite": "No Professional Website",
+        "noContent": "No Content System or Strategy",
+        "noMarketing": "No Marketing Strategy or Ad Plan",
+        "noGrowth": "No Consistent Sales Growth"
+      },
+      "solutions": {
+        "brand": {
+          "title": "Complete Brand Identity",
+          "desc": "Logo, color palette, typography, brand guidelines"
+        },
+        "website": {
+          "title": "High-Converting Website",
+          "desc": "Custom e-commerce with payment gateway integration"
+        },
+        "content": {
+          "title": "AI-Powered Content System",
+          "desc": "Automated content pipeline using Canva, ChatGPT, CapCut"
+        },
+        "marketing": {
+          "title": "Full-Stack Marketing Strategy",
+          "desc": "Facebook Ads, organic content, video marketing, data-driven growth"
+        }
+      }
+    },
+    "framework": {
+      "eyebrow": "The Framework",
+      "title": "Your E-commerce Roadmap",
+      "subtitle": "A proven 6-step framework to take your business from idea to scale.",        "idea": {
+          "title": "Idea",
+          "desc": "Validate your business idea with market research and find your winning product niche."
+        },
+        "learn": {
+          "title": "Learn",
+          "desc": "Master the fundamentals of e-commerce, branding, and AI tools in our Academy."
+        },
+        "setup": {
+          "title": "Setup",
+          "desc": "Build a real, sellable brand with our Setup team — store, logo, pages, payment."
+        },
+        "launch": {
+          "title": "Launch",
+          "desc": "Go live with a high-converting website, payment gateway, and professional branding."
+        },
+        "grow": {
+          "title": "Grow",
+          "desc": "Scale with our Growth Partners — AI marketing, ads, automation, and SOPs."
+        },
+        "scale": {
+          "title": "Scale",
+          "desc": "Expand to new markets, multiply revenue streams, and build a sustainable brand empire."
+        }
+    },
+    "packages": {
+      "eyebrow": "Packages",
+      "title": "Pick the plan that fits your stage",
+      "subtitle": "Every package comes with a 100% money-back guarantee if you do the work.",
+      "mostPopular": "Most Popular",
+      "academy": {
+        "name": "E-commerce Academy",
+        "price": "৳5,000",
+        "period": "one-time",
+        "desc": "Perfect for first-time founders who want to learn the right way.",
+        "features": {
+          "liveClasses": "Live Online Classes",
+          "templates": "Business Templates Pack",
+          "community": "Private Community Access",
+          "aiTools": "AI Tools Training",
+          "lifetime": "Lifetime Resource Access"
+        },
+        "cta": "Join Academy"
+      },
+      "setup": {
+        "name": "Business Setup",
+        "price": "৳20,000",
+        "period": "starting from",
+        "desc": "For founders ready to launch a real, branded e-commerce store.",
+        "features": {
+          "logo": "Professional Logo Design",
+          "brand": "Complete Brand Identity",
+          "website": "E-commerce Website",
+          "payment": "Payment Gateway Setup",
+          "social": "Social Media Setup"
+        },
+        "cta": "Start My Setup"
+      },
+      "growth": {
+        "name": "Growth Partner",
+        "price": "৳15,000",
+        "period": "/ month",
+        "desc": "For serious founders who want a team running their growth every month.",
+        "features": {
+          "content": "Content Creation System",
+          "ads": "Facebook & Instagram Ads",
+          "video": "Video Marketing",
+          "strategy": "Monthly Growth Strategy",
+          "reporting": "Performance Reporting"
+        },
+        "cta": "Apply to Partner"
+      }
+    },
+    "founder": {
+      "eyebrow": "Meet the founder",
+      "role": "Founder & E-commerce Strategist",
+      "bio": "For the last 10+ years I have helped Bangladeshi founders turn ideas into real, profitable e-commerce brands. I started with design, grew into branding, and now run a full-stack growth studio focused on AI marketing systems. My mission: make world-class e-commerce education and execution accessible to every ambitious founder in Bangladesh.",
+      "bookCall": "Book a call with Saiful",
+      "yearsExp": "Years experience",
+      "stats": {
+        "projects": "Projects delivered",
+        "industries": "Industries served",
+        "founders": "Founders trained"
+      }
+    },
+    "ai": {
+      "eyebrow": "AI Marketing",
+      "title": "Our 4-tool AI marketing stack",
+      "subtitle": "The exact 4 tools we use to run ads, content, and research for every client.",
+      "workflowTitle": "The 5-step AI workflow SOP",
+      "tools": {
+        "canva": { "name": "Canva", "role": "Design", "desc": "Branding kits, ad creatives, product images in minutes." },
+        "chatgpt": { "name": "ChatGPT", "role": "Copywriting", "desc": "Product descriptions, ad copy, email sequences, customer replies." },
+        "gemini": { "name": "Gemini", "role": "Research & Planning", "desc": "Market research, competitor analysis, content calendars." },
+        "capcut": { "name": "CapCut", "role": "Video Creation", "desc": "Reels, TikToks, video ads with AI captions and effects." }
+      },
+      "workflow": {
+        "research": { "title": "Research", "desc": "Use Gemini to find trending products and analyze competitors." },
+        "create": { "title": "Create", "desc": "Use ChatGPT + Canva to build product pages, ads, and brand kit." },
+        "produce": { "title": "Produce", "desc": "Use CapCut to create video content and Reels for ads & social." },
+        "distribute": { "title": "Distribute", "desc": "Push content to Facebook, Instagram, TikTok with auto-scheduling." },
+        "optimize": { "title": "Optimize", "desc": "Review performance, refine with AI, and double down on winners." }
+      }
+    },
+    "cases": {
+      "eyebrow": "Real Results",
+      "title": "Case studies from our portfolio",
+      "subtitle": "Six brands. Six stories. Real numbers — not vanity metrics.",
+      "seeAll": "See all case studies",
+      "challenge": "Challenge",
+      "solution": "Solution",
+      "result": "Result"
+    },
+    "testimonials": {
+      "eyebrow": "Testimonials",
+      "title": "What founders say",
+      "subtitle": "Honest words from real clients we have worked with.",
+      "items": {
+        "rahim": { "name": "Rahim Uddin", "role": "Founder of Leathix", "text": "Saiful Studios completely transformed my leather brand. The website they built is stunning and professional. Within 3 months, my online orders tripled. Best investment I have made for my business." },
+        "farida": { "name": "Farida Khanam", "role": "Fashion Entrepreneur", "text": "The AI Marketing System training was a game-changer. I now create a month\\'s worth of content in a single weekend. My Instagram following grew from 500 to 15,000 in just 4 months!" },
+        "nusrat": { "name": "Nusrat Jahan", "role": "E-commerce Academy Graduate", "text": "Joining the E-commerce Academy was the best decision. Saiful explains everything so clearly. I went from zero knowledge to launching my own business and making sales in just 60 days." }
+      }
+    },
+    "leadMagnet": {
+      "badge": "100% Free Resource",
+      "title": "Free E-commerce Business Roadmap",
+      "subtitle": "Download our step-by-step PDF guide that shows you exactly how to launch a profitable e-commerce business in Bangladesh — even if you are starting from zero.",
+      "perks": {
+        "checklist": "Step-by-step business launch checklist",
+        "research": "Best-selling product research formula",
+        "branding": "Complete branding & website setup guide",
+        "ai": "AI Marketing toolkit & prompt library",
+        "facebook": "Facebook Ads beginner strategy template"
+      },
+      "formTitle": "Get Your Free Roadmap",
+      "formSubtitle": "Join 2,000+ entrepreneurs who have already downloaded it.",
+      "nameLabel": "Your Name",
+      "namePlaceholder": "E.g. Rahim Uddin",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "your@email.com",
+      "whatsappLabel": "WhatsApp Number",
+      "whatsappPlaceholder": "01866290587",
+      "submit": "Download Free Roadmap",
+      "submitting": "Sending…",
+      "success": "Success! Check your email in a minute.",
+      "error": "Error! Please try again.",
+      "disclaimer": "No spam. Unsubscribe anytime. We respect your privacy."
+    },
+    "finalCta": {
+      "badge": "Limited Slots Available This Month",
+      "title": "Ready To Launch Your E-commerce Business?",
+      "subtitle": "Book a free consultation today. No commitment, no pressure — just clarity on your next best step.",
+      "book": "Book Free Consultation",
+      "join": "Join the Academy"
+    }
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Frequently Asked Questions",
+    "items": {
+      "experience": {
+        "q": "Do I need any prior experience to join the E-commerce Academy?",
+        "a": "Absolutely not! Designed for complete beginners. Start from basics to launching a profitable business."
+      },
+      "setupTime": {
+        "q": "How long does the Business Setup take?",
+        "a": "2–4 weeks depending on complexity. Regular progress updates."
+      },
+      "payment": {
+        "q": "What payment methods do you accept?",
+        "a": "Bkash, Nagad, Rocket, bank transfers. For international clients: PayPal and bank wire transfers. Payment plans available."
+      },
+      "consultation": {
+        "q": "Do you offer a free consultation before starting?",
+        "a": "Yes, complimentary 30-minute consultation. No obligation."
+      },
+      "upgrade": {
+        "q": "Can I upgrade from the Academy to Business Setup later?",
+        "a": "Yes, many clients do. Discounts available for Academy graduates."
+      },
+      "growth": {
+        "q": "How do the monthly Growth Partner services work?",
+        "a": "Monthly retainer handling content creation, ad management, growth strategy. Includes dedicated account manager, weekly progress reports, monthly strategy session."
+      }
+    }
+  },
+  "about": {
+    "eyebrow": "Our Story",
+    "title": "About Saiful Studios",
+    "subtitle": "Built on a mission to democratize e-commerce success for every Bangladeshi entrepreneur.",
+    "storyEyebrow": "Founder's story",
+    "storyTitle": "From one designer to a full growth studio",
+    "storyP1": "Saiful Islam started as a freelance designer over 10 years ago, helping brands look great. He realized great design alone does not build a business – strategy, marketing, and systems do.",
+    "storyP2": "After years of working with international clients, he founded Saiful Studios to help Bangladeshi entrepreneurs build sustainable, profitable online businesses.",
+    "storyP3": "Today, Saiful Studios is the go-to partner for e-commerce entrepreneurs across Bangladesh.",
+    "yearsBuilding": "Years building brands",
+    "values": {
+      "eyebrow": "Our values",
+      "title": "What we believe in",
+      "subtitle": "Six principles that shape every project, every campaign, every conversation.",
+      "items": {
+        "results": { "title": "Results First", "desc": "We do not just deliver work — we deliver outcomes. Every project measured by real business results." },
+        "honest": { "title": "Honest Partnership", "desc": "We tell you what you need to hear, not what you want to hear. Transparency at the core." },
+        "innovation": { "title": "Innovation Always", "desc": "Stay ahead of AI tools, marketing trends, and platform changes for a competitive edge." },
+        "learning": { "title": "Continuous Learning", "desc": "E-commerce evolves daily. Committed to constant learning and passing knowledge to clients." },
+        "bangladesh": { "title": "Bangladesh First", "desc": "Deep understanding of local market, culture, and customer behavior – unbeatable strategic advantage." },
+        "empowerment": { "title": "Empowerment Over Dependency", "desc": "We teach and build systems that empower you to run independently – not keep you dependent." }
+      }
+    },
+    "timeline": {
+      "eyebrow": "Timeline",
+      "title": "10+ years, 6 chapters",
+      "subtitle": "The milestones that shaped Saiful Studios into what it is today.",
+      "items": {
+        "2014": { "title": "Started as a Designer", "desc": "Saiful began his career as a freelance graphic designer, working with local fashion and tech brands in Dhaka." },
+        "2017": { "title": "Expanded into Branding", "desc": "Built a small studio focused on full brand identity systems for Bangladeshi e-commerce startups." },
+        "2019": { "title": "Launched First Store Builds", "desc": "Delivered 50+ Shopify and WooCommerce stores, learning the realities of selling online in Bangladesh." },
+        "2022": { "title": "E-commerce Academy Launched", "desc": "Released the first version of the E-commerce Academy — 8 modules, 1,000+ students in 6 months." },
+        "2024": { "title": "AI Marketing System", "desc": "Built the 4-tool AI marketing stack (Canva, ChatGPT, Gemini, CapCut) that now powers every client." },
+        "2026": { "title": "5,000+ Projects Delivered", "desc": "Saiful Studios has now delivered 5,000+ design projects, served 20+ industries, and trained 2,000+ founders." }
+      }
+    },
+    "finalCta": {
+      "title": "Want to work with us?",
+      "subtitle": "Book a free 30-minute call. We will listen to your goals and recommend the right path.",
+      "book": "Book a Free Call"
+    }
+  },
+  "academy": {
+    "eyebrow": "E-commerce Academy",
+    "title": "Learn e-commerce the right way",
+    "subtitle": "8 modules, 100+ templates, and a private community of 2,000+ Bangladeshi founders building real online businesses.",
+    "modules": {
+      "eyebrow": "What you will learn",
+      "title": "8 modules. Zero fluff. Real results.",
+      "subtitle": "Every module is action-oriented — you finish with assets you can use immediately.",
+      "items": {
+        "foundations": { "title": "E-commerce Business Foundations", "desc": "Business models, market research, niche selection, validating product idea." },
+        "brand": { "title": "Brand Identity & Design", "desc": "Logo creation, color psychology, typography, building a brand customers love." },
+        "website": { "title": "Website & Online Store Setup", "desc": "Building high-converting e-commerce store, product pages, payment integration." },
+        "content": { "title": "Content Creation System", "desc": "Using Canva, ChatGPT, CapCut to create scroll-stopping content at scale." },
+        "social": { "title": "Social Media Marketing", "desc": "Facebook, Instagram, TikTok strategy — organic growth and community building." },
+        "ads": { "title": "Facebook & Instagram Ads", "desc": "Campaign setup, audience targeting, budget management, optimizing for ROAS." },
+        "ai": { "title": "AI Marketing & Automation", "desc": "ChatGPT prompt engineering, Gemini workflows, automating marketing systems." },
+        "scaling": { "title": "Scaling & Business Growth", "desc": "Data analysis, scaling strategies, hiring, delegation, building sustainable brand." }
+      }
+    },
+    "pricing": {
+      "eyebrow": "One-time fee",
+      "title": "Invest in yourself for less than a dinner",
+      "subtitle": "Lifetime access. No subscriptions. No hidden costs.",
+      "strike": "৳12,000",
+      "price": "৳5,000",
+      "save": "SAVE 58%",
+      "note": "One-time payment · Lifetime access",
+      "cta": "Enroll Now for {{price}}",
+      "perks": {
+        "lifetime": "Lifetime access to all 8 modules",
+        "community": "Private founder community (2,000+ members)",
+        "qa": "Weekly live Q&A calls with Saiful",
+        "templates": "100+ ready-to-use templates and SOPs",
+        "certificate": "Certificate of completion",
+        "guarantee": "30-day money-back guarantee"
+      }
+    },
+    "enroll": {
+      "eyebrow": "Enroll today",
+      "title": "Get instant access",
+      "subtitle": "Fill out the form and our team will get back to you within 24 hours with payment instructions and onboarding details.",
+      "perks": {
+        "instant": "Instant access after payment",
+        "payment": "Pay via bKash, Nagad, Rocket, or bank",
+        "guarantee": "30-day money-back guarantee",
+        "vip": "VIP support in private community"
+      },
+      "formTitle": "Enrollment Form",
+      "nameLabel": "Full Name *",
+      "namePlaceholder": "Your full name",
+      "emailLabel": "Email *",
+      "emailPlaceholder": "your@email.com",
+      "whatsappLabel": "WhatsApp *",
+      "whatsappPlaceholder": "01866290587",
+      "stageLabel": "Where are you in your journey? *",
+      "stagePlaceholder": "Select your stage",
+      "stageOptions": {
+        "beginner": "Complete beginner — no business yet",
+        "idea": "Have an idea, haven't started",
+        "launched": "Just launched, need guidance",
+        "scaling": "Running a business, want to scale"
+      },
+      "goalsLabel": "What do you want to achieve?",
+      "goalsPlaceholder": "Tell us briefly what you want to achieve…",
+      "submit": "Enroll Me Now",
+      "submitting": "Submitting…",
+      "success": "Enrolled! We will contact you within 24 hours.",
+      "error": "Error. Please try again or contact us on WhatsApp."
+    }
+  },
+  "setup": {
+    "eyebrow": "Business Setup Service",
+    "title": "Launch Your Business Professionally",
+    "subtitle": "Complete done-for-you e-commerce setup — brand identity, website, payments, and social media, ready in weeks.",
+    "services": {
+      "eyebrow": "Included Services",
+      "title": "Everything you need to launch",
+      "subtitle": "Mix and match, or get the full package — we will recommend the right combo on the call.",
+      "items": {
+        "brand": { "title": "Brand Identity", "desc": "Professional logo design, color palette, typography, brand guidelines, visual identity system that makes your business look premium and trustworthy.", "features": ["Professional logo design", "Color palette & typography", "Brand guidelines document", "Visual identity system"] },
+        "website": { "title": "Website Development", "desc": "High-converting e-commerce website with fast loading speed, mobile optimization, product catalog, intuitive checkout flow.", "features": ["Custom e-commerce website", "Mobile-optimized design", "Product catalog setup", "Intuitive checkout flow"] },
+        "payment": { "title": "Payment Integration", "desc": "Full integration with Bkash, Nagad, Rocket, and card payments. Local and international gateway setup.", "features": ["Bkash, Nagad, Rocket integration", "Card payment support", "Local gateway setup", "International gateway setup"] },
+        "social": { "title": "Social Media Setup", "desc": "Professional Facebook page, Instagram, TikTok account setup with branded covers, bio optimization, initial content templates.", "features": ["Facebook, Instagram, TikTok setup", "Branded covers & profile", "Bio optimization", "Initial content templates"] }
+      },
+      "cta": "Get Started"
+    },
+    "startingFrom": "Starting from ৳20,000",
+    "process": {
+      "eyebrow": "Our process",
+      "title": "How a typical setup project runs",
+      "subtitle": "Transparent, fast, and built around weekly check-ins so you always know what is next.",
+      "items": {
+        "discovery": { "title": "Discovery Call", "desc": "30-min free call to understand your business, goals, and target customer." },
+        "proposal": { "title": "Proposal & Plan", "desc": "You receive a detailed plan with timeline, deliverables, and pricing within 48 hours." },
+        "build": { "title": "Build & Iterate", "desc": "We execute the plan with weekly updates and unlimited design revisions." },
+        "launch": { "title": "Launch & Support", "desc": "Go live with full documentation, training videos, and 30 days of post-launch support." }
+      }
+    },
+    "cta": {
+      "title": "Ready to launch your business?",
+      "subtitle": "Book a free 30-minute consultation. We will audit your idea, recommend the right setup package, and quote a fixed price.",
+      "book": "Book Free Consultation",
+      "academy": "Or Start with Academy (৳5,000)"
+    }
+  },
+  "growth": {
+    "eyebrow": "Growth Services",
+    "title": "Scale Your E-commerce Business",
+    "subtitle": "Monthly growth partnership with content marketing, ads management, and data-driven strategy.",
+    "services": {
+      "eyebrow": "Growth Services",
+      "title": "4 ways we help you grow",
+      "subtitle": "Pick one or combine them — most partners start with Facebook Ads + Content Marketing.",
+      "items": {
+        "content": { "title": "Content Marketing", "desc": "30+ pieces of content per month including product photos, graphics, captions, blog posts – all on-brand and conversion-focused.", "features": ["30+ pieces of content per month", "Product photos & graphics", "Captions & blog posts", "On-brand & conversion-focused"] },
+        "ads": { "title": "Facebook & Instagram Ads", "desc": "Full ad campaign management: audience research, creative testing, budget optimization, scaling winning campaigns for maximum ROAS.", "features": ["Audience research", "Creative testing", "Budget optimization", "Scaling winning campaigns"] },
+        "video": { "title": "Video Marketing", "desc": "Short-form Reels and TikTok content, product showcase videos, storytelling content that drives viral reach and brand awareness.", "features": ["Short-form Reels & TikToks", "Product showcase videos", "Storytelling content", "Viral reach & brand awareness"] },
+        "reporting": { "title": "Monthly Growth Reporting", "desc": "Detailed monthly reports covering traffic, conversions, ad performance, revenue growth, and clear strategic plan for next month.", "features": ["Traffic & conversion data", "Ad performance metrics", "Revenue growth tracking", "Clear strategic plan"] }
+      },
+      "cta": "Get Started"
+    },
+    "startingFrom": "Starting from ৳15,000/month",
+    "cta": {
+      "title": "Book a free strategy call",
+      "subtitle": "Tell us about your store and current numbers. We will give you 3 specific growth moves you can implement this week — no commitment.",
+      "book": "Book Free Strategy Call"
+    }
+  },
+  "ai": {
+    "eyebrow": "AI Marketing System",
+    "title": "Automate Your Marketing With AI",
+    "subtitle": "Our proven AI marketing system helps you create weeks of content in hours and scale your reach exponentially.",
+    "tools": {
+      "eyebrow": "AI Tools & SOPs",
+      "title": "One AI stack, every marketing job",
+      "subtitle": "All four are free or low-cost. You only need a laptop and an internet connection.",
+      "items": {
+        "canva": { "role": "Canva Setup", "desc": "Brand kit, templates, SOPs for creating consistent, professional graphics in minutes.", "benefits": ["Brand kit in 1 hour", "10 ad creatives per week", "20 social post templates"] },
+        "chatgpt": { "role": "ChatGPT Prompts", "desc": "100+ battle-tested prompts for product descriptions, captions, ads copy, email sequences.", "benefits": ["100 product descriptions in 1 hour", "Personalized email sequences", "24/7 customer support replies"] },
+        "gemini": { "role": "Gemini Workflow", "desc": "Research, content planning, SEO optimization, market analysis using Google\\'s AI.", "benefits": ["Weekly trend reports", "Competitor ad analysis", "Content calendar for 30 days"] },
+        "capcut": { "role": "CapCut Video SOP", "desc": "Step-by-step video creation system for Reels & TikTok that consistently generates viral content.", "benefits": ["15 Reels per month", "AI auto-captions in Bangla", "Ready-to-post ad videos"] }
+      }
+    },
+    "workflow": {
+      "eyebrow": "Complete AI Content Workflow",
+      "title": "5 steps from idea to published content",
+      "subtitle": "This is the exact workflow we follow for every Saiful Studios growth client.",
+      "items": {
+        "idea": { "title": "Idea", "desc": "Use ChatGPT to brainstorm content ideas, hooks, and angles." },
+        "design": { "title": "Design", "desc": "Use Canva to build branded graphics, posts, and ad creatives." },
+        "copy": { "title": "Copy", "desc": "Use Gemini for research, SEO, and long-form copy polish." },
+        "video": { "title": "Video", "desc": "Use CapCut to produce Reels, TikToks, and short-form videos." },
+        "analyze": { "title": "Analyze & Repeat", "desc": "Review performance, refine with AI, and double down on winners." }
+      }
+    },
+    "outcomes": {
+      "output": "Content output (without hiring)",
+      "cpa": "Lower cost per acquisition",
+      "autopilot": "Marketing running on autopilot",
+      "cost": "Extra tools cost"
+    },
+    "cta": {
+      "title": "Want this AI system built for you?",
+      "subtitle": "We will set up all 4 tools, train your team, and run the first month of campaigns with you — so you see results before you pay full price.",
+      "button": "Get the Full AI System"
+    }
+  },
+  "caseStudies": {
+    "eyebrow": "Case Studies",
+    "title": "Real results from real brands",
+    "subtitle": "6 detailed case studies showing exactly how we helped Bangladeshi founders grow their e-commerce revenue.",
+    "challenge": "Challenge",
+    "solution": "Solution",
+    "result": "Result",
+    "keyOutcome": "Key Outcome",
+    "defaults": {
+      "leathix": { "category": "Premium Leather Brand", "challenge": "No brand identity, inconsistent visuals, zero online presence.", "solution": "Complete brand identity, e-commerce website, product photography direction, Instagram growth strategy.", "result": "300% increase in online sales within 3 months.", "highlight": "300% sales increase" },
+      "futureConnect": { "category": "Tech Accessories Brand", "challenge": "Basic Facebook page only, no website, no ads strategy, declining organic reach.", "solution": "Custom website with SEO, Facebook Ads campaign setup, content calendar, monthly growth management.", "result": "৳500K+ monthly revenue achieved in 6 months with 4x ROAS.", "highlight": "৳500K+ monthly" },
+      "fashionNova": { "category": "Fashion E-commerce", "challenge": "New entrepreneur with budget constraints, needed full e-commerce setup from scratch.", "solution": "Brand identity, website, Bkash/Nagad payment integration, AI content system training, first ad campaign.", "result": "First ৳1M revenue milestone within 4 months.", "highlight": "৳1M in 4 months" },
+      "naturalGlow": { "category": "Skincare Brand", "challenge": "Homemade products with no branding, selling only to friends and family.", "solution": "Premium brand identity, Shopify store, packaging design, content system.", "result": "2,000+ customers in first 6 months. Featured in local media.", "highlight": "2,000+ customers" },
+      "techZone": { "category": "Electronics Reseller", "challenge": "High competition, low margins, no brand differentiation strategy.", "solution": "Brand positioning, trust-building content strategy, Google Shopping ads.", "result": "40% margin improvement through brand premium pricing strategy.", "highlight": "40% margin up" },
+      "craftyHands": { "category": "Handcraft Business", "challenge": "Beautiful handmade products but could not reach the right audience online.", "solution": "Pinterest & Instagram strategy, video content series, Etsy & Facebook Shop setup.", "result": "International orders from 8 countries within 12 months.", "highlight": "8 countries reached" }
+    }
+  },
+  "blog": {
+    "eyebrow": "Blog",
+    "title": "Insights, playbooks & growth stories",
+    "subtitle": "Practical guides on e-commerce, branding, AI marketing, and growth — written for Bangladeshi founders.",
+    "readMore": "Read more",
+    "backToBlog": "Back to blog",
+    "by": "By",
+    "noPosts": "No posts in this category yet.",
+    "notFoundTitle": "Post not found",
+    "notFoundDesc": "The post you are looking for does not exist or has been removed.",
+    "defaults": {
+      "chatgpt": { "title": "How to Use ChatGPT to Write 30 Days of Facebook Ad Copy in 1 Hour", "excerpt": "Discover the exact prompts and workflow we use to generate high-converting ad copy at scale using AI tools.", "category": "AI Marketing" },
+      "guide": { "title": "The Complete Guide to Starting an E-commerce Business in Bangladesh (2024)", "excerpt": "Everything you need to know from product research to your first sale — tailored for the Bangladeshi market.", "category": "Business Launch" },
+      "brand": { "title": "Why Your Brand Identity Is Your Most Important Business Asset", "excerpt": "The psychology behind why customers choose brands over products — and how to build a brand that commands premium prices.", "category": "Branding" },
+      "reels": { "title": "Instagram Reels Strategy That Got Our Client 50K Followers in 90 Days", "excerpt": "The exact content formula, posting schedule, and hashtag strategy that drives massive organic growth in Bangladesh.", "category": "Social Media" },
+      "facebook": { "title": "Facebook Ads for Beginners: How to Get Your First Sale Without Wasting Money", "excerpt": "A step-by-step guide to setting up your first profitable Facebook ad campaign with a small budget.", "category": "Facebook Ads" },
+      "payment": { "title": "Bkash, Nagad, or Card? The Best Payment Gateway Strategy for Your Online Store", "excerpt": "Comparing payment options for Bangladeshi e-commerce and how offering the right choices increases your conversion rate.", "category": "E-commerce Setup" },
+      "winningProducts": { "title": "How to Find Winning Products to Sell in Bangladesh (2026 Guide)", "excerpt": "Finding the right product is the #1 reason most Bangladeshi e-commerce businesses fail before they even start.", "category": "Product Research", "content": "Finding the right product is the #1 reason most Bangladeshi e-commerce businesses fail before they even start. In this guide, I will walk you through the exact framework we use with our Academy students and Growth Partner clients.\n\n**Step 1: Start with Google Trends (Bangladesh filter)**\n\nUse Google Trends with Bangladesh as the country. Look for products that are trending UP, not the ones that already peaked. The sweet spot is \"rising\" products that have 50–200% growth in the last 6 months.\n\n**Step 2: Validate on Facebook Ad Library**\n\nGo to Facebook Ad Library and search for the product. If you see 10+ active ads from different brands running for more than 2 weeks, that is a strong signal the product is profitable.\n\n**Step 3: Use Gemini for competitor analysis**\n\nAsk Gemini to summarize recent news, reviews, and Reddit/forum discussions about the product category. You will quickly see the common pain points and what customers actually want.\n\n**Step 4: Test with a ৳5,000 ad budget**\n\nRun a 5-day test campaign on Facebook with 3 creatives. If your cost-per-purchase is under ৳300, scale. If not, kill the product and try the next one.\n\n**Step 5: Source and launch**\n\nOnce validated, source from Alibaba, IndiaMart, or local wholesale markets in Dhaka (Imam Square, Tantibazar). Aim for a 3x markup after shipping and ad costs.\n\nFollowing this process, our students have launched 500+ products in the last 18 months. About 20% become profitable, which is the industry standard for new product testing." }
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
+    "formTitle": "Send us a Message",
+    "nameLabel": "Name *",
+    "namePlaceholder": "Your name",
+    "emailLabel": "Email *",
+    "emailPlaceholder": "your@email.com",
+    "whatsappLabel": "WhatsApp Number *",
+    "whatsappPlaceholder": "01866290587",
+    "serviceLabel": "Service Interest",
+    "servicePlaceholder": "Select a service",
+    "services": {
+      "academy": "E-commerce Academy",
+      "setup": "Business Setup",
+      "growth": "Growth Services",
+      "ai": "AI Marketing System",
+      "other": "Other"
+    },
+    "messageLabel": "Message",
+    "messagePlaceholder": "Tell us about your business…",
+    "captchaLabel": "What is {{prompt}}? *",
+    "captchaPlaceholder": "?",
+    "captchaHelp": "Simple math check to prevent spam.",
+    "newCaptcha": "Get a new captcha",
+    "captchaNew": "New",
+    "submit": "Send Message",
+    "submitting": "Sending…",
+    "success": "Message sent successfully! We will be in touch soon.",
+    "error": "Error sending message. Please try again.",
+    "info": {
+      "title": "Contact Information",
+      "email": "Email",
+      "emailValue": "saifulstudios@gmail.com",
+      "whatsapp": "WhatsApp",
+      "whatsappValue": "01866290587",
+      "location": "Location",
+      "locationValue": "Dhaka, Bangladesh",
+      "hours": "Business Hours",
+      "hoursValue": "Saturday – Thursday\n9:00 AM – 8:00 PM (Dhaka Time)"
+    }
+  },
+  "notFound": {
+    "title": "404",
+    "subtitle": "Page not found",
+    "description": "The page you are looking for does not exist or has been moved.",
+    "backHome": "Back to home"
+  },
+  "error": {
+    "boundaryTitle": "Something went wrong",
+    "boundaryHint": "You can try reloading the page, or head back to the home page.",
+    "boundaryGeneric": "An unexpected error occurred.",
+    "boundaryTry": "Try again",
+    "boundaryHome": "Go home",
+    "boundaryReload": "Reload page",
+    "boundaryStack": "Component stack (dev only)"
+  },
+  "consent": {
+    "label": "Cookie consent",
+    "text": "We use privacy-friendly analytics (Plausible) to improve the site. No personal data is sold or shared. You can opt out at any time.",
+    "accept": "Accept",
+    "reject": "Reject"
+  },
+  "privateRoute": {
+    "checking": "Checking your session…"
+  },
+  "seo": {
+    "defaultTitle": "Saiful Studios – E-commerce Business Launch & Growth Partner",
+    "defaultDescription": "Saiful Studios – E-commerce Business Launch & Growth Partner. Helping Bangladeshi entrepreneurs build profitable online businesses through branding, website development, AI marketing systems and growth strategies."
+  },
+  "admin": {
+    "nav": {
+      "title": "Admin",
+      "dashboard": "Dashboard",
+      "blog": "Blog Posts",
+      "cases": "Case Studies",
+      "contacts": "Contacts",
+      "password": "Change password",
+      "logout": "Logout",
+      "openSidebar": "Open sidebar",
+      "closeSidebar": "Close sidebar"
+    },
+    "login": {
+      "title": "Admin Dashboard",
+      "subtitle": "Sign in to manage your content",
+      "emailLabel": "Email",
+      "emailPlaceholder": "admin@saifulstudios.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "submit": "Sign In",
+      "submitting": "Signing in…",
+      "error": "Login failed. Please try again.",
+      "signupPrompt": "Don't have an account?",
+      "signupLink": "Contact administrator"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "welcome": "Welcome to Admin Dashboard",
+      "welcomeSubtitle": "Select an option from the sidebar or pick a card below to manage your content.",
+      "openCard": "Open {{title}}",
+      "cards": {
+        "blog": { "title": "Blog Posts", "desc": "Manage your blog" },
+        "cases": { "title": "Case Studies", "desc": "Manage case studies" },
+        "contacts": { "title": "Contacts", "desc": "View inquiries" }
+      }
+    },
+    "blog": {
+      "title": "Blog Posts",
+      "edit": "Edit Blog Post",
+      "new": "New Post",
+      "cancel": "Cancel",
+      "titleLabel": "Title *",
+      "slugLabel": "Slug *",
+      "excerptLabel": "Excerpt *",
+      "contentLabel": "Content (Markdown supported)",
+      "categoryLabel": "Category *",
+      "authorLabel": "Author",
+      "readTimeLabel": "Read Time (minutes)",
+      "imageLabel": "Image",
+      "featured": "Featured Post",
+      "published": "Publish Now",
+      "save": "Save Changes",
+      "create": "Create Post",
+      "searchPlaceholder": "Search by title, slug, category, author…",
+      "searchAria": "Search blog posts",
+      "noPosts": "No blog posts yet. Create your first one!",
+      "noMatches": "No matches.",
+      "loading": "Loading…",
+      "errorCreate": "Error creating blog: {{msg}}",
+      "errorUpdate": "Error updating blog: {{msg}}",
+      "errorDelete": "Error deleting blog: {{msg}}",
+      "deleteConfirm": "Are you sure you want to delete this post?",
+      "statusPublished": "Published",
+      "statusDraft": "Draft",
+      "col": {
+        "title": "Title",
+        "category": "Category",
+        "author": "Author",
+        "status": "Status"
+      }
+    },
+    "cases": {
+      "title": "Case Studies",
+      "edit": "Edit Case Study",
+      "new": "New Case",
+      "cancel": "Cancel",
+      "titleLabel": "Title *",
+      "slugLabel": "Slug *",
+      "categoryLabel": "Category *",
+      "iconLabel": "Icon (emoji) *",
+      "resultHighlight": "Result Highlight",
+      "challengeLabel": "Challenge *",
+      "solutionLabel": "Solution *",
+      "resultLabel": "Result *",
+      "gradientLabel": "Header Gradient (CSS)",
+      "metricsLabel": "Metrics",
+      "metricLabelPlaceholder": "Label (e.g. Revenue)",
+      "metricValuePlaceholder": "Value (e.g. ৳500K)",
+      "addMetric": "+ Add metric",
+      "removeMetric": "Remove",
+      "imagesLabel": "Images",
+      "addImage": "+ Add image",
+      "removeImage": "Remove",
+      "featured": "Featured (visible publicly)",
+      "save": "Save Changes",
+      "create": "Create Case Study",
+      "searchPlaceholder": "Search by title, slug, category…",
+      "searchAria": "Search case studies",
+      "noItems": "No case studies yet. Create your first one!",
+      "noMatches": "No matches.",
+      "loading": "Loading…",
+      "errorCreate": "Error creating case: {{msg}}",
+      "errorUpdate": "Error updating case: {{msg}}",
+      "errorDelete": "Error deleting case: {{msg}}",
+      "deleteConfirm": "Are you sure you want to delete this case study?",
+      "statusFeatured": "Featured",
+      "statusStandard": "Standard",
+      "col": {
+        "title": "Title",
+        "category": "Category",
+        "status": "Status"
+      }
+    },
+    "contacts": {
+      "title": "Contacts",
+      "subtitle": "Contact Inquiries",
+      "new": "New",
+      "contacted": "Contacted",
+      "interested": "Interested",
+      "closed": "Closed",
+      "searchPlaceholder": "Search by name, email, WhatsApp, service…",
+      "searchAria": "Search contacts",
+      "filterAria": "Filter by status",
+      "filterAll": "All Contacts",
+      "filterNew": "New",
+      "filterContacted": "Contacted",
+      "filterInterested": "Interested",
+      "filterClosed": "Closed",
+      "loading": "Loading…",
+      "noItems": "No contacts found.",
+      "noMatches": "No matches.",
+      "deleteConfirm": "Are you sure you want to delete this contact?",
+      "errorUpdate": "Error updating contact status: {{msg}}",
+      "errorDelete": "Error deleting contact: {{msg}}",
+      "errorLoad": "Failed to load",
+      "col": {
+        "name": "Name",
+        "email": "Email",
+        "whatsapp": "WhatsApp",
+        "service": "Service",
+        "status": "Status",
+        "date": "Date",
+        "actions": "Actions"
+      }
+    },
+    "password": {
+      "title": "Change password",
+      "currentLabel": "Current password *",
+      "newLabel": "New password *",
+      "confirmLabel": "Confirm new password *",
+      "help": "At least 12 characters, no whitespace.",
+      "submit": "Update password",
+      "submitting": "Saving…",
+      "success": "Password updated",
+      "error": "Failed to update password",
+      "mismatch": "New passwords do not match"
+    },
+    "imageUploader": {
+      "upload": "Upload",
+      "uploading": "Uploading…",
+      "clear": "Clear",
+      "placeholder": "https://… or /uploads/…",
+      "tooLarge": "File is too large. Max size is 5 MB.",
+      "noUrl": "Upload succeeded but no URL was returned.",
+      "unauthorized": "You are not logged in. Please sign in again.",
+      "forbidden": "Permission denied (CSRF or auth). Please refresh and try again.",
+      "preview": "Preview"
+    },
+    "pagination": {
+      "label": "Pagination",
+      "info": "{{from}}–{{to}} of {{total}}"
+    }
+  },
+  "demo": {
+    "banner": "Demo mode — this is a read-only preview. Contact forms are disabled.",
+    "formMessage": "Demo mode — submission is disabled in this preview."
+  }
+}

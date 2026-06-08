@@ -4,11 +4,11 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeSanitize from 'rehype-sanitize';
 import { motion } from 'framer-motion';
-import api from '../api';
-import { useTranslation } from '../context/LanguageContext';
-import Seo from '../components/Seo';
-import { fadeUp, fadeUpSmall, staggerContainer } from '../motion/presets';
-import { formatDate } from '../utils/date';
+import api from '../../api';
+import { useTranslation } from '../../context/LanguageContext';
+import Seo from '../../components/Seo';
+import { fadeUp, fadeUpSmall, staggerContainer } from '../../motion/presets';
+import { formatDate } from '../../utils/date';
 import './BlogPage.css';
 
 const FALLBACK_KEY = 'winningProducts';

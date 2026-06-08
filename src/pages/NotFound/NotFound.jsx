@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { useTranslation } from '../context/LanguageContext';
-import Seo from '../components/Seo';
+import { useTranslation } from '../../context/LanguageContext';
+import Seo from '../../components/Seo';
 
 export default function NotFound() {
   const t = useTranslation();

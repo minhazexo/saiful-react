@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { useTranslation } from '../context/LanguageContext';
-import Seo from '../components/Seo';
-import { MotionFadeUp, MotionStaggerContainer, MotionStaggerItem } from '../motion/MotionFadeUp';
-import { staggerContainer, fadeUp, buttonHover } from '../motion/presets';
+import { useTranslation } from '../../context/LanguageContext';
+import Seo from '../../components/Seo';
+import { MotionFadeUp, MotionStaggerContainer, MotionStaggerItem } from '../../motion/MotionFadeUp';
+import { staggerContainer, fadeUp, buttonHover } from '../../motion/presets';
 import './AIPage.css';
 
 const TOOL_ICONS = ['🎨', '🤖', '✨', '🎬'];

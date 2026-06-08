@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import api, { IS_DEMO_MODE } from '../api';
-import { useTranslation } from '../context/LanguageContext';
-import FAQ from '../components/FAQ';
-import Seo from '../components/Seo';
-import { MotionFadeUp, MotionStaggerContainer, MotionStaggerItem } from '../motion/MotionFadeUp';
-import { fadeUp, fadeUpSmall, staggerContainer, staggerGrid, buttonHover } from '../motion/presets';
-import { assetPath } from '../utils/assets';
+import api, { IS_DEMO_MODE } from '../../api';
+import { useTranslation } from '../../context/LanguageContext';
+import FAQ from '../../components/FAQ';
+import Seo from '../../components/Seo';
+import { MotionFadeUp, MotionStaggerContainer, MotionStaggerItem } from '../../motion/MotionFadeUp';
+import { fadeUp, fadeUpSmall, staggerContainer, staggerGrid, buttonHover } from '../../motion/presets';
+import { assetPath } from '../../utils/assets';
 import './HomePage.css';
 
 const STAT_NUMBERS = [

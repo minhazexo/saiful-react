@@ -1,12 +1,12 @@
 import { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import api from '../api';
-import { useTranslation } from '../context/LanguageContext';
-import Seo from '../components/Seo';
-import { MotionStaggerContainer, MotionStaggerItem } from '../motion/MotionFadeUp';
-import { staggerContainer, fadeUp } from '../motion/presets';
-import { formatDate } from '../utils/date';
+import api from '../../api';
+import { useTranslation } from '../../context/LanguageContext';
+import Seo from '../../components/Seo';
+import { MotionStaggerContainer, MotionStaggerItem } from '../../motion/MotionFadeUp';
+import { staggerContainer, fadeUp } from '../../motion/presets';
+import { formatDate } from '../../utils/date';
 import './BlogPage.css';
 
 const DEFAULT_KEYS = [

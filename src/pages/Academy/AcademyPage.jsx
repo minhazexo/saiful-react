@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import api, { IS_DEMO_MODE } from '../api';
-import { useTranslation } from '../context/LanguageContext';
-import Seo from '../components/Seo';
-import { MotionFadeUp, MotionStaggerContainer, MotionStaggerItem } from '../motion/MotionFadeUp';
-import { staggerContainer, fadeUp, buttonHover } from '../motion/presets';
+import api, { IS_DEMO_MODE } from '../../api';
+import { useTranslation } from '../../context/LanguageContext';
+import Seo from '../../components/Seo';
+import { MotionFadeUp, MotionStaggerContainer, MotionStaggerItem } from '../../motion/MotionFadeUp';
+import { staggerContainer, fadeUp, buttonHover } from '../../motion/presets';
 import './AcademyPage.css';
 
 const MODULE_ICONS = ['📚', '🎨', '💻', '✍️', '📱', '💰', '🤖', '📈'];

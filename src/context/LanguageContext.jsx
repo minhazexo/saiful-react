@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState, useCallback } from 'react';
-import en from '../../public/locales/en.json';
-import bn from '../../public/locales/bn.json';
+import en from '../locales/en.json';
+import bn from '../locales/bn.json';
 
 const LanguageContext = createContext(null);
 

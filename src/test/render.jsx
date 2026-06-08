@@ -1,6 +1,6 @@
 import * as rtl from '@testing-library/react';
 import { LanguageProvider } from '../context/LanguageContext';
-import en from '../../public/locales/en.json';
+import en from '../locales/en.json';
 
 function Wrapper({ children }) {
   return (

@@ -7,17 +7,17 @@ import ScrollToTop from './components/ScrollToTop';
 import LanguageUrlHandler from './components/LanguageUrlHandler';
 import { useTranslation } from './context/LanguageContext';
 
-const HomePage = lazy(() => import('./pages/HomePage'));
-const AboutPage = lazy(() => import('./pages/AboutPage'));
-const AcademyPage = lazy(() => import('./pages/AcademyPage'));
-const SetupPage = lazy(() => import('./pages/SetupPage'));
-const GrowthPage = lazy(() => import('./pages/GrowthPage'));
-const AIPage = lazy(() => import('./pages/AIPage'));
-const CaseStudiesPage = lazy(() => import('./pages/CaseStudiesPage'));
-const BlogPage = lazy(() => import('./pages/BlogPage'));
-const BlogDetailPage = lazy(() => import('./pages/BlogDetailPage'));
-const ContactPage = lazy(() => import('./pages/ContactPage'));
-const NotFound = lazy(() => import('./pages/NotFound'));
+const HomePage = lazy(() => import('./pages/Home/HomePage'));
+const AboutPage = lazy(() => import('./pages/About/AboutPage'));
+const AcademyPage = lazy(() => import('./pages/Academy/AcademyPage'));
+const SetupPage = lazy(() => import('./pages/Setup/SetupPage'));
+const GrowthPage = lazy(() => import('./pages/Growth/GrowthPage'));
+const AIPage = lazy(() => import('./pages/AI/AIPage'));
+const CaseStudiesPage = lazy(() => import('./pages/CaseStudies/CaseStudiesPage'));
+const BlogPage = lazy(() => import('./pages/Blog/BlogPage'));
+const BlogDetailPage = lazy(() => import('./pages/BlogDetail/BlogDetailPage'));
+const ContactPage = lazy(() => import('./pages/Contact/ContactPage'));
+const NotFound = lazy(() => import('./pages/NotFound/NotFound'));
 
 const AdminLayout = lazy(() => import('./admin/AdminLayout'));
 const AdminLogin = lazy(() => import('./admin/AdminLogin'));

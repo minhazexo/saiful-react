@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import api, { IS_DEMO_MODE } from '../api';
-import { useTranslation } from '../context/LanguageContext';
-import Seo from '../components/Seo';
-import { staggerContainer, fadeUp, fadeUpSmall, buttonHover } from '../motion/presets';
+import api, { IS_DEMO_MODE } from '../../api';
+import { useTranslation } from '../../context/LanguageContext';
+import Seo from '../../components/Seo';
+import { staggerContainer, fadeUp, fadeUpSmall, buttonHover } from '../../motion/presets';
 import './ContactPage.css';
 
 const SERVICE_KEYS = ['academy', 'setup', 'growth', 'ai', 'other'];

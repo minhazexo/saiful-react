@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import api from '../api';
-import { useTranslation } from '../context/LanguageContext';
-import Seo from '../components/Seo';
-import { MotionStaggerContainer, MotionStaggerItem } from '../motion/MotionFadeUp';
-import { staggerContainer, fadeUp } from '../motion/presets';
+import api from '../../api';
+import { useTranslation } from '../../context/LanguageContext';
+import Seo from '../../components/Seo';
+import { MotionStaggerContainer, MotionStaggerItem } from '../../motion/MotionFadeUp';
+import { staggerContainer, fadeUp } from '../../motion/presets';
 import './CaseStudiesPage.css';
 
 const DEFAULT_CASES = [
