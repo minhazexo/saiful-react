@@ -4,7 +4,6 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import Navigation from './Navigation';
 import Footer from './Footer';
 import ConsentBanner from './ConsentBanner';
-import DemoBanner from './DemoBanner';
 import { initAnalytics, subscribeConsent } from '../consent';
 import { pageTransition } from '../motion/presets';
 
@@ -32,7 +31,6 @@ export default function PublicLayout() {
 
   return (
     <>
-      <DemoBanner />
       <Navigation />
       <AnimatePresence mode="wait">
         {shouldReduceMotion ? (

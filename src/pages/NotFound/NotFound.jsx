@@ -7,12 +7,10 @@ export default function NotFound() {
   return (
     <div className="page">
       <Seo title={t('notFound.subtitle')} description={t('notFound.description')} noIndex />
-      <div className="container" style={{ padding: '120px 24px', textAlign: 'center' }}>
-        <h1 style={{ fontSize: 96, marginBottom: 8 }}>{t('notFound.title')}</h1>
+      <div className="container not-found-wrap">
+        <h1 className="not-found-code">{t('notFound.title')}</h1>
         <h2>{t('notFound.subtitle')}</h2>
-        <p style={{ marginTop: 16, marginBottom: 24, color: 'var(--text-muted)' }}>
-          {t('notFound.description')}
-        </p>
+        <p className="not-found-desc">{t('notFound.description')}</p>
         <Link to="/" className="btn btn-primary">
           ← {t('notFound.backHome')}
         </Link>

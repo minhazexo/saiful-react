@@ -258,9 +258,6 @@ function HomePage() {
           <MotionStaggerContainer className="grid grid-3">
             {STAGE_KEYS.map((key, i) => (
               <MotionStaggerItem key={key} className="stage-card">
-                <div className="stage-number">
-                  {t('home.startHere.step')} {i + 1}
-                </div>
                 <div className="stage-icon">
                   {STAGE_ICONS_PDF[i]}
                 </div>

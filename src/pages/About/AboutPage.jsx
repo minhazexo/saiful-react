@@ -40,7 +40,7 @@ function AboutPage() {
               viewport={{ once: true, amount: 0.3 }}
             >
               <div className="about-image-card">
-                <div className="about-image-initial">SI</div>
+                <img src={`${import.meta.env.BASE_URL}images/gpt-image-1.5-high-fidelity_a_Create_a_professiona.png`} alt="Saiful Studios" />
               </div>
               <div className="about-image-stat">
                 <strong>10+</strong>

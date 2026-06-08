@@ -20,20 +20,16 @@
 }
 
 .about-image-card {
-  background: linear-gradient(135deg, var(--orange), var(--blue));
   aspect-ratio: 4/5;
   border-radius: var(--radius-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
   box-shadow: var(--shadow-lg);
 }
 
-.about-image-initial {
-  font-family: var(--font-heading);
-  font-size: 140px;
-  font-weight: 900;
-  color: rgba(255, 255, 255, 0.9);
+.about-image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .about-image-stat {

@@ -728,51 +728,42 @@ html[lang='bn'] .eyebrow {
   letter-spacing: 0;
 }
 
-/* Demo banner (only rendered when VITE_DEMO_MODE=true) */
-.demo-banner {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: linear-gradient(135deg, #fef3c7, #fde68a);
-  border-bottom: 1px solid #f59e0b;
-  color: #78350f;
-  font-size: 14px;
-  font-weight: 500;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+/* ===== Not Found Page ===== */
+.not-found-wrap {
+  padding: 120px 24px;
+  text-align: center;
 }
 
-.demo-banner-inner {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 20px;
-}
-
-.demo-banner-icon {
-  font-size: 18px;
-  flex-shrink: 0;
-}
-
-.demo-banner-text {
-  flex: 1;
-  line-height: 1.4;
-}
-
-.demo-banner-close {
-  background: transparent;
-  border: 0;
-  color: #78350f;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  padding: 4px 10px;
-  border-radius: 6px;
+.not-found-code {
+  font-size: clamp(48px, 15vw, 96px);
+  font-weight: 900;
   line-height: 1;
-  transition: background 0.15s ease;
+  margin-bottom: 8px;
+  color: var(--orange);
 }
 
-.demo-banner-close:hover,
-.demo-banner-close:focus-visible {
-  background: rgba(120, 53, 15, 0.12);
-  outline: none;
+.not-found-desc {
+  margin-top: 16px;
+  margin-bottom: 24px;
+  color: var(--text-muted);
+  font-size: 16px;
 }
+
+@media (max-width: 480px) {
+  .not-found-wrap {
+    padding: 80px 16px;
+  }
+
+  .not-found-desc {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 375px) {
+  .not-found-wrap {
+    padding: 60px 12px;
+  }
+}
+
+/* Demo banner (only rendered when VITE_DEMO_MODE=true) */
+
