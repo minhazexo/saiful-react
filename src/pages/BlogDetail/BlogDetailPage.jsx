@@ -9,7 +9,7 @@ import { useTranslation } from '../../context/LanguageContext';
 import Seo from '../../components/Seo';
 import { fadeUp, fadeUpSmall, staggerContainer } from '../../motion/presets';
 import { formatDate } from '../../utils/date';
-import './BlogPage.css';
+import '../Blog/BlogPage.css';
 
 const FALLBACK_KEY = 'winningProducts';
 

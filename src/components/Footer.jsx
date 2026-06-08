@@ -62,9 +62,7 @@ function Footer() {
         <div className="footer-grid">
           <div className="footer-brand">
             <div className="nav-logo" style={{ marginBottom: '16px' }}>
-              {t('common.brand')}
-              <span>.</span>
-              {t('common.brandFull').replace(t('common.brand'), '')}
+              <img src="/images/SS-Color-Logo.png" alt={t('common.brand')} />
             </div>
             <p>{t('footer.tagline')}</p>
             <div className="footer-socials">

@@ -86,3 +86,29 @@
 .lang-switcher--mobile .lang-switcher-btn.active {
   border-color: var(--dark, #0f172a);
 }
+
+@media (max-width: 1300px) {
+  .lang-switcher--compact .lang-switcher-btn {
+    padding: 4px 8px;
+    font-size: 11px;
+    min-width: 32px;
+  }
+
+  .lang-switcher--compact {
+    gap: 2px;
+    padding: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lang-switcher--compact .lang-switcher-btn {
+    padding: 5px 8px;
+    font-size: 11px;
+    min-width: 34px;
+  }
+
+  .lang-switcher--mobile .lang-switcher-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}

@@ -64,8 +64,7 @@ function Navigation() {
     <nav className="nav" aria-label={t('nav.primaryLabel')}>
       <div className="nav-inner container">
         <Link to="/" className="nav-logo" onClick={closeMobileMenu}>
-          {t('common.brand')}
-          <span>.</span>
+          <img src="/images/SS-Color-Logo.png" alt={t('common.brand')} />
         </Link>
 
         <motion.ul
@@ -138,11 +137,10 @@ function Navigation() {
           </li>
         </motion.ul>
 
-        <div className="nav-lang-cta">
-          <LanguageSwitcher variant="compact" />
-        </div>
-
         <div className="nav-cta">
+          <div className="nav-lang-cta">
+            <LanguageSwitcher variant="compact" />
+          </div>
           <Link to="/contact" className="btn btn-outline">
             {t('nav.contact')}
           </Link>

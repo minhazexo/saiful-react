@@ -4,7 +4,7 @@ import { useTranslation } from '../../context/LanguageContext';
 import Seo from '../../components/Seo';
 import { MotionFadeUp, MotionStaggerContainer, MotionStaggerItem } from '../../motion/MotionFadeUp';
 import { staggerContainer, fadeUp, buttonHover } from '../../motion/presets';
-import './ServicePage.css';
+import '../Service/ServicePage.css';
 
 const SERVICE_ICONS = ['🎨', '💻', '💳', '📱'];
 const SERVICE_KEYS = ['brand', 'website', 'payment', 'social'];

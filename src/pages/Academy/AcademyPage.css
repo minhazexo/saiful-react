@@ -241,3 +241,94 @@
     padding: 24px;
   }
 }
+
+@media (max-width: 480px) {
+  .module-card {
+    padding: 20px 16px;
+  }
+
+  .module-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .module-card h3 {
+    font-size: 15px;
+  }
+
+  .module-card p {
+    font-size: 12px;
+  }
+
+  .module-number {
+    font-size: 24px;
+    right: 12px;
+    top: 12px;
+  }
+
+  .pricing-box {
+    padding: 20px 16px;
+  }
+
+  .pricing-box .price {
+    font-size: 36px;
+  }
+
+  .pricing-box .price-strike {
+    font-size: 16px;
+  }
+
+  .pricing-box .price-tag {
+    font-size: 11px;
+    padding: 3px 10px;
+  }
+
+  .pricing-features {
+    margin: 18px 0;
+    gap: 8px;
+  }
+
+  .pricing-features li {
+    font-size: 13px;
+  }
+
+  .enrollment-grid {
+    gap: 32px;
+  }
+
+  .enrollment-content > p {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .enrollment-perk {
+    font-size: 13px;
+    gap: 8px;
+  }
+
+  .enrollment-form {
+    padding: 18px;
+  }
+
+  .enrollment-form h3 {
+    font-size: 17px;
+    margin-bottom: 18px;
+  }
+
+  .enrollment-form input,
+  .enrollment-form select,
+  .enrollment-form textarea {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 375px) {
+  .pricing-box .price {
+    font-size: 30px;
+  }
+
+  .enrollment-form {
+    padding: 14px;
+  }
+}
