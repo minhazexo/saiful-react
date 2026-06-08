@@ -14,7 +14,7 @@ function ErrorBoundaryFallback({ error, onReset }) {
           <button type="button" className="btn btn-primary" onClick={onReset}>
             {t('error.boundaryTry')}
           </button>
-          <a className="btn btn-outline" href="/">
+          <a className="btn btn-outline" href="./">
             {t('error.boundaryHome')}
           </a>
           <button

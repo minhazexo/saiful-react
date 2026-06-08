@@ -11,7 +11,7 @@
     "dev:client": "vite",
     "dev:server": "cd server && npm run dev",
     "build": "vite build",
-    "build:gh": "cross-env VITE_ROUTER=hash vite build",
+    "build:gh": "cross-env VITE_BASE_PATH=/saiful-react/ VITE_ROUTER=hash VITE_DEMO_MODE=true vite build",
     "preview": "vite preview",
     "start": "cd server && npm start",
     "seed": "cd server && npm run seed",
