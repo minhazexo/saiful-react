@@ -5,6 +5,7 @@ import Seo from '../../components/Seo';
 import { MotionFadeUp, MotionStaggerContainer, MotionStaggerItem } from '../../motion/MotionFadeUp';
 import { staggerContainer, fadeUp, slideInLeft, buttonHover } from '../../motion/presets';
 import './AboutPage.css';
+import './AboutPage.responsive.css';
 
 const VALUE_ICONS = ['🎯', '🤝', '🚀', '📚', '🌍', '💡'];
 const VALUE_KEYS = ['results', 'honest', 'innovation', 'learning', 'bangladesh', 'empowerment'];

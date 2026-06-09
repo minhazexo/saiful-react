@@ -10,6 +10,7 @@ import Seo from '../../components/Seo';
 import { fadeUp, fadeUpSmall, staggerContainer } from '../../motion/presets';
 import { formatDate } from '../../utils/date';
 import '../Blog/BlogPage.css';
+import '../Blog/BlogPage.responsive.css';
 
 const FALLBACK_KEY = 'winningProducts';
 

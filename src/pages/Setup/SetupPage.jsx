@@ -5,6 +5,7 @@ import Seo from '../../components/Seo';
 import { MotionFadeUp, MotionStaggerContainer, MotionStaggerItem } from '../../motion/MotionFadeUp';
 import { staggerContainer, fadeUp, buttonHover } from '../../motion/presets';
 import '../Service/ServicePage.css';
+import '../Service/ServicePage.responsive.css';
 
 const SERVICE_ICONS = ['🎨', '💻', '💳', '📱'];
 const SERVICE_KEYS = ['brand', 'website', 'payment', 'social'];

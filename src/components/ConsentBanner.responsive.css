@@ -1,0 +1,70 @@
+/* ===== Tablet-to-Phone edge (≤600px) ===== */
+@media (max-width: 600px) {
+  .consent-banner {
+    flex-direction: column;
+    gap: 16px;
+    padding: 18px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .consent-actions {
+    width: 100%;
+  }
+
+  .consent-btn-accept {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .consent-btn-decline {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ===== Phone (≤480px) ===== */
+@media (max-width: 480px) {
+  .consent-banner {
+    padding: 14px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    gap: 12px;
+  }
+
+  .consent-text {
+    font-size: 13px;
+  }
+
+  .consent-btn-accept {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+
+  .consent-btn-decline {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+}
+
+/* ===== Small Phone (≤375px) ===== */
+@media (max-width: 375px) {
+  .consent-banner {
+    padding: 12px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    gap: 10px;
+  }
+
+  .consent-text {
+    font-size: 12px;
+  }
+
+  .consent-actions {
+    flex-direction: column;
+    gap: 6px;
+  }
+}

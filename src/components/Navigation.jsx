@@ -4,6 +4,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useTranslation } from '../context/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
 import './Navigation.css';
+import './Navigation.responsive.css';
 
 const SPRING_SLIDE = { type: 'spring', stiffness: 320, damping: 32, mass: 0.8 };
 

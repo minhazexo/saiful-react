@@ -1,0 +1,95 @@
+/* ===== Tablet (≤1024px) ===== */
+@media (max-width: 1024px) {
+  .ai-hero-grid,
+  .ai-capabilities-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Tablet Portrait (≤768px) ===== */
+@media (max-width: 768px) {
+  .ai-hero {
+    padding: 40px 0;
+  }
+
+  .ai-hero h1 {
+    font-size: clamp(28px, 8vw, 48px);
+  }
+
+  .ai-hero p {
+    font-size: 15px;
+  }
+
+  .ai-capability-card {
+    padding: 20px;
+  }
+
+  .ai-capability-card h3 {
+    font-size: 16px;
+  }
+
+  .ai-capability-card p {
+    font-size: 13px;
+  }
+
+  .ai-cap-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+    margin-bottom: 14px;
+  }
+
+  .ai-section {
+    padding: 40px 0;
+  }
+
+  .ai-section-title {
+    font-size: clamp(26px, 6vw, 36px);
+    margin-bottom: 32px;
+  }
+}
+
+/* ===== Phone (≤480px) ===== */
+@media (max-width: 480px) {
+  .ai-hero {
+    padding: 32px 0;
+  }
+
+  .ai-hero h1 {
+    font-size: clamp(24px, 8vw, 32px);
+  }
+
+  .ai-hero p {
+    font-size: 14px;
+  }
+
+  .ai-capability-card {
+    padding: 16px;
+  }
+
+  .ai-capability-card h3 {
+    font-size: 15px;
+  }
+
+  .ai-capability-card p {
+    font-size: 12px;
+  }
+
+  .ai-cap-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .ai-section {
+    padding: 32px 0;
+  }
+}
+
+/* ===== Small Phone (≤375px) ===== */
+@media (max-width: 375px) {
+  .ai-capability-card {
+    padding: 14px 12px;
+  }
+}

@@ -1,0 +1,82 @@
+/* ===== Tablet (≤1024px) ===== */
+@media (max-width: 1024px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-filters {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .blog-filters button {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}
+
+/* ===== Tablet Portrait (≤768px) ===== */
+@media (max-width: 768px) {
+  .blog-detail-image {
+    height: 200px;
+    font-size: 72px;
+    margin-bottom: 20px;
+  }
+
+  .blog-content {
+    padding: 18px;
+  }
+}
+
+/* ===== Phone (≤480px) ===== */
+@media (max-width: 480px) {
+  .blog-card h3 {
+    font-size: 15px;
+  }
+
+  .blog-card p {
+    font-size: 13px;
+  }
+
+  .blog-detail h1 {
+    font-size: clamp(22px, 7vw, 32px);
+  }
+
+  .blog-detail-meta {
+    font-size: 13px;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .blog-detail-content {
+    font-size: 16px;
+  }
+
+  .blog-detail-image {
+    height: 160px;
+    font-size: 56px;
+    margin-bottom: 16px;
+  }
+
+  .blog-filters {
+    justify-content: flex-start;
+    gap: 6px;
+  }
+
+  .blog-filters button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
+/* ===== Small Phone (≤375px) ===== */
+@media (max-width: 375px) {
+  .blog-content {
+    padding: 12px;
+  }
+
+  .blog-detail-image {
+    height: 140px;
+    font-size: 48px;
+  }
+}

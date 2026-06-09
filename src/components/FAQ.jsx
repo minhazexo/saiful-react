@@ -3,6 +3,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useTranslation } from '../context/LanguageContext';
 import { MotionFadeUp, MotionStaggerContainer, MotionStaggerItem } from '../motion/MotionFadeUp';
 import './FAQ.css';
+import './FAQ.responsive.css';
 
 function FAQ({ items, title, subtitle, eyebrow }) {
   const t = useTranslation();

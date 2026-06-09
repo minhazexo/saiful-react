@@ -6,6 +6,7 @@ import Seo from '../../components/Seo';
 import { MotionFadeUp, MotionStaggerContainer, MotionStaggerItem } from '../../motion/MotionFadeUp';
 import { staggerContainer, fadeUp, buttonHover } from '../../motion/presets';
 import './AcademyPage.css';
+import './AcademyPage.responsive.css';
 
 const MODULE_ICONS = ['📚', '🎨', '💻', '✍️', '📱', '💰', '🤖', '📈'];
 const MODULE_KEYS = [

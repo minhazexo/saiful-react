@@ -1,0 +1,144 @@
+/* ===== Mobile (≤1024px) ===== */
+@media (max-width: 1024px) {
+  .nav-cta {
+    display: none;
+  }
+
+  .nav-mobile-cta {
+    display: block;
+  }
+
+  .nav-inner {
+    justify-content: space-between;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg);
+    z-index: 1000;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4px;
+    padding: 100px 24px 40px;
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+  }
+
+  .nav-links.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-links a {
+    font-size: 18px;
+    padding: 12px 20px;
+    width: 100%;
+    text-align: center;
+    border-radius: 12px;
+  }
+
+  .nav-links a:hover {
+    background: var(--surface);
+  }
+
+  .nav-links .nav-mobile-cta {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .nav-links .nav-mobile-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-links .nav-mobile-lang {
+    width: 100%;
+    padding: 12px 0 4px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-links .nav-mobile-lang .lang-switcher-btn {
+    min-width: 80px;
+    min-height: 44px;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .nav-links .nav-mobile-lang .lang-switcher-btn.active {
+    background: var(--dark);
+    color: #fff;
+    border-color: var(--dark);
+  }
+
+  .nav-links .nav-mobile-lang .lang-full {
+    display: inline;
+  }
+}
+
+/* ===== Tablet Portrait (≤768px) ===== */
+@media (max-width: 768px) {
+  .nav-inner {
+    padding: 0 18px;
+  }
+
+  .nav-links a {
+    font-size: 16px;
+    padding: 10px 16px;
+  }
+
+  .nav-links .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+/* ===== Phone (≤480px) ===== */
+@media (max-width: 480px) {
+  .nav-inner {
+    padding: 0 14px;
+  }
+
+  .nav-links a {
+    font-size: 15px;
+    padding: 10px 14px;
+  }
+
+  .nav-links .btn {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+}
+
+/* ===== Small Phone (≤375px) ===== */
+@media (max-width: 375px) {
+  .nav-inner {
+    padding: 0 12px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .nav-links .btn {
+    font-size: 12px;
+    padding: 8px 14px;
+  }
+}

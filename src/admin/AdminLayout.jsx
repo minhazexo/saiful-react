@@ -4,6 +4,7 @@ import { useAuth } from '../auth';
 import { useTranslation } from '../context/LanguageContext';
 import LanguageSwitcher from '../components/LanguageSwitcher';
 import './AdminDashboard.css';
+import './AdminDashboard.responsive.css';
 
 function AdminLayout() {
   const t = useTranslation();

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../context/LanguageContext';
 import './AdminDashboard.css';
+import './AdminDashboard.responsive.css';
 
 function AdminDashboard() {
   const t = useTranslation();

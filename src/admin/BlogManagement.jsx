@@ -4,6 +4,7 @@ import { useTranslation } from '../context/LanguageContext';
 import { useAdminList, SortHeader, Pagination } from './useAdminList';
 import ImageUploader from './ImageUploader';
 import './BlogManagement.css';
+import './BlogManagement.responsive.css';
 
 function emptyForm() {
   return {

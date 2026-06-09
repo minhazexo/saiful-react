@@ -6,6 +6,7 @@ import Seo from '../../components/Seo';
 import { MotionStaggerContainer, MotionStaggerItem } from '../../motion/MotionFadeUp';
 import { staggerContainer, fadeUp } from '../../motion/presets';
 import './CaseStudiesPage.css';
+import './CaseStudiesPage.responsive.css';
 
 const DEFAULT_CASES = [
   { title: 'Leathix', slug: 'leathix', icon: '👜', key: 'leathix' },

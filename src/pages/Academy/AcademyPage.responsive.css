@@ -1,0 +1,159 @@
+/* ===== Tablet (≤1024px) ===== */
+@media (max-width: 1024px) {
+  .academy-grid,
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .academy-sidebar {
+    order: 1;
+  }
+}
+
+/* ===== Tablet Portrait (≤768px) ===== */
+@media (max-width: 768px) {
+  .academy-sidebar {
+    padding: 20px;
+  }
+
+  .sidebar-section h3 {
+    font-size: 16px;
+  }
+
+  .sidebar-checklist li {
+    font-size: 13px;
+    gap: 8px;
+  }
+
+  .sidebar-checklist label {
+    gap: 8px;
+  }
+
+  .course-card {
+    padding: 24px 20px;
+  }
+
+  .course-card h3 {
+    font-size: 18px;
+  }
+
+  .course-meta {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .course-meta span {
+    font-size: 12px;
+  }
+
+  .course-card p {
+    font-size: 14px;
+  }
+
+  .course-detail-image {
+    height: 200px;
+    margin-bottom: 24px;
+  }
+
+  .course-detail-content h2 {
+    font-size: 22px;
+  }
+
+  .course-detail-content p {
+    font-size: 14px;
+  }
+
+  .module-list {
+    gap: 12px;
+  }
+
+  .module-item {
+    padding: 16px;
+  }
+
+  .module-item h3 {
+    font-size: 15px;
+  }
+}
+
+/* ===== Phone (≤480px) ===== */
+@media (max-width: 480px) {
+  .course-card {
+    padding: 18px 16px;
+  }
+
+  .course-card h3 {
+    font-size: 16px;
+  }
+
+  .course-card p {
+    font-size: 13px;
+  }
+
+  .course-meta span {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  .course-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .course-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .course-detail-image {
+    height: 160px;
+    margin-bottom: 18px;
+  }
+
+  .course-detail-content h2 {
+    font-size: 19px;
+  }
+
+  .course-detail-content p {
+    font-size: 13px;
+  }
+
+  .module-item {
+    padding: 14px;
+  }
+
+  .module-item h3 {
+    font-size: 14px;
+  }
+
+  .module-item p {
+    font-size: 12px;
+  }
+
+  .module-duration {
+    font-size: 11px;
+  }
+
+  .academy-sidebar {
+    padding: 16px;
+  }
+
+  .sidebar-checklist li {
+    font-size: 12px;
+  }
+
+  .sidebar-section h3 {
+    font-size: 15px;
+  }
+}
+
+/* ===== Small Phone (≤375px) ===== */
+@media (max-width: 375px) {
+  .course-card {
+    padding: 14px 12px;
+  }
+
+  .academy-sidebar {
+    padding: 12px;
+  }
+}

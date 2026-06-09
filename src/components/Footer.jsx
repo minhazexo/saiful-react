@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from '../context/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
 import './Footer.css';
+import './Footer.responsive.css';
 
 function Footer() {
   const t = useTranslation();

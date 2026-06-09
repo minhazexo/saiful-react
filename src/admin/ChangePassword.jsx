@@ -2,6 +2,7 @@ import { useState } from 'react';
 import api from '../api';
 import { useTranslation } from '../context/LanguageContext';
 import './ChangePassword.css';
+import './ChangePassword.responsive.css';
 
 function ChangePassword() {
   const t = useTranslation();

@@ -1,0 +1,62 @@
+/* ===== Tablet Portrait (≤768px) ===== */
+@media (max-width: 768px) {
+  .faq-question {
+    padding: 16px 18px;
+    font-size: 15px;
+    gap: 12px;
+  }
+
+  .faq-icon {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    font-size: 16px;
+  }
+
+  .faq-answer {
+    padding: 0 18px 16px;
+    font-size: 14px;
+  }
+}
+
+/* ===== Phone (≤480px) ===== */
+@media (max-width: 480px) {
+  .faq-question {
+    padding: 14px 14px;
+    font-size: 14px;
+    gap: 10px;
+  }
+
+  .faq-icon {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    font-size: 14px;
+  }
+
+  .faq-answer {
+    padding: 0 14px 14px;
+    font-size: 13px;
+  }
+}
+
+/* ===== Small Phone (≤375px) ===== */
+@media (max-width: 375px) {
+  .faq-question {
+    padding: 12px 12px;
+    font-size: 13px;
+    gap: 8px;
+  }
+
+  .faq-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    font-size: 16px;
+  }
+
+  .faq-answer {
+    padding: 0 12px 12px;
+    font-size: 12px;
+  }
+}

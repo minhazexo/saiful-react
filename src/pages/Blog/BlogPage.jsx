@@ -8,6 +8,7 @@ import { MotionStaggerContainer, MotionStaggerItem } from '../../motion/MotionFa
 import { staggerContainer, fadeUp } from '../../motion/presets';
 import { formatDate } from '../../utils/date';
 import './BlogPage.css';
+import './BlogPage.responsive.css';
 
 const DEFAULT_KEYS = [
   { slug: 'chatgpt-30-days-facebook-ad-copy', key: 'chatgpt', icon: '🤖' },
@@ -22,7 +23,7 @@ function BlogPage() {
   const t = useTranslation();
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [activeCategory, setActiveCategory] = useState('All');
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const aliveRef = useRef(true);
   useEffect(() => {
@@ -76,12 +77,13 @@ function BlogPage() {
       }
     };
     loadPosts();
+    setActiveIndex(0);
     return () => ctrl.abort();
   }, [t]);
 
   const categories = [t('common.all'), ...new Set(posts.map((p) => p.category).filter(Boolean))];
   const filtered =
-    activeCategory === t('common.all') ? posts : posts.filter((p) => p.category === activeCategory);
+    activeIndex === 0 ? posts : posts.filter((p) => p.category === categories[activeIndex]);
 
   return (
     <div className="page">
@@ -113,14 +115,14 @@ function BlogPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.4 }}
           >
-            {categories.map((cat) => (
+            {categories.map((cat, i) => (
               <button
                 key={cat}
                 type="button"
-                onClick={() => setActiveCategory(cat)}
-                className={`btn ${activeCategory === cat ? 'btn-primary' : 'btn-outline'}`}
+                onClick={() => setActiveIndex(i)}
+                className={`btn ${activeIndex === i ? 'btn-primary' : 'btn-outline'}`}
                 style={{ padding: '8px 16px', fontSize: 13 }}
-                aria-pressed={activeCategory === cat}
+                aria-pressed={activeIndex === i}
               >
                 {cat}
               </button>

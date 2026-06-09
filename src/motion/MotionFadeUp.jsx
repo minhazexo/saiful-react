@@ -14,7 +14,7 @@ export function MotionFadeUp({
   ...rest
 }) {
   const shouldReduceMotion = useReducedMotion();
-  const MotionTag = motion[Component] || motion.div;
+  const MotionTag = typeof Component === 'string' ? motion[Component] : motion(Component);
 
   if (shouldReduceMotion) {
     return (
@@ -53,7 +53,7 @@ export function MotionStaggerContainer({
   ...rest
 }) {
   const shouldReduceMotion = useReducedMotion();
-  const MotionTag = motion[Component] || motion.div;
+  const MotionTag = typeof Component === 'string' ? motion[Component] : motion(Component);
 
   if (shouldReduceMotion) {
     return (
@@ -84,7 +84,7 @@ export function MotionStaggerContainer({
 
 /** Direct child of MotionStaggerContainer — fades up. */
 export function MotionStaggerItem({ as: Component = 'div', className, children, ...rest }) {
-  const MotionTag = motion[Component] || motion.div;
+  const MotionTag = typeof Component === 'string' ? motion[Component] : motion(Component);
   return (
     <MotionTag className={className} variants={fadeUpSmall} {...rest}>
       {children}

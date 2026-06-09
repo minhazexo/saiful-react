@@ -1,0 +1,27 @@
+/* ===== Tablet Portrait (≤768px) ===== */
+@media (max-width: 768px) {
+  .lang-switcher button {
+    padding: 4px 10px;
+    font-size: 13px;
+  }
+}
+
+/* ===== Phone (≤480px) ===== */
+@media (max-width: 480px) {
+  .lang-switcher button {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+}
+
+/* ===== Small Phone (≤375px) ===== */
+@media (max-width: 375px) {
+  .lang-switcher {
+    gap: 2px;
+  }
+
+  .lang-switcher button {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+}

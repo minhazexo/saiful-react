@@ -9,6 +9,7 @@ import { MotionFadeUp, MotionStaggerContainer, MotionStaggerItem } from '../../m
 import { fadeUp, fadeUpSmall, staggerContainer, staggerGrid, buttonHover } from '../../motion/presets';
 import { assetPath } from '../../utils/assets';
 import './HomePage.css';
+import './HomePage.responsive.css';
 
 const STAT_NUMBERS = [
   { num: '5000', suffix: '+', key: 'designProjects' },

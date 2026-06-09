@@ -5,6 +5,7 @@ import Seo from '../../components/Seo';
 import { MotionFadeUp, MotionStaggerContainer, MotionStaggerItem } from '../../motion/MotionFadeUp';
 import { staggerContainer, fadeUp, buttonHover } from '../../motion/presets';
 import './AIPage.css';
+import './AIPage.responsive.css';
 
 const TOOL_ICONS = ['🎨', '🤖', '✨', '🎬'];
 const TOOL_KEYS = ['canva', 'chatgpt', 'gemini', 'capcut'];

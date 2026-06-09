@@ -1,5 +1,6 @@
 import { useLanguage } from '../context/LanguageContext';
 import './LanguageSwitcher.css';
+import './LanguageSwitcher.responsive.css';
 
 const LABELS = {
   en: { short: 'EN', full: 'English' },

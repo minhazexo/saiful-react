@@ -1,0 +1,131 @@
+/* ===== Responsive ===== */
+/* ===== Tablet (≤1024px) ===== */
+@media (max-width: 1024px) {
+  :root {
+    --section-pad: 70px;
+  }
+
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===== Tablet Portrait (≤768px) ===== */
+@media (max-width: 768px) {
+  :root {
+    --section-pad: 50px;
+    --container-pad: 18px;
+    --nav-h: 70px;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .section-head {
+    margin-bottom: 40px;
+  }
+
+  .section-head p {
+    font-size: 15px;
+  }
+
+  .btn {
+    white-space: normal;
+  }
+
+  .card {
+    padding: 24px 20px;
+  }
+}
+
+/* ===== Phone (≤480px) ===== */
+@media (max-width: 480px) {
+  :root {
+    --section-pad: 40px;
+    --container-pad: 14px;
+    --nav-h: 64px;
+  }
+
+  .section-head {
+    margin-bottom: 32px;
+  }
+
+  .section-head p {
+    font-size: 14px;
+  }
+
+  .page-hero {
+    padding: 60px 0 50px;
+  }
+
+  .page-hero p {
+    font-size: 15px;
+  }
+
+  .card {
+    padding: 20px 16px;
+    border-radius: var(--radius-sm);
+  }
+}
+
+/* ===== Small Phone (≤375px) ===== */
+@media (max-width: 375px) {
+  :root {
+    --container-pad: 12px;
+    --section-pad: 32px;
+    --nav-h: 60px;
+  }
+
+  .section-head {
+    margin-bottom: 24px;
+  }
+
+  .card {
+    padding: 16px 14px;
+    border-radius: 8px;
+  }
+}
+
+/* ===== Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== Tablet Portrait (≤768px) - animation overrides ===== */
+@media (max-width: 768px) {
+  .hero-card-animated {
+    animation: none;
+  }
+}
+
+/* ===== Not Found Page ===== */
+/* ===== Phone (≤480px) ===== */
+@media (max-width: 480px) {
+  .not-found-wrap {
+    padding: 80px 16px;
+  }
+
+  .not-found-desc {
+    font-size: 14px;
+  }
+}
+
+/* ===== Small Phone (≤375px) ===== */
+@media (max-width: 375px) {
+  .not-found-wrap {
+    padding: 60px 12px;
+  }
+}

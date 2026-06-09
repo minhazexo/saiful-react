@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from '../context/LanguageContext';
 import { acceptAll, rejectAll, getConsent, subscribeConsent } from '../consent';
 import './ConsentBanner.css';
+import './ConsentBanner.responsive.css';
 
 export default function ConsentBanner() {
   const t = useTranslation();

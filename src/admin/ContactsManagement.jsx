@@ -4,6 +4,7 @@ import { useTranslation } from '../context/LanguageContext';
 import { useAdminList, SortHeader, Pagination } from './useAdminList';
 import { formatDate } from '../utils/date';
 import './ContactsManagement.css';
+import './ContactsManagement.responsive.css';
 
 function ContactsManagement() {
   const t = useTranslation();

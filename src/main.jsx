@@ -4,6 +4,7 @@ import App from './App.jsx';
 import ErrorBoundary from './components/ErrorBoundary.jsx';
 import { LanguageProvider } from './context/LanguageContext.jsx';
 import './style.css';
+import './style.responsive.css';
 
 if (import.meta.env.PROD && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -15,10 +16,10 @@ if (import.meta.env.PROD && 'serviceWorker' in navigator) {
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ErrorBoundary>
-      <LanguageProvider>
+    <LanguageProvider>
+      <ErrorBoundary>
         <App />
-      </LanguageProvider>
-    </ErrorBoundary>
+      </ErrorBoundary>
+    </LanguageProvider>
   </StrictMode>
 );

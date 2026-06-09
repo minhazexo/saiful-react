@@ -4,6 +4,7 @@ import { useTranslation } from '../context/LanguageContext';
 import { useAdminList, SortHeader, Pagination } from './useAdminList';
 import ImageUploader from './ImageUploader';
 import './CaseStudiesManagement.css';
+import './CaseStudiesManagement.responsive.css';
 
 function emptyForm() {
   return {
