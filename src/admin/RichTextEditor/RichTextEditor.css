@@ -1,0 +1,155 @@
+.rte-wrapper {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+}
+
+.rte-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 8px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.rte-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-dark);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.rte-btn:hover {
+  background: rgba(255, 122, 0, 0.1);
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+.rte-btn-active {
+  background: rgba(255, 122, 0, 0.15);
+  border-color: var(--orange);
+  color: var(--orange);
+  box-shadow: 0 0 0 1px var(--orange);
+}
+
+.rte-btn strong {
+  font-size: 16px;
+}
+
+.rte-btn em {
+  font-style: italic;
+}
+
+.rte-separator {
+  display: inline-block;
+  width: 1px;
+  height: 24px;
+  background: var(--border);
+  margin: 5px 4px;
+  align-self: center;
+}
+
+.rte-editor-content {
+  padding: 16px;
+  min-height: 200px;
+}
+
+.rte-content {
+  outline: none;
+  min-height: 180px;
+  line-height: 1.7;
+  font-size: 15px;
+  color: var(--text-dark);
+}
+
+.rte-content p {
+  margin: 0 0 8px;
+}
+
+.rte-content h1 {
+  font-size: 28px;
+  margin: 16px 0 8px;
+  color: var(--dark);
+}
+
+.rte-content h2 {
+  font-size: 22px;
+  margin: 14px 0 6px;
+  color: var(--dark);
+}
+
+.rte-content h3 {
+  font-size: 18px;
+  margin: 12px 0 6px;
+  color: var(--dark);
+}
+
+.rte-content ul,
+.rte-content ol {
+  padding-left: 24px;
+  margin: 8px 0;
+}
+
+.rte-content li {
+  margin-bottom: 4px;
+}
+
+.rte-content blockquote {
+  border-left: 3px solid var(--orange);
+  padding: 8px 16px;
+  margin: 12px 0;
+  background: rgba(255, 122, 0, 0.05);
+  border-radius: 0 6px 6px 0;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.rte-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 12px 0;
+}
+
+.rte-content a {
+  color: var(--orange);
+  text-decoration: underline;
+}
+
+.rte-content p.is-editor-empty:first-child::before {
+  color: var(--text-muted);
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .rte-toolbar {
+    padding: 6px;
+    gap: 1px;
+  }
+
+  .rte-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+  }
+
+  .rte-editor-content {
+    padding: 12px;
+    min-height: 160px;
+  }
+}

@@ -17,11 +17,12 @@
 /* ===== Small Phone (≤375px) ===== */
 @media (max-width: 375px) {
   .lang-switcher {
-    gap: 2px;
+    gap: 4px;
   }
 
   .lang-switcher button {
-    padding: 6px 10px;
-    font-size: 11px;
+    padding: 8px 12px;
+    font-size: 12px;
+    min-height: 44px;
   }
 }

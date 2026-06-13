@@ -1,16 +1,18 @@
 const express = require('express');
 const router = express.Router();
+const jwt = require('jsonwebtoken');
 const { Op } = require('sequelize');
 const db = require('../models');
 const auth = require('../middleware/auth');
-const { requireRole } = auth;
+const { requireRole, getSecret, COOKIE_NAME: AUTH_COOKIE } = auth;
+const { audit, auditBulk } = require('../middleware/audit');
 
 const BLOG_PUBLIC_FIELDS = [
   'title', 'slug', 'excerpt', 'content', 'category',
   'author', 'image', 'readTime', 'featured', 'published',
 ];
 
-const BLOG_SORTABLE = new Set(['createdAt', 'updatedAt', 'title', 'category', 'author', 'readTime', 'published']);
+const BLOG_SORTABLE = new Set(['createdAt', 'updatedAt', 'title', 'category', 'author', 'readTime', 'published', 'views']);
 
 function pickBlogFields(body) {
   const out = {};
@@ -41,6 +43,15 @@ function parseListOptions(query, defaults = {}) {
 router.get('/', async (req, res, next) => {
   try {
     const includeAll = req.query.status === 'all';
+    if (includeAll) {
+      const token = (req.cookies && req.cookies[AUTH_COOKIE])
+        || (req.header('Authorization') || '').replace('Bearer ', '');
+      if (!token) {
+        return res.status(401).json({ error: 'Authentication required' });
+      }
+      try { jwt.verify(token, getSecret()); }
+      catch { return res.status(401).json({ error: 'Invalid or expired token' }); }
+    }
     const { limit, offset, sortField, orderDir, q } = parseListOptions(req.query);
     const where = includeAll ? {} : { published: true };
     if (q) {
@@ -79,7 +90,7 @@ router.get('/:slug', async (req, res, next) => {
   }
 });
 
-router.post('/', auth, async (req, res, next) => {
+router.post('/', auth, audit('create', 'blog'), async (req, res, next) => {
   try {
     const body = req.body || {};
     const data = pickBlogFields(body);
@@ -109,7 +120,7 @@ router.post('/', auth, async (req, res, next) => {
   }
 });
 
-router.put('/:id', auth, async (req, res, next) => {
+router.put('/:id', auth, audit('update', 'blog'), async (req, res, next) => {
   try {
     const post = await db.Blog.findByPk(req.params.id);
     if (!post) {
@@ -137,7 +148,7 @@ router.put('/:id', auth, async (req, res, next) => {
   }
 });
 
-router.delete('/:id', auth, requireRole('admin'), async (req, res, next) => {
+router.delete('/:id', auth, requireRole('admin'), audit('delete', 'blog'), async (req, res, next) => {
   try {
     const post = await db.Blog.findByPk(req.params.id);
     if (!post) {
@@ -145,6 +156,38 @@ router.delete('/:id', auth, requireRole('admin'), async (req, res, next) => {
     }
     await post.destroy();
     res.json({ message: 'Blog post deleted' });
+  } catch (err) {
+    next(err);
+  }
+});
+
+// ── Bulk Actions ──
+
+router.post('/bulk', auth, requireRole('admin'), async (req, res, next) => {
+  try {
+    const { action, ids } = req.body || {};
+    if (!Array.isArray(ids) || ids.length === 0) {
+      return res.status(400).json({ error: 'ids array is required' });
+    }
+    if (!['publish', 'unpublish', 'feature', 'unfeature', 'delete'].includes(action)) {
+      return res.status(400).json({ error: 'Invalid action' });
+    }
+
+    if (action === 'delete') {
+      const count = await db.Blog.destroy({ where: { id: ids } });
+      await auditBulk(req, 'bulk_delete', 'blog', ids, { count });
+      return res.json({ message: `${count} blog posts deleted`, count });
+    }
+
+    const updates = {};
+    if (action === 'publish') updates.published = true;
+    if (action === 'unpublish') updates.published = false;
+    if (action === 'feature') updates.featured = true;
+    if (action === 'unfeature') updates.featured = false;
+
+    const [count] = await db.Blog.update(updates, { where: { id: ids } });
+    await auditBulk(req, 'bulk_update', 'blog', ids, { action, count });
+    res.json({ message: `${count} blog posts updated`, count });
   } catch (err) {
     next(err);
   }

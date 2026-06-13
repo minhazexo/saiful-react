@@ -20,12 +20,14 @@ const ContactPage = lazy(() => import('./pages/Contact/ContactPage'));
 const NotFound = lazy(() => import('./pages/NotFound/NotFound'));
 
 const AdminLayout = lazy(() => import('./admin/AdminLayout'));
-const AdminLogin = lazy(() => import('./admin/AdminLogin'));
-const AdminDashboard = lazy(() => import('./admin/AdminDashboard'));
-const BlogManagement = lazy(() => import('./admin/BlogManagement'));
-const CaseStudiesManagement = lazy(() => import('./admin/CaseStudiesManagement'));
-const ContactsManagement = lazy(() => import('./admin/ContactsManagement'));
-const ChangePassword = lazy(() => import('./admin/ChangePassword'));
+const AdminLogin = lazy(() => import('./admin/AdminLogin/AdminLogin'));
+const AdminDashboard = lazy(() => import('./admin/AdminDashboard/AdminDashboard'));
+const BlogManagement = lazy(() => import('./admin/BlogManagement/BlogManagement'));
+const CaseStudiesManagement = lazy(() => import('./admin/CaseStudiesManagement/CaseStudiesManagement'));
+const ContactsManagement = lazy(() => import('./admin/ContactsManagement/ContactsManagement'));
+const ChangePassword = lazy(() => import('./admin/ChangePassword/ChangePassword'));
+const AdminUsersManagement = lazy(() => import('./admin/AdminUsersManagement/AdminUsersManagement'));
+const AuditLogPage = lazy(() => import('./admin/AuditLog/AuditLog'));
 
 import { AuthProvider } from './auth';
 
@@ -94,6 +96,8 @@ function AppRoutes() {
           <Route path="cases" element={<CaseStudiesManagement />} />
           <Route path="contacts" element={<ContactsManagement />} />
           <Route path="password" element={<ChangePassword />} />
+          <Route path="users" element={<AdminUsersManagement />} />
+          <Route path="audit" element={<AuditLogPage />} />
           <Route path="*" element={<Navigate to="/admin" replace />} />
         </Route>
 

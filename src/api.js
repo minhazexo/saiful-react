@@ -49,7 +49,9 @@ export async function ensureCsrf(force = false) {
 if (IS_DEMO_MODE) {
   api.interceptors.request.use(
     () => {
-      throw { isDemoMode: true, message: 'Demo mode — backend disabled' };
+      const e = new Error('Demo mode — backend disabled');
+      e.isDemoMode = true;
+      throw e;
     },
     (err) => Promise.reject(err)
   );

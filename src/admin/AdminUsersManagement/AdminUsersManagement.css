@@ -1,0 +1,29 @@
+/* AdminUsersManagement inherits from shared management-panel styles */
+
+.users-management .management-panel {
+  max-width: 900px;
+}
+
+.users-management .role-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.role-badge.admin {
+  background: #dbeafe;
+  color: #0369a1;
+}
+
+.role-badge.editor {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+@media (max-width: 768px) {
+  .users-management .form-row {
+    grid-template-columns: 1fr;
+  }
+}

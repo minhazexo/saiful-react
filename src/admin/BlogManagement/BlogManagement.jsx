@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import api from '../api';
-import { useTranslation } from '../context/LanguageContext';
-import { useAdminList, SortHeader, Pagination } from './useAdminList';
-import ImageUploader from './ImageUploader';
+import api from '../../api';
+import { useTranslation } from '../../context/LanguageContext';
+import { useAdminList, SortHeader, Pagination } from '../useAdminList';
+import ImageUploader from '../ImageUploader';
+import RichTextEditor from '../RichTextEditor/RichTextEditor';
+import '../BulkActions.css';
 import './BlogManagement.css';
 import './BlogManagement.responsive.css';
 
@@ -43,6 +45,8 @@ function BlogManagement() {
     limit,
     pageCount,
   } = useAdminList('/blog', { extraParams: { status: 'all' } });
+
+  const [selectedIds, setSelectedIds] = useState([]);
 
   const handleFormChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -107,6 +111,42 @@ function BlogManagement() {
     } catch (error) {
       const msg = error.response?.data?.error || error.message || 'Unknown error';
       window.alert(t('admin.blog.errorDelete', { msg }));
+    }
+  };
+
+  // ── Bulk Actions ──
+
+  const toggleSelectAll = () => {
+    if (selectedIds.length === blogs.length) {
+      setSelectedIds([]);
+    } else {
+      setSelectedIds(blogs.map((b) => b.id));
+    }
+  };
+
+  const toggleSelect = (id) => {
+    setSelectedIds((prev) =>
+      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
+    );
+  };
+
+  const handleBulkAction = async (action) => {
+    if (selectedIds.length === 0) return;
+    const confirmMsg = {
+      publish: t('admin.blog.bulkPublishConfirm', { count: selectedIds.length }),
+      unpublish: t('admin.blog.bulkUnpublishConfirm', { count: selectedIds.length }),
+      feature: t('admin.blog.bulkFeatureConfirm', { count: selectedIds.length }),
+      unfeature: t('admin.blog.bulkUnfeatureConfirm', { count: selectedIds.length }),
+      delete: t('admin.blog.bulkDeleteConfirm', { count: selectedIds.length }),
+    }[action];
+    if (confirmMsg && !window.confirm(confirmMsg)) return;
+    try {
+      await api.post('/blog/bulk', { action, ids: selectedIds });
+      setSelectedIds([]);
+      reload();
+    } catch (err) {
+      const msg = err.response?.data?.error || err.message || 'Unknown error';
+      window.alert(msg);
     }
   };
 
@@ -180,12 +220,10 @@ function BlogManagement() {
 
               <div className="form-group">
                 <label htmlFor="content">{t('admin.blog.contentLabel')}</label>
-                <textarea
+                <RichTextEditor
                   id="content"
-                  name="content"
                   value={formData.content}
-                  onChange={handleFormChange}
-                  rows={8}
+                  onChange={(html) => setFormData((prev) => ({ ...prev, content: html }))}
                 />
               </div>
 
@@ -273,6 +311,25 @@ function BlogManagement() {
               onChange={(e) => setSearch(e.target.value)}
               aria-label={t('admin.blog.searchAria')}
             />
+            {selectedIds.length > 0 && (
+              <div className="bulk-actions">
+                <span className="bulk-count">
+                  {t('admin.blog.selectedCount', { count: selectedIds.length })}
+                </span>
+                <button type="button" className="btn btn-sm btn-primary" onClick={() => handleBulkAction('publish')}>
+                  {t('admin.blog.bulkPublish')}
+                </button>
+                <button type="button" className="btn btn-sm btn-outline" onClick={() => handleBulkAction('unpublish')}>
+                  {t('admin.blog.bulkUnpublish')}
+                </button>
+                <button type="button" className="btn btn-sm btn-outline" onClick={() => handleBulkAction('feature')}>
+                  {t('admin.blog.bulkFeature')}
+                </button>
+                <button type="button" className="btn btn-sm btn-danger" onClick={() => handleBulkAction('delete')}>
+                  {t('common.delete')}
+                </button>
+              </div>
+            )}
           </div>
 
           <div className="management-list">
@@ -284,6 +341,14 @@ function BlogManagement() {
               <table className="management-table">
                 <thead>
                   <tr>
+                    <th className="col-checkbox">
+                      <input
+                        type="checkbox"
+                        checked={selectedIds.length === blogs.length && blogs.length > 0}
+                        onChange={toggleSelectAll}
+                        aria-label={t('admin.blog.selectAll')}
+                      />
+                    </th>
                     <SortHeader field="title" sort={sort} order={order} onSort={toggleSort}>
                       {t('admin.blog.col.title')}
                     </SortHeader>
@@ -292,6 +357,9 @@ function BlogManagement() {
                     </SortHeader>
                     <SortHeader field="author" sort={sort} order={order} onSort={toggleSort}>
                       {t('admin.blog.col.author')}
+                    </SortHeader>
+                    <SortHeader field="views" sort={sort} order={order} onSort={toggleSort}>
+                      {t('admin.blog.col.views')}
                     </SortHeader>
                     <SortHeader field="published" sort={sort} order={order} onSort={toggleSort}>
                       {t('admin.blog.col.status')}
@@ -302,9 +370,18 @@ function BlogManagement() {
                 <tbody>
                   {blogs.map((blog) => (
                     <tr key={blog.id}>
+                      <td className="col-checkbox">
+                        <input
+                          type="checkbox"
+                          checked={selectedIds.includes(blog.id)}
+                          onChange={() => toggleSelect(blog.id)}
+                          aria-label={`${t('admin.blog.selectPost')} ${blog.title}`}
+                        />
+                      </td>
                       <td>{blog.title}</td>
                       <td>{blog.category}</td>
                       <td>{blog.author}</td>
+                      <td className="col-views">{blog.views || 0}</td>
                       <td>
                         <span className={`badge ${blog.published ? 'published' : 'draft'}`}>
                           {blog.published

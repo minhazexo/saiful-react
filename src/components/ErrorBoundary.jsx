@@ -1,4 +1,5 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
+
 import { useTranslation } from '../context/LanguageContext';
 
 function ErrorBoundaryFallback({ error, onReset }) {
@@ -14,9 +15,11 @@ function ErrorBoundaryFallback({ error, onReset }) {
           <button type="button" className="btn btn-primary" onClick={onReset}>
             {t('error.boundaryTry')}
           </button>
-          <a className="btn btn-outline" href="./">
+          {/** Avoid react-router dependency in non-router test environments */}
+          <a className="btn btn-outline" href="/">
             {t('error.boundaryHome')}
           </a>
+
           <button
             type="button"
             className="btn btn-outline"

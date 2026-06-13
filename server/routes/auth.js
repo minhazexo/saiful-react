@@ -6,6 +6,7 @@ const db = require('../models');
 const auth = require('../middleware/auth');
 const { getSecret, COOKIE_NAME, cookieOptions } = auth;
 const { getCsrfTokenForClient, CSRF_COOKIE, CSRF_HEADER } = require('../middleware/csrf');
+const { auditLog } = require('../middleware/audit');
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const REFRESH_WINDOW_MS = 24 * 60 * 60 * 1000; // last 24h of an expiring token still refreshable
@@ -63,6 +64,12 @@ router.post('/login', async (req, res, next) => {
     }
 
     setAuthCookie(res, token);
+
+    // Log the login
+    req.adminId = admin.id;
+    req.adminEmail = admin.email;
+    await auditLog(req, 'login', 'admin', admin.id);
+
     res.json({
       message: 'Logged in successfully',
       admin: publicAdmin(admin),
@@ -72,7 +79,24 @@ router.post('/login', async (req, res, next) => {
   }
 });
 
-router.post('/logout', (req, res) => {
+router.post('/logout', async (req, res) => {
+  // Attempt to log the logout before clearing the cookie
+  if (req.adminId) {
+    await auditLog(req, 'logout', 'admin', req.adminId).catch(() => {});
+  } else {
+    // Decode token from cookie if available
+    const token = req.cookies && req.cookies[COOKIE_NAME];
+    if (token) {
+      try {
+        const payload = jwt.decode(token);
+        if (payload && payload.id) {
+          req.adminId = payload.id;
+          req.adminEmail = payload.email;
+          await auditLog(req, 'logout', 'admin', payload.id).catch(() => {});
+        }
+      } catch { /* ignore decode errors */ }
+    }
+  }
   res.clearCookie(COOKIE_NAME, { path: '/' });
   res.json({ message: 'Logged out' });
 });

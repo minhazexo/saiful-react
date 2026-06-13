@@ -19,15 +19,16 @@ export default function LanguageUrlHandler() {
   useEffect(() => {
     const fromUrl = detectLanguageFromPath(location.pathname);
     if (!fromUrl) return;
+
     if (fromUrl !== language) {
       setLanguage(fromUrl);
     }
+
     const stripped = location.pathname.replace(/^\/(en|bn)(?=\/|$)/, '') || '/';
     if (stripped !== location.pathname) {
       navigate(stripped + location.search + location.hash, { replace: true });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location.pathname]);
+  }, [location.pathname, location.search, location.hash, language, setLanguage, navigate]);
 
   return null;
 }

@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { NavLink, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../auth';
 import { useTranslation } from '../context/LanguageContext';
-import LanguageSwitcher from '../components/LanguageSwitcher';
-import './AdminDashboard.css';
-import './AdminDashboard.responsive.css';
+import LanguageSwitcher from '../components/LanguageSwitcher/LanguageSwitcher';
+import './AdminDashboard/AdminDashboard.css';
+import './AdminDashboard/AdminDashboard.responsive.css';
 
 function AdminLayout() {
   const t = useTranslation();
@@ -90,6 +90,18 @@ function AdminLayout() {
             className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
           >
             <span aria-hidden="true">📧</span> {t('admin.nav.contacts')}
+          </NavLink>
+          <NavLink
+            to="/admin/users"
+            className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+          >
+            <span aria-hidden="true">👥</span> {t('admin.nav.users')}
+          </NavLink>
+          <NavLink
+            to="/admin/audit"
+            className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+          >
+            <span aria-hidden="true">📋</span> {t('admin.nav.audit')}
           </NavLink>
         </nav>
 

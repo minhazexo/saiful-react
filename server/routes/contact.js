@@ -6,6 +6,7 @@ const auth = require('../middleware/auth');
 const { requireRole } = auth;
 const mailer = require('../mailer');
 const captcha = require('../captcha');
+const { audit, auditBulk } = require('../middleware/audit');
 
 const CONTACT_PUBLIC_FIELDS = ['name', 'email', 'whatsapp', 'service', 'message', 'source'];
 const CONTACT_ADMIN_FIELDS = ['status'];
@@ -149,7 +150,7 @@ router.get('/:id', auth, async (req, res, next) => {
   }
 });
 
-router.put('/:id', auth, async (req, res, next) => {
+router.put('/:id', auth, audit('update', 'contact'), async (req, res, next) => {
   try {
     const contact = await db.Contact.findByPk(req.params.id);
     if (!contact) {
@@ -170,7 +171,7 @@ router.put('/:id', auth, async (req, res, next) => {
   }
 });
 
-router.delete('/:id', auth, requireRole('admin'), async (req, res, next) => {
+router.delete('/:id', auth, requireRole('admin'), audit('delete', 'contact'), async (req, res, next) => {
   try {
     const contact = await db.Contact.findByPk(req.params.id);
     if (!contact) {
@@ -178,6 +179,26 @@ router.delete('/:id', auth, requireRole('admin'), async (req, res, next) => {
     }
     await contact.destroy();
     res.json({ message: 'Contact deleted' });
+  } catch (err) {
+    next(err);
+  }
+});
+
+// ── Bulk Actions ──
+
+router.post('/bulk', auth, requireRole('admin'), async (req, res, next) => {
+  try {
+    const { action, ids } = req.body || {};
+    if (!Array.isArray(ids) || ids.length === 0) {
+      return res.status(400).json({ error: 'ids array is required' });
+    }
+    if (!['delete'].includes(action)) {
+      return res.status(400).json({ error: 'Invalid action' });
+    }
+
+    const count = await db.Contact.destroy({ where: { id: ids } });
+    await auditBulk(req, 'bulk_delete', 'contact', ids, { count });
+    res.json({ message: `${count} contacts deleted`, count });
   } catch (err) {
     next(err);
   }

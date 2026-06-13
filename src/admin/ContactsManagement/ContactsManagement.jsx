@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
-import api from '../api';
-import { useTranslation } from '../context/LanguageContext';
-import { useAdminList, SortHeader, Pagination } from './useAdminList';
-import { formatDate } from '../utils/date';
+import api from '../../api';
+import { useTranslation } from '../../context/LanguageContext';
+import { useAdminList, SortHeader, Pagination } from '../useAdminList';
+import { formatDate } from '../../utils/date';
+import '../BulkActions.css';
 import './ContactsManagement.css';
 import './ContactsManagement.responsive.css';
 
@@ -39,6 +40,8 @@ function ContactsManagement() {
     limit,
     pageCount,
   } = useAdminList('/contact', { extraParams });
+
+  const [selectedIds, setSelectedIds] = useState([]);
 
   void reload;
 
@@ -89,6 +92,34 @@ function ContactsManagement() {
       setTotal(previousTotal);
       const msg = error.response?.data?.error || error.message || 'Unknown error';
       window.alert(t('admin.contacts.errorDelete', { msg }));
+    }
+  };
+
+  // ── Bulk Actions ──
+  const toggleSelectAll = () => {
+    if (selectedIds.length === rows.length) setSelectedIds([]);
+    else setSelectedIds(rows.map((c) => c.id));
+  };
+
+  const toggleSelect = (id) => {
+    setSelectedIds((prev) => prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]);
+  };
+
+  const handleBulkDelete = async () => {
+    if (selectedIds.length === 0) return;
+    if (!window.confirm(t('admin.contacts.bulkDeleteConfirm', { count: selectedIds.length }))) return;
+    const prevRows = rows;
+    const prevTotal = total;
+    setRows((prev) => prev.filter((c) => !selectedIds.includes(c.id)));
+    setTotal((t) => Math.max(0, t - selectedIds.length));
+    try {
+      await api.post('/contact/bulk', { action: 'delete', ids: selectedIds });
+      setSelectedIds([]);
+      loadStats();
+    } catch (err) {
+      setRows(prevRows);
+      setTotal(prevTotal);
+      window.alert(err.response?.data?.error || err.message || 'Unknown error');
     }
   };
 
@@ -152,6 +183,14 @@ function ContactsManagement() {
               <option value="interested">{t('admin.contacts.filterInterested')}</option>
               <option value="closed">{t('admin.contacts.filterClosed')}</option>
             </select>
+            {selectedIds.length > 0 && (
+              <div className="bulk-actions">
+                <span className="bulk-count">{t('admin.blog.selectedCount', { count: selectedIds.length })}</span>
+                <button type="button" className="btn btn-sm btn-danger" onClick={handleBulkDelete}>
+                  {t('common.delete')}
+                </button>
+              </div>
+            )}
           </div>
 
           <div className="management-list">
@@ -167,6 +206,14 @@ function ContactsManagement() {
               <table className="management-table">
                 <thead>
                   <tr>
+                    <th className="col-checkbox">
+                      <input
+                        type="checkbox"
+                        checked={selectedIds.length === rows.length && rows.length > 0}
+                        onChange={toggleSelectAll}
+                        aria-label={t('admin.contacts.selectAll')}
+                      />
+                    </th>
                     <SortHeader field="name" sort={sort} order={order} onSort={toggleSort}>
                       {t('admin.contacts.col.name')}
                     </SortHeader>
@@ -189,6 +236,14 @@ function ContactsManagement() {
                 <tbody>
                   {rows.map((contact) => (
                     <tr key={contact.id}>
+                      <td className="col-checkbox">
+                        <input
+                          type="checkbox"
+                          checked={selectedIds.includes(contact.id)}
+                          onChange={() => toggleSelect(contact.id)}
+                          aria-label={`${t('admin.contacts.selectContact')} ${contact.name}`}
+                        />
+                      </td>
                       <td>{contact.name}</td>
                       <td>
                         <a href={`mailto:${contact.email}`}>{contact.email}</a>

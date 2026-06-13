@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { useTranslation } from '../context/LanguageContext';
-import LanguageSwitcher from './LanguageSwitcher';
+import { useTranslation } from '../../context/LanguageContext';
+import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 import './Footer.css';
 import './Footer.responsive.css';
 

@@ -1,0 +1,71 @@
+/* ===== Tablet Portrait (≤768px) ===== */
+@media (max-width: 768px) {
+  .admin-login {
+    padding: 24px;
+  }
+
+  .login-container {
+    max-width: 400px;
+  }
+
+  .login-box {
+    padding: 32px;
+  }
+
+  .login-box h1 {
+    font-size: 24px;
+  }
+
+  .login-box input {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+}
+
+/* ===== Phone (≤480px) ===== */
+@media (max-width: 480px) {
+  .admin-login {
+    padding: 16px;
+  }
+
+  .login-container {
+    padding: 0;
+  }
+
+  .login-box {
+    padding: 24px 20px;
+  }
+
+  .login-box h1 {
+    font-size: 22px;
+  }
+
+  .login-box input {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .login-box .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ===== Small Phone (≤375px) ===== */
+@media (max-width: 375px) {
+  .admin-login {
+    padding: 12px;
+  }
+
+  .login-box {
+    padding: 18px 14px;
+  }
+
+  .login-box h1 {
+    font-size: 19px;
+  }
+
+  .login-box p {
+    margin-bottom: 20px;
+  }
+}

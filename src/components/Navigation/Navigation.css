@@ -18,8 +18,15 @@
   flex-wrap: nowrap;
   min-width: 0;
   max-width: 100%;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding: 0 20px;
+}
+
+.nav-center-wrap {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 12px;
+  min-width: 0;
 }
 
 .nav-logo {
@@ -113,13 +120,22 @@
 }
 
 .btn-primary {
-  background: var(--orange);
+  background: rgb(4, 234, 4);
   color: white;
 }
 
 .btn-primary:hover {
   background: #e56a00;
   transform: translateY(-2px);
+}
+
+/* WhatsApp direct-call button — green brand color */
+.nav-cta-call {
+  background: #25D366 !important;
+}
+
+.nav-cta-call:hover {
+  background: #1ebe5b !important;
 }
 
 .btn-outline {

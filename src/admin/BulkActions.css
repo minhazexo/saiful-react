@@ -1,0 +1,107 @@
+/* ── Bulk Actions Toolbar ── */
+
+.bulk-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(255, 122, 0, 0.05);
+  border: 1px solid rgba(255, 122, 0, 0.2);
+  border-radius: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.bulk-count {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--orange);
+  white-space: nowrap;
+  padding: 4px 8px;
+  background: rgba(255, 122, 0, 0.1);
+  border-radius: 4px;
+}
+
+/* ── Button Sizes ── */
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* ── Button Variants ── */
+
+.btn-danger {
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.btn-danger:hover {
+  background: #fca5a5;
+  color: #991b1b;
+  border-color: #fca5a5;
+}
+
+.btn-danger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-sm.btn-primary {
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.btn-sm.btn-outline {
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+/* ── Checkbox Column ── */
+
+.col-checkbox {
+  width: 40px;
+  text-align: center;
+  padding: 8px !important;
+}
+
+.col-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--orange);
+}
+
+/* ── Views Column ── */
+
+.col-views {
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 768px) {
+  .bulk-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .bulk-actions .btn-sm {
+    width: 100%;
+  }
+
+  .col-checkbox {
+    width: 32px;
+    padding: 6px !important;
+  }
+}

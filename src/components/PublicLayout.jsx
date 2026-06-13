@@ -1,9 +1,9 @@
 import { Suspense, useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import Navigation from './Navigation';
-import Footer from './Footer';
-import ConsentBanner from './ConsentBanner';
+import Navigation from './Navigation/Navigation';
+import Footer from './Footer/Footer';
+import ConsentBanner from './ConsentBanner/ConsentBanner';
 import { initAnalytics, subscribeConsent } from '../consent';
 import { pageTransition } from '../motion/presets';
 

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import api, { IS_DEMO_MODE } from '../../api';
 import { useTranslation } from '../../context/LanguageContext';
@@ -23,6 +23,12 @@ function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [submitMessage, setSubmitMessage] = useState('');
+
+  const timerRef = useRef(null);
+
+  useEffect(() => () => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+  }, []);
 
   const fetchCaptcha = async () => {
     if (IS_DEMO_MODE) {
@@ -58,13 +64,13 @@ function ContactPage() {
       setFormData({ name: '', email: '', whatsapp: '', service: '', message: '' });
       setCaptchaAnswer('');
       fetchCaptcha();
-      setTimeout(() => setSubmitStatus(null), 5000);
+      timerRef.current = setTimeout(() => setSubmitStatus(null), 5000);
     } catch (error) {
       const demo = IS_DEMO_MODE || error?.isDemoMode;
       setSubmitStatus(demo ? 'demo' : 'error');
       setSubmitMessage(demo ? t('demo.formMessage') : error.response?.data?.error || t('contact.error'));
       if (!demo) fetchCaptcha();
-      setTimeout(() => setSubmitStatus(null), 5000);
+      timerRef.current = setTimeout(() => setSubmitStatus(null), 5000);
     } finally {
       setIsSubmitting(false);
     }
@@ -257,7 +263,7 @@ function ContactPage() {
               <motion.div className="info-item" variants={fadeUpSmall}>
                 <h3>📱 {t('contact.info.whatsapp')}</h3>
                 <p>
-                  <a href={`https://wa.me/8801XXXXXXXXX`} target="_blank" rel="noopener noreferrer">
+                  <a href={`https://wa.me/${t('contact.info.whatsappValue').replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer">
                     {t('contact.info.whatsappValue')}
                   </a>
                 </p>

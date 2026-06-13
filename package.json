@@ -30,6 +30,11 @@
     "format:check": "prettier --check \"src/**/*.{js,jsx,css,html}\" \"e2e/**/*.{js,jsx}\""
   },
   "dependencies": {
+    "@tiptap/extension-image": "^3.26.1",
+    "@tiptap/extension-link": "^3.26.1",
+    "@tiptap/extension-placeholder": "^3.26.1",
+    "@tiptap/react": "^3.26.1",
+    "@tiptap/starter-kit": "^3.26.1",
     "axios": "^1.17.0",
     "concurrently": "^9.1.0",
     "framer-motion": "^11.18.2",

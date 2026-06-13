@@ -19,6 +19,7 @@ db.Blog = require('./Blog')(sequelize);
 db.CaseStudy = require('./CaseStudy')(sequelize);
 db.Contact = require('./Contact')(sequelize);
 db.Admin = require('./Admin')(sequelize);
+db.AuditLog = require('./AuditLog')(sequelize);
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

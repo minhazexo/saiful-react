@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useTranslation } from '../context/LanguageContext';
-import { acceptAll, rejectAll, getConsent, subscribeConsent } from '../consent';
+import { useTranslation } from '../../context/LanguageContext';
+import { acceptAll, rejectAll, getConsent, subscribeConsent } from '../../consent';
 import './ConsentBanner.css';
 import './ConsentBanner.responsive.css';
 

@@ -62,9 +62,9 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: #FFF5E8;
-  border: 1px solid #FFD9A8;
-  color: #FF8A00;
+  background: var(--orange-light);
+  border: 1px solid var(--orange-soft);
+  color: var(--orange);
   padding: 12px 24px;
   border-radius: 999px;
   font-size: 13px;
@@ -83,12 +83,12 @@
 }
 
 .hero-title-navy {
-  color: #0D1B3E;
+  color: var(--dark);
   display: block;
 }
 
 .hero-title-orange {
-  color: #FF8A00;
+  color: var(--orange);
   display: block;
   margin-top: 8px;
 }
@@ -96,7 +96,7 @@
 /* ===== Description ===== */
 .hero-description {
   font-size: 22px;
-  color: #6B7280;
+  color: var(--text-muted);
   line-height: 1.8;
   max-width: 700px;
   margin-bottom: 40px;
@@ -127,23 +127,23 @@
 }
 
 .hero-btn-primary {
-  background: #FF8A00;
+  background: var(--orange);
   color: #fff;
-  box-shadow: 0 10px 30px rgba(255, 138, 0, 0.25);
+  box-shadow: 0 10px 30px rgba(255, 122, 0, 0.25);
 }
 
 .hero-btn-primary:hover {
-  background: #e67a00;
+  background: var(--orange-dark);
   transform: translateY(-3px);
 }
 
 .hero-btn-secondary {
-  background: #0D1B3E;
+  background: var(--dark);
   color: #fff;
 }
 
 .hero-btn-secondary:hover {
-  background: #0a1530;
+  background: #0b1324;
   transform: translateY(-3px);
 }
 
@@ -177,18 +177,18 @@
 }
 
 .hero-stars {
-  color: #f59e0b;
+  color: var(--warning);
   font-size: 15px;
   letter-spacing: 3px;
 }
 
 .hero-proof-text {
   font-size: 14px;
-  color: #6B7280;
+  color: var(--text-muted);
 }
 
 .hero-proof-text strong {
-  color: #0D1B3E;
+  color: var(--dark);
 }
 
 /* ===== Right Visual ===== */
@@ -300,7 +300,7 @@
   width: 52px;
   height: 52px;
   border-radius: 14px;
-  background: linear-gradient(135deg, #FF8A00, #FF6B00);
+  background: linear-gradient(135deg, var(--orange), var(--orange-dark));
   color: #fff;
   display: flex;
   align-items: center;
@@ -318,13 +318,13 @@
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 16px;
-  color: #0D1B3E;
+  color: var(--dark);
   margin-bottom: 2px;
 }
 
 .glass-card-role {
   font-size: 13px;
-  color: #6B7280;
+  color: var(--text-muted);
   margin-bottom: 6px;
 }
 
@@ -334,7 +334,7 @@
   gap: 6px;
   font-size: 12px;
   font-weight: 600;
-  color: #FF8A00;
+  color: var(--orange);
 }
 
 /* ============ TRUST ============ */
@@ -364,7 +364,7 @@
 }
 
 .trust-label {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.8);
   font-size: 14px;
 }
 
@@ -448,7 +448,7 @@
 }
 
 .problems-bad {
-  color: #dc2626;
+  color: var(--error);
 }
 
 .problems-good {
@@ -565,7 +565,7 @@
 }
 
 .framework-card p {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 12px;
   line-height: 1.5;
   margin: 0;
@@ -905,7 +905,7 @@
 }
 
 .ai-card p {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.8);
   font-size: 14px;
 }
 
@@ -959,7 +959,7 @@
 }
 
 .workflow-step p {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 13px;
 }
 
@@ -1114,7 +1114,7 @@
 }
 
 .testimonial-stars {
-  color: #f59e0b;
+  color: var(--warning);
   font-size: 18px;
   letter-spacing: 2px;
   margin-bottom: 16px;
@@ -1194,7 +1194,7 @@
 }
 
 .lead-content > p {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.8);
   margin-bottom: 32px;
   font-size: 16px;
   line-height: 1.7;
@@ -1235,7 +1235,7 @@
 }
 
 .lead-form > p {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.8);
   font-size: 14px;
   margin-bottom: 24px;
 }
@@ -1261,7 +1261,7 @@
 
 .form-disclaimer {
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.65);
   margin-top: 12px;
   text-align: center;
 }

@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTranslation } from '../../context/LanguageContext';
+import { getWhatsAppUrl } from '../../utils/whatsapp';
 import Seo from '../../components/Seo';
 import { MotionFadeUp, MotionStaggerContainer, MotionStaggerItem } from '../../motion/MotionFadeUp';
 import { staggerContainer, fadeUp, buttonHover } from '../../motion/presets';
@@ -106,14 +107,13 @@ function GrowthPage() {
             <motion.p variants={fadeUp}>{t('growth.cta.subtitle')}</motion.p>
             <motion.div className="cta-actions" variants={fadeUp}>
               <motion.button
-                className="btn btn-white"
-                onClick={() => navigate('/contact')}
-                variants={buttonHover}
-                initial="rest"
-                whileHover="hover"
-                whileTap="tap"
-              >
-                📅 {t('growth.cta.book')}
+                className="btn btn-white"                onClick={() => window.open(getWhatsAppUrl(t), '_blank')}
+                  variants={buttonHover}
+                  initial="rest"
+                  whileHover="hover"
+                  whileTap="tap"
+                >
+                  📅 {t('growth.cta.book')}
               </motion.button>
             </motion.div>
           </motion.div>

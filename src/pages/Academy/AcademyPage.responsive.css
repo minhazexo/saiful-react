@@ -1,159 +1,201 @@
 /* ===== Tablet (≤1024px) ===== */
 @media (max-width: 1024px) {
-  .academy-grid,
-  .courses-grid {
+  .enrollment-grid {
     grid-template-columns: 1fr;
+    gap: 40px;
   }
 
-  .academy-sidebar {
-    order: 1;
+  .modules-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 /* ===== Tablet Portrait (≤768px) ===== */
 @media (max-width: 768px) {
-  .academy-sidebar {
-    padding: 20px;
+  .enrollment-grid {
+    gap: 32px;
   }
 
-  .sidebar-section h3 {
-    font-size: 16px;
+  .enrollment-form {
+    padding: 28px;
   }
 
-  .sidebar-checklist li {
-    font-size: 13px;
-    gap: 8px;
+  .enrollment-form h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
   }
 
-  .sidebar-checklist label {
-    gap: 8px;
+  .enrollment-content h2 {
+    font-size: clamp(26px, 6vw, 36px);
   }
 
-  .course-card {
-    padding: 24px 20px;
-  }
-
-  .course-card h3 {
-    font-size: 18px;
-  }
-
-  .course-meta {
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .course-meta span {
-    font-size: 12px;
-  }
-
-  .course-card p {
-    font-size: 14px;
-  }
-
-  .course-detail-image {
-    height: 200px;
+  .enrollment-content > p {
+    font-size: 15px;
     margin-bottom: 24px;
   }
 
-  .course-detail-content h2 {
-    font-size: 22px;
+  .pricing-box {
+    padding: 32px 24px;
   }
 
-  .course-detail-content p {
+  .pricing-box .price {
+    font-size: 48px;
+  }
+
+  .pricing-box .price-strike {
+    font-size: 18px;
+  }
+
+  .modules-grid {
+    gap: 16px;
+  }
+
+  .module-card {
+    padding: 24px 20px;
+  }
+
+  .module-card h3 {
+    font-size: 16px;
+  }
+
+  .module-card p {
+    font-size: 13px;
+  }
+
+  .module-icon {
+    font-size: 30px;
+    margin-bottom: 14px;
+  }
+
+  .module-number {
+    font-size: 28px;
+    top: 14px;
+    right: 16px;
+  }
+
+  .pricing-features li {
     font-size: 14px;
-  }
-
-  .module-list {
-    gap: 12px;
-  }
-
-  .module-item {
-    padding: 16px;
-  }
-
-  .module-item h3 {
-    font-size: 15px;
   }
 }
 
 /* ===== Phone (≤480px) ===== */
 @media (max-width: 480px) {
-  .course-card {
-    padding: 18px 16px;
+  .enrollment-form {
+    padding: 20px;
   }
 
-  .course-card h3 {
-    font-size: 16px;
+  .enrollment-form h3 {
+    font-size: 18px;
+    margin-bottom: 16px;
   }
 
-  .course-card p {
-    font-size: 13px;
+  .enrollment-content h2 {
+    font-size: clamp(22px, 7vw, 28px);
   }
 
-  .course-meta span {
-    font-size: 11px;
-    padding: 4px 8px;
-  }
-
-  .course-actions {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .course-actions .btn {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .course-detail-image {
-    height: 160px;
-    margin-bottom: 18px;
-  }
-
-  .course-detail-content h2 {
-    font-size: 19px;
-  }
-
-  .course-detail-content p {
-    font-size: 13px;
-  }
-
-  .module-item {
-    padding: 14px;
-  }
-
-  .module-item h3 {
+  .enrollment-content > p {
     font-size: 14px;
   }
 
-  .module-item p {
-    font-size: 12px;
+  .enrollment-perks {
+    gap: 10px;
   }
 
-  .module-duration {
-    font-size: 11px;
+  .enrollment-perk {
+    font-size: 13px;
+    gap: 10px;
   }
 
-  .academy-sidebar {
-    padding: 16px;
+  .modules-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 
-  .sidebar-checklist li {
-    font-size: 12px;
+  .module-card {
+    padding: 20px 16px;
   }
 
-  .sidebar-section h3 {
+  .module-card h3 {
     font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+  .module-card p {
+    font-size: 12px;
+  }
+
+  .module-icon {
+    font-size: 26px;
+    margin-bottom: 12px;
+  }
+
+  .module-number {
+    font-size: 24px;
+    top: 12px;
+    right: 14px;
+  }
+
+  .pricing-box {
+    padding: 24px 18px;
+  }
+
+  .pricing-box .price {
+    font-size: 40px;
+  }
+
+  .pricing-box .price-strike {
+    font-size: 16px;
+  }
+
+  .pricing-box .price-tag {
+    font-size: 11px;
+    padding: 3px 10px;
+    display: block;
+    margin: 8px 0 0;
+  }
+
+  .pricing-features {
+    gap: 10px;
+    margin: 24px 0;
+  }
+
+  .pricing-features li {
+    font-size: 13px;
+  }
+
+  .enrollment-form input,
+  .enrollment-form select,
+  .enrollment-form textarea {
+    padding: 10px 12px;
+    font-size: 14px;
   }
 }
 
 /* ===== Small Phone (≤375px) ===== */
 @media (max-width: 375px) {
-  .course-card {
-    padding: 14px 12px;
+  .enrollment-form {
+    padding: 16px;
   }
 
-  .academy-sidebar {
-    padding: 12px;
+  .enrollment-form h3 {
+    font-size: 16px;
+  }
+
+  .module-card {
+    padding: 16px 14px;
+  }
+
+  .pricing-box {
+    padding: 20px 14px;
+  }
+
+  .pricing-box .price {
+    font-size: 34px;
+  }
+
+  .pricing-box .price-strike {
+    font-size: 14px;
+    display: block;
+    margin: 0 0 4px;
   }
 }

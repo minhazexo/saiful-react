@@ -52,19 +52,24 @@
 /* ===== Small Phone (≤375px) ===== */
 @media (max-width: 375px) {
   .consent-banner {
-    padding: 12px;
-    left: 6px;
-    right: 6px;
-    bottom: 6px;
-    gap: 10px;
+    padding: 14px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    gap: 12px;
   }
 
   .consent-text {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .consent-actions {
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
+  }
+
+  .consent-actions .btn {
+    min-height: 44px;
+    justify-content: center;
   }
 }

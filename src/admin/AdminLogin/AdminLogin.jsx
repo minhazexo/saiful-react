@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useAuth } from '../auth';
-import { useTranslation } from '../context/LanguageContext';
+import { useAuth } from '../../auth';
+import { useTranslation } from '../../context/LanguageContext';
 import './AdminLogin.css';
 import './AdminLogin.responsive.css';
 

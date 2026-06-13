@@ -1,6 +1,7 @@
-import { useNavigate } from 'react-router-dom';
+
 import { motion } from 'framer-motion';
 import { useTranslation } from '../../context/LanguageContext';
+import { getWhatsAppUrl } from '../../utils/whatsapp';
 import Seo from '../../components/Seo';
 import { MotionFadeUp, MotionStaggerContainer, MotionStaggerItem } from '../../motion/MotionFadeUp';
 import { staggerContainer, fadeUp, slideInLeft, buttonHover } from '../../motion/presets';
@@ -13,7 +14,6 @@ const TIMELINE_KEYS = ['2014', '2017', '2019', '2022', '2024', '2026'];
 
 function AboutPage() {
   const t = useTranslation();
-  const navigate = useNavigate();
 
   return (
     <div className="page">
@@ -123,7 +123,7 @@ function AboutPage() {
             <motion.div className="final-cta-actions" variants={fadeUp}>
               <motion.button
                 className="btn btn-white"
-                onClick={() => navigate('/contact')}
+                onClick={() => window.open(getWhatsAppUrl(t), '_blank')}
                 variants={buttonHover}
                 initial="rest"
                 whileHover="hover"

@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import api from '../api';
-import { useTranslation } from '../context/LanguageContext';
-import { useAdminList, SortHeader, Pagination } from './useAdminList';
-import ImageUploader from './ImageUploader';
+import api from '../../api';
+import { useTranslation } from '../../context/LanguageContext';
+import { useAdminList, SortHeader, Pagination } from '../useAdminList';
+import ImageUploader from '../ImageUploader';
+import '../BulkActions.css';
 import './CaseStudiesManagement.css';
 import './CaseStudiesManagement.responsive.css';
 
@@ -28,6 +29,8 @@ function CaseStudiesManagement() {
   const [showForm, setShowForm] = useState(false);
   const [editingId, setEditingId] = useState(null);
   const [formData, setFormData] = useState(emptyForm());
+
+  const [selectedIds, setSelectedIds] = useState([]);
 
   const {
     rows: cases,
@@ -133,6 +136,31 @@ function CaseStudiesManagement() {
     } catch (error) {
       const msg = error.response?.data?.error || error.message || 'Unknown error';
       window.alert(t('admin.cases.errorDelete', { msg }));
+    }
+  };
+
+  // ── Bulk Actions ──
+  const toggleSelectAll = () => {
+    if (selectedIds.length === cases.length) setSelectedIds([]);
+    else setSelectedIds(cases.map((c) => c.id));
+  };
+
+  const toggleSelect = (id) => {
+    setSelectedIds((prev) => prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]);
+  };
+
+  const handleBulkAction = async (action) => {
+    if (selectedIds.length === 0) return;
+    const confirmMsg = action === 'delete'
+      ? t('admin.cases.bulkDeleteConfirm', { count: selectedIds.length })
+      : t('admin.cases.bulkUpdateConfirm', { action, count: selectedIds.length });
+    if (!window.confirm(confirmMsg)) return;
+    try {
+      await api.post('/cases/bulk', { action, ids: selectedIds });
+      setSelectedIds([]);
+      reload();
+    } catch (err) {
+      window.alert(err.response?.data?.error || err.message || 'Unknown error');
     }
   };
 
@@ -378,6 +406,20 @@ function CaseStudiesManagement() {
               onChange={(e) => setSearch(e.target.value)}
               aria-label={t('admin.cases.searchAria')}
             />
+            {selectedIds.length > 0 && (
+              <div className="bulk-actions">
+                <span className="bulk-count">{t('admin.blog.selectedCount', { count: selectedIds.length })}</span>
+                <button type="button" className="btn btn-sm btn-primary" onClick={() => handleBulkAction('feature')}>
+                  {t('admin.cases.bulkFeature')}
+                </button>
+                <button type="button" className="btn btn-sm btn-outline" onClick={() => handleBulkAction('unfeature')}>
+                  {t('admin.cases.bulkUnfeature')}
+                </button>
+                <button type="button" className="btn btn-sm btn-danger" onClick={() => handleBulkAction('delete')}>
+                  {t('common.delete')}
+                </button>
+              </div>
+            )}
           </div>
 
           <div className="management-list">
@@ -391,6 +433,14 @@ function CaseStudiesManagement() {
               <table className="management-table">
                 <thead>
                   <tr>
+                    <th className="col-checkbox">
+                      <input
+                        type="checkbox"
+                        checked={selectedIds.length === cases.length && cases.length > 0}
+                        onChange={toggleSelectAll}
+                        aria-label={t('admin.cases.selectAll')}
+                      />
+                    </th>
                     <SortHeader field="title" sort={sort} order={order} onSort={toggleSort}>
                       {t('admin.cases.col.title')}
                     </SortHeader>
@@ -406,6 +456,14 @@ function CaseStudiesManagement() {
                 <tbody>
                   {cases.map((c) => (
                     <tr key={c.id}>
+                      <td className="col-checkbox">
+                        <input
+                          type="checkbox"
+                          checked={selectedIds.includes(c.id)}
+                          onChange={() => toggleSelect(c.id)}
+                          aria-label={`${t('admin.cases.selectCase')} ${c.title}`}
+                        />
+                      </td>
                       <td>{c.title}</td>
                       <td>{c.category}</td>
                       <td>

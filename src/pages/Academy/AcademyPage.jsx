@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import api, { IS_DEMO_MODE } from '../../api';
 import { useTranslation } from '../../context/LanguageContext';
@@ -34,6 +34,12 @@ function AcademyPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
+  const timerRef = useRef(null);
+
+  useEffect(() => () => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+  }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -50,10 +56,10 @@ function AcademyPage() {
       });
       setSubmitStatus('success');
       setFormData({ name: '', email: '', whatsapp: '', stage: '', goals: '' });
-      setTimeout(() => setSubmitStatus(null), 5000);
+      timerRef.current = setTimeout(() => setSubmitStatus(null), 5000);
     } catch (err) {
       setSubmitStatus(IS_DEMO_MODE || err?.isDemoMode ? 'demo' : 'error');
-      setTimeout(() => setSubmitStatus(null), 5000);
+      timerRef.current = setTimeout(() => setSubmitStatus(null), 5000);
     } finally {
       setIsSubmitting(false);
     }

@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const jwt = require('jsonwebtoken');
 const { Op } = require('sequelize');
 const db = require('../models');
 const auth = require('../middleware/auth');
-const { requireRole } = auth;
+const { requireRole, getSecret, COOKIE_NAME: AUTH_COOKIE } = auth;
+const { audit, auditBulk } = require('../middleware/audit');
 
 const CASE_FIELDS = [
   'title', 'slug', 'category', 'icon', 'challenge', 'solution',
@@ -42,6 +44,15 @@ function parseListOptions(query, defaults = {}) {
 router.get('/', async (req, res, next) => {
   try {
     const includeAll = req.query.status === 'all';
+    if (includeAll) {
+      const token = (req.cookies && req.cookies[AUTH_COOKIE])
+        || (req.header('Authorization') || '').replace('Bearer ', '');
+      if (!token) {
+        return res.status(401).json({ error: 'Authentication required' });
+      }
+      try { jwt.verify(token, getSecret()); }
+      catch { return res.status(401).json({ error: 'Invalid or expired token' }); }
+    }
     const { limit, offset, sortField, orderDir, q } = parseListOptions(req.query);
     const where = includeAll ? {} : { featured: true };
     if (q) {
@@ -78,7 +89,7 @@ router.get('/:slug', async (req, res, next) => {
   }
 });
 
-router.post('/', auth, async (req, res, next) => {
+router.post('/', auth, audit('create', 'case_study'), async (req, res, next) => {
   try {
     const data = pickCaseFields(req.body);
     if (!data.title || !data.slug || !data.category || !data.icon || !data.challenge || !data.solution || !data.result) {
@@ -116,7 +127,7 @@ router.post('/', auth, async (req, res, next) => {
   }
 });
 
-router.put('/:id', auth, async (req, res, next) => {
+router.put('/:id', auth, audit('update', 'case_study'), async (req, res, next) => {
   try {
     const caseStudy = await db.CaseStudy.findByPk(req.params.id);
     if (!caseStudy) {
@@ -150,7 +161,7 @@ router.put('/:id', auth, async (req, res, next) => {
   }
 });
 
-router.delete('/:id', auth, requireRole('admin'), async (req, res, next) => {
+router.delete('/:id', auth, requireRole('admin'), audit('delete', 'case_study'), async (req, res, next) => {
   try {
     const caseStudy = await db.CaseStudy.findByPk(req.params.id);
     if (!caseStudy) {
@@ -158,6 +169,36 @@ router.delete('/:id', auth, requireRole('admin'), async (req, res, next) => {
     }
     await caseStudy.destroy();
     res.json({ message: 'Case study deleted' });
+  } catch (err) {
+    next(err);
+  }
+});
+
+// ── Bulk Actions ──
+
+router.post('/bulk', auth, requireRole('admin'), async (req, res, next) => {
+  try {
+    const { action, ids } = req.body || {};
+    if (!Array.isArray(ids) || ids.length === 0) {
+      return res.status(400).json({ error: 'ids array is required' });
+    }
+    if (!['feature', 'unfeature', 'delete'].includes(action)) {
+      return res.status(400).json({ error: 'Invalid action' });
+    }
+
+    if (action === 'delete') {
+      const count = await db.CaseStudy.destroy({ where: { id: ids } });
+      await auditBulk(req, 'bulk_delete', 'case_study', ids, { count });
+      return res.json({ message: `${count} case studies deleted`, count });
+    }
+
+    const updates = {};
+    if (action === 'feature') updates.featured = true;
+    if (action === 'unfeature') updates.featured = false;
+
+    const [count] = await db.CaseStudy.update(updates, { where: { id: ids } });
+    await auditBulk(req, 'bulk_update', 'case_study', ids, { action, count });
+    res.json({ message: `${count} case studies updated`, count });
   } catch (err) {
     next(err);
   }

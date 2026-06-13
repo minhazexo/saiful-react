@@ -1,12 +1,14 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { fadeUp, inViewOnce, fadeUpSmall } from './presets';
 
-/**
- * A drop-in motion wrapper that fades + slides its children up
- * when scrolled into view. Lightweight, no extra props required.
- */
+const MotionDiv = motion.div;
+const MotionSpan = motion.span;
+
+const TagDiv = 'div';
+const TagSpan = 'span';
+
 export function MotionFadeUp({
-  as: Component = 'div',
+  as: asProp = 'div',
   className,
   children,
   amount = 0.2,
@@ -14,16 +16,18 @@ export function MotionFadeUp({
   ...rest
 }) {
   const shouldReduceMotion = useReducedMotion();
-  const MotionTag = typeof Component === 'string' ? motion[Component] : motion(Component);
+  const as = asProp === 'span' ? 'span' : 'div';
 
   if (shouldReduceMotion) {
+    const Tag = as === 'span' ? TagSpan : TagDiv;
     return (
-      <Component className={className} {...rest}>
+      <Tag className={className} {...rest}>
         {children}
-      </Component>
+      </Tag>
     );
   }
 
+  const MotionTag = as === 'span' ? MotionSpan : MotionDiv;
   return (
     <MotionTag
       className={className}
@@ -39,12 +43,8 @@ export function MotionFadeUp({
   );
 }
 
-/**
- * Wraps a list/grid to fade-up each child in sequence as it scrolls into view.
- * Use MotionStaggerItem as the direct child.
- */
 export function MotionStaggerContainer({
-  as: Component = 'div',
+  as: asProp = 'div',
   className,
   children,
   staggerDelay = 0.1,
@@ -53,16 +53,18 @@ export function MotionStaggerContainer({
   ...rest
 }) {
   const shouldReduceMotion = useReducedMotion();
-  const MotionTag = typeof Component === 'string' ? motion[Component] : motion(Component);
+  const as = asProp === 'span' ? 'span' : 'div';
 
   if (shouldReduceMotion) {
+    const Tag = as === 'span' ? TagSpan : TagDiv;
     return (
-      <Component className={className} {...rest}>
+      <Tag className={className} {...rest}>
         {children}
-      </Component>
+      </Tag>
     );
   }
 
+  const MotionTag = as === 'span' ? MotionSpan : MotionDiv;
   return (
     <MotionTag
       className={className}
@@ -82,9 +84,10 @@ export function MotionStaggerContainer({
   );
 }
 
-/** Direct child of MotionStaggerContainer — fades up. */
-export function MotionStaggerItem({ as: Component = 'div', className, children, ...rest }) {
-  const MotionTag = typeof Component === 'string' ? motion[Component] : motion(Component);
+export function MotionStaggerItem({ as: asProp = 'div', className, children, ...rest }) {
+  const as = asProp === 'span' ? 'span' : 'div';
+  const MotionTag = as === 'span' ? MotionSpan : MotionDiv;
+
   return (
     <MotionTag className={className} variants={fadeUpSmall} {...rest}>
       {children}
@@ -92,5 +95,5 @@ export function MotionStaggerItem({ as: Component = 'div', className, children, 
   );
 }
 
-/** Re-export viewport helper. */
 export { inViewOnce };
+

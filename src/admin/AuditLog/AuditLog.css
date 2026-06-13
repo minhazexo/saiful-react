@@ -1,0 +1,59 @@
+.audit-table .badge-action {
+  font-size: 11px;
+  padding: 3px 8px;
+  white-space: nowrap;
+}
+
+.badge-action.badge-create {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.badge-action.badge-update {
+  background: #dbeafe;
+  color: #0369a1;
+}
+
+.badge-action.badge-delete {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.badge-action.badge-login {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+.badge-action.badge-logout {
+  background: #f3e8ff;
+  color: #6b21a8;
+}
+
+.badge-action.badge-bulk_delete {
+  background: #fecaca;
+  color: #991b1b;
+}
+
+.badge-action.badge-bulk_update {
+  background: #fed7aa;
+  color: #9a3412;
+}
+
+.audit-date {
+  white-space: nowrap;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.audit-ip {
+  font-family: monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .audit-ip,
+  .audit-date {
+    font-size: 12px;
+  }
+}

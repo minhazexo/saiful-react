@@ -1,13 +1,14 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import api, { IS_DEMO_MODE } from '../../api';
 import { useTranslation } from '../../context/LanguageContext';
-import FAQ from '../../components/FAQ';
+import FAQ from '../../components/FAQ/FAQ';
 import Seo from '../../components/Seo';
 import { MotionFadeUp, MotionStaggerContainer, MotionStaggerItem } from '../../motion/MotionFadeUp';
 import { fadeUp, fadeUpSmall, staggerContainer, staggerGrid, buttonHover } from '../../motion/presets';
 import { assetPath } from '../../utils/assets';
+import { getWhatsAppUrl } from '../../utils/whatsapp';
 import './HomePage.css';
 import './HomePage.responsive.css';
 
@@ -57,6 +58,32 @@ function HomePage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [captcha, setCaptcha] = useState({ id: '', prompt: '' });
+  const [captchaAnswer, setCaptchaAnswer] = useState('');
+
+  const timerRef = useRef(null);
+
+  useEffect(() => () => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+  }, []);
+
+  const fetchCaptcha = async () => {
+    if (IS_DEMO_MODE) {
+      setCaptcha({ id: '', prompt: '' });
+      return;
+    }
+    try {
+      const { data } = await api.get('/contact/captcha');
+      setCaptcha({ id: data.id, prompt: data.prompt });
+      setCaptchaAnswer('');
+    } catch {
+      setCaptcha({ id: '', prompt: '' });
+    }
+  };
+
+  useEffect(() => {
+    fetchCaptcha();
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -70,13 +97,18 @@ function HomePage() {
       await api.post('/contact', {
         ...formData,
         source: 'lead-magnet',
+        captchaId: captcha.id,
+        captchaAnswer,
       });
       setSubmitStatus('success');
       setFormData({ name: '', email: '', whatsapp: '' });
-      setTimeout(() => setSubmitStatus(null), 5000);
+      setCaptchaAnswer('');
+      fetchCaptcha();
+      timerRef.current = setTimeout(() => setSubmitStatus(null), 5000);
     } catch (err) {
       setSubmitStatus(IS_DEMO_MODE || err?.isDemoMode ? 'demo' : 'error');
-      setTimeout(() => setSubmitStatus(null), 5000);
+      if (!IS_DEMO_MODE && !err?.isDemoMode) fetchCaptcha();
+      timerRef.current = setTimeout(() => setSubmitStatus(null), 5000);
     } finally {
       setIsSubmitting(false);
     }
@@ -112,7 +144,7 @@ function HomePage() {
               <motion.div className="hero-actions" variants={fadeUpSmall}>
                 <motion.button
                   className="hero-btn hero-btn-primary"
-                  onClick={() => navigate('/contact')}
+                  onClick={() => window.open(getWhatsAppUrl(t), '_blank')}
                   variants={buttonHover}
                   initial="rest"
                   whileHover="hover"
@@ -669,6 +701,37 @@ function HomePage() {
                     required
                   />
                 </div>
+
+                {!IS_DEMO_MODE && (
+                  <div className="form-group captcha-group">
+                    <label htmlFor="lead-captcha">
+                      {t('contact.captchaLabel', { prompt: captcha.prompt || '…' })}
+                    </label>
+                    <div className="captcha-row">
+                      <input
+                        id="lead-captcha"
+                        type="text"
+                        inputMode="numeric"
+                        autoComplete="off"
+                        value={captchaAnswer}
+                        onChange={(e) => setCaptchaAnswer(e.target.value)}
+                        required
+                        aria-describedby="lead-captcha-help"
+                      />
+                      <button
+                        type="button"
+                        className="btn btn-outline"
+                        onClick={fetchCaptcha}
+                        aria-label={t('contact.newCaptcha')}
+                      >
+                        ↻ {t('contact.captchaNew')}
+                      </button>
+                    </div>
+                    <small id="lead-captcha-help" className="captcha-help">
+                      {t('contact.captchaHelp')}
+                    </small>
+                  </div>
+                )}
 
                 <motion.button
                   type="submit"

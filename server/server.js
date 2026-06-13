@@ -124,6 +124,7 @@ process.on('unhandledRejection', (err) => {
 });
 process.on('uncaughtException', (err) => {
   console.error('[uncaughtException]', err);
+  process.exit(1);
 });
 
 db.sequelize.authenticate()
@@ -147,6 +148,8 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/blog', require('./routes/blog'));
 app.use('/api/cases', require('./routes/cases'));
 app.use('/api/contact', require('./routes/contact'));
+app.use('/api/admin/users', require('./routes/admin-users'));
+app.use('/api/audit', require('./routes/audit'));
 
 const uploadRouter = require('./routes/upload');
 app.use('/api/upload', uploadRouter);

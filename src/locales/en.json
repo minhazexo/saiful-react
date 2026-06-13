@@ -686,7 +686,9 @@
       "password": "Change password",
       "logout": "Logout",
       "openSidebar": "Open sidebar",
-      "closeSidebar": "Close sidebar"
+      "closeSidebar": "Close sidebar",
+      "users": "Admin Users",
+      "audit": "Activity Log"
     },
     "login": {
       "title": "Admin Dashboard",
@@ -712,6 +714,29 @@
         "contacts": { "title": "Contacts", "desc": "View inquiries" }
       }
     },
+    "password": {
+      "title": "Change password",
+      "currentLabel": "Current password *",
+      "newLabel": "New password *",
+      "confirmLabel": "Confirm new password *",
+      "help": "At least 12 characters, no whitespace.",
+      "submit": "Update password",
+      "submitting": "Saving…",
+      "success": "Password updated",
+      "error": "Failed to update password",
+      "mismatch": "New passwords do not match"
+    },
+    "imageUploader": {
+      "upload": "Upload",
+      "uploading": "Uploading…",
+      "clear": "Clear",
+      "placeholder": "https://… or /uploads/…",
+      "tooLarge": "File is too large. Max size is 5 MB.",
+      "noUrl": "Upload succeeded but no URL was returned.",
+      "unauthorized": "You are not logged in. Please sign in again.",
+      "forbidden": "Permission denied (CSRF or auth). Please refresh and try again.",
+      "preview": "Preview"
+    },
     "blog": {
       "title": "Blog Posts",
       "edit": "Edit Blog Post",
@@ -720,7 +745,7 @@
       "titleLabel": "Title *",
       "slugLabel": "Slug *",
       "excerptLabel": "Excerpt *",
-      "contentLabel": "Content (Markdown supported)",
+      "contentLabel": "Content",
       "categoryLabel": "Category *",
       "authorLabel": "Author",
       "readTimeLabel": "Read Time (minutes)",
@@ -740,11 +765,23 @@
       "deleteConfirm": "Are you sure you want to delete this post?",
       "statusPublished": "Published",
       "statusDraft": "Draft",
+      "selectedCount": "{{count}} selected",
+      "selectAll": "Select all posts",
+      "selectPost": "Select",
+      "bulkPublish": "Publish",
+      "bulkUnpublish": "Unpublish",
+      "bulkFeature": "Feature",
+      "bulkPublishConfirm": "Publish {{count}} selected posts?",
+      "bulkUnpublishConfirm": "Unpublish {{count}} selected posts?",
+      "bulkFeatureConfirm": "Feature {{count}} selected posts?",
+      "bulkUnfeatureConfirm": "Unfeature {{count}} selected posts?",
+      "bulkDeleteConfirm": "Delete {{count}} selected posts?",
       "col": {
         "title": "Title",
         "category": "Category",
         "author": "Author",
-        "status": "Status"
+        "status": "Status",
+        "views": "Views"
       }
     },
     "cases": {
@@ -783,6 +820,12 @@
       "deleteConfirm": "Are you sure you want to delete this case study?",
       "statusFeatured": "Featured",
       "statusStandard": "Standard",
+      "selectAll": "Select all case studies",
+      "selectCase": "Select",
+      "bulkFeature": "Feature",
+      "bulkUnfeature": "Unfeature",
+      "bulkDeleteConfirm": "Delete {{count}} selected case studies?",
+      "bulkUpdateConfirm": "{{action}} {{count}} selected case studies?",
       "col": {
         "title": "Title",
         "category": "Category",
@@ -790,8 +833,8 @@
       }
     },
     "contacts": {
-      "title": "Contacts",
-      "subtitle": "Contact Inquiries",
+      "title": "Contact Inquiries",
+      "subtitle": "Manage contact inquiries",
       "new": "New",
       "contacted": "Contacted",
       "interested": "Interested",
@@ -811,6 +854,9 @@
       "errorUpdate": "Error updating contact status: {{msg}}",
       "errorDelete": "Error deleting contact: {{msg}}",
       "errorLoad": "Failed to load",
+      "selectAll": "Select all contacts",
+      "selectContact": "Select",
+      "bulkDeleteConfirm": "Delete {{count}} selected contacts?",
       "col": {
         "name": "Name",
         "email": "Email",
@@ -821,28 +867,83 @@
         "actions": "Actions"
       }
     },
-    "password": {
-      "title": "Change password",
-      "currentLabel": "Current password *",
-      "newLabel": "New password *",
-      "confirmLabel": "Confirm new password *",
-      "help": "At least 12 characters, no whitespace.",
-      "submit": "Update password",
-      "submitting": "Saving…",
-      "success": "Password updated",
-      "error": "Failed to update password",
-      "mismatch": "New passwords do not match"
+    "users": {
+      "title": "Admin Users",
+      "edit": "Edit User",
+      "new": "New User",
+      "cancel": "Cancel",
+      "emailLabel": "Email *",
+      "nameLabel": "Name",
+      "passwordLabel": "Password *",
+      "passwordOptional": "Password (leave blank to keep current)",
+      "passwordHelp": "At least 12 characters.",
+      "roleLabel": "Role",
+      "roleAdmin": "Admin",
+      "roleEditor": "Editor",
+      "save": "Save Changes",
+      "create": "Create User",
+      "loading": "Loading…",
+      "noItems": "No admin users found.",
+      "errorLoad": "Failed to load users",
+      "deleteConfirm": "Delete {{email}}?",
+      "col": {
+        "name": "Name",
+        "email": "Email",
+        "role": "Role",
+        "created": "Created"
+      }
     },
-    "imageUploader": {
-      "upload": "Upload",
-      "uploading": "Uploading…",
-      "clear": "Clear",
-      "placeholder": "https://… or /uploads/…",
-      "tooLarge": "File is too large. Max size is 5 MB.",
-      "noUrl": "Upload succeeded but no URL was returned.",
-      "unauthorized": "You are not logged in. Please sign in again.",
-      "forbidden": "Permission denied (CSRF or auth). Please refresh and try again.",
-      "preview": "Preview"
+    "audit": {
+      "title": "Activity Log",
+      "subtitle": "All admin actions are logged here",
+      "loading": "Loading…",
+      "noItems": "No activity recorded yet.",
+      "errorLoad": "Failed to load activity log",
+      "searchAdmin": "Search by admin email…",
+      "searchAria": "Search activity log",
+      "filterResource": "Filter by resource",
+      "filterAction": "Filter by action",
+      "allResources": "All Resources",
+      "allActions": "All Actions",
+      "actionCreate": "Create",
+      "actionUpdate": "Update",
+      "actionDelete": "Delete",
+      "actionLogin": "Login",
+      "actionLogout": "Logout",
+      "actionBulkDelete": "Bulk Delete",
+      "actionBulkUpdate": "Bulk Update",
+      "resourceBlog": "Blog",
+      "resourceCase": "Case Study",
+      "resourceContact": "Contact",
+      "resourceAdmin": "Admin",
+      "col": {
+        "date": "Date",
+        "admin": "Admin",
+        "action": "Action",
+        "resource": "Resource",
+        "resourceId": "ID",
+        "ip": "IP"
+      }
+    },
+    "rte": {
+      "placeholder": "Start writing…",
+      "contentLabel": "Content editor",
+      "groupLabel": "Editor toolbar",
+      "bold": "Bold",
+      "italic": "Italic",
+      "strike": "Strikethrough",
+      "h1": "Heading 1",
+      "h2": "Heading 2",
+      "h3": "Heading 3",
+      "bulletList": "Bullet list",
+      "orderedList": "Ordered list",
+      "blockquote": "Blockquote",
+      "link": "Link",
+      "image": "Image",
+      "undo": "Undo",
+      "redo": "Redo",
+      "imagePrompt": "Enter image URL:",
+      "linkPrompt": "Enter URL:"
     },
     "pagination": {
       "label": "Pagination",
