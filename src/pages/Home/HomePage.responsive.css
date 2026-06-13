@@ -58,18 +58,13 @@
   }
 }
 
-@media (max-width: 1150px) {
-  .package-card.featured {
-    transform: none;
-  }
-
-  .package-card.featured:hover {
-    transform: translateY(-6px);
-  }
-}
-
 /* ===== Tablet (≤1024px) ===== */
 @media (max-width: 1024px) {
+  .packages-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
   .hero-grid,
   .founder-grid,
   .lead-grid,
@@ -154,11 +149,7 @@
   }
 
   .package-card.featured {
-    transform: none;
-  }
-
-  .package-card.featured:hover {
-    transform: translateY(-6px);
+    padding: 48px 32px;
   }
 }
 
@@ -322,26 +313,35 @@
   }
 
   .case-card {
-    padding: 24px 22px;
+    padding: 24px 20px;
+  }
+
+  .case-card .case-header {
     gap: 14px;
+    margin-bottom: 16px;
   }
 
-  .case-icon-wrap {
-    width: 48px;
-    height: 48px;
-    min-width: 48px;
-    border-radius: 14px;
+  .case-card .case-header-icon {
+    font-size: 36px;
   }
 
-  .case-icon {
-    font-size: 24px;
+  .case-card .case-header-text h3 {
+    font-size: 18px;
   }
 
-  .case-title {
-    font-size: 20px;
+  .case-card .case-block {
+    margin-bottom: 14px;
   }
 
-  .case-result-highlight {
+  .case-card .case-block p {
+    font-size: 14px;
+  }
+
+  .case-card .case-highlight-box {
+    padding: 14px;
+  }
+
+  .case-card .case-highlight-value {
     font-size: 20px;
   }
 }
@@ -385,16 +385,6 @@
     padding: 14px 24px;
     font-size: 15px;
     border-radius: 12px;
-  }
-
-  .hero-social-proof {
-    flex-wrap: wrap;
-  }
-
-  .hero-avatar {
-    width: 36px;
-    height: 36px;
-    font-size: 13px;
   }
 
   .service-card {
@@ -535,7 +525,7 @@
   }
 
   .package-card.featured {
-    padding: 36px 24px;
+    padding: 40px 24px;
   }
 
   .package-name {
@@ -624,39 +614,35 @@
   }
 
   .case-card {
-    padding: 20px 18px;
+    padding: 18px 16px;
+  }
+
+  .case-card .case-header {
     gap: 12px;
+    margin-bottom: 14px;
   }
 
-  .case-header {
-    gap: 10px;
+  .case-card .case-header-icon {
+    font-size: 30px;
   }
 
-  .case-icon-wrap {
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
-    border-radius: 12px;
-  }
-
-  .case-icon {
-    font-size: 20px;
-  }
-
-  .case-category {
-    font-size: 11px;
-    padding: 3px 8px;
-  }
-
-  .case-title {
+  .case-card .case-header-text h3 {
     font-size: 17px;
   }
 
-  .case-section-text {
+  .case-card .case-block {
+    margin-bottom: 12px;
+  }
+
+  .case-card .case-block p {
     font-size: 13px;
   }
 
-  .case-result-highlight {
+  .case-card .case-highlight-box {
+    padding: 12px;
+  }
+
+  .case-card .case-highlight-value {
     font-size: 18px;
   }
 

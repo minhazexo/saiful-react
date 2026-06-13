@@ -39,15 +39,7 @@ const CASE_KEYS = [
 ];
 
 const CASE_ICONS = ['👜', '🎧', '👗', '🌿', '💻', '🧶'];
-const CASE_GRADIENTS = [
-  'linear-gradient(135deg,#FFE7CC,#fff)',
-  'linear-gradient(135deg,#DBEAFE,#fff)',
-  'linear-gradient(135deg,#FCE7F3,#fff)',
-  'linear-gradient(135deg,#D1FAE5,#fff)',
-  'linear-gradient(135deg,#E0E7FF,#fff)',
-  'linear-gradient(135deg,#FEF3C7,#fff)',
-];
-
+const CASE_TITLES = ['Leathix', 'Future Connect', 'Fashion Nova BD', 'NaturalGlow BD', 'TechZone BD', 'Crafty Hands'];
 function HomePage() {
   const t = useTranslation();
   const navigate = useNavigate();
@@ -131,12 +123,8 @@ function HomePage() {
                 <span>{t('home.eyebrow')}</span>
               </motion.div>
               <motion.h1 className="hero-title" variants={fadeUp}>
-                <span className="hero-title-navy">
-                  Launch, Build &amp;<br />Grow Your
-                </span>
-                <span className="hero-title-orange">
-                  E-commerce<br />Business
-                </span>
+                <span className="hero-title-navy">{t('home.heroTitle1')}</span>
+                <span className="hero-title-orange">{t('home.heroTitle2')}</span>
               </motion.h1>
               <motion.p className="hero-description" variants={fadeUpSmall}>
                 {t('home.heroSubtitle')}
@@ -164,21 +152,6 @@ function HomePage() {
                 </motion.button>
               </motion.div>
 
-              <motion.div className="hero-social-proof" variants={fadeUpSmall}>
-                <div className="hero-avatars">
-                  <div className="hero-avatar" style={{ background: '#FF7A00' }}>S</div>
-                  <div className="hero-avatar" style={{ background: '#2563EB' }}>R</div>
-                  <div className="hero-avatar" style={{ background: '#10B981' }}>N</div>
-                  <div className="hero-avatar" style={{ background: '#F59E0B' }}>T</div>
-                </div>
-                <div>
-                  <div className="hero-stars">★★★★★</div>
-                  <div className="hero-proof-text">
-                    {t('home.trustedBy')} <strong>{t('home.trustedByCount')}</strong>{' '}
-                    {t('home.trustedBySuffix')}
-                  </div>
-                </div>
-              </motion.div>
             </motion.div>
 
             <motion.div
@@ -396,7 +369,7 @@ function HomePage() {
             <p>{t('home.packages.subtitle')}</p>
           </MotionFadeUp>
 
-          <MotionStaggerContainer className="grid grid-3">
+          <MotionStaggerContainer className="packages-grid">
             {PACKAGE_KEYS.map((key) => {
               const featured = key === 'setup';
               const featureKeys =
@@ -409,11 +382,13 @@ function HomePage() {
                 <MotionStaggerItem
                   key={key}
                   className={`package-card ${featured ? 'featured' : ''}`}
-                  style={featured ? { transformOrigin: 'center top' } : undefined}
                 >
                   {featured && (
                     <div className="package-badge">⭐ {t('home.packages.mostPopular')}</div>
                   )}
+                  <div className="package-icon">
+                    {key === 'academy' ? '🎓' : key === 'setup' ? '🚀' : '📈'}
+                  </div>
                   <h3 className="package-name">{t(`home.packages.${key}.name`)}</h3>
                   <div className="package-price">
                     {t(`home.packages.${key}.price`)}
@@ -552,27 +527,29 @@ function HomePage() {
             {CASE_KEYS.map((key, i) => (
               <MotionStaggerItem key={key} className="case-card">
                 <div className="case-header">
-                  <div className="case-icon-wrap" style={{ background: CASE_GRADIENTS[i] }}>
-                    <span className="case-icon" aria-hidden="true">
-                      {CASE_ICONS[i]}
-                    </span>
+                  <div className="case-header-icon" aria-hidden="true">
+                    {CASE_ICONS[i]}
                   </div>
-                  <span className="case-category">{t(`caseStudies.defaults.${key}.category`)}</span>
-                </div>
-                <h3 className="case-title">{t(`caseStudies.defaults.${key}.title`)}</h3>
-                <div className="case-section">
-                  <span className="case-section-label">{t('home.cases.challenge')}</span>
-                  <p className="case-section-text">{t(`caseStudies.defaults.${key}.challenge`)}</p>
-                </div>
-                <div className="case-section">
-                  <span className="case-section-label">{t('home.cases.solution')}</span>
-                  <p className="case-section-text">{t(`caseStudies.defaults.${key}.solution`)}</p>
-                </div>
-                <div className="case-result">
-                  <span className="case-result-label">{t('home.cases.result')}</span>
-                  <div className="case-result-highlight">
-                    {t(`caseStudies.defaults.${key}.highlight`)}
+                  <div className="case-header-text">
+                    <span className="case-category">{t(`caseStudies.defaults.${key}.category`)}</span>
+                    <h3>{CASE_TITLES[i]}</h3>
                   </div>
+                </div>
+                <div className="case-block">
+                  <div className="case-block-label">{t('home.cases.challenge')}</div>
+                  <p>{t(`caseStudies.defaults.${key}.challenge`)}</p>
+                </div>
+                <div className="case-block">
+                  <div className="case-block-label">{t('home.cases.solution')}</div>
+                  <p>{t(`caseStudies.defaults.${key}.solution`)}</p>
+                </div>
+                <div className="case-block">
+                  <div className="case-block-label">{t('home.cases.result')}</div>
+                  <p>{t(`caseStudies.defaults.${key}.result`)}</p>
+                </div>
+                <div className="case-highlight-box">
+                  <div className="case-highlight-label">{t('caseStudies.keyOutcome')}</div>
+                  <div className="case-highlight-value">{t(`caseStudies.defaults.${key}.highlight`)}</div>
                 </div>
               </MotionStaggerItem>
             ))}

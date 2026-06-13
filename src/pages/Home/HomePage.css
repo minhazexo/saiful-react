@@ -147,50 +147,6 @@
   transform: translateY(-3px);
 }
 
-/* ===== Social Proof ===== */
-.hero-social-proof {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.hero-avatars {
-  display: flex;
-}
-
-.hero-avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 15px;
-  border: 3px solid #FAF7F3;
-  margin-left: -12px;
-}
-
-.hero-avatar:first-child {
-  margin-left: 0;
-}
-
-.hero-stars {
-  color: var(--warning);
-  font-size: 15px;
-  letter-spacing: 3px;
-}
-
-.hero-proof-text {
-  font-size: 14px;
-  color: var(--text-muted);
-}
-
-.hero-proof-text strong {
-  color: var(--dark);
-}
-
 /* ===== Right Visual ===== */
 .hero-visual {
   position: relative;
@@ -352,20 +308,20 @@
 
 .trust-num {
   font-family: var(--font-heading);
-  font-size: clamp(18px, 2.5vw, 30px);
-  font-weight: 900;
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 700;
   color: var(--orange);
   line-height: 1;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .trust-num span {
-  font-size: 28px;
+  font-size: 30px;
 }
 
 .trust-label {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 15px;
 }
 
 /* ============ START HERE / STAGES ============ */
@@ -424,7 +380,7 @@
 }
 
 .problems-col {
-  background: rgba(255, 0, 0, 0.401);
+  background: rgba(255, 0, 0, 0.182);
   border-radius: var(--radius);
   padding: 36px;
   border: 1px solid var(--border);
@@ -434,7 +390,7 @@
 }
 
 .problems-good-col {
-  background: rgba(21, 208, 8, 0.508);
+  background: rgba(21, 208, 8, 0.258);
   border-color: var(--orange-soft);
 }
 
@@ -595,7 +551,7 @@
   background: #fff;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 36px 28px;
+  padding: 40px 32px;
   text-align: left;
   transition: all var(--t);
   position: relative;
@@ -608,58 +564,173 @@
   box-shadow: var(--shadow-lg);
 }
 
+.packages-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 2.4fr 1.5fr;
+  gap: 24px;
+}
+
+/* Icon at top of every card */
+.package-icon {
+  font-size: 42px;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+/* Center icons on side cards, keep featured icon left-aligned */
+.package-card:not(.featured) .package-icon {
+  text-align: center;
+}
+
+/* ===== Featured (Most Popular) ===== */
 .package-card.featured {
-  border: 2px solid var(--orange);
-  transform: scale(1.08);
-  padding: 52px 36px;
-  box-shadow: 0 20px 50px rgba(255, 122, 0, 0.15), 0 0 0 2px rgba(255, 122, 0, 0.08);
+  background: linear-gradient(145deg, var(--dark) 0%, var(--dark-2) 100%);
+  border: none;
+  padding: 56px 44px 48px;
+  box-shadow:
+    0 30px 70px rgba(15, 23, 42, 0.3);
   position: relative;
   z-index: 2;
 }
 
-
-.package-card.featured .package-name {
-  font-size: 26px;
-}
-
-.package-card.featured .package-price {
-  font-size: 48px;
-}
-
-.package-card.featured .package-desc {
-  font-size: 15px;
-  min-height: 48px;
-}
-
-.package-card.featured .package-features li {
-  font-size: 15px;
-  gap: 12px;
-}
-
-.package-card.featured .btn {
-  padding: 16px 24px;
-  font-size: 17px;
-}
-
+/* Animated orange gradient border glow */
 .package-card.featured::before {
   content: '';
   position: absolute;
-  inset: -3px;
-  border-radius: calc(var(--radius) + 3px);
-  background: linear-gradient(135deg, var(--orange), #ff4d00, var(--orange));
+  inset: 0;
+  border-radius: var(--radius);
+  padding: 2px;
+  background: linear-gradient(135deg, var(--orange), rgba(255, 122, 0, 0.15), var(--orange));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
   z-index: -1;
-  opacity: 0.5;
   animation: featuredGlow 3s ease-in-out infinite;
+}
+
+/* Subtle top inset highlight */
+.package-card.featured::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 122, 0, 0.15), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.package-card.featured .package-icon {
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.package-card.featured .package-name {
+  color: #fff;
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.package-card.featured .package-price {
+  color: #fff;
+  font-size: 60px;
+  margin-bottom: 12px;
+}
+
+.package-card.featured .package-price span {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.package-card.featured .package-desc {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  min-height: 48px;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+.package-card.featured .package-features {
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.package-card.featured .package-features li {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 16px;
+  gap: 14px;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.package-card.featured .package-features li:last-child {
+  border-bottom: none;
+}
+
+.package-card.featured .check {
+  color: var(--orange);
+  font-size: 18px;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 122, 0, 0.15);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.package-card.featured .btn {
+  background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+  color: #fff;
+  padding: 18px 28px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba(255, 122, 0, 0.4);
+  letter-spacing: 0.3px;
+}
+
+.package-card.featured .btn:hover {
+  background: linear-gradient(135deg, #ff8a1a, var(--orange-dark));
+  box-shadow: 0 14px 36px rgba(255, 122, 0, 0.55);
+}
+
+/* Best Value badge */
+.package-card.featured .package-value-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: var(--success);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin-top: -4px;
+  margin-bottom: 16px;
 }
 
 @keyframes featuredGlow {
   0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.7; }
+  50% { opacity: 0.6; }
 }
 
 .package-card.featured:hover {
-  transform: scale(1.08) translateY(-6px);
-  box-shadow: 0 30px 60px rgba(255, 122, 0, 0.25);
+  transform: translateY(-6px);
+  box-shadow:
+    0 40px 80px rgba(15, 23, 42, 0.4);
+}
+
+.package-card.featured:hover::before {
+  opacity: 0.8;
 }
 
 .package-badge {
@@ -667,15 +738,16 @@
   top: -16px;
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(135deg, var(--orange), #ff4d00);
+  background: linear-gradient(135deg, #ff8a00, #ff4d00);
   color: #fff;
-  padding: 8px 20px;
+  padding: 10px 24px;
   border-radius: var(--radius-pill);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
-  box-shadow: 0 6px 20px rgba(255, 122, 0, 0.4);
+  box-shadow: 0 8px 24px rgba(255, 122, 0, 0.5);
   white-space: nowrap;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.5px;
+  z-index: 3;
 }
 
 .package-name {
@@ -976,15 +1048,24 @@
   background: #fff;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 30px 28px;
+  padding: 28px 24px;
   transition: all var(--t);
   position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 16px;
   height: 100%;
-  overflow-wrap: anywhere;
-  word-break: break-word;
+}
+
+.case-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--orange), var(--blue));
+  border-radius: var(--radius) var(--radius) 0 0;
 }
 
 .case-card:hover {
@@ -993,102 +1074,94 @@
   border-color: var(--orange-soft);
 }
 
-.case-header {
+.case-card .case-header {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
 }
 
-.case-icon-wrap {
-  width: 56px;
-  height: 56px;
-  min-width: 56px;
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  box-shadow: var(--shadow-sm);
-}
-
-.case-icon {
-  font-size: 28px;
+.case-card .case-header-icon {
+  font-size: 42px;
   line-height: 1;
 }
 
-.case-category {
-  display: inline-block;
+.case-card .case-header-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.case-card .case-header-text .case-category {
+  display: block;
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--orange);
   letter-spacing: 0.5px;
-  background: var(--orange-light);
-  padding: 4px 10px;
-  border-radius: var(--radius-pill);
-  line-height: 1.4;
-  text-align: left;
-  /* allow wrap on narrow cards in Bangla */
-  max-width: 100%;
+  margin-bottom: 4px;
 }
 
-.case-title {
-  font-size: 22px;
+.case-card .case-header-text h3 {
+  font-size: 20px;
+  font-weight: 700;
   margin: 0;
   line-height: 1.3;
   color: var(--dark);
   text-wrap: balance;
 }
 
-.case-section {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.case-card .case-block {
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
 }
 
-.case-section-label {
+.case-card .case-block-label {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--text-muted);
   letter-spacing: 0.5px;
-  margin: 0;
+  margin-bottom: 6px;
 }
 
-.case-section-text {
-  font-size: 14px;
+.case-card .case-block p {
   color: var(--text);
   line-height: 1.65;
+  font-size: 14px;
   margin: 0;
   overflow-wrap: anywhere;
   word-break: break-word;
 }
 
-.case-result {
+.case-card .case-highlight-box {
+  background: linear-gradient(135deg, var(--orange-light), #fff);
+  border: 1px solid var(--orange-soft);
+  border-radius: var(--radius);
+  padding: 16px;
   margin-top: auto;
-  padding-top: 18px;
-  border-top: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
-.case-result-label {
+.case-card .case-highlight-label {
   font-size: 11px;
-  font-weight: 700;
   text-transform: uppercase;
   color: var(--text-muted);
+  font-weight: 600;
   letter-spacing: 0.5px;
-  margin: 0;
+  margin-bottom: 4px;
 }
 
-.case-result-highlight {
+.case-card .case-highlight-value {
   font-family: var(--font-heading);
   font-size: 22px;
   font-weight: 800;
   color: var(--orange);
   line-height: 1.2;
-  margin: 0;
   overflow-wrap: anywhere;
   word-break: break-word;
 }
@@ -1313,33 +1386,28 @@
 
 
 
-/* ===== Bangla-specific tweaks for case cards =====
-   Bangla text is wider (~20-30% longer than English), has no uppercase,
-   and the case-card grid items otherwise end up with mismatched heights. */
-html[data-lang='bn'] .case-category,
-html[lang='bn'] .case-category,
-html[data-lang='bn'] .case-section-label,
-html[lang='bn'] .case-section-label,
-html[data-lang='bn'] .case-result-label,
-html[lang='bn'] .case-result-label {
+/* ===== Bangla-specific tweaks for case cards ===== */
+html[data-lang='bn'] .case-card .case-header-text .case-category,
+html[lang='bn'] .case-card .case-header-text .case-category,
+html[data-lang='bn'] .case-card .case-block-label,
+html[lang='bn'] .case-card .case-block-label {
   letter-spacing: 0;
   font-size: 12px;
 }
 
 html[data-lang='bn'] .case-card,
 html[lang='bn'] .case-card {
-  padding: 30px 26px;
-  line-height: 1.75;
+  padding: 28px 22px;
 }
 
-html[data-lang='bn'] .case-section-text,
-html[lang='bn'] .case-section-text {
+html[data-lang='bn'] .case-card .case-block p,
+html[lang='bn'] .case-card .case-block p {
   font-size: 14px;
   line-height: 1.7;
 }
 
-html[data-lang='bn'] .case-result-highlight,
-html[lang='bn'] .case-result-highlight {
+html[data-lang='bn'] .case-card .case-highlight-value,
+html[lang='bn'] .case-card .case-highlight-value {
   font-size: 20px;
   line-height: 1.3;
 }
