@@ -4,36 +4,37 @@
 
 :root {
   /* Brand Colors */
-  --orange: #ff7a00;
-  --orange-dark: #e56a00;
+  --orange: #f97316; /* Orange accent from PDF */
+  --orange-dark: #ea580c;
   --orange-light: #fff7ed;
-  --orange-soft: #ffe7cc;
+  --orange-soft: #fed7aa;
 
-  --blue: #2563eb;
-  --blue-light: #eff6ff;
-  --blue-soft: #dbeafe;
+  --green: #22c55e; /* Green primary */
+  --green-bright: #3ffe4e; /* Bright neon green for headers */
 
-  --dark: #0f172a;
-  --dark-2: #1a2742;
+  --blue: #3B82F6;
+  --blue-light: #EFF6FF;
+  --blue-soft: #DBEAFE;
 
-  --text: #111827;
-  --text-muted: #6b7280;
-  --text-light: #9ca3af;
+  --dark: #1b1c1e; /* Dark from PDF */
+  --dark-2: #2e2f31;
 
-  --border: #e5e7eb;
-  --bg: #ffffff;
-  --surface: #f9fafb;
-  --surface-2: #f3f4f6;
+  --text: #374151; /* Dark gray for general text */
+  --text-muted: #6B7280;
+  --text-light: #9CA3AF;
 
-  --success: #10b981;
-  --error: #ef4444;
-  --warning: #f59e0b;
+  --border: #E5E7EB;
+  --bg: #FFFFFF;
+  --surface: #F9FAFB;
+  --surface-2: #F3F4F6;
+
+  --success: #10B981;
+  --error: #EF4444;
+  --warning: #F59E0B;
 
   /* Typography */
-  --font-heading:
-    'Poppins', 'Noto Sans Bengali', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-body:
-    'Inter', 'Noto Sans Bengali', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', 'Noto Sans Bengali', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', 'Noto Sans Bengali', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
   /* Spacing */
   --section-pad: 100px;
@@ -225,7 +226,7 @@ input:focus,
 textarea:focus,
 select:focus {
   border-color: var(--orange);
-  box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.12);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.12);
 }
 
 textarea {
@@ -335,15 +336,15 @@ ul {
 }
 
 .btn-primary {
-  background: var(--orange);
-  color: #fff;
-  box-shadow: 0 6px 16px rgba(255, 122, 0, 0.3);
+  background: var(--green);
+  color: var(--dark);
+  box-shadow: 0 6px 16px rgba(34, 197, 94, 0.3);
 }
 
 .btn-primary:hover {
-  background: var(--orange-dark);
+  background: #16a34a;
   /* transform handled by framer-motion buttonHover variants */
-  box-shadow: 0 10px 24px rgba(255, 122, 0, 0.4);
+  box-shadow: 0 10px 24px rgba(34, 197, 94, 0.4);
 }
 
 .btn-dark {
@@ -511,7 +512,7 @@ ul {
   display: inline-block;
   width: 8px;
   height: 8px;
-  background: var(--orange);
+  background: var(--green);
   border-radius: 50%;
   animation: pulse 2s ease-in-out infinite;
 }
@@ -543,14 +544,14 @@ ul {
 
 .page-hero .eyebrow {
   display: inline-block;
-  background: rgba(255, 122, 0, 0.2);
+  background: rgba(249, 115, 22, 0.2);
   color: var(--orange);
   padding: 6px 14px;
   border-radius: var(--radius-pill);
   font-size: 12px;
   font-weight: 600;
   margin-bottom: 20px;
-  border: 1px solid rgba(255, 122, 0, 0.4);
+  border: 1px solid rgba(249, 115, 22, 0.4);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }

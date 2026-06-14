@@ -1,5 +1,5 @@
 .footer {
-  background: var(--dark);
+  background: #1b1c1e;
   color: white;
   padding: 80px 0 40px;
   margin-top: 100px;
@@ -50,9 +50,9 @@
 }
 
 .footer-lang .lang-switcher-btn.active {
-  background: var(--orange);
+  background: #22c55e;
   color: #fff;
-  box-shadow: 0 2px 6px rgba(255, 122, 0, 0.4);
+  box-shadow: 0 2px 6px rgba(34, 197, 94, 0.4);
 }
 
 .social-btn {
@@ -70,7 +70,7 @@
 }
 
 .social-btn:hover {
-  background: var(--orange);
+  background: #22c55e;
   transform: translateY(-2px);
 }
 
@@ -96,7 +96,7 @@
 }
 
 .footer-links a:hover {
-  color: var(--orange);
+  color: var(--green);
 }
 
 .footer-contact {
