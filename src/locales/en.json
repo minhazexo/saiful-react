@@ -321,7 +321,8 @@
       "submitting": "Sending…",
       "success": "Success! Check your email in a minute.",
       "error": "Error! Please try again.",
-      "disclaimer": "No spam. Unsubscribe anytime. We respect your privacy."
+      "disclaimer": "No spam. Unsubscribe anytime. We respect your privacy.",
+      "downloadCta": "📄 View E-Book"
     },
     "finalCta": {
       "badge": "Limited Slots Available This Month",

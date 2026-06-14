@@ -1,7 +1,6 @@
-import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import api, { IS_DEMO_MODE } from '../../api';
+
 import { useTranslation } from '../../context/LanguageContext';
 import FAQ from '../../components/FAQ/FAQ';
 import Seo from '../../components/Seo';
@@ -43,68 +42,7 @@ const CASE_TITLES = ['Leathix', 'Future Connect', 'Fashion Nova BD', 'NaturalGlo
 function HomePage() {
   const t = useTranslation();
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    whatsapp: '',
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
-  const [captcha, setCaptcha] = useState({ id: '', prompt: '' });
-  const [captchaAnswer, setCaptchaAnswer] = useState('');
 
-  const timerRef = useRef(null);
-
-  useEffect(() => () => {
-    if (timerRef.current) clearTimeout(timerRef.current);
-  }, []);
-
-  const fetchCaptcha = async () => {
-    if (IS_DEMO_MODE) {
-      setCaptcha({ id: '', prompt: '' });
-      return;
-    }
-    try {
-      const { data } = await api.get('/contact/captcha');
-      setCaptcha({ id: data.id, prompt: data.prompt });
-      setCaptchaAnswer('');
-    } catch {
-      setCaptcha({ id: '', prompt: '' });
-    }
-  };
-
-  useEffect(() => {
-    fetchCaptcha();
-  }, []);
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    try {
-      await api.post('/contact', {
-        ...formData,
-        source: 'lead-magnet',
-        captchaId: captcha.id,
-        captchaAnswer,
-      });
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', whatsapp: '' });
-      setCaptchaAnswer('');
-      fetchCaptcha();
-      timerRef.current = setTimeout(() => setSubmitStatus(null), 5000);
-    } catch (err) {
-      setSubmitStatus(IS_DEMO_MODE || err?.isDemoMode ? 'demo' : 'error');
-      if (!IS_DEMO_MODE && !err?.isDemoMode) fetchCaptcha();
-      timerRef.current = setTimeout(() => setSubmitStatus(null), 5000);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <div className="home-page">
@@ -634,110 +572,30 @@ function HomePage() {
             </motion.div>
 
             <motion.div
+              className="lead-ebook"
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
             >
-              <form className="lead-form" onSubmit={handleFormSubmit}>
-                <motion.h3 variants={fadeUpSmall}>{t('home.leadMagnet.formTitle')} 📋</motion.h3>
-                <motion.p variants={fadeUpSmall}>{t('home.leadMagnet.formSubtitle')}</motion.p>
-
-                <div className="form-group">
-                  <label>{t('home.leadMagnet.nameLabel')}</label>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder={t('home.leadMagnet.namePlaceholder')}
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label>{t('home.leadMagnet.emailLabel')}</label>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder={t('home.leadMagnet.emailPlaceholder')}
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label>{t('home.leadMagnet.whatsappLabel')}</label>
-                  <input
-                    type="tel"
-                    name="whatsapp"
-                    placeholder={t('home.leadMagnet.whatsappPlaceholder')}
-                    value={formData.whatsapp}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-
-                {!IS_DEMO_MODE && (
-                  <div className="form-group captcha-group">
-                    <label htmlFor="lead-captcha">
-                      {t('contact.captchaLabel', { prompt: captcha.prompt || '…' })}
-                    </label>
-                    <div className="captcha-row">
-                      <input
-                        id="lead-captcha"
-                        type="text"
-                        inputMode="numeric"
-                        autoComplete="off"
-                        value={captchaAnswer}
-                        onChange={(e) => setCaptchaAnswer(e.target.value)}
-                        required
-                        aria-describedby="lead-captcha-help"
-                      />
-                      <button
-                        type="button"
-                        className="btn btn-outline"
-                        onClick={fetchCaptcha}
-                        aria-label={t('contact.newCaptcha')}
-                      >
-                        ↻ {t('contact.captchaNew')}
-                      </button>
-                    </div>
-                    <small id="lead-captcha-help" className="captcha-help">
-                      {t('contact.captchaHelp')}
-                    </small>
-                  </div>
-                )}
-
-                <motion.button
-                  type="submit"
-                  className="btn btn-primary btn-block"
-                  disabled={isSubmitting}
-                  variants={buttonHover}
-                  initial="rest"
-                  whileHover="hover"
-                  whileTap="tap"
-                >
-                  {isSubmitting
-                    ? `⏳ ${t('home.leadMagnet.submitting')}`
-                    : `📥 ${t('home.leadMagnet.submit')}`}
-                </motion.button>
-
-                {submitStatus === 'success' && (
-                  <p className="success-message">✅ {t('home.leadMagnet.success')}</p>
-                )}
-                {submitStatus === 'error' && (
-                  <p className="error-message">❌ {t('home.leadMagnet.error')}</p>
-                )}
-                {submitStatus === 'demo' && (
-                  <p className="error-message" role="status">👀 {t('demo.formMessage')}</p>
-                )}
-
-                <motion.p className="form-disclaimer" variants={fadeUpSmall}>
-                  {t('home.leadMagnet.disclaimer')}
-                </motion.p>
-              </form>
+              <motion.img
+                src="/for%20cover/e-book-cover.png"
+                alt="E-Book Cover"
+                className="lead-ebook-cover"
+                variants={fadeUpSmall}
+              />
+              <motion.a
+                href="/for%20cover/Web%20Ui.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary btn-block"
+                variants={buttonHover}
+                initial="rest"
+                whileHover="hover"
+                whileTap="tap"
+              >
+                📄 {t('home.leadMagnet.downloadCta')}
+              </motion.a>
             </motion.div>
           </div>
         </div>

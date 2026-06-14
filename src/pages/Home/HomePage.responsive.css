@@ -296,8 +296,8 @@
     font-size: 24px;
   }
 
-  .lead-form {
-    padding: 24px;
+  .lead-ebook-cover {
+    max-width: 240px;
   }
 
   .workflow-steps {
@@ -674,16 +674,8 @@
     gap: 8px;
   }
 
-  .lead-form {
-    padding: 20px;
-  }
-
-  .lead-form h3 {
-    font-size: 16px;
-  }
-
-  .lead-form > p {
-    font-size: 13px;
+  .lead-ebook-cover {
+    max-width: 200px;
   }
 
   .final-cta {
@@ -780,12 +772,7 @@
     grid-template-columns: 1fr;
   }
 
-  .lead-form {
-    padding: 16px;
-  }
-
-  .lead-form input {
-    padding: 10px 12px;
-    font-size: 13px;
+  .lead-ebook-cover {
+    max-width: 160px;
   }
 }

@@ -69,6 +69,7 @@
   border-radius: 999px;
   font-size: 13px;
   font-weight: 600;
+  margin-top: 40px;
   margin-bottom: 32px;
 }
 
@@ -1294,42 +1295,20 @@
   font-weight: 700;
 }
 
-.lead-form {
-  background: rgba(255, 255, 255, 0.06);
-  padding: 40px;
+.lead-ebook {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.lead-ebook-cover {
+  width: 100%;
+  max-width: 320px;
   border-radius: var(--radius);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.lead-form h3 {
-  color: #fff;
-  margin-bottom: 8px;
-}
-
-.lead-form > p {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 14px;
-  margin-bottom: 24px;
-}
-
-.lead-form .form-group label {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.lead-form input {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.15);
-  color: #fff;
-}
-
-.lead-form input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.lead-form input:focus {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: var(--orange);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  display: block;
 }
 
 .form-disclaimer {
