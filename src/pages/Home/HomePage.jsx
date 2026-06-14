@@ -579,13 +579,13 @@ function HomePage() {
               viewport={{ once: true, amount: 0.2 }}
             >
               <motion.img
-                src="/for-cover/e-book-cover.png"
+                src={assetPath('/for-cover/e-book-cover.png')}
                 alt="E-Book Cover"
                 className="lead-ebook-cover"
                 variants={fadeUpSmall}
               />
               <motion.a
-                href="/for-cover/Web%20Ui.pdf"
+                href={assetPath('/for-cover/Web Ui.pdf')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary btn-block"
