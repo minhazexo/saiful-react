@@ -11,7 +11,6 @@ import { fadeUp, fadeUpSmall, staggerContainer, staggerGrid, buttonHover } from 
 import { assetPath } from '../../utils/assets';
 import { getWhatsAppUrl } from '../../utils/whatsapp';
 import './HomePage.css';
-import './HomePage.responsive.css';
 
 const STAT_NUMBERS = [
   { num: '5000', suffix: '+', key: 'designProjects' },
