@@ -1,0 +1,125 @@
+/* ============================================
+   ROADMAP PAGE — Responsive Styles
+   ============================================ */
+
+/* The RoadmapPage reuses .lead-magnet, .lead-grid, .lead-content,
+   .lead-form-card etc. from HomePage.css. These styles handle
+   mobile-specific overrides for the free roadmap/lead-magnet page. */
+
+/* ===== Tablet (≤1024px) ===== */
+@media (max-width: 1024px) {
+  .page .lead-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .page .lead-content {
+    align-items: center;
+  }
+
+  .page .lead-badge {
+    margin: 0 auto;
+  }
+
+  .page .lead-heading {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .page .lead-form-card {
+    justify-self: center;
+    max-width: 460px;
+  }
+}
+
+/* ===== Tablet Portrait (≤768px) ===== */
+@media (max-width: 768px) {
+  .page .lead-magnet {
+    padding: 60px 0;
+    min-height: auto;
+  }
+
+  .page .lead-grid {
+    gap: 36px;
+  }
+
+  .page .lead-form-card {
+    padding: 28px 24px;
+  }
+
+  .page .lead-heading {
+    font-size: clamp(28px, 6vw, 36px);
+  }
+
+  .page .lead-form-title {
+    font-size: clamp(20px, 5vw, 26px);
+  }
+}
+
+/* ===== Phone (≤480px) ===== */
+@media (max-width: 480px) {
+  .page .lead-magnet {
+    padding: 40px 0;
+  }
+
+  .page .lead-grid {
+    gap: 28px;
+  }
+
+  .page .lead-form-card {
+    padding: 24px 18px;
+  }
+
+  .page .lead-form-group input {
+    height: 48px;
+    font-size: 16px; /* Prevent iOS zoom */
+  }
+
+  .page .lead-cta-btn {
+    height: 48px;
+    font-size: 15px;
+  }
+
+  .page .lead-cover-img {
+    width: 160px;
+    height: 220px;
+  }
+
+  .page .lead-heading {
+    font-size: clamp(24px, 7vw, 30px);
+  }
+
+  .page .lead-form-title {
+    font-size: clamp(18px, 5vw, 22px);
+  }
+
+  .page .lead-badge {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+
+/* ===== Small Phone (≤375px) ===== */
+@media (max-width: 375px) {
+  .page .lead-magnet {
+    padding: 32px 0;
+  }
+
+  .page .lead-form-card {
+    padding: 18px 14px;
+  }
+
+  .page .lead-cover-img {
+    width: 130px;
+    height: 180px;
+  }
+
+  .page .lead-heading {
+    font-size: clamp(20px, 7vw, 26px);
+  }
+
+  .page .lead-form-title {
+    font-size: 17px;
+  }
+}

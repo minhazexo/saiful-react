@@ -1,0 +1,166 @@
+import { useEffect, useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import api from '../../api';
+import { useTranslation } from '../../context/LanguageContext';
+import Seo from '../../components/Seo';
+import MobileCarousel from '../../components/MobileCarousel/MobileCarousel';
+import { staggerContainer, fadeUp } from '../../motion/presets';
+import { formatDate } from '../../utils/date';
+import './BlogPage.css';
+import './BlogPage.responsive.css';
+
+const DEFAULT_KEYS = [
+  { slug: 'chatgpt-30-days-facebook-ad-copy', key: 'chatgpt', icon: '🤖' },
+  { slug: 'complete-guide-starting-ecommerce-bangladesh-2024', key: 'guide', icon: '🚀' },
+  { slug: 'brand-identity-most-important-asset', key: 'brand', icon: '🎨' },
+  { slug: 'instagram-reels-50k-followers-90-days', key: 'reels', icon: '📱' },
+  { slug: 'facebook-ads-beginners-first-sale', key: 'facebook', icon: '💰' },
+  { slug: 'bkash-nagad-card-payment-gateway-strategy', key: 'payment', icon: '💳' },
+];
+
+function BlogPage() {
+  const t = useTranslation();
+  const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const aliveRef = useRef(true);
+  useEffect(() => {
+    aliveRef.current = true;
+    return () => {
+      aliveRef.current = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    const ctrl = new AbortController();
+    const loadPosts = async () => {
+      try {
+        setIsLoading(true);
+        const { data } = await api.get('/blog', { signal: ctrl.signal });
+        if (Array.isArray(data) && data.length > 0 && aliveRef.current) {
+          setPosts(data);
+        } else {
+          setPosts(
+            DEFAULT_KEYS.map((d) => ({
+              slug: d.slug,
+              title: t(`blog.defaults.${d.key}.title`),
+              excerpt: t(`blog.defaults.${d.key}.excerpt`),
+              category: t(`blog.defaults.${d.key}.category`),
+              author: 'Saiful Islam',
+              readTime: 8,
+              icon: d.icon,
+              createdAt: '2024-06-01',
+            }))
+          );
+        }
+      } catch (err) {
+        if (err.name !== 'CanceledError' && err.code !== 'ERR_CANCELED') {
+          if (aliveRef.current) {
+            setPosts(
+              DEFAULT_KEYS.map((d) => ({
+                slug: d.slug,
+                title: t(`blog.defaults.${d.key}.title`),
+                excerpt: t(`blog.defaults.${d.key}.excerpt`),
+                category: t(`blog.defaults.${d.key}.category`),
+                author: 'Saiful Islam',
+                readTime: 8,
+                icon: d.icon,
+                createdAt: '2024-06-01',
+              }))
+            );
+          }
+        }
+      } finally {
+        if (aliveRef.current) setIsLoading(false);
+      }
+    };
+    loadPosts();
+    setActiveIndex(0);
+    return () => ctrl.abort();
+  }, [t]);
+
+  const categories = [t('common.all'), ...new Set(posts.map((p) => p.category).filter(Boolean))];
+  const filtered =
+    activeIndex === 0 ? posts : posts.filter((p) => p.category === categories[activeIndex]);
+
+  return (
+    <div className="page">
+      <Seo title={t('blog.title')} description={t('blog.subtitle')} path="/blog" />
+      <section className="page-hero">
+        <div className="container">
+          <motion.div variants={staggerContainer} initial="hidden" animate="visible">
+            <motion.span className="eyebrow" aria-hidden="true" variants={fadeUp}>
+              📚 {t('blog.eyebrow')}
+            </motion.span>
+            <motion.h1 variants={fadeUp}>{t('blog.title')}</motion.h1>
+            <motion.p variants={fadeUp}>{t('blog.subtitle')}</motion.p>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <motion.div
+            className="blog-categories"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.4 }}
+          >
+            {categories.map((cat, i) => (
+              <button
+                key={cat}
+                type="button"
+                onClick={() => setActiveIndex(i)}
+                className={`btn ${activeIndex === i ? 'btn-primary' : 'btn-outline'}`}
+                aria-pressed={activeIndex === i}
+              >
+                {cat}
+              </button>
+            ))}
+          </motion.div>
+
+          {isLoading ? (
+            <div className="blog-loading">{t('common.loadingPosts')}</div>
+          ) : filtered.length === 0 ? (
+            <div className="blog-empty">{t('blog.noPosts')}</div>
+          ) : (
+            <MobileCarousel className="blog-grid">
+              {filtered.map((post, i) => (
+                <motion.div
+                  key={post.slug || i}
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <Link to={`/blog/${post.slug}`} className="blog-card">
+                    <div className="blog-image" aria-hidden="true">
+                      <span className="blog-tag">{post.category}</span>
+                      {post.icon || '📝'}
+                    </div>
+                    <div className="blog-content">
+                      <div className="blog-meta">
+                        <span>{formatDate(post.createdAt)}</span>
+                        <span aria-hidden="true">·</span>
+                        <span>
+                          {post.readTime || 5} {t('common.minRead')}
+                        </span>
+                      </div>
+                      <h3>{post.title}</h3>
+                      <p>{post.excerpt}</p>
+                      <div className="blog-link">{t('blog.readMore')} →</div>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </MobileCarousel>
+          )}
+        </div>
+      </section>
+    </div>
+  );
+}
+
+export default BlogPage;

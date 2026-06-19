@@ -1,0 +1,58 @@
+/* ===== Phone (≤480px) ===== */
+@media (max-width: 480px) {
+  .consent-banner {
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+  }
+
+  .consent-text {
+    font-size: 13px;
+  }
+
+  .consent-actions {
+    width: 100%;
+  }
+
+  .consent-btn-accept {
+    width: 100%;
+    justify-content: center;
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+
+  .consent-btn-decline {
+    width: 100%;
+    justify-content: center;
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+}
+
+/* ===== Small Phone (≤375px) ===== */
+@media (max-width: 375px) {
+  .consent-banner {
+    padding: 14px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    gap: 12px;
+  }
+
+  .consent-text {
+    font-size: 13px;
+  }
+
+  .consent-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .consent-actions .btn {
+    min-height: 44px;
+    justify-content: center;
+  }
+}

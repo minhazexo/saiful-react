@@ -1,0 +1,36 @@
+/* ===== Tablet (≤1024px) ===== */
+@media (max-width: 1024px) {
+  .audit-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .audit-table {
+    min-width: 700px;
+  }
+}
+
+/* ===== Phone (≤480px) ===== */
+@media (max-width: 480px) {
+  .audit-log {
+    padding: 12px;
+  }
+
+  .audit-table th,
+  .audit-table td {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .audit-table .badge-action {
+    font-size: 11px;
+    padding: 2px 6px;
+  }
+}
+
+/* ===== Small Phone (≤375px) ===== */
+@media (max-width: 375px) {
+  .audit-log {
+    padding: 10px;
+  }
+}

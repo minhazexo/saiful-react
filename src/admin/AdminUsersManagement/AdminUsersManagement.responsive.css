@@ -1,0 +1,45 @@
+/* ===== Tablet (≤1024px) ===== */
+@media (max-width: 1024px) {
+  .users-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .users-table {
+    min-width: 600px;
+  }
+}
+
+/* ===== Phone (≤480px) ===== */
+@media (max-width: 480px) {
+  .users-management .management-panel {
+    padding: 16px;
+  }
+
+  .users-management .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .users-management .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .users-table th,
+  .users-table td {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .users-management .role-badge {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+}
+
+/* ===== Small Phone (≤375px) ===== */
+@media (max-width: 375px) {
+  .users-management .management-panel {
+    padding: 12px;
+  }
+}

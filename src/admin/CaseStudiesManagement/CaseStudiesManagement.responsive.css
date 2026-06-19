@@ -1,0 +1,61 @@
+/* ===== Tablet (≤1024px) ===== */
+@media (max-width: 1024px) {
+  .cs-mgmt-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .cs-mgmt-table {
+    min-width: 700px;
+  }
+}
+
+/* ===== Tablet Portrait (≤768px) ===== */
+@media (max-width: 768px) {
+  .cs-mgmt {
+    padding: 16px;
+  }
+
+  .cs-mgmt-table th,
+  .cs-mgmt-table td {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+}
+
+/* ===== Phone (≤480px) ===== */
+@media (max-width: 480px) {
+  .cs-mgmt {
+    padding: 12px;
+  }
+
+  .cs-mgmt-table th,
+  .cs-mgmt-table td {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .cs-mgmt-header {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+}
+
+/* ===== Small Phone (≤375px) ===== */
+@media (max-width: 375px) {
+  .cs-mgmt {
+    padding: 10px;
+  }
+
+  .cs-mgmt-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .cs-mgmt-table th,
+  .cs-mgmt-table td {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+}

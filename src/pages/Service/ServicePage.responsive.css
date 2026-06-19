@@ -1,0 +1,211 @@
+/* ===== Tablet (≤1024px) ===== */
+@media (max-width: 1024px) {
+  .services-grid,
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Tablet Portrait (≤768px) ===== */
+@media (max-width: 768px) {
+  .service-card {
+    padding: 28px 22px;
+  }
+
+  .service-card.featured-service::before {
+    left: 22px;
+    top: -12px;
+    font-size: 11px;
+    padding: 4px 12px;
+  }
+
+  .service-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 26px;
+    border-radius: 14px;
+    margin-bottom: 18px;
+  }
+
+  .service-card h3 {
+    font-size: 19px;
+  }
+
+  .service-card > p {
+    font-size: 14px;
+  }
+
+  .service-features li {
+    font-size: 13px;
+  }
+
+  .service-price {
+    font-size: 24px;
+  }
+
+  .process-step {
+    padding: 22px 18px;
+  }
+
+  .process-step h3 {
+    font-size: 15px;
+  }
+
+  .process-step p {
+    font-size: 12px;
+  }
+
+  .cta-section {
+    padding: 50px 0;
+  }
+
+  .cta-section p {
+    font-size: 15px;
+  }
+
+  .cta-actions .btn {
+    width: 100%;
+  }
+}
+
+/* ===== Phone (≤480px) ===== */
+@media (max-width: 480px) {
+  .service-card {
+    padding: 22px 18px;
+  }
+
+  .service-card.featured-service::before {
+    font-size: 11px;
+    padding: 4px 10px;
+    left: 16px;
+  }
+
+  .service-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
+    border-radius: 12px;
+    margin-bottom: 14px;
+  }
+
+  .service-card h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+  }
+
+  .service-price {
+    font-size: 22px;
+  }
+
+  .service-features {
+    gap: 8px;
+  }
+
+  .process-grid {
+    gap: 14px;
+  }
+
+  .process-step {
+    padding: 18px 14px;
+  }
+
+  .process-step-number {
+    width: 40px;
+    height: 40px;
+    font-size: 17px;
+    margin-bottom: 12px;
+  }
+
+  .cta-section {
+    padding: 40px 0;
+  }
+
+  .cta-section h2 {
+    font-size: clamp(24px, 7vw, 32px);
+  }
+
+  .cta-section p {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+}
+
+/* ===== Small Phone (≤375px) ===== */
+@media (max-width: 375px) {
+  .services-grid {
+    gap: 14px;
+  }
+
+  .service-card {
+    padding: 16px 12px;
+  }
+
+  .service-card.featured-service::before {
+    font-size: 11px;
+    padding: 3px 8px;
+    left: 12px;
+    top: -11px;
+  }
+
+  .service-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+
+  .service-card h3 {
+    font-size: 15px;
+  }
+
+  .service-card > p {
+    font-size: 12px;
+    margin-bottom: 16px;
+  }
+
+  .service-features li {
+    font-size: 12px;
+  }
+
+  .service-features {
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .process-grid {
+    gap: 12px;
+  }
+
+  .process-step {
+    padding: 14px 12px;
+  }
+
+  .process-step-number {
+    width: 34px;
+    height: 34px;
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  .process-step h3 {
+    font-size: 13px;
+  }
+
+  .process-step p {
+    font-size: 11px;
+  }
+
+  .cta-section {
+    padding: 32px 0;
+  }
+
+  .cta-section h2 {
+    font-size: clamp(20px, 7vw, 24px);
+  }
+
+  .cta-section p {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+}

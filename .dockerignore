@@ -1,0 +1,27 @@
+# Build context hygiene
+node_modules
+dist
+.git
+.gitignore
+.env
+.env.*
+!.env.example
+*.log
+dev-*.log
+vite-test.log
+test-dev.bat
+.vscode
+.idea
+coverage
+playwright-report
+test-results
+.eslintcache
+e2e/
+src/test/
+
+# Docs / build orchestration (not needed at runtime)
+README.md
+CODEBASE_ISSUES.md
+Dockerfile
+.dockerignore
+docker-compose.yml

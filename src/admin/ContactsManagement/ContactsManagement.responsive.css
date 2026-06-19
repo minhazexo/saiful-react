@@ -1,0 +1,61 @@
+/* ===== Tablet (≤1024px) ===== */
+@media (max-width: 1024px) {
+  .contacts-mgmt-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .contacts-mgmt-table {
+    min-width: 700px;
+  }
+}
+
+/* ===== Tablet Portrait (≤768px) ===== */
+@media (max-width: 768px) {
+  .contacts-mgmt {
+    padding: 16px;
+  }
+
+  .contacts-mgmt-table th,
+  .contacts-mgmt-table td {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+}
+
+/* ===== Phone (≤480px) ===== */
+@media (max-width: 480px) {
+  .contacts-mgmt {
+    padding: 12px;
+  }
+
+  .contacts-mgmt-table th,
+  .contacts-mgmt-table td {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .contacts-mgmt-header {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+}
+
+/* ===== Small Phone (≤375px) ===== */
+@media (max-width: 375px) {
+  .contacts-mgmt {
+    padding: 10px;
+  }
+
+  .contacts-mgmt-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .contacts-mgmt-table th,
+  .contacts-mgmt-table td {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+}

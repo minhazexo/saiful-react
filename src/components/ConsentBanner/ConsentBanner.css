@@ -1,0 +1,55 @@
+.consent-banner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1000;
+  background: #000000;
+  color: #f9fafb;
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+
+}
+
+.consent-banner p {
+  margin: 0;
+  flex: 1 1 280px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.consent-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.consent-banner .btn {
+  font-size: 14px;
+  padding: 8px 16px;
+}
+
+.consent-banner .btn-primary {
+  background: #7e14ff;
+  color: #fff;
+  border: 1px solid #7e14ff;
+}
+
+.consent-banner .btn-primary:hover {
+  background: #6910d6;
+}
+
+.consent-banner .btn-outline {
+  background: transparent;
+  color: #f9fafb;
+  border: 1px solid #4b5563;
+}
+
+.consent-banner .btn-outline:hover {
+  background: #000000;
+}
+
