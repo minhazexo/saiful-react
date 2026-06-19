@@ -89,7 +89,7 @@ body {
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: clip; /* prevent horizontal scroll from absolutely-positioned hero / sidebar overflow */
+  overflow-x: hidden;
 }
 
 img,

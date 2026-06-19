@@ -387,6 +387,7 @@
   }
 
   .framework-grid {
+    display: none;
     flex-wrap: wrap;
     justify-content: center;
     gap: 16px;
@@ -469,6 +470,7 @@
 
   .lead-badge {
     margin: 0 auto;
+    max-width: 100%;
   }
 
   .lead-heading {
@@ -828,7 +830,7 @@
   }
 
   .comparison-heroes {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 10px;
     margin-bottom: 14px;
   }
