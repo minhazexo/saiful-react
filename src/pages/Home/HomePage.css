@@ -211,7 +211,7 @@
 
 .hero-portrait img {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
     object-position: center;
     display: block;
@@ -254,6 +254,22 @@
 .pill-social { top: 275px; left: 440px; right: auto; }
 .pill-facebook { top: 372px; left: 405px; right: auto; }
 .pill-seller-right { top: 435px; left: 56%; transform: translateX(-50%); bottom: auto; }
+
+@media (min-width: 1025px) {
+  .service-pill {
+    width: 72px;
+    height: 72px;
+  }
+
+  .pill-independent { top: 89px; left: 58.25%; transform: translateX(-50%); }
+  .pill-logo { top: 149px; right: 274px; left: auto; }
+  .pill-ecommerce { top: 263px; right: 314px; left: auto; }
+  .pill-backend { top: 364px; right: 283px; left: auto; }
+  .pill-seller-left { top: 149px; left: 389px; right: auto; }
+  .pill-social { top: 269px; left: 434px; right: auto; }
+  .pill-facebook { top: 366px; left: 399px; right: auto; }
+  .pill-seller-right { top: 429px; left: 57.25%; transform: translateX(-50%); bottom: auto; }
+}
 
 /* ============ TRUST ============ */
 .trust-section {
@@ -2737,18 +2753,20 @@ html[lang='bn'] .case-card .case-highlight-value {
   }
 
   .service-pill {
+    width: 72px;
+    height: 72px;
     font-size: 10px;
     padding: 4px;
   }
 
-  .pill-independent { top: 70px; left: 50%; transform: translateX(-50%); }
-  .pill-logo { top: 160px; right: 311px; left: auto; }
-  .pill-ecommerce { top: 260px; right: 311px; left: auto; }
-  .pill-backend { top: 360px; right: 311px; left: auto; }
-  .pill-seller-left { top: 160px; left: 401px; right: auto; }
-  .pill-social { top: 260px; left: 401px; right: auto; }
-  .pill-facebook { top: 360px; left: 401px; right: auto; }
-  .pill-seller-right { top: 401px; left: 50%; transform: translateX(-50%); }
+  .pill-independent { top: 64px; left: 51.36%; transform: translateX(-50%); }
+  .pill-logo { top: 154px; right: 305px; left: auto; }
+  .pill-ecommerce { top: 254px; right: 305px; left: auto; }
+  .pill-backend { top: 354px; right: 305px; left: auto; }
+  .pill-seller-left { top: 154px; left: 395px; right: auto; }
+  .pill-social { top: 254px; left: 395px; right: auto; }
+  .pill-facebook { top: 354px; left: 395px; right: auto; }
+  .pill-seller-right { top: 395px; left: 51.36%; transform: translateX(-50%); }
 }
 
 @media (min-width: 1025px) and (max-width: 1200px) {
@@ -4280,7 +4298,7 @@ html[lang='bn'] .case-card .case-highlight-value {
 
   .hero-section {
     min-height: 0;
-    padding: 20px 0 60px;
+    padding: 20px 0 80px;
   }
 
   .hero-container {
@@ -4291,26 +4309,20 @@ html[lang='bn'] .case-card .case-highlight-value {
     min-height: 0;
     display: flex;
     justify-content: center;
+    margin-top: 40px;
   }
 
   .hero-portrait-wrapper {
-    width: 420px;
-    height: 520px;
-    transform: none;
+    transform: scale(1.35);
+    transform-origin: center center;
   }
 
-  .hero-portrait-circle {
-    width: 280px;
-    height: 280px;
-    top: 130px;
-    right: 40px;
-  }
-
-  .hero-portrait {
-    width: 280px;
-    height: 280px;
-    top: 130px;
-    right: 40px;
+  .hero-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   }
 
   .hero-title {
@@ -4325,15 +4337,6 @@ html[lang='bn'] .case-card .case-highlight-value {
     font-size: 9px;
     padding: 4px;
   }
-
-  .pill-independent { top: 75px; left: 50%; transform: translateX(-50%); }
-  .pill-logo { top: 175px; right: 310px; left: auto; }
-  .pill-ecommerce { top: 270px; right: 310px; left: auto; }
-  .pill-backend { top: 360px; right: 310px; left: auto; }
-  .pill-seller-left { top: 175px; left: 390px; right: auto; }
-  .pill-social { top: 270px; left: 390px; right: auto; }
-  .pill-facebook { top: 360px; left: 390px; right: auto; }
-  .pill-seller-right { top: 420px; left: 50%; transform: translateX(-50%); }
 
   .package-card.featured {
     padding: 48px 32px;
@@ -4364,7 +4367,7 @@ html[lang='bn'] .case-card .case-highlight-value {
 /* ===== Tablet Portrait (≤768px) ===== */
 @media (max-width: 768px) {
   .hero-section {
-    padding: 12px 0 50px;
+    padding: 12px 0 70px;
     min-height: 0;
   }
 
@@ -4435,39 +4438,27 @@ html[lang='bn'] .case-card .case-highlight-value {
     text-align: center;
   }
 
+  .hero-visual {
+    margin-top: 40px;
+  }
+
   .hero-portrait-wrapper {
-    width: 360px;
-    height: 440px;
-    transform: none;
+    transform: scale(1.35);
+    transform-origin: center center;
   }
 
-  .hero-portrait-circle {
-    width: 250px;
-    height: 250px;
-    top: 115px;
-    right: 35px;
-  }
-
-  .hero-portrait {
-    width: 250px;
-    height: 250px;
-    top: 115px;
-    right: 35px;
+  .hero-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   }
 
   .service-pill {
     font-size: 9px;
     padding: 4px;
   }
-
-  .pill-independent { top: 62px; left: 50%; transform: translateX(-50%); }
-  .pill-logo { top: 158px; right: 282px; left: auto; }
-  .pill-ecommerce { top: 248px; right: 282px; left: auto; }
-  .pill-backend { top: 338px; right: 282px; left: auto; }
-  .pill-seller-left { top: 158px; left: 330px; right: auto; }
-  .pill-social { top: 248px; left: 330px; right: auto; }
-  .pill-facebook { top: 338px; left: 330px; right: auto; }
-  .pill-seller-right { top: 386px; left: 50%; transform: translateX(-50%); }
 
   .trust-grid {
     display: none;
@@ -4633,7 +4624,7 @@ html[lang='bn'] .case-card .case-highlight-value {
 /* ===== Phone (≤480px) ===== */
 @media (max-width: 480px) {
   .hero-section {
-    padding: 10px 0 40px;
+    padding: 10px 0 60px;
   }
 
   .hero-grid {
@@ -4700,39 +4691,27 @@ html[lang='bn'] .case-card .case-highlight-value {
     border-radius: 14px;
   }
 
+  .hero-visual {
+    margin-top: 30px;
+  }
+
   .hero-portrait-wrapper {
-    width: 310px;
-    height: 410px;
-    transform: none;
+    transform: scale(1.35);
+    transform-origin: center center;
   }
 
-  .hero-portrait-circle {
-    width: 235px;
-    height: 235px;
-    top: 85px;
-    right: 28px;
-  }
-
-  .hero-portrait {
-    width: 235px;
-    height: 235px;
-    top: 85px;
-    right: 28px;
+  .hero-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   }
 
   .service-pill {
     font-size: 8px;
     padding: 4px;
   }
-
-  .pill-independent { top: 20px; left: 41%; transform: translateX(-50%); font-size: 8px; }
-  .pill-logo { top: 60px; right: 190px; left: auto; }
-  .pill-ecommerce { top: 155px; right: 230px; left: auto; }
-  .pill-backend { top: 245px; right: 190px; left: auto; font-size: 10px; }
-  .pill-seller-left { top: 58px; left: 215px; right: auto; }
-  .pill-social { top: 152px; left: 260px; right: auto; }
-  .pill-facebook { top: 240px; left: 230px; right: auto; }
-  .pill-seller-right { top: 300px; left: 42%; transform: translateX(-50%); }
 
   .trust-section {
     padding: 40px 0;
@@ -5340,24 +5319,21 @@ html[lang='bn'] .case-card .case-highlight-value {
     font-size: 14px;
   }
 
+  .hero-visual {
+    margin-top: 30px;
+  }
+
   .hero-portrait-wrapper {
-    width: 270px;
-    height: 360px;
-    transform: none;
+    transform: scale(1.35);
+    transform-origin: center center;
   }
 
-  .hero-portrait-circle {
-    width: 200px;
-    height: 200px;
-    top: 75px;
-    right: 25px;
-  }
-
-  .hero-portrait {
-    width: 200px;
-    height: 200px;
-    top: 75px;
-    right: 25px;
+  .hero-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   }
 
   .service-pill {
@@ -5365,14 +5341,9 @@ html[lang='bn'] .case-card .case-highlight-value {
     padding: 4px;
   }
 
-  .pill-independent { top: 35px; left: 50%; transform: translateX(-50%); font-size: 8px; }
-  .pill-logo { top: 98px; right: 175px; left: auto; }
-  .pill-ecommerce { top: 158px; right: 175px; left: auto; }
-  .pill-backend { top: 218px; right: 115px; left: auto; font-size: 10px; }
-  .pill-seller-left { top: 98px; left: 200px; right: auto; }
-  .pill-social { top: 158px; left: 200px; right: auto; }
-  .pill-facebook { top: 218px; left: 200px; right: auto; }
-  .pill-seller-right { top: 260px; left: 50%; transform: translateX(-50%); }
+  .hero-section {
+    padding: 10px 0 60px;
+  }
 
   .journey-card-content h3 {
     font-size: 18px;
@@ -5531,4 +5502,50 @@ html[lang='bn'] .case-card .case-highlight-value {
     height: 160px;
     aspect-ratio: 16 / 10;
   }
+}
+
+/* ===== Desktop 72px pill overrides (win over old merged dupe) ===== */
+@media (min-width: 1401px) {
+  .service-pill {
+    width: 72px;
+    height: 72px;
+  }
+  .pill-independent { top: 89px; left: 58.25%; transform: translateX(-50%); }
+  .pill-logo { top: 149px; right: 274px; left: auto; }
+  .pill-ecommerce { top: 263px; right: 314px; left: auto; }
+  .pill-backend { top: 364px; right: 283px; left: auto; }
+  .pill-seller-left { top: 149px; left: 389px; right: auto; }
+  .pill-social { top: 269px; left: 434px; right: auto; }
+  .pill-facebook { top: 366px; left: 399px; right: auto; }
+  .pill-seller-right { top: 429px; left: 57.25%; transform: translateX(-50%); bottom: auto; }
+}
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+  .service-pill {
+    width: 72px;
+    height: 72px;
+  }
+  .pill-independent { top: 64px; left: 50%; transform: translateX(-50%); }
+  .pill-logo { top: 154px; right: 305px; left: auto; }
+  .pill-ecommerce { top: 254px; right: 305px; left: auto; }
+  .pill-backend { top: 354px; right: 305px; left: auto; }
+  .pill-seller-left { top: 154px; left: 395px; right: auto; }
+  .pill-social { top: 254px; left: 395px; right: auto; }
+  .pill-facebook { top: 354px; left: 395px; right: auto; }
+  .pill-seller-right { top: 395px; left: 50%; transform: translateX(-50%); }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .service-pill {
+    width: 72px;
+    height: 72px;
+  }
+  .pill-independent { top: 59px; left: 50%; transform: translateX(-50%); }
+  .pill-logo { top: 146px; right: 280px; left: auto; }
+  .pill-ecommerce { top: 239px; right: 280px; left: auto; }
+  .pill-backend { top: 332px; right: 280px; left: auto; }
+  .pill-seller-left { top: 146px; left: 360px; right: auto; }
+  .pill-social { top: 239px; left: 360px; right: auto; }
+  .pill-facebook { top: 332px; left: 360px; right: auto; }
+  .pill-seller-right { top: 370px; left: 50%; transform: translateX(-50%); }
 }
