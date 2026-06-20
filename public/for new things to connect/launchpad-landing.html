@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>লঞ্চপ্যাড — আপনার বিজনেস অনলাইনে নিয়ে যান</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0a;
+    --bg-soft:#141414;
+    --card:#f5f5f0;
+    --green:#39ff6a;
+    --green-dim:#1d8f43;
+    --muted:#8a8a8a;
+    --line:#262626;
+    --text-dark:#0a0a0a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Noto Sans Bengali','JetBrains Mono',sans-serif;
+    background:var(--bg);
+    color:#ededed;
+    overflow-x:hidden;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  a{color:inherit;text-decoration:none;}
+  .tag{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.06em;
+    color:var(--green);
+    text-transform:none;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,10,10,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    height:72px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;}
+  .brand-mark{
+    width:30px;height:30px;border-radius:8px;
+    background:var(--green);
+    display:flex;align-items:center;justify-content:center;
+    color:#0a0a0a;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:14px;
+  }
+  .navlinks{display:flex;gap:30px;font-size:14.5px;color:#cfcfcf;}
+  .navlinks a{position:relative;padding:6px 0;}
+  .navlinks a:hover{color:#fff;}
+  .navlinks a::after{
+    content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--green);
+    transition:width .25s ease;
+  }
+  .navlinks a:hover::after{width:100%;}
+  .nav-actions{display:flex;align-items:center;gap:14px;}
+  .btn{
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;font-weight:500;
+    padding:10px 18px;border-radius:8px;
+    border:1px solid var(--line);
+    cursor:pointer;
+    transition:transform .2s ease, background .2s ease, border-color .2s ease;
+    display:inline-flex;align-items:center;gap:8px;
+    white-space:nowrap;
+  }
+  .btn-ghost{color:#e8e8e8;background:transparent;}
+  .btn-ghost:hover{border-color:#444;}
+  .btn-solid{background:var(--green);color:#06210f;border-color:var(--green);font-weight:600;}
+  .btn-solid:hover{transform:translateY(-2px);box-shadow:0 8px 22px -8px rgba(57,255,106,0.55);}
+  @media (max-width:880px){.navlinks{display:none;}}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    padding:100px 0 90px;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% -10%, rgba(57,255,106,0.10), transparent 60%),
+      var(--bg);
+    overflow:hidden;
+  }
+  .hero-path{
+    position:absolute;
+    top:0;left:0;width:100%;height:100%;
+    pointer-events:none;
+    opacity:0.5;
+  }
+  .hero-inner{position:relative;z-index:2;text-align:center;}
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    border:1px solid rgba(57,255,106,0.35);
+    background:rgba(57,255,106,0.06);
+    border-radius:999px;
+    padding:7px 16px;
+    margin-bottom:28px;
+    animation:fadeUp .7s ease both;
+  }
+  .badge .dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(57,255,106,.6);animation:pulse 2s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(57,255,106,.5);}70%{box-shadow:0 0 0 8px rgba(57,255,106,0);}100%{box-shadow:0 0 0 0 rgba(57,255,106,0);}}
+
+  h1.hero-title{
+    font-size:clamp(34px,5.4vw,62px);
+    font-weight:800;
+    line-height:1.18;
+    letter-spacing:-0.01em;
+    max-width:920px;
+    margin:0 auto 22px;
+    animation:fadeUp .8s ease .05s both;
+  }
+  h1.hero-title em{
+    font-style:normal;color:var(--green);
+  }
+  .hero-sub{
+    font-size:16.5px;
+    color:#b9b9b9;
+    max-width:620px;
+    margin:0 auto 38px;
+    line-height:1.8;
+    animation:fadeUp .8s ease .12s both;
+  }
+  .hero-cta{
+    display:flex;justify-content:center;gap:14px;flex-wrap:wrap;
+    animation:fadeUp .8s ease .2s both;
+  }
+  .btn-lg{padding:14px 26px;border-radius:10px;font-size:14.5px;}
+
+  .hero-stats{
+    display:flex;justify-content:center;gap:48px;
+    margin-top:64px;
+    flex-wrap:wrap;
+    animation:fadeUp .8s ease .3s both;
+  }
+  .stat{text-align:center;}
+  .stat b{
+    display:block;font-size:28px;font-weight:800;color:#fff;
+    font-family:'JetBrains Mono',monospace;
+  }
+  .stat span{font-size:12.5px;color:var(--muted);}
+
+  @keyframes fadeUp{
+    from{opacity:0;transform:translateY(16px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+
+  /* ---------- Section shared ---------- */
+  section{padding:108px 0;}
+  .section-head{text-align:center;max-width:680px;margin:0 auto 64px;}
+  .section-head .tag{display:block;margin-bottom:14px;}
+  .section-head h2{
+    font-size:clamp(26px,3.6vw,40px);
+    font-weight:800;line-height:1.25;margin-bottom:16px;
+  }
+  .section-head p{color:var(--muted);font-size:15.5px;line-height:1.8;}
+
+  /* ---------- Services ---------- */
+  .services{background:var(--bg);}
+  .grid-4{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:22px;
+  }
+  @media (max-width:760px){.grid-4{grid-template-columns:1fr;}}
+  .svc-card{
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:34px;
+    transition:border-color .25s ease, transform .25s ease;
+  }
+  .svc-card:hover{border-color:rgba(57,255,106,0.4);transform:translateY(-4px);}
+  .svc-num{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;color:var(--green);margin-bottom:18px;letter-spacing:.05em;
+  }
+  .svc-card h3{font-size:19.5px;font-weight:700;margin-bottom:12px;}
+  .svc-card p{font-size:14.5px;color:#aeaeae;line-height:1.8;margin-bottom:20px;}
+  .svc-list{list-style:none;margin-bottom:24px;}
+  .svc-list li{
+    font-size:13.8px;color:#cfcfcf;
+    display:flex;align-items:flex-start;gap:10px;
+    margin-bottom:9px;
+  }
+  .svc-list li::before{
+    content:"";flex-shrink:0;width:6px;height:6px;border-radius:50%;
+    background:var(--green);margin-top:6px;
+  }
+  .svc-cta{
+    font-family:'JetBrains Mono',monospace;
+    font-size:13.5px;color:var(--green);font-weight:500;
+    display:inline-flex;align-items:center;gap:6px;
+  }
+  .svc-cta .arrow{transition:transform .2s ease;}
+  .svc-card:hover .arrow{transform:translateX(4px);}
+
+  .price-pill{
+    display:block;width:max-content;margin:48px auto 0;
+    background:rgba(57,255,106,0.08);
+    border:1px solid rgba(57,255,106,0.3);
+    color:var(--green);
+    font-family:'JetBrains Mono',monospace;
+    font-size:13.5px;font-weight:500;
+    padding:11px 24px;border-radius:999px;
+  }
+
+  /* ---------- Process ---------- */
+  .process{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .timeline{
+    position:relative;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+  }
+  @media (max-width:880px){.timeline{grid-template-columns:1fr;}}
+  .timeline::before{
+    content:"";
+    position:absolute;top:21px;left:0;right:0;height:1px;
+    background:linear-gradient(90deg, transparent, var(--line) 8%, var(--line) 92%, transparent);
+  }
+  @media (max-width:880px){.timeline::before{display:none;}}
+  .step{position:relative;}
+  .step-num{
+    width:42px;height:42px;border-radius:50%;
+    background:var(--bg);border:1px solid var(--green);
+    color:var(--green);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'JetBrains Mono',monospace;font-weight:600;font-size:14px;
+    margin-bottom:22px;position:relative;z-index:2;
+  }
+  .step h4{font-size:16.5px;font-weight:700;margin-bottom:10px;}
+  .step p{font-size:13.8px;color:var(--muted);line-height:1.75;}
+
+  /* ---------- Testimonial / trust strip ---------- */
+  .trust{padding:80px 0;}
+  .trust-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:24px;
+  }
+  @media (max-width:780px){.trust-grid{grid-template-columns:1fr;}}
+  .quote-card{
+    background:var(--bg-soft);border:1px solid var(--line);border-radius:16px;padding:30px;
+  }
+  .quote-card p.q{font-size:14.8px;line-height:1.85;color:#dcdcdc;margin-bottom:18px;}
+  .quote-card .who{display:flex;align-items:center;gap:12px;}
+  .avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--green-dim));flex-shrink:0;}
+  .who b{display:block;font-size:13.8px;}
+  .who span{font-size:12.5px;color:var(--muted);}
+
+  /* ---------- CTA band ---------- */
+  .cta-band{
+    background:var(--green);
+    color:#06210f;
+    text-align:center;
+    padding:90px 0;
+  }
+  .cta-band h2{font-size:clamp(26px,3.8vw,40px);font-weight:800;margin-bottom:16px;}
+  .cta-band p{font-size:15.5px;max-width:560px;margin:0 auto 36px;line-height:1.8;opacity:0.85;}
+  .cta-row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+  .btn-dark{background:#06210f;color:#fff;border-color:#06210f;}
+  .btn-dark:hover{transform:translateY(-2px);box-shadow:0 8px 22px -8px rgba(0,0,0,0.4);}
+  .btn-outline-dark{background:transparent;border:1px solid #06210f;color:#06210f;}
+  .btn-outline-dark:hover{background:rgba(6,33,15,0.08);}
+
+  /* ---------- Footer ---------- */
+  footer{background:#000;padding:72px 0 28px;border-top:1px solid var(--line);}
+  .foot-grid{
+    display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;
+    margin-bottom:56px;
+  }
+  @media (max-width:780px){.foot-grid{grid-template-columns:1fr 1fr;}}
+  .foot-brand p{font-size:13.8px;color:var(--muted);line-height:1.85;margin:18px 0 22px;max-width:280px;}
+  .social-row{display:flex;gap:10px;}
+  .social-row a{
+    width:34px;height:34px;border-radius:8px;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;font-size:13px;color:#cfcfcf;
+    transition:border-color .2s, color .2s;
+  }
+  .social-row a:hover{border-color:var(--green);color:var(--green);}
+  .foot-col h5{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--muted);letter-spacing:.05em;margin-bottom:18px;}
+  .foot-col a{display:block;font-size:13.8px;color:#d6d6d6;margin-bottom:12px;}
+  .foot-col a:hover{color:var(--green);}
+  .foot-bottom{
+    border-top:1px solid var(--line);
+    padding-top:26px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+    font-size:12.5px;color:var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <span class="brand-mark">L</span>
+      লঞ্চপ্যাড
+    </div>
+    <nav class="navlinks">
+      <a href="#services">সেবা</a>
+      <a href="#process">প্রসেস</a>
+      <a href="#trust">রিভিউ</a>
+      <a href="#cta">যোগাযোগ</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="#cta" class="btn btn-ghost">যোগাযোগ</a>
+      <a href="#cta" class="btn btn-solid">ফ্রি কনসালটেশন</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <svg class="hero-path" viewBox="0 0 1180 420" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M -50 380 C 250 380, 350 120, 650 140 C 880 155, 950 40, 1230 30"
+          fill="none" stroke="#39ff6a" stroke-width="1.5" stroke-dasharray="4 7" opacity="0.45"/>
+    <circle r="5" fill="#39ff6a">
+      <animateMotion dur="9s" repeatCount="indefinite"
+        path="M -50 380 C 250 380, 350 120, 650 140 C 880 155, 950 40, 1230 30"/>
+    </circle>
+  </svg>
+  <div class="wrap hero-inner">
+    <span class="badge"><span class="dot"></span><span class="tag">// লঞ্চ-রেডি সার্ভিস</span></span>
+    <h1 class="hero-title">আপনার বিজনেস <em>অনলাইনে</em> দাঁড় করানোর পুরো কাজটা আমরা করি</h1>
+    <p class="hero-sub">ব্র্যান্ড, ওয়েবসাইট, পেমেন্ট আর সোশ্যাল — সব এক জায়গায়। আপনি শুধু আইডিয়া দিন, বাকিটা আমাদের টিম সামলাবে, মাত্র কয়েক সপ্তাহে।</p>
+    <div class="hero-cta">
+      <a href="#cta" class="btn btn-solid btn-lg">ফ্রি কনসালটেশন বুক করুন →</a>
+      <a href="#services" class="btn btn-ghost btn-lg">সেবাগুলো দেখুন</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><b>180+</b><span>লঞ্চ হওয়া বিজনেস</span></div>
+      <div class="stat"><b>৪.৯/৫</b><span>ক্লায়েন্ট রেটিং</span></div>
+      <div class="stat"><b>২১ দিন</b><span>গড় লঞ্চ টাইম</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">// আমাদের সেবা</span>
+      <h2>লঞ্চ করার জন্য যা যা লাগবে</h2>
+      <p>একটা সার্ভিস বেছে নিন, অথবা পুরো প্যাকেজ নিন — দুই ক্ষেত্রেই আমরা ঠিক কাজটা সুপারিশ করব।</p>
+    </div>
+    <div class="grid-4">
+      <div class="svc-card">
+        <div class="svc-num">০১</div>
+        <h3>ব্র্যান্ড আইডেন্টিটি</h3>
+        <p>লোগো, কালার প্যালেট, টাইপোগ্রাফি আর ব্র্যান্ড গাইডলাইন — যা আপনার বিজনেসকে চেনার মতো বানায়।</p>
+        <ul class="svc-list">
+          <li>প্রফেশনাল লোগো ডিজাইন</li>
+          <li>কালার প্যালেট ও টাইপোগ্রাফি</li>
+          <li>ব্র্যান্ড গাইডলাইন ডকুমেন্ট</li>
+        </ul>
+        <a href="#cta" class="svc-cta">শুরু করুন <span class="arrow">→</span></a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">০২</div>
+        <h3>ওয়েবসাইট ডেভেলপমেন্ট</h3>
+        <p>ফাস্ট, মোবাইল-ফ্রেন্ডলি ই-কমার্স ওয়েবসাইট — প্রোডাক্ট কাটালগ থেকে চেকআউট পর্যন্ত সব রেডি।</p>
+        <ul class="svc-list">
+          <li>কাস্টম ই-কমার্স ওয়েবসাইট</li>
+          <li>মোবাইল-অপটিমাইজড ডিজাইন</li>
+          <li>স্বয়ংক্রিয় চেকআউট ফ্লো</li>
+        </ul>
+        <a href="#cta" class="svc-cta">শুরু করুন <span class="arrow">→</span></a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">০৩</div>
+        <h3>পেমেন্ট ইন্টিগ্রেশন</h3>
+        <p>বিকাশ, নগদ, রকেট আর কার্ড পেমেন্টের সাথে পূর্ণ ইন্টিগ্রেশন — স্থানীয় ও আন্তর্জাতিক, দুটোই।</p>
+        <ul class="svc-list">
+          <li>বিকাশ, নগদ, রকেট ইন্টিগ্রেশন</li>
+          <li>কার্ড পেমেন্ট সাপোর্ট</li>
+          <li>আন্তর্জাতিক গেটওয়ে সেটআপ</li>
+        </ul>
+        <a href="#cta" class="svc-cta">শুরু করুন <span class="arrow">→</span></a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">০৪</div>
+        <h3>সোশ্যাল মিডিয়া সেটআপ</h3>
+        <p>ব্র্যান্ডেড কভার, বায়ো অপটিমাইজেশন আর শুরুর কন্টেন্ট টেমপ্লেট সহ প্রফেশনাল অ্যাকাউন্ট সেটআপ।</p>
+        <ul class="svc-list">
+          <li>ফেসবুক, ইনস্টাগ্রাম, টিকটক সেটআপ</li>
+          <li>ব্র্যান্ডেড কভার ও প্রোফাইল</li>
+          <li>প্রাথমিক কন্টেন্ট টেমপ্লেট</li>
+        </ul>
+        <a href="#cta" class="svc-cta">শুরু করুন <span class="arrow">→</span></a>
+      </div>
+    </div>
+    <span class="price-pill">সম্পূর্ণ প্যাকেজ ৭৫,০০০ টাকা থেকে শুরু</span>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">// আমাদের প্রসেস</span>
+      <h2>একটা সাধারণ লঞ্চ প্রজেক্ট কীভাবে চলে</h2>
+      <p>চার ধাপের পরিষ্কার প্রসেস, যাতে আপনি সবসময় জানেন পরবর্তীতে কী আসছে।</p>
+    </div>
+    <div class="timeline">
+      <div class="step">
+        <div class="step-num">১</div>
+        <h4>ডিসকভারি কল</h4>
+        <p>আপনার বিজনেস, লক্ষ্য আর টার্গেট গ্রাহক বুঝতে ৩০ মিনিটের ফ্রি কল।</p>
+      </div>
+      <div class="step">
+        <div class="step-num">২</div>
+        <h4>প্রস্তাবনা ও পরিকল্পনা</h4>
+        <p>৪৮ ঘণ্টার মধ্যে টাইমলাইন, ডেলিভারেবল আর মূল্য সহ বিস্তারিত পরিকল্পনা পাবেন।</p>
+      </div>
+      <div class="step">
+        <div class="step-num">৩</div>
+        <h4>বিল্ড ও ইটারেট</h4>
+        <p>আমরা সাপ্তাহিক আপডেট ও লাইভ ডিজাইন রিভিশন সহ পরিকল্পনা বাস্তবায়ন করি।</p>
+      </div>
+      <div class="step">
+        <div class="step-num">৪</div>
+        <h4>লঞ্চ ও সাপোর্ট</h4>
+        <p>পূর্ণ ট্রেনিং ভিডিও আর লঞ্চ-পরবর্তী ৩০ দিনের ফ্রি সাপোর্ট সহ হস্তান্তর।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust" id="trust">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="tag">// ক্লায়েন্ট অভিজ্ঞতা</span>
+      <h2>যারা আমাদের সাথে লঞ্চ করেছেন</h2>
+    </div>
+    <div class="trust-grid">
+      <div class="quote-card">
+        <p class="q">"তিন সপ্তাহে আমার পুরো অনলাইন স্টোর রেডি হয়ে গেছে, বিকাশ পেমেন্ট পর্যন্ত কাজ করছে। যা ভেবেছিলাম তার চেয়ে অনেক সহজ ছিল।"</p>
+        <div class="who">
+          <div class="avatar"></div>
+          <div><b>তানজিনা রহমান</b><span>প্রতিষ্ঠাতা, কুঁড়ি কসমেটিকস</span></div>
+        </div>
+      </div>
+      <div class="quote-card">
+        <p class="q">"প্রতি সপ্তাহে আপডেট পেয়েছি, কোনো কিছু আন্দাজ করতে হয়নি। লঞ্চের পরও সাপোর্ট টিম সাথেই ছিল।"</p>
+        <div class="who">
+          <div class="avatar"></div>
+          <div><b>রাকিবুল হাসান</b><span>প্রতিষ্ঠাতা, ঢাকা গ্যাজেট হাব</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="cta">
+  <div class="wrap">
+    <h2>আপনার বিজনেস লঞ্চ করতে প্রস্তুত?</h2>
+    <p>একটা ফ্রি ৩০ মিনিটের কনসালটেশন বুক করুন। আমরা আপনার আইডিয়া অডিট করব, সঠিক প্যাকেজ সুপারিশ করব আর একটা নির্দিষ্ট মূল্য উদ্ধৃত করব।</p>
+    <div class="cta-row">
+      <a href="#" class="btn btn-dark btn-lg">ফ্রি কনসালটেশন বুক করুন</a>
+      <a href="#services" class="btn btn-outline-dark btn-lg">প্যাকেজ দেখুন</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand">
+          <span class="brand-mark">L</span>
+          লঞ্চপ্যাড
+        </div>
+        <p>বাংলাদেশের ছোট ও মাঝারি বিজনেসকে অনলাইনে দাঁড় করাতে সাহায্য করি — ব্র্যান্ডিং, ওয়েবসাইট আর পেমেন্ট, সব এক জায়গায়।</p>
+        <div class="social-row">
+          <a href="#">f</a>
+          <a href="#">in</a>
+          <a href="#">ig</a>
+          <a href="#">yt</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>সেবাসমূহ</h5>
+        <a href="#services">ব্র্যান্ড আইডেন্টিটি</a>
+        <a href="#services">ওয়েবসাইট ডেভেলপমেন্ট</a>
+        <a href="#services">পেমেন্ট ইন্টিগ্রেশন</a>
+        <a href="#services">সোশ্যাল মিডিয়া সেটআপ</a>
+      </div>
+      <div class="foot-col">
+        <h5>কোম্পানি</h5>
+        <a href="#process">আমাদের প্রসেস</a>
+        <a href="#trust">ক্লায়েন্ট রিভিউ</a>
+        <a href="#">ক্যারিয়ার</a>
+      </div>
+      <div class="foot-col">
+        <h5>যোগাযোগ</h5>
+        <a href="mailto:hello@launchpad.com">hello@launchpad.com</a>
+        <a href="#">ঢাকা, বাংলাদেশ</a>
+        <a href="#">শনি–বৃহস্পতি, সকাল ৯টা–রাত ৮টা</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© ২০২৬ লঞ্চপ্যাড। সর্বস্বত্ব সংরক্ষিত।</span>
+      <span>প্রাইভেসি পলিসি · টার্মস অফ সার্ভিস</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

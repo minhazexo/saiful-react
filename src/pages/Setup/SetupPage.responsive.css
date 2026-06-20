@@ -1,0 +1,27 @@
+/* ≤880px — hide nav links (handled by layout) */
+@media (max-width: 880px) {
+}
+
+/* ≤760px — services grid 1 col */
+@media (max-width: 760px) {
+  .lp-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ≤880px — timeline 1 col, hide connecting line */
+@media (max-width: 880px) {
+  .lp-timeline {
+    grid-template-columns: 1fr;
+  }
+  .lp-timeline::before {
+    display: none;
+  }
+}
+
+/* ≤780px — trust grid 1 col */
+@media (max-width: 780px) {
+  .lp-trust-grid {
+    grid-template-columns: 1fr;
+  }
+}

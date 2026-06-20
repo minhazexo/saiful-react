@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>সাইফুল স্টুডিওস — গ্রোথ সার্ভিস</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-darkest:#0a0c0a;
+    --bg-dark:#15171a;
+    --bg-dark-2:#1c1e22;
+    --green-500:#22c55e;
+    --green-600:#16a34a;
+    --green-700:#15803d;
+    --green-tint:#e9f9ee;
+    --green-tint-border:#bdeece;
+    --ink-900:#111315;
+    --ink-700:#3a3f44;
+    --muted:#6b7280;
+    --muted-light:#9aa1a8;
+    --white:#ffffff;
+    --border:#e7e9eb;
+    --radius-lg:18px;
+    --radius-md:12px;
+    --shadow-card:0 1px 2px rgba(15,23,18,0.04), 0 1px 1px rgba(15,23,18,0.03);
+    --shadow-pop:0 20px 40px -12px rgba(22,163,74,0.25), 0 0 0 1px rgba(34,197,94,0.08);
+    --font-bn:'Hind Siliguri', sans-serif;
+    --font-en:'Inter', sans-serif;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--font-bn);
+    background:var(--white);
+    color:var(--ink-900);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block;}
+  a{text-decoration:none; color:inherit;}
+  button{font-family:inherit; cursor:pointer; border:none;}
+  ul{list-style:none;}
+
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+
+  /* ---------- NAVBAR ---------- */
+  .navbar{
+    background:var(--bg-darkest);
+    border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 32px;
+    max-width:1180px; margin:0 auto;
+  }
+  .brand{display:flex; align-items:center; gap:10px;}
+  .brand-mark{
+    width:34px; height:34px; border-radius:9px;
+    background:linear-gradient(145deg,var(--green-500),var(--green-700));
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; font-weight:800; font-family:var(--font-en); font-size:15px;
+    flex-shrink:0;
+  }
+  .brand-name{font-family:var(--font-en); color:#fff; line-height:1.15;}
+  .brand-name b{display:block; font-size:14.5px; font-weight:700; letter-spacing:0.2px;}
+  .brand-name span{display:block; font-size:10.5px; letter-spacing:2px; color:var(--green-500); font-weight:600;}
+
+  .nav-links{display:flex; align-items:center; gap:30px;}
+  .nav-links a{
+    color:rgba(255,255,255,0.72); font-size:14.5px; font-weight:500;
+    transition:color .15s ease;
+  }
+  .nav-links a:hover{color:#fff;}
+
+  .nav-right{display:flex; align-items:center; gap:12px;}
+  .lang-toggle{
+    display:flex; background:rgba(255,255,255,0.08); border-radius:999px; padding:3px; gap:2px;
+  }
+  .lang-toggle button{
+    padding:6px 13px; border-radius:999px; font-size:12.5px; font-weight:700;
+    background:transparent; color:rgba(255,255,255,0.55); font-family:var(--font-en);
+    transition:all .15s ease;
+  }
+  .lang-toggle button.active{background:var(--green-500); color:#06250f;}
+  .btn-ghost-dark{
+    background:rgba(255,255,255,0.08); color:#fff; padding:10px 18px;
+    border-radius:10px; font-size:14px; font-weight:600;
+    border:1px solid rgba(255,255,255,0.1);
+    transition:background .15s ease;
+  }
+  .btn-ghost-dark:hover{background:rgba(255,255,255,0.14);}
+  .btn-solid-green{
+    background:var(--green-500); color:#06250f; padding:10px 20px;
+    border-radius:10px; font-size:14px; font-weight:700;
+    transition:transform .15s ease, background .15s ease;
+    display:inline-flex; align-items:center; gap:6px;
+  }
+  .btn-solid-green:hover{background:#34d871; transform:translateY(-1px);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:radial-gradient(ellipse 900px 500px at 50% -10%, rgba(34,197,94,0.18), transparent 70%), var(--bg-darkest);
+    padding:88px 32px 76px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:7px;
+    background:rgba(34,197,94,0.12); border:1px solid rgba(34,197,94,0.3);
+    color:var(--green-500); font-size:13px; font-weight:600;
+    padding:7px 16px; border-radius:999px; margin-bottom:26px;
+  }
+  .hero h1{
+    color:#fff; font-size:48px; font-weight:700; line-height:1.28;
+    max-width:780px; margin:0 auto 22px;
+    letter-spacing:-0.5px;
+  }
+  .hero h1 .accent{color:var(--green-500);}
+  .hero p{
+    color:rgba(255,255,255,0.62); font-size:17px; max-width:580px;
+    margin:0 auto 0;
+    line-height:1.75;
+  }
+
+  /* ---------- SECTION HEADERS (shared) ---------- */
+  .section-head{text-align:center; max-width:640px; margin:0 auto 52px;}
+  .section-head .eyebrow-light{
+    display:inline-flex; align-items:center; gap:7px;
+    background:var(--green-tint); border:1px solid var(--green-tint-border);
+    color:var(--green-700); font-size:13px; font-weight:700;
+    padding:7px 16px; border-radius:999px; margin-bottom:20px;
+  }
+  .section-head h2{font-size:34px; font-weight:700; color:var(--ink-900); margin-bottom:14px; letter-spacing:-0.3px;}
+  .section-head p{color:var(--muted); font-size:15.5px; line-height:1.8;}
+
+  /* ---------- SERVICES ---------- */
+  .services{padding:96px 32px 70px;}
+  .service-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:44px;
+  }
+  .service-card{
+    background:#fff; border:1.5px solid var(--border); border-radius:var(--radius-lg);
+    padding:32px 30px 28px; position:relative;
+    box-shadow:var(--shadow-card);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .service-card:hover{transform:translateY(-3px); box-shadow:0 12px 28px -8px rgba(15,23,18,0.1);}
+  .service-card.popular{
+    border-color:var(--green-500);
+    box-shadow:var(--shadow-pop);
+    padding-top:38px;
+  }
+  .popular-badge{
+    position:absolute; top:-15px; left:30px;
+    background:var(--green-500); color:#06250f;
+    font-size:12px; font-weight:700; padding:7px 14px;
+    border-radius:999px; display:flex; align-items:center; gap:5px;
+    box-shadow:0 4px 10px rgba(34,197,94,0.35);
+  }
+  .card-icon{
+    width:52px; height:52px; border-radius:13px;
+    background:var(--green-tint); border:1px solid var(--green-tint-border);
+    display:flex; align-items:center; justify-content:center;
+    font-size:24px; margin-bottom:20px;
+  }
+  .service-card h3{font-size:20.5px; font-weight:700; margin-bottom:12px; color:var(--ink-900);}
+  .service-card .desc{font-size:14.5px; color:var(--muted); line-height:1.75; margin-bottom:20px; min-height:78px;}
+  .check-list{display:flex; flex-direction:column; gap:11px; margin-bottom:26px;}
+  .check-list li{display:flex; align-items:flex-start; gap:10px; font-size:14px; color:var(--ink-700); font-weight:500;}
+  .check-icon{
+    width:18px; height:18px; border-radius:50%; background:var(--green-tint);
+    color:var(--green-700); display:flex; align-items:center; justify-content:center;
+    font-size:11px; flex-shrink:0; margin-top:1px; font-weight:800;
+  }
+  .card-cta{
+    width:100%; display:flex; align-items:center; justify-content:center; gap:8px;
+    background:var(--green-500); color:#06250f; font-weight:700; font-size:15px;
+    padding:14px; border-radius:11px;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .card-cta:hover{background:#34d871; transform:translateY(-1px);}
+  .service-card.popular .card-cta{background:var(--green-700); color:#fff;}
+  .service-card.popular .card-cta:hover{background:#136b32;}
+
+  .pricing-pill{
+    display:block; text-align:center; max-width:fit-content; margin:0 auto;
+    background:var(--green-tint); border:1.5px solid var(--green-tint-border);
+    color:var(--green-700); font-weight:700; font-size:15px;
+    padding:13px 30px; border-radius:999px;
+  }
+
+  /* ---------- STATS (NEW) ---------- */
+  .stats{background:var(--bg-darkest); padding:64px 32px;}
+  .stats-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+    max-width:1180px; margin:0 auto;
+  }
+  .stat-item{
+    text-align:center; padding:0 20px;
+    border-right:1px solid rgba(255,255,255,0.08);
+  }
+  .stat-item:last-child{border-right:none;}
+  .stat-num{
+    font-family:var(--font-en); font-size:42px; font-weight:800; color:#fff;
+    letter-spacing:-1px; margin-bottom:6px;
+  }
+  .stat-num span{color:var(--green-500);}
+  .stat-label{color:rgba(255,255,255,0.55); font-size:14px; font-weight:500;}
+
+  /* ---------- TESTIMONIALS (NEW) ---------- */
+  .testimonials{padding:96px 32px; background:#fafbfa;}
+  .testi-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:22px;
+    max-width:1180px; margin:0 auto;
+  }
+  .testi-card{
+    background:#fff; border:1.5px solid var(--border); border-radius:var(--radius-lg);
+    padding:30px 26px; display:flex; flex-direction:column;
+    box-shadow:var(--shadow-card);
+  }
+  .testi-stars{color:var(--green-500); font-size:14px; margin-bottom:16px; letter-spacing:2px;}
+  .testi-quote{font-size:14.5px; color:var(--ink-700); line-height:1.85; margin-bottom:24px; flex-grow:1;}
+  .testi-person{display:flex; align-items:center; gap:12px; padding-top:18px; border-top:1px solid var(--border);}
+  .testi-avatar{
+    width:42px; height:42px; border-radius:50%;
+    background:linear-gradient(145deg,var(--green-500),var(--green-700));
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; font-weight:700; font-size:15px; font-family:var(--font-en); flex-shrink:0;
+  }
+  .testi-name{font-size:14.5px; font-weight:700; color:var(--ink-900);}
+  .testi-role{font-size:12.5px; color:var(--muted);}
+
+  /* ---------- CTA BANNER ---------- */
+  .cta-banner{
+    background:linear-gradient(135deg,var(--green-600),var(--green-700));
+    padding:80px 32px; text-align:center; position:relative; overflow:hidden;
+  }
+  .cta-banner::before{
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(circle 500px at 80% 0%, rgba(255,255,255,0.08), transparent);
+  }
+  .cta-banner h2{color:#fff; font-size:32px; font-weight:700; margin-bottom:16px; position:relative;}
+  .cta-banner p{color:rgba(255,255,255,0.85); font-size:15.5px; max-width:560px; margin:0 auto 30px; line-height:1.8; position:relative;}
+  .btn-white{
+    display:inline-flex; align-items:center; gap:8px;
+    background:#fff; color:var(--green-700); font-weight:700; font-size:15px;
+    padding:15px 32px; border-radius:12px;
+    box-shadow:0 10px 25px -5px rgba(0,0,0,0.2);
+    transition:transform .15s ease, box-shadow .15s ease;
+    position:relative;
+  }
+  .btn-white:hover{transform:translateY(-2px); box-shadow:0 14px 30px -5px rgba(0,0,0,0.25);}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--bg-darkest); padding:64px 32px 0; border-top:1px solid rgba(255,255,255,0.06);}
+  .footer-grid{
+    display:grid; grid-template-columns:1.6fr 1fr 1fr 1.1fr; gap:40px;
+    max-width:1180px; margin:0 auto; padding-bottom:48px;
+  }
+  .footer-brand p{color:rgba(255,255,255,0.5); font-size:13.5px; line-height:1.85; margin-top:16px; max-width:300px;}
+  .social-row{display:flex; gap:10px; margin-top:22px;}
+  .social-row a{
+    width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,0.08);
+    display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.7);
+    font-size:14px; transition:background .15s ease;
+  }
+  .social-row a:hover{background:var(--green-500); color:#06250f;}
+  .footer-col h4{color:#fff; font-size:14px; font-weight:700; margin-bottom:18px;}
+  .footer-col ul{display:flex; flex-direction:column; gap:12px;}
+  .footer-col a{color:rgba(255,255,255,0.55); font-size:14px; transition:color .15s ease;}
+  .footer-col a:hover{color:var(--green-500);}
+  .footer-col li{display:flex; align-items:flex-start; gap:8px; color:rgba(255,255,255,0.55); font-size:13.5px;}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.07); padding:24px 32px;
+    display:flex; justify-content:space-between; align-items:center;
+    max-width:1180px; margin:0 auto;
+  }
+  .footer-bottom p{color:rgba(255,255,255,0.4); font-size:13px;}
+  .lang-row{display:flex; align-items:center; gap:8px;}
+  .lang-row span{color:rgba(255,255,255,0.4); font-size:13px;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:900px){
+    .nav-links{display:none;}
+    .hero h1{font-size:32px;}
+    .service-grid{grid-template-columns:1fr;}
+    .stats-grid{grid-template-columns:1fr 1fr; gap:30px;}
+    .stat-item{border-right:none; padding:0;}
+    .testi-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr; gap:32px;}
+    .footer-bottom{flex-direction:column; gap:12px; text-align:center;}
+  }
+  @media (max-width:560px){
+    .wrap, .nav-inner{padding-left:18px; padding-right:18px;}
+    .hero{padding:64px 18px 56px;}
+    .hero h1{font-size:26px;}
+    .section-head h2{font-size:26px;}
+    .footer-grid{grid-template-columns:1fr;}
+    .services, .testimonials{padding:64px 18px;}
+  }
+
+  :focus-visible{outline:2px solid var(--green-500); outline-offset:2px;}
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="brand-mark">S</div>
+      <div class="brand-name"><b>SAIFUL</b><span>STUDIOS</span></div>
+    </div>
+    <div class="nav-links">
+      <a href="#">একাডেমী</a>
+      <a href="#">বিজনেস সেটআপ</a>
+      <a href="#services">গ্রোথ</a>
+      <a href="#">এআই সিস্টেম</a>
+      <a href="#">কেস স্টাডিজ</a>
+      <a href="#">ব্লগ</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button>EN</button>
+        <button class="active">BN</button>
+      </div>
+      <a href="#" class="btn-ghost-dark">যোগাযোগ</a>
+      <a href="#cta" class="btn-solid-green">ফ্রি রোডম্যাপ</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <span class="eyebrow">✓ গ্রোথ সার্ভিস</span>
+  <h1>আপনার ই-কমার্স বিজনেস <span class="accent">স্কেল</span> করুন</h1>
+  <p>কন্টেন্ট মার্কেটিং, অ্যাড ম্যানেজমেন্ট এবং ডেটা-চালিত স্ট্র্যাটেজি সহ মাসিক গ্রোথ অংশীদারিত্ব।</p>
+</header>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-head">
+    <span class="eyebrow-light">📦 গ্রোথ সার্ভিস</span>
+    <h2>গ্রো করার জন্য আমাদের ৪টি উপায়</h2>
+    <p>একটি বেছে নিন বা সংযুক্ত করুন — বেশিরভাগ পার্টনার ফেসবুক অ্যাড + কন্টেন্ট মার্কেটিং দিয়ে শুরু করে।</p>
+  </div>
+
+  <div class="service-grid">
+
+    <div class="service-card">
+      <div class="card-icon">✏️</div>
+      <h3>কন্টেন্ট মার্কেটিং</h3>
+      <p class="desc">প্রতি মাসে ৩০+ কন্টেন্ট — প্রোডাক্ট ফটো, গ্রাফিক্স, ক্যাপশন, ব্লগ পোস্ট — সবকিছু অন-ব্র্যান্ড ও কনভার্সন-কেন্দ্রিক।</p>
+      <ul class="check-list">
+        <li><span class="check-icon">✓</span>প্রোডাক্ট ফটোগ্রাফি ও গ্রাফিক্স</li>
+        <li><span class="check-icon">✓</span>ক্যাপশন রাইটিং ও ব্লগ পোস্ট</li>
+        <li><span class="check-icon">✓</span>ব্র্যান্ড গাইডলাইন অনুসরণ</li>
+        <li><span class="check-icon">✓</span>কনভার্সন-কেন্দ্রিক কপি</li>
+      </ul>
+      <a href="#" class="card-cta">কন্টেন্ট প্ল্যান দেখুন →</a>
+    </div>
+
+    <div class="service-card popular">
+      <span class="popular-badge">★ Most Popular</span>
+      <div class="card-icon">📢</div>
+      <h3>ফেসবুক ও ইনস্টাগ্রাম অ্যাড</h3>
+      <p class="desc">সম্পূর্ণ অ্যাড ক্যাম্পেইন ম্যানেজমেন্ট: অডিয়েন্স রিসার্চ, ক্রিয়েটিভ টেস্টিং, বাজেট অপটিমাইজেশন, সর্বোচ্চ ROAS-এর জন্য উইনিং ক্যাম্পেইন স্কেলিং।</p>
+      <ul class="check-list">
+        <li><span class="check-icon">✓</span>অডিয়েন্স রিসার্চ</li>
+        <li><span class="check-icon">✓</span>ক্রিয়েটিভ টেস্টিং</li>
+        <li><span class="check-icon">✓</span>বাজেট অপটিমাইজেশন</li>
+        <li><span class="check-icon">✓</span>উইনিং ক্যাম্পেইন স্কেলিং</li>
+      </ul>
+      <a href="#" class="card-cta">অ্যাড অডিট বুক করুন →</a>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon">🎬</div>
+      <h3>ভিডিও মার্কেটিং</h3>
+      <p class="desc">শর্ট-ফর্ম রিলস এবং টিকটক কন্টেন্ট, প্রোডাক্ট শোকেস ভিডিও, স্টোরিটেলিং কন্টেন্ট যা ভাইরাল রিচ ও ব্র্যান্ড অ্যাওয়ারনেস চালিত করে।</p>
+      <ul class="check-list">
+        <li><span class="check-icon">✓</span>শর্ট-ফর্ম রিলস ও টিকটক</li>
+        <li><span class="check-icon">✓</span>প্রোডাক্ট শোকেস ভিডিও</li>
+        <li><span class="check-icon">✓</span>স্টোরিটেলিং কন্টেন্ট</li>
+        <li><span class="check-icon">✓</span>ভাইরাল রিচ স্ট্র্যাটেজি</li>
+      </ul>
+      <a href="#" class="card-cta">ভিডিও স্যাম্পল দেখুন →</a>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon">📊</div>
+      <h3>মাসিক গ্রোথ রিপোর্টিং</h3>
+      <p class="desc">ট্রাফিক, কনভার্সন, অ্যাড পারফরম্যান্স, রেভিনিউ গ্রোথ এবং পরবর্তী মাসের জন্য স্পষ্ট কৌশলগত পরিকল্পনা সহ বিস্তারিত মাসিক রিপোর্ট।</p>
+      <ul class="check-list">
+        <li><span class="check-icon">✓</span>ট্রাফিক ও কনভার্সন ডেটা</li>
+        <li><span class="check-icon">✓</span>অ্যাড পারফরম্যান্স ব্রেকডাউন</li>
+        <li><span class="check-icon">✓</span>রেভিনিউ গ্রোথ ট্র্যাকিং</li>
+        <li><span class="check-icon">✓</span>স্পষ্ট কৌশলগত পরিকল্পনা</li>
+      </ul>
+      <a href="#" class="card-cta">নমুনা রিপোর্ট দেখুন →</a>
+    </div>
+
+  </div>
+
+  <a href="#" class="pricing-pill">৬১৫,০০০৻/মাস থেকে শুরু</a>
+</section>
+
+<!-- STATS (NEW SECTION) -->
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-num">৮৫<span>+</span></div>
+      <div class="stat-label">ব্র্যান্ড পার্টনার</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">৩.২<span>x</span></div>
+      <div class="stat-label">গড় ROAS উন্নতি</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">৪২<span>%</span></div>
+      <div class="stat-label">গড় রেভিনিউ গ্রোথ</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">৬<span>+</span></div>
+      <div class="stat-label">বছরের অভিজ্ঞতা</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS (NEW SECTION) -->
+<section class="testimonials">
+  <div class="section-head">
+    <span class="eyebrow-light">💬 ক্লায়েন্ট অভিজ্ঞতা</span>
+    <h2>পার্টনাররা যা বলছেন</h2>
+    <p>আমাদের সাথে কাজ করা কিছু ব্র্যান্ডের বাস্তব অভিজ্ঞতা ও ফলাফল।</p>
+  </div>
+
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">তিন মাসের মধ্যে আমাদের ফেসবুক অ্যাড থেকে বিক্রি দ্বিগুণ হয়েছে। টিম প্রতি সপ্তাহে আপডেট দেয়, কোনো কিছু আন্দাজে চলে না — সব ডেটা দিয়ে সিদ্ধান্ত নেওয়া হয়।</p>
+      <div class="testi-person">
+        <div class="testi-avatar">র</div>
+        <div>
+          <div class="testi-name">রাফসান আহমেদ</div>
+          <div class="testi-role">প্রতিষ্ঠাতা, উর্বি ফ্যাশন</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">কন্টেন্ট কোয়ালিটি আগে যা পেতাম তার থেকে অনেক ভালো। প্রতি মাসে রিপোর্ট পেয়ে বুঝতে পারি টাকা কোথায় যাচ্ছে এবং কেন কাজ করছে।</p>
+      <div class="testi-person">
+        <div class="testi-avatar">ন</div>
+        <div>
+          <div class="testi-name">নুসরাত জাহান</div>
+          <div class="testi-role">সিইও, হোমিও কেয়ার বিডি</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">শুরুতে সন্দিহান ছিলাম, কিন্তু প্রথম মাসেই ROAS দ্বিগুণের বেশি বেড়েছে। যোগাযোগ স্বচ্ছ এবং প্রতিশ্রুতির চেয়ে বেশি ডেলিভার করে।</p>
+      <div class="testi-person">
+        <div class="testi-avatar">ত</div>
+        <div>
+          <div class="testi-name">তানভীর হোসেন</div>
+          <div class="testi-role">প্রতিষ্ঠাতা, গ্যাজেট জোন</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner" id="cta">
+  <h2>একটি ফ্রি স্ট্র্যাটেজি কল বুক করুন</h2>
+  <p>আপনার স্টোর এবং বর্তমান সংখ্যা সম্পর্কে বলুন। আমরা আপনাকে ৩টি নির্দিষ্ট গ্রোথ পদক্ষেপ দেব যা আপনি এই সপ্তাহে বাস্তবায়ন করতে পারেন — কোনো প্রতিশ্রুতি নেই।</p>
+  <a href="#" class="btn-white">📅 ফ্রি স্ট্র্যাটেজি কল বুক করুন</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="brand">
+        <div class="brand-mark">S</div>
+        <div class="brand-name"><b>SAIFUL</b><span>STUDIOS</span></div>
+      </div>
+      <p>ই-কমার্স বিজনেস লঞ্চ এবং গ্রোথ পার্টনারা র‍্যাপিডে, টেকনোলজির এবং এআই মার্কেটিংয়ের মাধ্যমে বাংলাদেশি উদ্যোক্তাদের লাভজনক অনলাইন বিজনেস তৈরিতে সাহায্য করি।</p>
+      <div class="social-row">
+        <a href="#">f</a>
+        <a href="#">ig</a>
+        <a href="#">yt</a>
+        <a href="#">in</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>সেবাসমূহ</h4>
+      <ul>
+        <li><a href="#">ই-কমার্স একাডেমী</a></li>
+        <li><a href="#">বিজনেস সেটআপ</a></li>
+        <li><a href="#services">গ্রোথ সার্ভিস</a></li>
+        <li><a href="#">এআই মার্কেটিং সিস্টেম</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>কোম্পানি</h4>
+      <ul>
+        <li><a href="#">আমাদের সম্পর্কে</a></li>
+        <li><a href="#">কেস স্টাডিজ</a></li>
+        <li><a href="#">ব্লগ</a></li>
+        <li><a href="#">যোগাযোগ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>যোগাযোগ</h4>
+      <ul>
+        <li>✉️ saifulstudios@gmail.com</li>
+        <li>📍 ঢাকা, বাংলাদেশ</li>
+        <li>🕐 শনি–বৃহস্পতি, সকাল ৯টা–রাত ৮টা</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© ২০২৬ সাইফুল স্টুডিওস। সর্বস্বত্ব সংরক্ষিত।</p>
+    <div class="lang-row">
+      <span>ভাষা:</span>
+      <div class="lang-toggle">
+        <button>EN</button>
+        <button class="active">BN</button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

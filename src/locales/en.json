@@ -493,11 +493,20 @@
     }
   },
   "academy": {
-    "eyebrow": "E-commerce Academy",
-    "title": "Learn e-commerce the right way",
-    "subtitle": "8 modules, 100+ templates, and a private community of 2,000+ Bangladeshi founders building real online businesses.",
+    "eyebrow": "🎓 E-commerce Academy",
+    "title": "Learn <span class=\"accent\">e-commerce</span> the right way",
+    "subtitle": "8 modules, 400+ templates, and a private community of 2,000+ Bangladeshi founders building real online businesses.",
+    "modulesCta": "View modules",
+    "stats": {
+      "items": [
+        { "num": "2,000+", "label": "Founder Community" },
+        { "num": "8", "label": "Core Modules" },
+        { "num": "400+", "label": "Templates & SOPs" },
+        { "num": "4.8/5", "label": "Average Rating" }
+      ]
+    },
     "modules": {
-      "eyebrow": "What you will learn",
+      "eyebrow": "📚 What you will learn",
       "title": "8 modules. Zero fluff. Real results.",
       "subtitle": "Every module is action-oriented — you finish with assets you can use immediately.",
       "items": {
@@ -512,94 +521,166 @@
       }
     },
     "pricing": {
-      "eyebrow": "One-time fee",
+      "eyebrow": "💳 One-time fee",
       "title": "Invest in yourself for less than a dinner",
       "subtitle": "Lifetime access. No subscriptions. No hidden costs.",
-      "strike": "৳12,000",
-      "price": "৳5,000",
-      "save": "SAVE 58%",
+      "oldPrice": "৳12,000",
+      "newPrice": "৳5,000",
+      "saveBadge": "SAVE 58%",
       "note": "One-time payment · Lifetime access",
-      "cta": "Enroll Now for {{price}}",
+      "perks": [
+        "Lifetime access to all 8 modules",
+        "Private founder community (2,000+ members)",
+        "Weekly live Q&A calls with Saiful",
+        "400+ ready-to-use templates and SOPs",
+        "Certificate of completion",
+        "30-day money-back guarantee"
+      ],
+      "cta": "Enroll Now for ৳5,000"
+    },
+    "testimonials": {
+      "eyebrow": "⭐ Student Reviews",
+      "title": "Those who learned and built their business",
+      "subtitle": "Real experiences from a few of our 2,000+ founders.",
+      "items": [
+        {
+          "stars": "★★★★★",
+          "quote": "Three months ago I had no online store. Following modules 3 and 6, I now get 40+ orders per month, mixing organic and paid ads.",
+          "name": "Nigar Sultana",
+          "role": "Founder, Clothing Brand"
+        },
+        {
+          "stars": "★★★★★",
+          "quote": "The templates and SOPs are my biggest time saver. After the branding module, customers themselves compliment our packaging.",
+          "name": "Rakib Hasan",
+          "role": "Founder, Home Decor Shop"
+        },
+        {
+          "stars": "★★★★★",
+          "quote": "The community is what makes this different. Asking 2,000 people on the same path, plus weekly Q&A feedback from Saiful — it is way faster than learning alone.",
+          "name": "Tasnim Akhter",
+          "role": "Founder, Cosmetics Brand"
+        }
+      ]
+    },
+    "instructor": {
+      "eyebrow": "👤 Who is teaching",
+      "title": "Learn from a practitioner, not theory",
+      "name": "Saiful Islam",
+      "role": "Founder, Saiful Studios",
+      "bio": "Built from 7+ years of real experience launching and scaling e-commerce brands in Bangladesh. After launching multiple brands and mentoring 2,000+ founders, this course contains only what works — no theoretical filler.",
+      "tags": ["7+ Years E-commerce", "2,000+ Students Mentored", "Meta Ads Certified"]
+    },
+    "faq": {
+      "eyebrow": "❓ Frequently Asked Questions",
+      "title": "What to know before enrolling",
+      "items": [
+        {
+          "q": "How long does it take to complete the course?",
+          "a": "Each module can be completed in 2-3 hours per week. Most students finish all 8 modules in 8-10 weeks, but with lifetime access you can go at your own pace."
+        },
+        {
+          "q": "Will this course work if I don't have a business or product idea?",
+          "a": "Yes. Module 1 starts with niche selection and market research, so even without an idea you can build a validated business concept from scratch."
+        },
+        {
+          "q": "How does the 30-day money-back guarantee work?",
+          "a": "If within 30 days of enrollment you feel this course isn't right for you, email support and we will refund the full amount, no questions asked."
+        },
+        {
+          "q": "When are the live Q&A calls and what if I miss one?",
+          "a": "Weekly live calls happen on a set day and every session is recorded and uploaded to the community, so you can catch up even if you can't attend live."
+        },
+        {
+          "q": "Is it a one-time payment? Any installment options?",
+          "a": "The base price is one-time payment, but after submitting the enrollment form our team will contact you about available payment options."
+        }
+      ]
+    },
+    "enroll": {
+      "eyebrow": "📝 Enroll today",
+      "title": "Get instant access",
       "perks": {
         "lifetime": "Lifetime access to all 8 modules",
         "community": "Private founder community (2,000+ members)",
         "qa": "Weekly live Q&A calls with Saiful",
-        "templates": "100+ ready-to-use templates and SOPs",
-        "certificate": "Certificate of completion",
-        "guarantee": "30-day money-back guarantee"
-      }
-    },
-    "enroll": {
-      "eyebrow": "Enroll today",
-      "title": "Get instant access",
-      "subtitle": "Fill out the form and our team will get back to you within 24 hours with payment instructions and onboarding details.",
-      "perks": {
-        "instant": "Instant access after payment",
-        "payment": "Pay via bKash, Nagad, Rocket, or bank",
-        "guarantee": "30-day money-back guarantee",
-        "vip": "VIP support in private community"
+        "templates": "400+ ready-to-use templates"
+      },
+      "urgency": {
+        "label": "⏰ This batch closes in",
+        "days": "Days",
+        "hours": "Hours",
+        "mins": "Minutes"
       },
       "formTitle": "Enrollment Form",
       "nameLabel": "Full Name *",
       "namePlaceholder": "Your full name",
-      "emailLabel": "Email *",
-      "emailPlaceholder": "your@email.com",
-      "whatsappLabel": "WhatsApp *",
-      "whatsappPlaceholder": "01866290587",
-      "stageLabel": "Where are you in your journey? *",
-      "stagePlaceholder": "Select your stage",
-      "stageOptions": {
-        "beginner": "Complete beginner — no business yet",
-        "idea": "Have an idea, haven't started",
-        "launched": "Just launched, need guidance",
-        "scaling": "Running a business, want to scale"
-      },
-      "goalsLabel": "What do you want to achieve?",
-      "goalsPlaceholder": "Tell us briefly what you want to achieve…",
-      "submit": "Enroll Me Now",
+      "phoneLabel": "Mobile Number *",
+      "phonePlaceholder": "01XXXXXXXXX",
+      "emailLabel": "Email",
+      "emailPlaceholder": "you@example.com",
+      "cityLabel": "City",
+      "cityPlaceholder": "Dhaka, Chattogram...",
+      "submit": "Enroll Me Now for ৳5,000",
       "submitting": "Submitting…",
-      "success": "Enrolled! We will contact you within 24 hours.",
+      "success": "Application received",
+      "demoNote": "This is a demo form — no data is submitted. The real site will have payment and confirmation flow added here.",
       "error": "Error. Please try again or contact us on WhatsApp."
     }
   },
   "setup": {
-    "eyebrow": "Business Setup Service",
-    "title": "Launch Your Business Professionally",
-    "subtitle": "Complete done-for-you e-commerce setup — brand identity, website, payments, and social media, ready in weeks.",
+    "tag": "// Launch-ready service",
+    "title": "We do the whole work of getting your business <em>online</em>",
+    "subtitle": "Brand, website, payments and social — all in one place. You bring the idea, our team handles the rest, in just a few weeks.",
+    "heroCta": "Book Free Consultation →",
+    "heroCta2": "View Services",
+    "stats": [
+      { "num": "180+", "label": "Businesses Launched" },
+      { "num": "4.9/5", "label": "Client Rating" },
+      { "num": "21 days", "label": "Avg Launch Time" }
+    ],
     "services": {
-      "eyebrow": "Included Services",
-      "title": "Everything you need to launch",
-      "subtitle": "Mix and match, or get the full package — we will recommend the right combo on the call.",
+      "eyebrow": "// Our services",
+      "title": "Everything needed to launch",
+      "subtitle": "Pick one service, or get the full package — either way we will recommend the right fit.",
       "items": {
-        "brand": { "title": "Brand Identity", "desc": "Professional logo design, color palette, typography, brand guidelines, visual identity system that makes your business look premium and trustworthy.", "features": ["Professional logo design", "Color palette & typography", "Brand guidelines document", "Visual identity system"] },
-        "website": { "title": "Website Development", "desc": "High-converting e-commerce website with fast loading speed, mobile optimization, product catalog, intuitive checkout flow.", "features": ["Custom e-commerce website", "Mobile-optimized design", "Product catalog setup", "Intuitive checkout flow"] },
-        "payment": { "title": "Payment Integration", "desc": "Full integration with Bkash, Nagad, Rocket, and card payments. Local and international gateway setup.", "features": ["Bkash, Nagad, Rocket integration", "Card payment support", "Local gateway setup", "International gateway setup"] },
-        "social": { "title": "Social Media Setup", "desc": "Professional Facebook page, Instagram, TikTok account setup with branded covers, bio optimization, initial content templates.", "features": ["Facebook, Instagram, TikTok setup", "Branded covers & profile", "Bio optimization", "Initial content templates"] }
+        "brand": { "num": "01", "title": "Brand Identity", "desc": "Logo, color palette, typography and brand guidelines — what makes your business recognizable.", "features": ["Professional logo design", "Color palette & typography", "Brand guidelines document"] },
+        "website": { "num": "02", "title": "Website Development", "desc": "Fast, mobile-friendly e-commerce website — from product catalog to checkout, all ready.", "features": ["Custom e-commerce website", "Mobile-optimized design", "Automated checkout flow"] },
+        "payment": { "num": "03", "title": "Payment Integration", "desc": "Full integration with Bkash, Nagad, Rocket and card payments — local and international, both.", "features": ["Bkash, Nagad, Rocket integration", "Card payment support", "International gateway setup"] },
+        "social": { "num": "04", "title": "Social Media Setup", "desc": "Professional account setup with branded covers, bio optimization and starter content templates.", "features": ["Facebook, Instagram, TikTok setup", "Branded covers & profile", "Initial content templates"] }
       },
-      "cta": "Get Started"
+      "cta": "Get Started",
+      "pricePill": "Full package starting from ৳75,000"
     },
-    "startingFrom": "Starting from ৳20,000",
     "process": {
-      "eyebrow": "Our process",
-      "title": "How a typical setup project runs",
-      "subtitle": "Transparent, fast, and built around weekly check-ins so you always know what is next.",
+      "eyebrow": "// Our process",
+      "title": "How a typical launch project runs",
+      "subtitle": "A clear four-step process so you always know what is coming next.",
       "items": {
-        "discovery": { "title": "Discovery Call", "desc": "30-min free call to understand your business, goals, and target customer." },
-        "proposal": { "title": "Proposal & Plan", "desc": "You receive a detailed plan with timeline, deliverables, and pricing within 48 hours." },
-        "build": { "title": "Build & Iterate", "desc": "We execute the plan with weekly updates and unlimited design revisions." },
-        "launch": { "title": "Launch & Support", "desc": "Go live with full documentation, training videos, and 30 days of post-launch support." }
+        "discovery": { "num": "1", "title": "Discovery Call", "desc": "30-min free call to understand your business, goals and target customer." },
+        "proposal": { "num": "2", "title": "Proposal & Plan", "desc": "You receive a detailed plan with timeline, deliverables and pricing within 48 hours." },
+        "build": { "num": "3", "title": "Build & Iterate", "desc": "We execute the plan with weekly updates and live design revisions." },
+        "launch": { "num": "4", "title": "Launch & Support", "desc": "Handover with full training videos and 30 days of free post-launch support." }
       }
+    },
+    "testimonials": {
+      "eyebrow": "// Client experience",
+      "title": "Those who have launched with us",
+      "items": [
+        { "quote": "\"My entire online store was ready in three weeks, even Bkash payment was working. Much easier than I expected.\"", "name": "Tanjina Rahman", "role": "Founder, Kuri Cosmetics" },
+        { "quote": "\"Got updates every week, nothing was left to guess. The support team stayed with us even after launch.\"", "name": "Rakibul Hasan", "role": "Founder, Dhaka Gadget Hub" }
+      ]
     },
     "cta": {
       "title": "Ready to launch your business?",
-      "subtitle": "Book a free 30-minute consultation. We will audit your idea, recommend the right setup package, and quote a fixed price.",
+      "subtitle": "Book a free 30-minute consultation. We will audit your idea, recommend the right package and quote a fixed price.",
       "book": "Book Free Consultation",
-      "academy": "Or Start with Academy (৳5,000)"
+      "view": "View Packages"
     }
   },
   "growth": {
-    "eyebrow": "Growth Services",
-    "title": "Scale Your E-commerce Business",
+    "eyebrow": "✓ Growth Services",
+    "title": "<span class=\"accent\">Scale</span> Your E-commerce Business",
     "subtitle": "Monthly growth partnership with content marketing, ads management, and data-driven strategy.",
     "services": {
       "eyebrow": "Growth Services",
@@ -614,6 +695,45 @@
       "cta": "Get Started"
     },
     "startingFrom": "Starting from ৳15,000/month",
+    "stats": {
+      "brandPartners": "Brand Partners",
+      "brandPartnersNum": "85",
+      "brandPartnersSym": "+",
+      "avgRoas": "Avg ROAS Improvement",
+      "avgRoasNum": "3.2",
+      "avgRoasSym": "x",
+      "avgRevenue": "Avg Revenue Growth",
+      "avgRevenueNum": "42",
+      "avgRevenueSym": "%",
+      "experience": "Years Experience",
+      "experienceNum": "6",
+      "experienceSym": "+"
+    },
+    "testimonials": {
+      "eyebrow": "Client Experience",
+      "title": "What partners are saying",
+      "subtitle": "Real experiences and results from brands we've worked with.",
+      "items": [
+        {
+          "stars": "★★★★★",
+          "quote": "In three months, our Facebook ad sales doubled. The team updates us weekly — nothing is left to chance, every decision is data-driven.",
+          "name": "Rafsan Ahmed",
+          "role": "Founder, Urvi Fashion"
+        },
+        {
+          "stars": "★★★★★",
+          "quote": "The content quality is far better than what we had before. Monthly reports help us understand where the money is going and why things work.",
+          "name": "Nusrat Jahan",
+          "role": "CEO, Homeo Care BD"
+        },
+        {
+          "stars": "★★★★★",
+          "quote": "I was skeptical at first, but ROAS more than doubled in the first month. Communication is transparent and they deliver more than promised.",
+          "name": "Tanvir Hossain",
+          "role": "Founder, Gadget Zone"
+        }
+      ]
+    },
     "cta": {
       "title": "Book a free strategy call",
       "subtitle": "Tell us about your store and current numbers. We will give you 3 specific growth moves you can implement this week — no commitment.",
