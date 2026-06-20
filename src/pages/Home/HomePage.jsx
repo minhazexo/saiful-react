@@ -146,61 +146,75 @@ function HomePage() {
               initial="hidden"
               animate="visible"
             >
-              <div className="hero-portrait-wrapper">
-                <div className="hero-portrait-circle"></div>
-                <motion.div className="hero-portrait" variants={fadeUp}>
+              <div className="circle-layout">
+                <div className="center-circle">
                   <img src={assetPath('/images/Entreprenure.jpg.jpeg')} alt="Saiful Islam - Founder" />
-                </motion.div>
+                </div>
 
-                {/* Floating Service Pills */}
-                <motion.div className="service-pill pill-independent" variants={fadeUpSmall}
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 4, ease: 'easeInOut', repeat: Infinity, delay: 0.2 }}
-                >
-                  {t('home.heroPills.p8')}
-                </motion.div>
-                <motion.div className="service-pill pill-logo" variants={fadeUpSmall}
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 4, ease: 'easeInOut', repeat: Infinity }}
-                >
-                  {t('home.heroPills.p1')}
-                </motion.div>
-                <motion.div className="service-pill pill-ecommerce" variants={fadeUpSmall}
-                  animate={{ y: [0, -8, 0] }}
-                  transition={{ duration: 5, ease: 'easeInOut', repeat: Infinity, delay: 0.5 }}
-                >
-                  {t('home.heroPills.p2')}
-                </motion.div>
-                <motion.div className="service-pill pill-backend" variants={fadeUpSmall}
-                  animate={{ y: [0, -5, 0] }}
-                  transition={{ duration: 4.5, ease: 'easeInOut', repeat: Infinity, delay: 1 }}
-                >
-                  {t('home.heroPills.p3')}
-                </motion.div>
-                <motion.div className="service-pill pill-seller-left" variants={fadeUpSmall}
-                  animate={{ y: [0, -7, 0] }}
-                  transition={{ duration: 5.5, ease: 'easeInOut', repeat: Infinity, delay: 0.3 }}
-                >
-                  {t('home.heroPills.p4')}
-                </motion.div>
-                <motion.div className="service-pill pill-social" variants={fadeUpSmall}
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 4.8, ease: 'easeInOut', repeat: Infinity, delay: 0.8 }}
-                >
-                  {t('home.heroPills.p5')}
-                </motion.div>
-                <motion.div className="service-pill pill-facebook" variants={fadeUpSmall}
-                  animate={{ y: [0, -5, 0] }}
-                  transition={{ duration: 5.2, ease: 'easeInOut', repeat: Infinity, delay: 1.2 }}
-                >
-                  {t('home.heroPills.p6')}
-                </motion.div>
-                <motion.div className="service-pill pill-seller-right" variants={fadeUpSmall}
-                  animate={{ y: [0, -7, 0] }}
-                  transition={{ duration: 4.3, ease: 'easeInOut', repeat: Infinity, delay: 0.6 }}
-                >
-                  {t('home.heroPills.p7')}
-                </motion.div>
+                <div className="small-circle c1">
+                  <motion.div className="small-circle-inner" variants={fadeUpSmall}
+                    animate={{ y: [0, -6, 0] }}
+                    transition={{ duration: 4, ease: 'easeInOut', repeat: Infinity, delay: 0.2 }}
+                  >
+                    {t('home.heroPills.p8')}
+                  </motion.div>
+                </div>
+                <div className="small-circle c2">
+                  <motion.div className="small-circle-inner" variants={fadeUpSmall}
+                    animate={{ y: [0, -6, 0] }}
+                    transition={{ duration: 4, ease: 'easeInOut', repeat: Infinity }}
+                  >
+                    {t('home.heroPills.p1')}
+                  </motion.div>
+                </div>
+                <div className="small-circle c3">
+                  <motion.div className="small-circle-inner" variants={fadeUpSmall}
+                    animate={{ y: [0, -8, 0] }}
+                    transition={{ duration: 5, ease: 'easeInOut', repeat: Infinity, delay: 0.5 }}
+                  >
+                    {t('home.heroPills.p2')}
+                  </motion.div>
+                </div>
+                <div className="small-circle c4">
+                  <motion.div className="small-circle-inner" variants={fadeUpSmall}
+                    animate={{ y: [0, -5, 0] }}
+                    transition={{ duration: 4.5, ease: 'easeInOut', repeat: Infinity, delay: 1 }}
+                  >
+                    {t('home.heroPills.p3')}
+                  </motion.div>
+                </div>
+                <div className="small-circle c5">
+                  <motion.div className="small-circle-inner" variants={fadeUpSmall}
+                    animate={{ y: [0, -7, 0] }}
+                    transition={{ duration: 4.3, ease: 'easeInOut', repeat: Infinity, delay: 0.6 }}
+                  >
+                    {t('home.heroPills.p7')}
+                  </motion.div>
+                </div>
+                <div className="small-circle c6">
+                  <motion.div className="small-circle-inner" variants={fadeUpSmall}
+                    animate={{ y: [0, -5, 0] }}
+                    transition={{ duration: 5.2, ease: 'easeInOut', repeat: Infinity, delay: 1.2 }}
+                  >
+                    {t('home.heroPills.p6')}
+                  </motion.div>
+                </div>
+                <div className="small-circle c7">
+                  <motion.div className="small-circle-inner" variants={fadeUpSmall}
+                    animate={{ y: [0, -6, 0] }}
+                    transition={{ duration: 4.8, ease: 'easeInOut', repeat: Infinity, delay: 0.8 }}
+                  >
+                    {t('home.heroPills.p5')}
+                  </motion.div>
+                </div>
+                <div className="small-circle c8">
+                  <motion.div className="small-circle-inner" variants={fadeUpSmall}
+                    animate={{ y: [0, -7, 0] }}
+                    transition={{ duration: 5.5, ease: 'easeInOut', repeat: Infinity, delay: 0.3 }}
+                  >
+                    {t('home.heroPills.p4')}
+                  </motion.div>
+                </div>
               </div>
             </motion.div>
           </div>

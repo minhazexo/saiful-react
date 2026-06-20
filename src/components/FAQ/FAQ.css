@@ -41,12 +41,12 @@
 }
 
 .faq-question:hover {
-  color: var(--orange);
+  color: #065f46;
 }
 
 @media (max-width: 1024px) {
   .faq-question:hover {
-    color: inherit !important;
+    color: #065f46 !important;
   }
 }
 
