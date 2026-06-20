@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import api, { IS_DEMO_MODE } from '../../api';
@@ -11,6 +11,7 @@ import { fadeUp, fadeUpSmall, staggerContainer, staggerGrid, buttonHover } from 
 import { assetPath } from '../../utils/assets';
 import { getWhatsAppUrl } from '../../utils/whatsapp';
 import './HomePage.css';
+import './HomePage.responsive.css';
 
 const STAT_NUMBERS = [
   { num: '5000', suffix: '+', key: 'designProjects' },
@@ -67,13 +68,6 @@ function HomePage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [openFramework, setOpenFramework] = useState(null);
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768);
-
-  useEffect(() => {
-    const check = () => setIsDesktop(window.innerWidth > 768);
-    window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
-  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -407,11 +401,8 @@ function HomePage() {
                         <small>{t(`home.problems.solutions.${solutionKey}.desc`)}</small>
                       </div>
                       <div className="solution-benefit">
-                        <span className="benefit-icon">📈</span>
-                        <div>
-                          <span className="benefit-text">{t(`home.problems.comparison.${i}.benefitBn`)}</span>
-                          <span className="benefit-sub">{t(`home.problems.comparison.${i}.benefitSubBn`)}</span>
-                        </div>
+                        <span className="benefit-text">{t(`home.problems.comparison.${i}.benefitBn`)}</span>
+                        <span className="benefit-sub">{t(`home.problems.comparison.${i}.benefitSubBn`)}</span>
                       </div>
                     </div>
                   </motion.div>
@@ -465,7 +456,7 @@ function HomePage() {
       <section className="framework-section">
         <div className="container">
           <MotionFadeUp className="section-head">
-            <span className="eyebrow light">🧭 {t('home.framework.eyebrow')}</span>
+            <span className="eyebrow">🧭 {t('home.framework.eyebrow')}</span>
             <h2 style={{ color: '#fff' }}>{t('home.framework.title')}</h2>
             <p style={{ color: 'rgba(255,255,255,0.7)' }}>{t('home.framework.subtitle')}</p>
           </MotionFadeUp>
@@ -478,7 +469,7 @@ function HomePage() {
                 <MotionStaggerItem
                   key={key}
                   className="framework-card"
-                  style={{ borderColor: color, '--phase-color': color }}
+                  style={{ '--phase-color': color }}
                 >
                   <div className="framework-step" style={{ background: color }}>
                     {FRAMEWORK_ICONS[i]}
@@ -573,9 +564,6 @@ function HomePage() {
                   {featured && (
                     <div className="package-badge">⭐ {t('home.packages.mostPopular')}</div>
                   )}
-                  {featured && (
-                    <div className="package-savings">🔥 Save 40% vs monthly</div>
-                  )}
                   <div className="package-icon">
                     {key === 'academy' ? '🎓' : key === 'setup' ? '🚀' : '📈'}
                   </div>
@@ -584,9 +572,6 @@ function HomePage() {
                     {t(`home.packages.${key}.price`)}
                     <span>{t(`home.packages.${key}.period`)}</span>
                   </div>
-                  {key === 'setup' && (
-                    <div className="package-daily"><strong>Only ৳1,166/day</strong></div>
-                  )}
                   <p className="package-desc">{t(`home.packages.${key}.desc`)}</p>
                   <ul className="package-features">
                     {featureKeys.map((fKey) => (
@@ -666,7 +651,7 @@ function HomePage() {
                 whileHover="hover"
                 whileTap="tap"
               >
-                📅 {t('home.founder.bookCall')}
+                📞 {t('home.founder.bookCall')}
               </motion.button>
             </motion.div>
           </motion.div>
@@ -702,7 +687,7 @@ function HomePage() {
       <section className="client-results-section">
         <div className="container">
           <MotionFadeUp className="section-head">
-            <span className="eyebrow light">
+            <span className="eyebrow">
               📊 {t('home.clientResults.eyebrow')}
             </span>
             <h2 style={{ color: '#fff' }}>{t('home.clientResults.title')}</h2>
@@ -732,7 +717,7 @@ function HomePage() {
       <section className="ai-section">
         <div className="container">
           <MotionFadeUp className="section-head">
-            <span className="eyebrow light">🤖 {t('home.ai.eyebrow')}</span>
+            <span className="eyebrow">🤖 {t('home.ai.eyebrow')}</span>
             <h2 style={{ color: '#fff' }}>{t('home.ai.title')}</h2>
             <p style={{ color: 'rgba(255,255,255,0.7)' }}>{t('home.ai.subtitle')}</p>
           </MotionFadeUp>
@@ -740,7 +725,9 @@ function HomePage() {
           <MobileCarousel className="ai-grid">
             {AI_TOOL_KEYS.map((key, i) => (
               <motion.div key={key} className="ai-card" initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
-                <div className="ai-icon">{['🎨', '✍️', '🔍', '🎬'][i]}</div>
+                <div className="ai-icon">
+                  <img src={assetPath(`/images/${['canva.webp', 'chatgpt.png', 'gemini.jpg', 'capcut.webp'][i]}`)} alt={t(`home.ai.tools.${key}.name`)} />
+                </div>
                 <h3>{t(`home.ai.tools.${key}.name`)}</h3>
                 <div className="ai-role">{t(`home.ai.tools.${key}.role`)}</div>
                 <p>{t(`home.ai.tools.${key}.desc`)}</p>
@@ -833,59 +820,35 @@ function HomePage() {
             <p>{t('home.testimonials.subtitle')}</p>
           </MotionFadeUp>
 
-          {isDesktop ? (
-            <div className="grid grid-3">
-              {TESTIMONIAL_KEYS.slice(0, 3).map((key) => (
-                <motion.div key={key} className="testimonial-card" initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
-                  <div className="testimonial-stars">{'★'.repeat(5)}</div>
-                  <p className="testimonial-text">"{t(`home.testimonials.items.${key}.text`)}"</p>
-                  <div className="testimonial-author">
-                    <div className="testimonial-avatar">
-                      {t(`home.testimonials.items.${key}.name`)
-                        .split(' ')
-                        .map((n) => n[0])
-                        .join('')
-                        .slice(0, 2)}
-                    </div>
-                    <div>
-                      <div className="testimonial-name">
-                        {t(`home.testimonials.items.${key}.name`)}
+          <div className="testimonial-marquee">
+            <div className="testimonial-marquee-track">
+              {[...Array(2)].flatMap(() =>
+                TESTIMONIAL_KEYS.map((key) => (
+                  <div key={key} className="testimonial-card">
+                    <div className="testimonial-stars">{'★'.repeat(5)}</div>
+                    <p className="testimonial-text">"{t(`home.testimonials.items.${key}.text`)}"</p>
+                    <div className="testimonial-author">
+                      <div className="testimonial-avatar">
+                        {t(`home.testimonials.items.${key}.name`)
+                          .split(' ')
+                          .map((n) => n[0])
+                          .join('')
+                          .slice(0, 2)}
                       </div>
-                      <div className="testimonial-role">
-                        {t(`home.testimonials.items.${key}.role`)}
+                      <div>
+                        <div className="testimonial-name">
+                          {t(`home.testimonials.items.${key}.name`)}
+                        </div>
+                        <div className="testimonial-role">
+                          {t(`home.testimonials.items.${key}.role`)}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </motion.div>
-              ))}
+                ))
+              )}
             </div>
-          ) : (
-            <MobileCarousel className="grid grid-3" autoPlay={true} interval={5000}>
-              {TESTIMONIAL_KEYS.map((key) => (
-                <motion.div key={key} className="testimonial-card" initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
-                  <div className="testimonial-stars">{'★'.repeat(5)}</div>
-                  <p className="testimonial-text">"{t(`home.testimonials.items.${key}.text`)}"</p>
-                  <div className="testimonial-author">
-                    <div className="testimonial-avatar">
-                      {t(`home.testimonials.items.${key}.name`)
-                        .split(' ')
-                        .map((n) => n[0])
-                        .join('')
-                        .slice(0, 2)}
-                    </div>
-                    <div>
-                      <div className="testimonial-name">
-                        {t(`home.testimonials.items.${key}.name`)}
-                      </div>
-                      <div className="testimonial-role">
-                        {t(`home.testimonials.items.${key}.role`)}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </MobileCarousel>
-          )}
+          </div>
         </div>
       </section>
 

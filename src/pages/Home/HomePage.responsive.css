@@ -103,7 +103,7 @@
   }
 
   .comparison-heroes {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 16px;
   }
 
@@ -177,26 +177,26 @@
     gap: 4px;
     min-width: 140px;
     padding: 16px 24px;
-    background: rgba(255,255,255,0.03);
-    border-radius: 14px;
-    border: 1px solid rgba(255,255,255,0.06);
+    background: var(--orange-light);
+    border-radius: 8px;
+    border: 1px solid var(--border);
   }
 
   .trust-marquee-item .trust-num {
     font-size: 28px;
     font-weight: 800;
-    color: #fff;
+    color: #000;
     line-height: 1;
     letter-spacing: -0.5px;
   }
 
   .trust-marquee-item .trust-num span {
     font-size: 22px;
-    color: var(--green);
+    color: #000;
   }
 
   .trust-marquee-item .trust-label {
-    color: rgba(255,255,255,0.5);
+    color: #000;
     font-size: 12px;
     font-weight: 500;
     text-align: center;
@@ -224,23 +224,23 @@
   }
 
   .hero-portrait-wrapper {
-    width: 340px;
-    height: 420px;
+    width: 420px;
+    height: 520px;
     transform: none;
   }
 
   .hero-portrait-circle {
-    width: 220px;
-    height: 220px;
-    top: 115px;
-    right: 30px;
+    width: 280px;
+    height: 280px;
+    top: 130px;
+    right: 40px;
   }
 
   .hero-portrait {
-    width: 220px;
-    height: 220px;
-    top: 115px;
-    right: 30px;
+    width: 280px;
+    height: 280px;
+    top: 130px;
+    right: 40px;
   }
 
   .hero-title {
@@ -256,17 +256,38 @@
     padding: 4px;
   }
 
-  .pill-independent { top: 60px; left: 50%; transform: translateX(-50%); }
-  .pill-logo { top: 140px; right: 251px; left: auto; }
-  .pill-ecommerce { top: 215px; right: 251px; left: auto; }
-  .pill-backend { top: 290px; right: 251px; left: auto; }
-  .pill-seller-left { top: 140px; left: 311px; right: auto; }
-  .pill-social { top: 215px; left: 311px; right: auto; }
-  .pill-facebook { top: 290px; left: 311px; right: auto; }
-  .pill-seller-right { top: 336px; left: 50%; transform: translateX(-50%); }
+  .pill-independent { top: 75px; left: 50%; transform: translateX(-50%); }
+  .pill-logo { top: 175px; right: 310px; left: auto; }
+  .pill-ecommerce { top: 270px; right: 310px; left: auto; }
+  .pill-backend { top: 360px; right: 310px; left: auto; }
+  .pill-seller-left { top: 175px; left: 390px; right: auto; }
+  .pill-social { top: 270px; left: 390px; right: auto; }
+  .pill-facebook { top: 360px; left: 390px; right: auto; }
+  .pill-seller-right { top: 420px; left: 50%; transform: translateX(-50%); }
 
   .package-card.featured {
     padding: 48px 32px;
+  }
+
+  .trust-section {
+    background: #fff;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .trust-bar-item {
+    background: var(--orange-light);
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+
+  .trust-bar-text strong {
+    color: #000;
+  }
+
+  .trust-bar-text span {
+    color: #000;
   }
 }
 
@@ -345,23 +366,23 @@
   }
 
   .hero-portrait-wrapper {
-    width: 280px;
-    height: 350px;
+    width: 360px;
+    height: 440px;
     transform: none;
   }
 
   .hero-portrait-circle {
-    width: 195px;
-    height: 195px;
-    top: 105px;
-    right: 25px;
+    width: 250px;
+    height: 250px;
+    top: 115px;
+    right: 35px;
   }
 
   .hero-portrait {
-    width: 195px;
-    height: 195px;
-    top: 105px;
-    right: 25px;
+    width: 250px;
+    height: 250px;
+    top: 115px;
+    right: 35px;
   }
 
   .service-pill {
@@ -369,14 +390,14 @@
     padding: 4px;
   }
 
-  .pill-independent { top: 50px; left: 50%; transform: translateX(-50%); }
-  .pill-logo { top: 125px; right: 221px; left: auto; }
-  .pill-ecommerce { top: 195px; right: 221px; left: auto; }
-  .pill-backend { top: 265px; right: 221px; left: auto; }
-  .pill-seller-left { top: 125px; left: 256px; right: auto; }
-  .pill-social { top: 195px; left: 256px; right: auto; }
-  .pill-facebook { top: 265px; left: 256px; right: auto; }
-  .pill-seller-right { top: 301px; left: 50%; transform: translateX(-50%); }
+  .pill-independent { top: 62px; left: 50%; transform: translateX(-50%); }
+  .pill-logo { top: 158px; right: 282px; left: auto; }
+  .pill-ecommerce { top: 248px; right: 282px; left: auto; }
+  .pill-backend { top: 338px; right: 282px; left: auto; }
+  .pill-seller-left { top: 158px; left: 330px; right: auto; }
+  .pill-social { top: 248px; left: 330px; right: auto; }
+  .pill-facebook { top: 338px; left: 330px; right: auto; }
+  .pill-seller-right { top: 386px; left: 50%; transform: translateX(-50%); }
 
   .trust-grid {
     display: none;
@@ -487,6 +508,10 @@
     grid-template-columns: 1fr;
   }
 
+  .testimonial-card {
+    width: 300px;
+  }
+
   .final-cta {
     padding: 50px 0;
   }
@@ -512,6 +537,10 @@
 
   .case-card .case-header-text h3 {
     font-size: 18px;
+  }
+
+  .case-card .case-block-label {
+    font-size: 14px;
   }
 
   .case-card .case-block {
@@ -602,23 +631,23 @@
   }
 
   .hero-portrait-wrapper {
-    width: 230px;
-    height: 321px;
+    width: 310px;
+    height: 410px;
     transform: none;
   }
 
   .hero-portrait-circle {
-    width: 170px;
-    height: 170px;
-    top: 70px;
-    right: 20px;
+    width: 235px;
+    height: 235px;
+    top: 85px;
+    right: 28px;
   }
 
   .hero-portrait {
-    width: 170px;
-    height: 170px;
-    top: 70px;
-    right: 20px;
+    width: 235px;
+    height: 235px;
+    top: 85px;
+    right: 28px;
   }
 
   .service-pill {
@@ -626,14 +655,14 @@
     padding: 4px;
   }
 
-  .pill-independent { top: 15px; left: 41%; transform: translateX(-50%); font-size: 8px; }
-  .pill-logo { top: 48px; right: 148px; left: auto; }
-  .pill-ecommerce { top: 125px; right: 182px; left: auto; }
-  .pill-backend { top: 195px; right: 150px; left: auto; font-size: 10px; }
-  .pill-seller-left { top: 45px; left: 168px; right: auto; }
-  .pill-social { top: 120px; left: 202px; right: auto; }
-  .pill-facebook { top: 190px; left: 180px; right: auto; }
-  .pill-seller-right { top: 232px; left: 42%; transform: translateX(calc(-50% - 15px)); }
+  .pill-independent { top: 20px; left: 41%; transform: translateX(-50%); font-size: 8px; }
+  .pill-logo { top: 60px; right: 190px; left: auto; }
+  .pill-ecommerce { top: 155px; right: 230px; left: auto; }
+  .pill-backend { top: 245px; right: 190px; left: auto; font-size: 10px; }
+  .pill-seller-left { top: 58px; left: 215px; right: auto; }
+  .pill-social { top: 152px; left: 260px; right: auto; }
+  .pill-facebook { top: 240px; left: 230px; right: auto; }
+  .pill-seller-right { top: 300px; left: 42%; transform: translateX(-50%); }
 
   .trust-section {
     padding: 40px 0;
@@ -679,15 +708,15 @@
   }
 
   .journey-card-icon-circle {
-    width: 60px;
-    height: 60px;
-    bottom: -30px;
+    width: 80px;
+    height: 80px;
+    bottom: -40px;
     border-width: 4px;
   }
 
   .journey-card-icon-circle svg {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
   }
 
   .start-here {
@@ -695,49 +724,45 @@
   }
 
   .trust-bar {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 0;
-    padding: 12px 0;
+    gap: 10px;
+    padding: 10px 0;
     margin-top: 0;
-    justify-content: center;
-    background: rgba(255,255,255,0.8);
-    backdrop-filter: blur(8px);
-    border-radius: 14px;
-    border: 1.5px solid #000;
-    margin-top: 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
   }
 
   .trust-bar-item {
-    flex: 1;
-    flex-direction: column;
-    text-align: center;
     gap: 4px;
-    padding: 0 6px;
-    border-right: 1px solid rgba(0,0,0,0.06);
-  }
-  .trust-bar-item:last-child { border-right: none; }
-
-  .trust-bar-icon-circle {
-    width: 30px;
-    height: 30px;
-    min-width: 30px;
-  }
-  .trust-bar-icon-circle svg {
-    width: 14px;
-    height: 14px;
+    background: var(--orange-light);
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
   }
 
   .trust-bar-text strong {
-    font-size: 11px;
+    color: #000;
+  }
+
+  .trust-bar-text span {
+    color: #000;
+  }
+
+  .trust-bar-icon-circle {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+  }
+  .trust-bar-icon-circle svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .trust-bar-text strong {
+    font-size: 13px;
   }
   .trust-bar-text span {
     font-size: 9px;
     line-height: 1.2;
-  }
-
-  .trust-bar-divider {
-    display: none;
   }
 
   .comparison-row {
@@ -782,7 +807,7 @@
     height: 28px;
     font-size: 12px;
     background: var(--green-light);
-    border-color: var(--green-soft);
+    border-color: var(--border);
   }
 
   .problem-text-group strong {
@@ -830,7 +855,7 @@
   }
 
   .comparison-heroes {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
     margin-bottom: 14px;
   }
@@ -993,12 +1018,6 @@
     padding: 8px 0;
   }
 
-  .package-card.featured .package-savings {
-    font-size: 11px;
-    padding: 3px 10px;
-    margin-bottom: 8px;
-  }
-
   .package-card.featured .package-daily {
     font-size: 13px;
     margin-bottom: 12px;
@@ -1132,6 +1151,10 @@
     font-size: 17px;
   }
 
+  .case-card .case-block-label {
+    font-size: 13px;
+  }
+
   .case-card .case-block {
     margin-bottom: 12px;
   }
@@ -1151,6 +1174,7 @@
   .testimonial-card {
     padding: 20px 16px;
     min-height: 220px;
+    width: 280px;
   }
 
   .testimonial-stars {
@@ -1214,6 +1238,10 @@
     font-size: 15px;
     margin-bottom: 24px;
   }
+
+  .final-cta-actions .btn {
+    width: 100%;
+  }
 }
 
 /* ===== Small Phone (≤375px) ===== */
@@ -1243,23 +1271,23 @@
   }
 
   .hero-portrait-wrapper {
-    width: 210px;
-    height: 280px;
+    width: 270px;
+    height: 360px;
     transform: none;
   }
 
   .hero-portrait-circle {
-    width: 145px;
-    height: 145px;
-    top: 60px;
-    right: 15px;
+    width: 200px;
+    height: 200px;
+    top: 75px;
+    right: 25px;
   }
 
   .hero-portrait {
-    width: 145px;
-    height: 145px;
-    top: 60px;
-    right: 15px;
+    width: 200px;
+    height: 200px;
+    top: 75px;
+    right: 25px;
   }
 
   .service-pill {
@@ -1267,14 +1295,14 @@
     padding: 4px;
   }
 
-  .pill-independent { top: 28px; left: 50%; transform: translateX(-50%); font-size: 8px; }
-  .pill-logo { top: 77px; right: 135px; left: auto; }
-  .pill-ecommerce { top: 125px; right: 135px; left: auto; }
-  .pill-backend { top: 173px; right: 85px; left: auto; font-size: 10px; }
-  .pill-seller-left { top: 77px; left: 155px; right: auto; }
-  .pill-social { top: 125px; left: 155px; right: auto; }
-  .pill-facebook { top: 173px; left: 155px; right: auto; }
-  .pill-seller-right { top: 206px; left: 50%; transform: translateX(-50%); }
+  .pill-independent { top: 35px; left: 50%; transform: translateX(-50%); font-size: 8px; }
+  .pill-logo { top: 98px; right: 175px; left: auto; }
+  .pill-ecommerce { top: 158px; right: 175px; left: auto; }
+  .pill-backend { top: 218px; right: 115px; left: auto; font-size: 10px; }
+  .pill-seller-left { top: 98px; left: 200px; right: auto; }
+  .pill-social { top: 158px; left: 200px; right: auto; }
+  .pill-facebook { top: 218px; left: 200px; right: auto; }
+  .pill-seller-right { top: 260px; left: 50%; transform: translateX(-50%); }
 
   .journey-card-content h3 {
     font-size: 18px;
@@ -1288,15 +1316,15 @@
   }
 
   .journey-card-icon-circle {
-    width: 52px;
-    height: 52px;
-    bottom: -26px;
+    width: 68px;
+    height: 68px;
+    bottom: -34px;
     border-width: 3px;
   }
 
   .journey-card-icon-circle svg {
-    width: 26px;
-    height: 26px;
+    width: 34px;
+    height: 34px;
   }
 
   .start-here {
@@ -1359,6 +1387,59 @@
     padding: 6px 14px;
     top: -14px;
   }
+
+  .testimonial-card {
+    width: 240px;
+    min-height: 200px;
+    padding: 20px 14px;
+  }
+
+  .testimonial-marquee-track {
+    animation-duration: 30s;
+  }
+
+  .case-card {
+    padding: 14px 12px;
+  }
+
+  .case-card .case-header {
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .case-card .case-header-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .case-card .case-header-text h3 {
+    font-size: 15px;
+  }
+
+  .case-card .case-block-label {
+    font-size: 12px;
+  }
+
+  .final-cta {
+    padding: 32px 0;
+  }
+
+  .final-cta-box h2 {
+    font-size: clamp(22px, 7vw, 26px);
+  }
+
+  .final-cta-box p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .final-cta-actions .btn {
+    width: 100%;
+    padding: 14px 24px;
+    font-size: 15px;
+  }
+
 
   .ai-grid {
     grid-template-columns: 1fr;

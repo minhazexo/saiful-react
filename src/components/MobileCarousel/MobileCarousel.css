@@ -33,7 +33,7 @@
   height: 32px;
   border-radius: 50%;
   border: none;
-  background: #fff;
+  background: transparent;
 
   color: #000000;
   display: flex;
