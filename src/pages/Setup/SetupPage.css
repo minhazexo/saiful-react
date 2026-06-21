@@ -446,6 +446,9 @@
 }
 
 .lp-btn-dark:hover {
+  background: #ffffff;
+  color: #06210f;
+  border-color: #06210f;
   transform: translateY(-2px);
   box-shadow: 0 8px 22px -8px rgba(0,0,0,0.4);
 }

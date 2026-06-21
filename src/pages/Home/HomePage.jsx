@@ -7,16 +7,50 @@ import FAQ from '../../components/FAQ/FAQ';
 import Seo from '../../components/Seo';
 import MobileCarousel from '../../components/MobileCarousel/MobileCarousel';
 import { MotionFadeUp, MotionStaggerContainer, MotionStaggerItem } from '../../motion/MotionFadeUp';
-import { fadeUp, fadeUpSmall, staggerContainer, staggerGrid, buttonHover } from '../../motion/presets';
+import { fadeUp, fadeUpSmall, staggerContainer, buttonHover } from '../../motion/presets';
 import { assetPath } from '../../utils/assets';
 import { getWhatsAppUrl } from '../../utils/whatsapp';
 import './HomePage.css';
 
 const STAT_NUMBERS = [
-  { num: '5000', suffix: '+', key: 'designProjects' },
-  { num: '20', suffix: '+', key: 'industriesServed' },
-  { num: '10', suffix: '+', key: 'yearsExperience' },
-  { num: '100', suffix: '+', key: 'consultations' },
+  { num: '৪০+', key: 'businessesLaunched' },
+  { num: '২৭০+', key: 'students' },
+  { num: '৮০+', key: 'liveTraining' },
+  { num: '৩২+', key: 'successfulEntrepreneurs' },
+  { num: '৯৫%', key: 'satisfaction' },
+];
+
+const HERO_FEATURES = [
+  {
+    key: 'branding',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+    ),
+  },
+  {
+    key: 'website',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    ),
+  },
+  {
+    key: 'metaAds',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+    ),
+  },
+  {
+    key: 'content',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+    ),
+  },
+  {
+    key: 'growth',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+    ),
+  },
 ];
 
 const STAGE_KEYS = ['academy', 'setup', 'growth'];
@@ -33,7 +67,6 @@ const STAGE_IMAGES_ICONS = [
   '/images/Setup 3.png',
 ];
 const PROBLEM_KEYS = ['noBrand', 'noWebsite', 'noContent', 'noMarketing', 'noGrowth'];
-const PROBLEM_ICONS = ['🎨', '🌐', '📄', '🎯', '📈'];
 const SOLUTION_KEYS = ['brand', 'website', 'content', 'marketing', 'growth'];
 const FRAMEWORK_KEYS = ['idea', 'learn', 'setup', 'launch', 'grow', 'scale'];
 const FRAMEWORK_ICONS = ['💡', '👥', '⚙️', '🚀', '📈', '🏆'];
@@ -88,6 +121,7 @@ function HomePage() {
   return (
     <div className="home-page">
       <Seo title="" description={t('seo.defaultDescription')} path="/" />
+
       <section className="hero-section">
         <div className="hero-container">
           <div className="hero-grid">
@@ -98,45 +132,49 @@ function HomePage() {
               animate="visible"
             >
               <motion.div className="hero-badge" variants={fadeUpSmall}>
+                <span className="hero-badge-check" aria-hidden="true">
+                  <svg viewBox="0 0 20 20"><path d="M4 10l4 4 8-8"/></svg>
+                </span>
                 <span>{t('home.eyebrow')}</span>
               </motion.div>
               <motion.h1 className="hero-title" variants={fadeUp}>
                 {t('home.heroTitle')}
               </motion.h1>
+              <motion.p className="hero-subtitle-line" variants={fadeUpSmall}>
+                {t('home.heroTitleSub')}
+              </motion.p>
               <motion.p className="hero-description" variants={fadeUpSmall}>
                 {t('home.heroSubtitle')}
               </motion.p>
               <motion.div className="hero-actions" variants={fadeUpSmall}>
                 <motion.button
-                  className="hero-btn hero-btn-primary"
+                  className="hero-btn hero-btn-dark"
                   onClick={() => window.open(getWhatsAppUrl(t), '_blank')}
                   variants={buttonHover}
                   initial="rest"
                   whileHover="hover"
                   whileTap="tap"
                 >
-                  <span>📅</span> {t('home.bookFreeConsultation')}
+                  <span aria-hidden="true">📞</span> {t('home.heroBtnPrimary')}
+                </motion.button>
+                <motion.button
+                  className="hero-btn hero-btn-green"
+                  onClick={() => navigate('/case-studies')}
+                  variants={buttonHover}
+                  initial="rest"
+                  whileHover="hover"
+                  whileTap="tap"
+                >
+                  {t('home.heroBtnSecondary')}
                 </motion.button>
               </motion.div>
-              <motion.div className="hero-trust" variants={fadeUpSmall}>
-                <div className="hero-trust-item">
-                  <span className="hero-trust-icon">
-                    <svg viewBox="0 0 20 20"><path d="M4 10l4 4 8-8"/></svg>
-                  </span>
-                  5,000+ Projects
-                </div>
-                <div className="hero-trust-item">
-                  <span className="hero-trust-icon">
-                    <svg viewBox="0 0 20 20"><path d="M4 10l4 4 8-8"/></svg>
-                  </span>
-                  100% Satisfaction
-                </div>
-                <div className="hero-trust-item">
-                  <span className="hero-trust-icon">
-                    <svg viewBox="0 0 20 20"><path d="M4 10l4 4 8-8"/></svg>
-                  </span>
-                  24/7 Support
-                </div>
+              <motion.div className="hero-features" variants={fadeUpSmall}>
+                {HERO_FEATURES.map((f) => (
+                  <div className="hero-feature" key={f.key}>
+                    <span className="hero-feature-icon" aria-hidden="true">{f.icon}</span>
+                    <span className="hero-feature-label">{t(`home.heroFeatures.${f.key}`)}</span>
+                  </div>
+                ))}
               </motion.div>
             </motion.div>
 
@@ -146,113 +184,138 @@ function HomePage() {
               initial="hidden"
               animate="visible"
             >
-              <div className="circle-layout">
-                <div className="center-circle">
-                  <img src={assetPath('/images/Entreprenure.jpg.jpeg')} alt="Saiful Islam - Founder" />
-                </div>
+              <div className="hero-visual-inner">
+                <motion.div className="hero-photo-wrap" variants={fadeUp}>
+                  <img
+                    src={assetPath('/images/Entreprenure-cutout.png')}
+                    alt="Saiful Islam - Founder"
+                  />
+                </motion.div>
 
-                <div className="small-circle c1">
-                  <motion.div className="small-circle-inner" variants={fadeUpSmall}
-                    animate={{ y: [0, -6, 0] }}
-                    transition={{ duration: 4, ease: 'easeInOut', repeat: Infinity, delay: 0.2 }}
-                  >
-                    {t('home.heroPills.p8')}
-                  </motion.div>
-                </div>
-                <div className="small-circle c2">
-                  <motion.div className="small-circle-inner" variants={fadeUpSmall}
-                    animate={{ y: [0, -6, 0] }}
-                    transition={{ duration: 4, ease: 'easeInOut', repeat: Infinity }}
-                  >
-                    {t('home.heroPills.p1')}
-                  </motion.div>
-                </div>
-                <div className="small-circle c3">
-                  <motion.div className="small-circle-inner" variants={fadeUpSmall}
-                    animate={{ y: [0, -8, 0] }}
-                    transition={{ duration: 5, ease: 'easeInOut', repeat: Infinity, delay: 0.5 }}
-                  >
-                    {t('home.heroPills.p2')}
-                  </motion.div>
-                </div>
-                <div className="small-circle c4">
-                  <motion.div className="small-circle-inner" variants={fadeUpSmall}
-                    animate={{ y: [0, -5, 0] }}
-                    transition={{ duration: 4.5, ease: 'easeInOut', repeat: Infinity, delay: 1 }}
-                  >
-                    {t('home.heroPills.p3')}
-                  </motion.div>
-                </div>
-                <div className="small-circle c5">
-                  <motion.div className="small-circle-inner" variants={fadeUpSmall}
-                    animate={{ y: [0, -7, 0] }}
-                    transition={{ duration: 4.3, ease: 'easeInOut', repeat: Infinity, delay: 0.6 }}
-                  >
-                    {t('home.heroPills.p7')}
-                  </motion.div>
-                </div>
-                <div className="small-circle c6">
-                  <motion.div className="small-circle-inner" variants={fadeUpSmall}
-                    animate={{ y: [0, -5, 0] }}
-                    transition={{ duration: 5.2, ease: 'easeInOut', repeat: Infinity, delay: 1.2 }}
-                  >
-                    {t('home.heroPills.p6')}
-                  </motion.div>
-                </div>
-                <div className="small-circle c7">
-                  <motion.div className="small-circle-inner" variants={fadeUpSmall}
-                    animate={{ y: [0, -6, 0] }}
-                    transition={{ duration: 4.8, ease: 'easeInOut', repeat: Infinity, delay: 0.8 }}
-                  >
-                    {t('home.heroPills.p5')}
-                  </motion.div>
-                </div>
-                <div className="small-circle c8">
-                  <motion.div className="small-circle-inner" variants={fadeUpSmall}
-                    animate={{ y: [0, -7, 0] }}
-                    transition={{ duration: 5.5, ease: 'easeInOut', repeat: Infinity, delay: 0.3 }}
-                  >
-                    {t('home.heroPills.p4')}
-                  </motion.div>
-                </div>
+                <motion.div
+                  className="hero-notif-card"
+                  variants={fadeUpSmall}
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 5, ease: 'easeInOut', repeat: Infinity }}
+                >
+                  <div className="hero-notif-head">
+                    <span className="hero-notif-avatar">
+                      <img src={assetPath('/images/Entreprenure.jpg.jpeg')} alt="" />
+                    </span>
+                    <span className="hero-notif-name">{t('home.heroCard.name')}</span>
+                    <span className="hero-notif-check" aria-hidden="true">
+                      <svg viewBox="0 0 20 20"><path d="M4 10l4 4 8-8"/></svg>
+                    </span>
+                  </div>
+                  <p className="hero-notif-quote">"{t('home.heroCard.quote')}"</p>
+                  <div className="hero-notif-stats">
+                    <div className="hero-notif-stat">
+                      <strong>{t('home.heroCard.stat1')}</strong>
+                      <span>{t('home.heroCard.stat1Label')}</span>
+                    </div>
+                    <div className="hero-notif-stat">
+                      <strong>{t('home.heroCard.stat2')}</strong>
+                      <span>{t('home.heroCard.stat2Label')}</span>
+                    </div>
+                  </div>
+                </motion.div>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      <section className="trust-section">
-        <div className="container">
-          <motion.div
-            className="trust-grid"
-            variants={staggerGrid}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            {STAT_NUMBERS.map((s, i) => (
-              <motion.div key={i} className="trust-item" variants={fadeUpSmall}>
-                <div className="trust-num">
-                  {s.num}
-                  <span>{s.suffix}</span>
+      <section className="stats-section">
+        <div className="stats-marquee">
+          <div className="stats-marquee-track">
+            {[...Array(2)].flatMap((_, dup) =>
+              STAT_NUMBERS.map((s, i) => (
+                <div key={`${dup}-${i}`} className="stat-card" aria-hidden={dup === 1}>
+                  <div className="stat-num">{s.num}</div>
+                  <div className="stat-label">{t(`home.stats.${s.key}`)}</div>
                 </div>
-                <div className="trust-label">{t(`home.stats.${s.key}`)}</div>
-              </motion.div>
-            ))}
-          </motion.div>
+              ))
+            )}
+          </div>
+        </div>
+      </section>
 
-          <div className="trust-marquee" aria-hidden="true">
-            <div className="trust-marquee-track">
-              {[...STAT_NUMBERS, ...STAT_NUMBERS].map((s, i) => (
-                <div key={i} className="trust-marquee-item">
-                  <div className="trust-num">
-                    {s.num}
-                    <span>{s.suffix}</span>
+      <section className="framework-section">
+        <div className="container">
+          <MotionFadeUp className="section-head">
+            <span className="eyebrow">🧭 {t('home.framework.eyebrow')}</span>
+            <h2>{t('home.framework.title')}</h2>
+            <p>{t('home.framework.subtitle')}</p>
+          </MotionFadeUp>
+
+          <MotionStaggerContainer className="framework-grid">
+            {FRAMEWORK_KEYS.map((key, i) => {
+              const colors = ['var(--orange)', 'var(--blue)', '#10b981', 'var(--orange)', 'var(--blue)', '#10b981'];
+              const color = colors[i];
+              return (
+                <MotionStaggerItem
+                  key={key}
+                  className="framework-card"
+                  style={{ '--phase-color': color }}
+                >
+                  <div className="framework-step" style={{ background: color }}>
+                    {FRAMEWORK_ICONS[i]}
                   </div>
-                  <div className="trust-label">{t(`home.stats.${s.key}`)}</div>
-                </div>
-              ))}
-            </div>
+                  <div className="framework-phase-badge">
+                    <span className="framework-phase-number">Phase {i + 1}</span>
+                  </div>
+                  <h3>{t(`home.framework.${key}.title`)}</h3>
+                  <p>{t(`home.framework.${key}.desc`)}</p>
+                </MotionStaggerItem>
+              );
+            })}
+          </MotionStaggerContainer>
+
+          <div className="framework-accordion">
+            {FRAMEWORK_KEYS.map((key, i) => {
+              const colors = ['var(--orange)', 'var(--blue)', '#10b981', 'var(--orange)', 'var(--blue)', '#10b981'];
+              const color = colors[i];
+              const isOpen = openFramework === i;
+              return (
+                <motion.div
+                  key={key}
+                  className={`framework-acc-item ${isOpen ? 'open' : ''}`}
+                  style={{ '--phase-color': color }}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: i * 0.06 }}
+                >
+                  <button
+                    className="framework-acc-header"
+                    onClick={() => setOpenFramework(isOpen ? null : i)}
+                    type="button"
+                  >
+                    <div className="framework-acc-icon" style={{ backgroundColor: color }}>
+                      {FRAMEWORK_ICONS[i]}
+                    </div>
+                    <div className="framework-acc-title">
+                      {t(`home.framework.${key}.title`)}
+                    </div>
+                    <span className="framework-acc-arrow">▼</span>
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        className="framework-acc-body"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                        style={{ overflow: 'hidden' }}
+                      >
+                        {t(`home.framework.${key}.desc`)}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -393,7 +456,9 @@ function HomePage() {
                     {/* Problem Side */}
                     <div className="problem-side">
                       <div className="problem-icon-circle">
-                        <span>{PROBLEM_ICONS[i]}</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
+                          <path d="M6 6l12 12M18 6L6 18" />
+                        </svg>
                       </div>
                       <div className="problem-text-group">
                         <strong>{t(`home.problems.items.${problemKey}`)}</strong>
@@ -407,15 +472,17 @@ function HomePage() {
                     {/* Solution Side */}
                     <div className="solution-side">
                       <div className="solution-icon-circle">
-                        <span>{PROBLEM_ICONS[i]}</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <path d="M5 12l4.5 4.5L19 7" />
+                        </svg>
                       </div>
                       <div className="solution-text-group">
                         <strong>{t(`home.problems.solutions.${solutionKey}.title`)}</strong>
                         <small>{t(`home.problems.solutions.${solutionKey}.desc`)}</small>
                       </div>
                       <div className="solution-benefit">
-                        <span className="benefit-text">{t(`home.problems.comparison.${i}.benefitBn`)}</span>
                         <span className="benefit-sub">{t(`home.problems.comparison.${i}.benefitSubBn`)}</span>
+                        <span className="benefit-text">{t(`home.problems.comparison.${i}.benefitBn`)}</span>
                       </div>
                     </div>
                   </motion.div>
@@ -466,87 +533,178 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="framework-section">
+      {/* ===== CLIENT RESULTS SECTION ===== */}
+      <section className="client-results-section">
         <div className="container">
           <MotionFadeUp className="section-head">
-            <span className="eyebrow">🧭 {t('home.framework.eyebrow')}</span>
-            <h2 style={{ color: '#fff' }}>{t('home.framework.title')}</h2>
-            <p style={{ color: 'rgba(255,255,255,0.7)' }}>{t('home.framework.subtitle')}</p>
+            <span className="eyebrow">
+              📊 {t('home.clientResults.eyebrow')}
+            </span>
+            <h2>{t('home.clientResults.title')}</h2>
+            <p>{t('home.clientResults.subtitle')}</p>
           </MotionFadeUp>
 
-          <MotionStaggerContainer className="framework-grid">
-            {FRAMEWORK_KEYS.map((key, i) => {
-              const colors = ['var(--orange)', 'var(--blue)', '#10b981', 'var(--orange)', 'var(--blue)', '#10b981'];
-              const color = colors[i];
-              return (
-                <MotionStaggerItem
-                  key={key}
-                  className="framework-card"
-                  style={{ '--phase-color': color }}
-                >
-                  <div className="framework-step" style={{ background: color }}>
-                    {FRAMEWORK_ICONS[i]}
-                  </div>
-                  <div className="framework-phase-badge">
-                    <span className="framework-phase-number">Phase {i + 1}</span>
-                  </div>
-                  <h3>{t(`home.framework.${key}.title`)}</h3>
-                  <p>{t(`home.framework.${key}.desc`)}</p>
-                </MotionStaggerItem>
-              );
-            })}
-          </MotionStaggerContainer>
-
-          <div className="framework-accordion">
-            {FRAMEWORK_KEYS.map((key, i) => {
-              const colors = ['var(--orange)', 'var(--blue)', '#10b981', 'var(--orange)', 'var(--blue)', '#10b981'];
-              const color = colors[i];
-              const isOpen = openFramework === i;
-              return (
-                <motion.div
-                  key={key}
-                  className={`framework-acc-item ${isOpen ? 'open' : ''}`}
-                  style={{ '--phase-color': color }}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.35, delay: i * 0.06 }}
-                >
-                  <button
-                    className="framework-acc-header"
-                    onClick={() => setOpenFramework(isOpen ? null : i)}
-                    type="button"
-                  >
-                    <div className="framework-acc-icon" style={{ backgroundColor: color }}>
-                      {FRAMEWORK_ICONS[i]}
-                    </div>
-                    <div className="framework-acc-title">
-                      {t(`home.framework.${key}.title`)}
-                    </div>
-                    <span className="framework-acc-arrow">▼</span>
-                  </button>
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        className="framework-acc-body"
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-                        style={{ overflow: 'hidden' }}
-                      >
-                        {t(`home.framework.${key}.desc`)}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              );
-            })}
+          <div className="client-results-grid">
+            {CLIENT_RESULT_KEYS.map((key) => (
+              <motion.div
+                key={key}
+                className="client-result-card"
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <div className="result-icon">{CLIENT_RESULT_ICONS[key]}</div>
+                <h3>{t(`home.clientResults.cards.${key}.title`)}</h3>
+                <p>{t(`home.clientResults.cards.${key}.desc`)}</p>
+                <span className="result-stat">{t(`home.clientResults.cards.${key}.stat`)}</span>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="section packages-section">
+      <section className="ai-section">
+        <div className="container">
+          <MotionFadeUp className="section-head">
+            <span className="eyebrow">🤖 {t('home.ai.eyebrow')}</span>
+            <h2>{t('home.ai.title')}</h2>
+            <p>{t('home.ai.subtitle')}</p>
+          </MotionFadeUp>
+
+          <MobileCarousel className="ai-grid">
+            {AI_TOOL_KEYS.map((key, i) => (
+              <motion.div key={key} className="ai-card" initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
+                <div className="ai-icon">
+                  <img src={assetPath(`/images/${['canva.webp', 'chatgpt.png', 'gemini.jpg', 'capcut.webp'][i]}`)} alt={t(`home.ai.tools.${key}.name`)} />
+                </div>
+                <h3>{t(`home.ai.tools.${key}.name`)}</h3>
+                <div className="ai-role">{t(`home.ai.tools.${key}.role`)}</div>
+                <p>{t(`home.ai.tools.${key}.desc`)}</p>
+              </motion.div>
+            ))}
+          </MobileCarousel>
+
+          <MotionFadeUp className="workflow" delay={0.1}>
+            <h3 className="workflow-title">⚙️ {t('home.ai.workflowTitle')}</h3>
+            <MobileCarousel className="workflow-steps">
+              {WORKFLOW_KEYS.map((key, i) => (
+                <motion.div key={key} className="workflow-step" initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
+                  <div className="workflow-num">{i + 1}</div>
+                  <h4>{t(`home.ai.workflow.${key}.title`)}</h4>
+                  <p>{t(`home.ai.workflow.${key}.desc`)}</p>
+                </motion.div>
+              ))}
+            </MobileCarousel>
+          </MotionFadeUp>
+        </div>
+      </section>
+
+      <section className="section cases-section">
+        <div className="container">
+          <MotionFadeUp className="section-head">
+            <span className="eyebrow">
+              <span aria-hidden="true">📊</span> {t('home.cases.eyebrow')}
+            </span>
+            <h2>{t('home.cases.title')}</h2>
+            <p>{t('home.cases.subtitle')}</p>
+          </MotionFadeUp>
+
+          <MobileCarousel className="grid grid-3">
+            {CASE_KEYS.slice(0, 3).map((key, i) => (
+              <motion.div key={key} className="case-card" initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
+                <div className="case-header">
+                  <div className="case-header-icon" aria-hidden="true">
+                    {CASE_ICONS[i]}
+                  </div>
+                  <div className="case-header-text">
+                    <span className="case-category">{t(`caseStudies.defaults.${key}.category`)}</span>
+                    <h3>{CASE_TITLES[i]}</h3>
+                  </div>
+                </div>
+                <div className="case-block">
+                  <div className="case-block-label">{t('home.cases.challenge')}</div>
+                  <p>{t(`caseStudies.defaults.${key}.challenge`)}</p>
+                </div>
+                <div className="case-block">
+                  <div className="case-block-label">{t('home.cases.solution')}</div>
+                  <p>{t(`caseStudies.defaults.${key}.solution`)}</p>
+                </div>
+                <div className="case-block">
+                  <div className="case-block-label">{t('home.cases.result')}</div>
+                  <p>{t(`caseStudies.defaults.${key}.result`)}</p>
+                </div>
+                <div className="case-highlight-box">
+                  <div className="case-highlight-label">{t('caseStudies.keyOutcome')}</div>
+                  <div className="case-highlight-value">{t(`caseStudies.defaults.${key}.highlight`)}</div>
+                </div>
+                  <span className="case-cta-link">
+                    {t('home.cases.viewProject')} →
+                  </span>
+              </motion.div>
+            ))}
+          </MobileCarousel>
+
+          <div className="text-center" style={{ marginTop: 40 }}>
+            <motion.button
+              className="btn btn-dark"
+              onClick={() => navigate('/case-studies')}
+              variants={buttonHover}
+              initial="rest"
+              whileHover="hover"
+              whileTap="tap"
+            >
+              {t('home.cases.seeAll')} →
+            </motion.button>
+          </div>
+        </div>
+      </section>
+
+      <section className="section testimonials-section">
+        <div className="container">
+          <MotionFadeUp className="section-head">
+            <span className="eyebrow">
+              <span aria-hidden="true">💬</span> {t('home.testimonials.eyebrow')}
+            </span>
+            <h2>{t('home.testimonials.title')}</h2>
+            <p>{t('home.testimonials.subtitle')}</p>
+          </MotionFadeUp>
+
+          <div className="testimonial-marquee">
+            <div className="testimonial-marquee-track">
+              {[...Array(2)].flatMap(() =>
+                TESTIMONIAL_KEYS.map((key) => (
+                  <div key={key} className="testimonial-card">
+                    <div className="testimonial-stars">{'★'.repeat(5)}</div>
+                    <p className="testimonial-text">"{t(`home.testimonials.items.${key}.text`)}"</p>
+                    <div className="testimonial-author">
+                      <div className="testimonial-avatar">
+                        {t(`home.testimonials.items.${key}.name`)
+                          .split(' ')
+                          .map((n) => n[0])
+                          .join('')
+                          .slice(0, 2)}
+                      </div>
+                      <div>
+                        <div className="testimonial-name">
+                          {t(`home.testimonials.items.${key}.name`)}
+                        </div>
+                        <div className="testimonial-role">
+                          {t(`home.testimonials.items.${key}.role`)}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <FAQ />
+
+      <section className="section packages-section" id="packages">
         <div className="container">
           <MotionFadeUp className="section-head">
             <span className="eyebrow">
@@ -696,175 +854,6 @@ function HomePage() {
         </div>
       </section>
 
-      {/* ===== CLIENT RESULTS SECTION ===== */}
-      <section className="client-results-section">
-        <div className="container">
-          <MotionFadeUp className="section-head">
-            <span className="eyebrow">
-              📊 {t('home.clientResults.eyebrow')}
-            </span>
-            <h2 style={{ color: '#fff' }}>{t('home.clientResults.title')}</h2>
-            <p style={{ color: 'rgba(255,255,255,0.7)' }}>{t('home.clientResults.subtitle')}</p>
-          </MotionFadeUp>
-
-          <div className="client-results-grid">
-            {CLIENT_RESULT_KEYS.map((key) => (
-              <motion.div
-                key={key}
-                className="client-result-card"
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <div className="result-icon">{CLIENT_RESULT_ICONS[key]}</div>
-                <h3>{t(`home.clientResults.cards.${key}.title`)}</h3>
-                <p>{t(`home.clientResults.cards.${key}.desc`)}</p>
-                <span className="result-stat">{t(`home.clientResults.cards.${key}.stat`)}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="ai-section">
-        <div className="container">
-          <MotionFadeUp className="section-head">
-            <span className="eyebrow">🤖 {t('home.ai.eyebrow')}</span>
-            <h2 style={{ color: '#fff' }}>{t('home.ai.title')}</h2>
-            <p style={{ color: 'rgba(255,255,255,0.7)' }}>{t('home.ai.subtitle')}</p>
-          </MotionFadeUp>
-
-          <MobileCarousel className="ai-grid">
-            {AI_TOOL_KEYS.map((key, i) => (
-              <motion.div key={key} className="ai-card" initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
-                <div className="ai-icon">
-                  <img src={assetPath(`/images/${['canva.webp', 'chatgpt.png', 'gemini.jpg', 'capcut.webp'][i]}`)} alt={t(`home.ai.tools.${key}.name`)} />
-                </div>
-                <h3>{t(`home.ai.tools.${key}.name`)}</h3>
-                <div className="ai-role">{t(`home.ai.tools.${key}.role`)}</div>
-                <p>{t(`home.ai.tools.${key}.desc`)}</p>
-              </motion.div>
-            ))}
-          </MobileCarousel>
-
-          <MotionFadeUp className="workflow" delay={0.1}>
-            <h3 className="workflow-title">⚙️ {t('home.ai.workflowTitle')}</h3>
-            <MobileCarousel className="workflow-steps">
-              {WORKFLOW_KEYS.map((key, i) => (
-                <motion.div key={key} className="workflow-step" initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
-                  <div className="workflow-num">{i + 1}</div>
-                  <h4>{t(`home.ai.workflow.${key}.title`)}</h4>
-                  <p>{t(`home.ai.workflow.${key}.desc`)}</p>
-                </motion.div>
-              ))}
-            </MobileCarousel>
-          </MotionFadeUp>
-        </div>
-      </section>
-
-      <section className="section cases-section">
-        <div className="container">
-          <MotionFadeUp className="section-head">
-            <span className="eyebrow">
-              <span aria-hidden="true">📊</span> {t('home.cases.eyebrow')}
-            </span>
-            <h2>{t('home.cases.title')}</h2>
-            <p>{t('home.cases.subtitle')}</p>
-          </MotionFadeUp>
-
-          <MobileCarousel className="grid grid-3">
-            {CASE_KEYS.slice(0, 3).map((key, i) => (
-              <motion.div key={key} className="case-card" initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
-                <div className="case-header">
-                  <div className="case-header-icon" aria-hidden="true">
-                    {CASE_ICONS[i]}
-                  </div>
-                  <div className="case-header-text">
-                    <span className="case-category">{t(`caseStudies.defaults.${key}.category`)}</span>
-                    <h3>{CASE_TITLES[i]}</h3>
-                  </div>
-                </div>
-                <div className="case-block">
-                  <div className="case-block-label">{t('home.cases.challenge')}</div>
-                  <p>{t(`caseStudies.defaults.${key}.challenge`)}</p>
-                </div>
-                <div className="case-block">
-                  <div className="case-block-label">{t('home.cases.solution')}</div>
-                  <p>{t(`caseStudies.defaults.${key}.solution`)}</p>
-                </div>
-                <div className="case-block">
-                  <div className="case-block-label">{t('home.cases.result')}</div>
-                  <p>{t(`caseStudies.defaults.${key}.result`)}</p>
-                </div>
-                <div className="case-highlight-box">
-                  <div className="case-highlight-label">{t('caseStudies.keyOutcome')}</div>
-                  <div className="case-highlight-value">{t(`caseStudies.defaults.${key}.highlight`)}</div>
-                </div>
-                  <span className="case-cta-link">
-                    {t('home.cases.viewProject')} →
-                  </span>
-              </motion.div>
-            ))}
-          </MobileCarousel>
-
-          <div className="text-center" style={{ marginTop: 40 }}>
-            <motion.button
-              className="btn btn-dark"
-              onClick={() => navigate('/case-studies')}
-              variants={buttonHover}
-              initial="rest"
-              whileHover="hover"
-              whileTap="tap"
-            >
-              {t('home.cases.seeAll')} →
-            </motion.button>
-          </div>
-        </div>
-      </section>
-
-      <section className="section testimonials-section">
-        <div className="container">
-          <MotionFadeUp className="section-head">
-            <span className="eyebrow">
-              <span aria-hidden="true">💬</span> {t('home.testimonials.eyebrow')}
-            </span>
-            <h2>{t('home.testimonials.title')}</h2>
-            <p>{t('home.testimonials.subtitle')}</p>
-          </MotionFadeUp>
-
-          <div className="testimonial-marquee">
-            <div className="testimonial-marquee-track">
-              {[...Array(2)].flatMap(() =>
-                TESTIMONIAL_KEYS.map((key) => (
-                  <div key={key} className="testimonial-card">
-                    <div className="testimonial-stars">{'★'.repeat(5)}</div>
-                    <p className="testimonial-text">"{t(`home.testimonials.items.${key}.text`)}"</p>
-                    <div className="testimonial-author">
-                      <div className="testimonial-avatar">
-                        {t(`home.testimonials.items.${key}.name`)
-                          .split(' ')
-                          .map((n) => n[0])
-                          .join('')
-                          .slice(0, 2)}
-                      </div>
-                      <div>
-                        <div className="testimonial-name">
-                          {t(`home.testimonials.items.${key}.name`)}
-                        </div>
-                        <div className="testimonial-role">
-                          {t(`home.testimonials.items.${key}.role`)}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="section lead-magnet">
         <div className="lead-glow lead-glow-1" />
         <div className="lead-glow lead-glow-2" />
@@ -955,8 +944,6 @@ function HomePage() {
         </div>
       </section>
 
-      <FAQ />
-
       <section className="final-cta">
         <div className="container">
           <motion.div
@@ -996,6 +983,7 @@ function HomePage() {
           </motion.div>
         </div>
       </section>
+
     </div>
   );
 }

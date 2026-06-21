@@ -104,6 +104,12 @@
   border: none !important;
 }
 
+.btn-primary.btn-block:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid #000000 !important;
+}
+
 .btn-outline {
   background: transparent;
   color: #F4F6F5;

@@ -14,7 +14,7 @@
   align-items: center;
   height: var(--nav-h, 50px);
   position: relative;
-  gap: 200px;
+  gap: 310px;
   flex-wrap: nowrap;
   min-width: 0;
   max-width: 100%;
@@ -70,6 +70,121 @@
 
 .nav-links a:hover {
   color: #fff;
+}
+
+/* ===== Dropdown (shared base) ===== */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 700;
+  font-size: 15px;
+  font-family: inherit;
+  white-space: nowrap;
+  transition: color 0.3s ease, background 0.2s ease;
+}
+
+.nav-chevron {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.25s ease;
+}
+
+.nav-dropdown-menu {
+  list-style: none;
+  margin: 0;
+}
+
+.nav-dropdown-menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.82);
+  transition: background 0.18s ease, color 0.18s ease, padding-left 0.18s ease;
+}
+
+.nav-dd-icon {
+  font-size: 16px;
+  line-height: 1;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* ===== Dropdown (desktop: hover to open) ===== */
+@media (min-width: 1025px) {
+  .nav-dropdown-toggle {
+    padding: 0;
+  }
+
+  .nav-dropdown-toggle:hover,
+  .nav-dropdown:hover .nav-dropdown-toggle,
+  .nav-dropdown:focus-within .nav-dropdown-toggle {
+    color: #fff;
+  }
+
+  .nav-dropdown:hover .nav-chevron,
+  .nav-dropdown:focus-within .nav-chevron {
+    transform: rotate(180deg);
+  }
+
+  .nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 8px);
+    min-width: 232px;
+    padding: 8px;
+    background: #15181e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    box-shadow: 0 20px 44px rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+    z-index: 1200;
+  }
+
+  /* invisible bridge so the cursor can cross the gap without closing */
+  .nav-dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -14px;
+    left: 0;
+    right: 0;
+    height: 14px;
+  }
+
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+  }
+
+  .nav-dropdown-menu a {
+    padding: 11px 14px;
+    border-radius: 9px;
+    font-size: 14.5px;
+  }
+
+  .nav-dropdown-menu a:hover {
+    background: rgba(255, 255, 255, 0.07);
+    color: #fff;
+    padding-left: 18px;
+  }
 }
 
 /* Mobile-only CTA list items are hidden on desktop */

@@ -45,8 +45,11 @@
     "growth": "Growth",
     "ai": "AI System",
     "caseStudies": "Case Studies",
+    "successStories": "Success Stories",
     "blog": "Blog",
     "contact": "Contact",
+    "more": "More",
+    "pricing": "Pricing",
     "roadmap": "Free Roadmap",
     "bookFreeCall": "Book Free Call",
     "primaryLabel": "Primary"
@@ -76,11 +79,12 @@
     "socialInstagram": "Instagram",
     "socialYouTube": "YouTube",
     "socialLinkedIn": "LinkedIn"
-  },    "home": {
-    "eyebrow": "Your Idea, Our Support",
+  },
+  "home": {
+    "eyebrow": "Guideline • Support • Marketing Strategy — All in One Platform",
     "founderName": "Saiful Islam",
-    "heroTitle": "Together Let's Build a Successful E-commerce Business",
-    "heroSubtitle": "Professional Logo, Branding, Website, Social Media Branding, AI Marketing Content System, Sales & Growth Strategy – You Don't Have to Walk the Whole Path Alone",
+    "heroTitle": "Build a Successful E-commerce Brand from Zero",
+    "heroSubtitle": "We don't just teach — we set up your business, build your brand, and turn your idea into a profitable online business through marketing.",
     "bookFreeConsultation": "Book Free Consultation",
     "heroPills": {
       "p1": "Hassle-Free Business",
@@ -109,7 +113,12 @@
       "designProjects": "Design Projects Delivered",
       "industriesServed": "Industries Served",
       "yearsExperience": "Years of Experience",
-      "consultations": "Business Consultations"
+      "consultations": "Business Consultations",
+      "businessesLaunched": "Businesses Launched",
+      "students": "Students",
+      "liveTraining": "Hours Live Training",
+      "successfulEntrepreneurs": "Successful Entrepreneurs",
+      "satisfaction": "Entrepreneurs Satisfied"
     },
     "startHere": {
       "eyebrow": "Start Your First Step",
@@ -227,30 +236,31 @@
     "framework": {
       "eyebrow": "The Framework",
       "title": "Your E-commerce Roadmap",
-      "subtitle": "A proven 6-step framework to take your business from idea to scale.",        "idea": {
-          "title": "Idea",
-          "desc": "Validate your business idea with market research and find your winning product niche."
-        },
-        "learn": {
-          "title": "Learn",
-          "desc": "Master the fundamentals of e-commerce, branding, and AI tools in our Academy."
-        },
-        "setup": {
-          "title": "Setup",
-          "desc": "Build a real, sellable brand with our Setup team — store, logo, pages, payment."
-        },
-        "launch": {
-          "title": "Launch",
-          "desc": "Go live with a high-converting website, payment gateway, and professional branding."
-        },
-        "grow": {
-          "title": "Grow",
-          "desc": "Scale with our Growth Partners — AI marketing, ads, automation, and SOPs."
-        },
-        "scale": {
-          "title": "Scale",
-          "desc": "Expand to new markets, multiply revenue streams, and build a sustainable brand empire."
-        }
+      "subtitle": "A proven 6-step framework to take your business from idea to scale.",
+      "idea": {
+        "title": "Idea",
+        "desc": "Validate your business idea with market research and find your winning product niche."
+      },
+      "learn": {
+        "title": "Learn",
+        "desc": "Master the fundamentals of e-commerce, branding, and AI tools in our Academy."
+      },
+      "setup": {
+        "title": "Setup",
+        "desc": "Build a real, sellable brand with our Setup team — store, logo, pages, payment."
+      },
+      "launch": {
+        "title": "Launch",
+        "desc": "Go live with a high-converting website, payment gateway, and professional branding."
+      },
+      "grow": {
+        "title": "Grow",
+        "desc": "Scale with our Growth Partners — AI marketing, ads, automation, and SOPs."
+      },
+      "scale": {
+        "title": "Scale",
+        "desc": "Expand to new markets, multiply revenue streams, and build a sustainable brand empire."
+      }
     },
     "packages": {
       "eyebrow": "Packages",
@@ -351,17 +361,48 @@
       "subtitle": "The exact 4 tools we use to run ads, content, and research for every client.",
       "workflowTitle": "The 5-step AI workflow SOP",
       "tools": {
-        "canva": { "name": "Canva", "role": "Design", "desc": "Branding kits, ad creatives, product images in minutes." },
-        "chatgpt": { "name": "ChatGPT", "role": "Copywriting", "desc": "Product descriptions, ad copy, email sequences, customer replies." },
-        "gemini": { "name": "Gemini", "role": "Research & Planning", "desc": "Market research, competitor analysis, content calendars." },
-        "capcut": { "name": "CapCut", "role": "Video Creation", "desc": "Reels, TikToks, video ads with AI captions and effects." }
+        "canva": {
+          "name": "Canva",
+          "role": "Design",
+          "desc": "Branding kits, ad creatives, product images in minutes."
+        },
+        "chatgpt": {
+          "name": "ChatGPT",
+          "role": "Copywriting",
+          "desc": "Product descriptions, ad copy, email sequences, customer replies."
+        },
+        "gemini": {
+          "name": "Gemini",
+          "role": "Research & Planning",
+          "desc": "Market research, competitor analysis, content calendars."
+        },
+        "capcut": {
+          "name": "CapCut",
+          "role": "Video Creation",
+          "desc": "Reels, TikToks, video ads with AI captions and effects."
+        }
       },
       "workflow": {
-        "research": { "title": "Research", "desc": "Use Gemini to find trending products and analyze competitors." },
-        "create": { "title": "Create", "desc": "Use ChatGPT + Canva to build product pages, ads, and brand kit." },
-        "produce": { "title": "Produce", "desc": "Use CapCut to create video content and Reels for ads & social." },
-        "distribute": { "title": "Distribute", "desc": "Push content to Facebook, Instagram, TikTok with auto-scheduling." },
-        "optimize": { "title": "Optimize", "desc": "Review performance, refine with AI, and double down on winners." }
+        "research": {
+          "title": "Research",
+          "desc": "Use Gemini to find trending products and analyze competitors."
+        },
+        "create": {
+          "title": "Create",
+          "desc": "Use ChatGPT + Canva to build product pages, ads, and brand kit."
+        },
+        "produce": {
+          "title": "Produce",
+          "desc": "Use CapCut to create video content and Reels for ads & social."
+        },
+        "distribute": {
+          "title": "Distribute",
+          "desc": "Push content to Facebook, Instagram, TikTok with auto-scheduling."
+        },
+        "optimize": {
+          "title": "Optimize",
+          "desc": "Review performance, refine with AI, and double down on winners."
+        }
       }
     },
     "cases": {
@@ -379,12 +420,36 @@
       "title": "What founders say",
       "subtitle": "Honest words from real clients we have worked with.",
       "items": {
-        "rahim": { "name": "Rahim Uddin", "role": "Founder of Leathix", "text": "Saiful Studios completely transformed my leather brand. The website they built is stunning and professional. Within 3 months, my online orders tripled. Best investment I have made for my business." },
-        "farida": { "name": "Farida Khanam", "role": "Fashion Entrepreneur", "text": "The AI Marketing System training was a game-changer. I now create a month\\'s worth of content in a single weekend. My Instagram following grew from 500 to 15,000 in just 4 months!" },
-        "nusrat": { "name": "Nusrat Jahan", "role": "E-commerce Academy Graduate", "text": "Joining the E-commerce Academy was the best decision. Saiful explains everything so clearly. I went from zero knowledge to launching my own business and making sales in just 60 days." },
-        "kamal": { "name": "Kamal Hossain", "role": "Founder of TechZone BD", "text": "Our brand positioning strategy with Saiful Studios changed everything. We went from being just another electronics reseller to a trusted brand. Our margins improved by 40% and customers now seek us out." },
-        "sultana": { "name": "Sultana Begum", "role": "Founder of NaturalGlow BD", "text": "I started with homemade products selling to neighbors. Saiful helped me build a proper brand with professional packaging and a Shopify store. Now I have over 2,000 customers and my products are in local stores!" },
-        "hasan": { "name": "Hasan Ali", "role": "Founder of Crafty Hands", "text": "My handmade products were beautiful but nobody knew about them. Saiful's Pinterest and Instagram strategy got my products seen internationally. Now I ship to 8 different countries every month." }
+        "rahim": {
+          "name": "Rahim Uddin",
+          "role": "Founder of Leathix",
+          "text": "Saiful Studios completely transformed my leather brand. The website they built is stunning and professional. Within 3 months, my online orders tripled. Best investment I have made for my business."
+        },
+        "farida": {
+          "name": "Farida Khanam",
+          "role": "Fashion Entrepreneur",
+          "text": "The AI Marketing System training was a game-changer. I now create a month\\'s worth of content in a single weekend. My Instagram following grew from 500 to 15,000 in just 4 months!"
+        },
+        "nusrat": {
+          "name": "Nusrat Jahan",
+          "role": "E-commerce Academy Graduate",
+          "text": "Joining the E-commerce Academy was the best decision. Saiful explains everything so clearly. I went from zero knowledge to launching my own business and making sales in just 60 days."
+        },
+        "kamal": {
+          "name": "Kamal Hossain",
+          "role": "Founder of TechZone BD",
+          "text": "Our brand positioning strategy with Saiful Studios changed everything. We went from being just another electronics reseller to a trusted brand. Our margins improved by 40% and customers now seek us out."
+        },
+        "sultana": {
+          "name": "Sultana Begum",
+          "role": "Founder of NaturalGlow BD",
+          "text": "I started with homemade products selling to neighbors. Saiful helped me build a proper brand with professional packaging and a Shopify store. Now I have over 2,000 customers and my products are in local stores!"
+        },
+        "hasan": {
+          "name": "Hasan Ali",
+          "role": "Founder of Crafty Hands",
+          "text": "My handmade products were beautiful but nobody knew about them. Saiful's Pinterest and Instagram strategy got my products seen internationally. Now I ship to 8 different countries every month."
+        }
       }
     },
     "leadMagnet": {
@@ -418,6 +483,24 @@
       "subtitle": "Book a free consultation today. No commitment, no pressure — just clarity on your next best step.",
       "book": "Book Free Consultation",
       "join": "Join the Academy"
+    },
+    "heroTitleSub": "Let your business journey begin right here",
+    "heroBtnPrimary": "Get Free Guideline",
+    "heroBtnSecondary": "See Success Stories",
+    "heroFeatures": {
+      "branding": "Branding",
+      "website": "Website",
+      "metaAds": "Meta Ads",
+      "content": "Content",
+      "growth": "Business Growth"
+    },
+    "heroCard": {
+      "name": "Rafiul-Dhaka",
+      "quote": "8 months ago I had no business experience. Now I earn 80,000+ BDT per month.",
+      "stat1": "80,000৳",
+      "stat1Label": "Monthly Income",
+      "stat2": "1",
+      "stat2Label": "Year Taken"
     }
   },
   "faq": {
@@ -465,12 +548,30 @@
       "title": "What we believe in",
       "subtitle": "Six principles that shape every project, every campaign, every conversation.",
       "items": {
-        "results": { "title": "Results First", "desc": "We do not just deliver work — we deliver outcomes. Every project measured by real business results." },
-        "honest": { "title": "Honest Partnership", "desc": "We tell you what you need to hear, not what you want to hear. Transparency at the core." },
-        "innovation": { "title": "Innovation Always", "desc": "Stay ahead of AI tools, marketing trends, and platform changes for a competitive edge." },
-        "learning": { "title": "Continuous Learning", "desc": "E-commerce evolves daily. Committed to constant learning and passing knowledge to clients." },
-        "bangladesh": { "title": "Bangladesh First", "desc": "Deep understanding of local market, culture, and customer behavior – unbeatable strategic advantage." },
-        "empowerment": { "title": "Empowerment Over Dependency", "desc": "We teach and build systems that empower you to run independently – not keep you dependent." }
+        "results": {
+          "title": "Results First",
+          "desc": "We do not just deliver work — we deliver outcomes. Every project measured by real business results."
+        },
+        "honest": {
+          "title": "Honest Partnership",
+          "desc": "We tell you what you need to hear, not what you want to hear. Transparency at the core."
+        },
+        "innovation": {
+          "title": "Innovation Always",
+          "desc": "Stay ahead of AI tools, marketing trends, and platform changes for a competitive edge."
+        },
+        "learning": {
+          "title": "Continuous Learning",
+          "desc": "E-commerce evolves daily. Committed to constant learning and passing knowledge to clients."
+        },
+        "bangladesh": {
+          "title": "Bangladesh First",
+          "desc": "Deep understanding of local market, culture, and customer behavior – unbeatable strategic advantage."
+        },
+        "empowerment": {
+          "title": "Empowerment Over Dependency",
+          "desc": "We teach and build systems that empower you to run independently – not keep you dependent."
+        }
       }
     },
     "timeline": {
@@ -478,12 +579,30 @@
       "title": "10+ years, 6 chapters",
       "subtitle": "The milestones that shaped Saiful Studios into what it is today.",
       "items": {
-        "2014": { "title": "Started as a Designer", "desc": "Saiful began his career as a freelance graphic designer, working with local fashion and tech brands in Dhaka." },
-        "2017": { "title": "Expanded into Branding", "desc": "Built a small studio focused on full brand identity systems for Bangladeshi e-commerce startups." },
-        "2019": { "title": "Launched First Store Builds", "desc": "Delivered 50+ Shopify and WooCommerce stores, learning the realities of selling online in Bangladesh." },
-        "2022": { "title": "E-commerce Academy Launched", "desc": "Released the first version of the E-commerce Academy — 8 modules, 1,000+ students in 6 months." },
-        "2024": { "title": "AI Marketing System", "desc": "Built the 4-tool AI marketing stack (Canva, ChatGPT, Gemini, CapCut) that now powers every client." },
-        "2026": { "title": "5,000+ Projects Delivered", "desc": "Saiful Studios has now delivered 5,000+ design projects, served 20+ industries, and trained 2,000+ founders." }
+        "2014": {
+          "title": "Started as a Designer",
+          "desc": "Saiful began his career as a freelance graphic designer, working with local fashion and tech brands in Dhaka."
+        },
+        "2017": {
+          "title": "Expanded into Branding",
+          "desc": "Built a small studio focused on full brand identity systems for Bangladeshi e-commerce startups."
+        },
+        "2019": {
+          "title": "Launched First Store Builds",
+          "desc": "Delivered 50+ Shopify and WooCommerce stores, learning the realities of selling online in Bangladesh."
+        },
+        "2022": {
+          "title": "E-commerce Academy Launched",
+          "desc": "Released the first version of the E-commerce Academy — 8 modules, 1,000+ students in 6 months."
+        },
+        "2024": {
+          "title": "AI Marketing System",
+          "desc": "Built the 4-tool AI marketing stack (Canva, ChatGPT, Gemini, CapCut) that now powers every client."
+        },
+        "2026": {
+          "title": "5,000+ Projects Delivered",
+          "desc": "Saiful Studios has now delivered 5,000+ design projects, served 20+ industries, and trained 2,000+ founders."
+        }
       }
     },
     "finalCta": {
@@ -499,10 +618,22 @@
     "modulesCta": "View modules",
     "stats": {
       "items": [
-        { "num": "2,000+", "label": "Founder Community" },
-        { "num": "8", "label": "Core Modules" },
-        { "num": "400+", "label": "Templates & SOPs" },
-        { "num": "4.8/5", "label": "Average Rating" }
+        {
+          "num": "2,000+",
+          "label": "Founder Community"
+        },
+        {
+          "num": "8",
+          "label": "Core Modules"
+        },
+        {
+          "num": "400+",
+          "label": "Templates & SOPs"
+        },
+        {
+          "num": "4.8/5",
+          "label": "Average Rating"
+        }
       ]
     },
     "modules": {
@@ -510,14 +641,38 @@
       "title": "8 modules. Zero fluff. Real results.",
       "subtitle": "Every module is action-oriented — you finish with assets you can use immediately.",
       "items": {
-        "foundations": { "title": "E-commerce Business Foundations", "desc": "Business models, market research, niche selection, validating product idea." },
-        "brand": { "title": "Brand Identity & Design", "desc": "Logo creation, color psychology, typography, building a brand customers love." },
-        "website": { "title": "Website & Online Store Setup", "desc": "Building high-converting e-commerce store, product pages, payment integration." },
-        "content": { "title": "Content Creation System", "desc": "Using Canva, ChatGPT, CapCut to create scroll-stopping content at scale." },
-        "social": { "title": "Social Media Marketing", "desc": "Facebook, Instagram, TikTok strategy — organic growth and community building." },
-        "ads": { "title": "Facebook & Instagram Ads", "desc": "Campaign setup, audience targeting, budget management, optimizing for ROAS." },
-        "ai": { "title": "AI Marketing & Automation", "desc": "ChatGPT prompt engineering, Gemini workflows, automating marketing systems." },
-        "scaling": { "title": "Scaling & Business Growth", "desc": "Data analysis, scaling strategies, hiring, delegation, building sustainable brand." }
+        "foundations": {
+          "title": "E-commerce Business Foundations",
+          "desc": "Business models, market research, niche selection, validating product idea."
+        },
+        "brand": {
+          "title": "Brand Identity & Design",
+          "desc": "Logo creation, color psychology, typography, building a brand customers love."
+        },
+        "website": {
+          "title": "Website & Online Store Setup",
+          "desc": "Building high-converting e-commerce store, product pages, payment integration."
+        },
+        "content": {
+          "title": "Content Creation System",
+          "desc": "Using Canva, ChatGPT, CapCut to create scroll-stopping content at scale."
+        },
+        "social": {
+          "title": "Social Media Marketing",
+          "desc": "Facebook, Instagram, TikTok strategy — organic growth and community building."
+        },
+        "ads": {
+          "title": "Facebook & Instagram Ads",
+          "desc": "Campaign setup, audience targeting, budget management, optimizing for ROAS."
+        },
+        "ai": {
+          "title": "AI Marketing & Automation",
+          "desc": "ChatGPT prompt engineering, Gemini workflows, automating marketing systems."
+        },
+        "scaling": {
+          "title": "Scaling & Business Growth",
+          "desc": "Data analysis, scaling strategies, hiring, delegation, building sustainable brand."
+        }
       }
     },
     "pricing": {
@@ -569,7 +724,11 @@
       "name": "Saiful Islam",
       "role": "Founder, Saiful Studios",
       "bio": "Built from 7+ years of real experience launching and scaling e-commerce brands in Bangladesh. After launching multiple brands and mentoring 2,000+ founders, this course contains only what works — no theoretical filler.",
-      "tags": ["7+ Years E-commerce", "2,000+ Students Mentored", "Meta Ads Certified"]
+      "tags": [
+        "7+ Years E-commerce",
+        "2,000+ Students Mentored",
+        "Meta Ads Certified"
+      ]
     },
     "faq": {
       "eyebrow": "❓ Frequently Asked Questions",
@@ -635,19 +794,64 @@
     "heroCta": "Book Free Consultation →",
     "heroCta2": "View Services",
     "stats": [
-      { "num": "180+", "label": "Businesses Launched" },
-      { "num": "4.9/5", "label": "Client Rating" },
-      { "num": "21 days", "label": "Avg Launch Time" }
+      {
+        "num": "180+",
+        "label": "Businesses Launched"
+      },
+      {
+        "num": "4.9/5",
+        "label": "Client Rating"
+      },
+      {
+        "num": "21 days",
+        "label": "Avg Launch Time"
+      }
     ],
     "services": {
       "eyebrow": "// Our services",
       "title": "Everything needed to launch",
       "subtitle": "Pick one service, or get the full package — either way we will recommend the right fit.",
       "items": {
-        "brand": { "num": "01", "title": "Brand Identity", "desc": "Logo, color palette, typography and brand guidelines — what makes your business recognizable.", "features": ["Professional logo design", "Color palette & typography", "Brand guidelines document"] },
-        "website": { "num": "02", "title": "Website Development", "desc": "Fast, mobile-friendly e-commerce website — from product catalog to checkout, all ready.", "features": ["Custom e-commerce website", "Mobile-optimized design", "Automated checkout flow"] },
-        "payment": { "num": "03", "title": "Payment Integration", "desc": "Full integration with Bkash, Nagad, Rocket and card payments — local and international, both.", "features": ["Bkash, Nagad, Rocket integration", "Card payment support", "International gateway setup"] },
-        "social": { "num": "04", "title": "Social Media Setup", "desc": "Professional account setup with branded covers, bio optimization and starter content templates.", "features": ["Facebook, Instagram, TikTok setup", "Branded covers & profile", "Initial content templates"] }
+        "brand": {
+          "num": "01",
+          "title": "Brand Identity",
+          "desc": "Logo, color palette, typography and brand guidelines — what makes your business recognizable.",
+          "features": [
+            "Professional logo design",
+            "Color palette & typography",
+            "Brand guidelines document"
+          ]
+        },
+        "website": {
+          "num": "02",
+          "title": "Website Development",
+          "desc": "Fast, mobile-friendly e-commerce website — from product catalog to checkout, all ready.",
+          "features": [
+            "Custom e-commerce website",
+            "Mobile-optimized design",
+            "Automated checkout flow"
+          ]
+        },
+        "payment": {
+          "num": "03",
+          "title": "Payment Integration",
+          "desc": "Full integration with Bkash, Nagad, Rocket and card payments — local and international, both.",
+          "features": [
+            "Bkash, Nagad, Rocket integration",
+            "Card payment support",
+            "International gateway setup"
+          ]
+        },
+        "social": {
+          "num": "04",
+          "title": "Social Media Setup",
+          "desc": "Professional account setup with branded covers, bio optimization and starter content templates.",
+          "features": [
+            "Facebook, Instagram, TikTok setup",
+            "Branded covers & profile",
+            "Initial content templates"
+          ]
+        }
       },
       "cta": "Get Started",
       "pricePill": "Full package starting from ৳75,000"
@@ -657,18 +861,42 @@
       "title": "How a typical launch project runs",
       "subtitle": "A clear four-step process so you always know what is coming next.",
       "items": {
-        "discovery": { "num": "1", "title": "Discovery Call", "desc": "30-min free call to understand your business, goals and target customer." },
-        "proposal": { "num": "2", "title": "Proposal & Plan", "desc": "You receive a detailed plan with timeline, deliverables and pricing within 48 hours." },
-        "build": { "num": "3", "title": "Build & Iterate", "desc": "We execute the plan with weekly updates and live design revisions." },
-        "launch": { "num": "4", "title": "Launch & Support", "desc": "Handover with full training videos and 30 days of free post-launch support." }
+        "discovery": {
+          "num": "1",
+          "title": "Discovery Call",
+          "desc": "30-min free call to understand your business, goals and target customer."
+        },
+        "proposal": {
+          "num": "2",
+          "title": "Proposal & Plan",
+          "desc": "You receive a detailed plan with timeline, deliverables and pricing within 48 hours."
+        },
+        "build": {
+          "num": "3",
+          "title": "Build & Iterate",
+          "desc": "We execute the plan with weekly updates and live design revisions."
+        },
+        "launch": {
+          "num": "4",
+          "title": "Launch & Support",
+          "desc": "Handover with full training videos and 30 days of free post-launch support."
+        }
       }
     },
     "testimonials": {
       "eyebrow": "// Client experience",
       "title": "Those who have launched with us",
       "items": [
-        { "quote": "\"My entire online store was ready in three weeks, even Bkash payment was working. Much easier than I expected.\"", "name": "Tanjina Rahman", "role": "Founder, Kuri Cosmetics" },
-        { "quote": "\"Got updates every week, nothing was left to guess. The support team stayed with us even after launch.\"", "name": "Rakibul Hasan", "role": "Founder, Dhaka Gadget Hub" }
+        {
+          "quote": "\"My entire online store was ready in three weeks, even Bkash payment was working. Much easier than I expected.\"",
+          "name": "Tanjina Rahman",
+          "role": "Founder, Kuri Cosmetics"
+        },
+        {
+          "quote": "\"Got updates every week, nothing was left to guess. The support team stayed with us even after launch.\"",
+          "name": "Rakibul Hasan",
+          "role": "Founder, Dhaka Gadget Hub"
+        }
       ]
     },
     "cta": {
@@ -687,10 +915,46 @@
       "title": "4 ways we help you grow",
       "subtitle": "Pick one or combine them — most partners start with Facebook Ads + Content Marketing.",
       "items": {
-        "content": { "title": "Content Marketing", "desc": "30+ pieces of content per month including product photos, graphics, captions, blog posts – all on-brand and conversion-focused.", "features": ["30+ pieces of content per month", "Product photos & graphics", "Captions & blog posts", "On-brand & conversion-focused"] },
-        "ads": { "title": "Facebook & Instagram Ads", "desc": "Full ad campaign management: audience research, creative testing, budget optimization, scaling winning campaigns for maximum ROAS.", "features": ["Audience research", "Creative testing", "Budget optimization", "Scaling winning campaigns"] },
-        "video": { "title": "Video Marketing", "desc": "Short-form Reels and TikTok content, product showcase videos, storytelling content that drives viral reach and brand awareness.", "features": ["Short-form Reels & TikToks", "Product showcase videos", "Storytelling content", "Viral reach & brand awareness"] },
-        "reporting": { "title": "Monthly Growth Reporting", "desc": "Detailed monthly reports covering traffic, conversions, ad performance, revenue growth, and clear strategic plan for next month.", "features": ["Traffic & conversion data", "Ad performance metrics", "Revenue growth tracking", "Clear strategic plan"] }
+        "content": {
+          "title": "Content Marketing",
+          "desc": "30+ pieces of content per month including product photos, graphics, captions, blog posts – all on-brand and conversion-focused.",
+          "features": [
+            "30+ pieces of content per month",
+            "Product photos & graphics",
+            "Captions & blog posts",
+            "On-brand & conversion-focused"
+          ]
+        },
+        "ads": {
+          "title": "Facebook & Instagram Ads",
+          "desc": "Full ad campaign management: audience research, creative testing, budget optimization, scaling winning campaigns for maximum ROAS.",
+          "features": [
+            "Audience research",
+            "Creative testing",
+            "Budget optimization",
+            "Scaling winning campaigns"
+          ]
+        },
+        "video": {
+          "title": "Video Marketing",
+          "desc": "Short-form Reels and TikTok content, product showcase videos, storytelling content that drives viral reach and brand awareness.",
+          "features": [
+            "Short-form Reels & TikToks",
+            "Product showcase videos",
+            "Storytelling content",
+            "Viral reach & brand awareness"
+          ]
+        },
+        "reporting": {
+          "title": "Monthly Growth Reporting",
+          "desc": "Detailed monthly reports covering traffic, conversions, ad performance, revenue growth, and clear strategic plan for next month.",
+          "features": [
+            "Traffic & conversion data",
+            "Ad performance metrics",
+            "Revenue growth tracking",
+            "Clear strategic plan"
+          ]
+        }
       },
       "cta": "Get Started"
     },
@@ -749,10 +1013,42 @@
       "title": "One AI stack, every marketing job",
       "subtitle": "All four are free or low-cost. You only need a laptop and an internet connection.",
       "items": {
-        "canva": { "role": "Canva Setup", "desc": "Brand kit, templates, SOPs for creating consistent, professional graphics in minutes.", "benefits": ["Brand kit in 1 hour", "10 ad creatives per week", "20 social post templates"] },
-        "chatgpt": { "role": "ChatGPT Prompts", "desc": "100+ battle-tested prompts for product descriptions, captions, ads copy, email sequences.", "benefits": ["100 product descriptions in 1 hour", "Personalized email sequences", "24/7 customer support replies"] },
-        "gemini": { "role": "Gemini Workflow", "desc": "Research, content planning, SEO optimization, market analysis using Google\\'s AI.", "benefits": ["Weekly trend reports", "Competitor ad analysis", "Content calendar for 30 days"] },
-        "capcut": { "role": "CapCut Video SOP", "desc": "Step-by-step video creation system for Reels & TikTok that consistently generates viral content.", "benefits": ["15 Reels per month", "AI auto-captions in Bangla", "Ready-to-post ad videos"] }
+        "canva": {
+          "role": "Canva Setup",
+          "desc": "Brand kit, templates, SOPs for creating consistent, professional graphics in minutes.",
+          "benefits": [
+            "Brand kit in 1 hour",
+            "10 ad creatives per week",
+            "20 social post templates"
+          ]
+        },
+        "chatgpt": {
+          "role": "ChatGPT Prompts",
+          "desc": "100+ battle-tested prompts for product descriptions, captions, ads copy, email sequences.",
+          "benefits": [
+            "100 product descriptions in 1 hour",
+            "Personalized email sequences",
+            "24/7 customer support replies"
+          ]
+        },
+        "gemini": {
+          "role": "Gemini Workflow",
+          "desc": "Research, content planning, SEO optimization, market analysis using Google\\'s AI.",
+          "benefits": [
+            "Weekly trend reports",
+            "Competitor ad analysis",
+            "Content calendar for 30 days"
+          ]
+        },
+        "capcut": {
+          "role": "CapCut Video SOP",
+          "desc": "Step-by-step video creation system for Reels & TikTok that consistently generates viral content.",
+          "benefits": [
+            "15 Reels per month",
+            "AI auto-captions in Bangla",
+            "Ready-to-post ad videos"
+          ]
+        }
       }
     },
     "workflow": {
@@ -760,11 +1056,26 @@
       "title": "5 steps from idea to published content",
       "subtitle": "This is the exact workflow we follow for every Saiful Studios growth client.",
       "items": {
-        "idea": { "title": "Idea", "desc": "Use ChatGPT to brainstorm content ideas, hooks, and angles." },
-        "design": { "title": "Design", "desc": "Use Canva to build branded graphics, posts, and ad creatives." },
-        "copy": { "title": "Copy", "desc": "Use Gemini for research, SEO, and long-form copy polish." },
-        "video": { "title": "Video", "desc": "Use CapCut to produce Reels, TikToks, and short-form videos." },
-        "analyze": { "title": "Analyze & Repeat", "desc": "Review performance, refine with AI, and double down on winners." }
+        "idea": {
+          "title": "Idea",
+          "desc": "Use ChatGPT to brainstorm content ideas, hooks, and angles."
+        },
+        "design": {
+          "title": "Design",
+          "desc": "Use Canva to build branded graphics, posts, and ad creatives."
+        },
+        "copy": {
+          "title": "Copy",
+          "desc": "Use Gemini for research, SEO, and long-form copy polish."
+        },
+        "video": {
+          "title": "Video",
+          "desc": "Use CapCut to produce Reels, TikToks, and short-form videos."
+        },
+        "analyze": {
+          "title": "Analyze & Repeat",
+          "desc": "Review performance, refine with AI, and double down on winners."
+        }
       }
     },
     "outcomes": {
@@ -788,12 +1099,48 @@
     "result": "Result",
     "keyOutcome": "Key Outcome",
     "defaults": {
-      "leathix": { "category": "Premium Leather Brand", "challenge": "No brand identity, inconsistent visuals, zero online presence.", "solution": "Complete brand identity, e-commerce website, product photography direction, Instagram growth strategy.", "result": "300% increase in online sales within 3 months.", "highlight": "300% sales increase" },
-      "futureConnect": { "category": "Tech Accessories Brand", "challenge": "Basic Facebook page only, no website, no ads strategy, declining organic reach.", "solution": "Custom website with SEO, Facebook Ads campaign setup, content calendar, monthly growth management.", "result": "৳500K+ monthly revenue achieved in 6 months with 4x ROAS.", "highlight": "৳500K+ monthly" },
-      "fashionNova": { "category": "Fashion E-commerce", "challenge": "New entrepreneur with budget constraints, needed full e-commerce setup from scratch.", "solution": "Brand identity, website, Bkash/Nagad payment integration, AI content system training, first ad campaign.", "result": "First ৳1M revenue milestone within 4 months.", "highlight": "৳1M in 4 months" },
-      "naturalGlow": { "category": "Skincare Brand", "challenge": "Homemade products with no branding, selling only to friends and family.", "solution": "Premium brand identity, Shopify store, packaging design, content system.", "result": "2,000+ customers in first 6 months. Featured in local media.", "highlight": "2,000+ customers" },
-      "techZone": { "category": "Electronics Reseller", "challenge": "High competition, low margins, no brand differentiation strategy.", "solution": "Brand positioning, trust-building content strategy, Google Shopping ads.", "result": "40% margin improvement through brand premium pricing strategy.", "highlight": "40% margin up" },
-      "craftyHands": { "category": "Handcraft Business", "challenge": "Beautiful handmade products but could not reach the right audience online.", "solution": "Pinterest & Instagram strategy, video content series, Etsy & Facebook Shop setup.", "result": "International orders from 8 countries within 12 months.", "highlight": "8 countries reached" }
+      "leathix": {
+        "category": "Premium Leather Brand",
+        "challenge": "No brand identity, inconsistent visuals, zero online presence.",
+        "solution": "Complete brand identity, e-commerce website, product photography direction, Instagram growth strategy.",
+        "result": "300% increase in online sales within 3 months.",
+        "highlight": "300% sales increase"
+      },
+      "futureConnect": {
+        "category": "Tech Accessories Brand",
+        "challenge": "Basic Facebook page only, no website, no ads strategy, declining organic reach.",
+        "solution": "Custom website with SEO, Facebook Ads campaign setup, content calendar, monthly growth management.",
+        "result": "৳500K+ monthly revenue achieved in 6 months with 4x ROAS.",
+        "highlight": "৳500K+ monthly"
+      },
+      "fashionNova": {
+        "category": "Fashion E-commerce",
+        "challenge": "New entrepreneur with budget constraints, needed full e-commerce setup from scratch.",
+        "solution": "Brand identity, website, Bkash/Nagad payment integration, AI content system training, first ad campaign.",
+        "result": "First ৳1M revenue milestone within 4 months.",
+        "highlight": "৳1M in 4 months"
+      },
+      "naturalGlow": {
+        "category": "Skincare Brand",
+        "challenge": "Homemade products with no branding, selling only to friends and family.",
+        "solution": "Premium brand identity, Shopify store, packaging design, content system.",
+        "result": "2,000+ customers in first 6 months. Featured in local media.",
+        "highlight": "2,000+ customers"
+      },
+      "techZone": {
+        "category": "Electronics Reseller",
+        "challenge": "High competition, low margins, no brand differentiation strategy.",
+        "solution": "Brand positioning, trust-building content strategy, Google Shopping ads.",
+        "result": "40% margin improvement through brand premium pricing strategy.",
+        "highlight": "40% margin up"
+      },
+      "craftyHands": {
+        "category": "Handcraft Business",
+        "challenge": "Beautiful handmade products but could not reach the right audience online.",
+        "solution": "Pinterest & Instagram strategy, video content series, Etsy & Facebook Shop setup.",
+        "result": "International orders from 8 countries within 12 months.",
+        "highlight": "8 countries reached"
+      }
     }
   },
   "blog": {
@@ -807,13 +1154,42 @@
     "notFoundTitle": "Post not found",
     "notFoundDesc": "The post you are looking for does not exist or has been removed.",
     "defaults": {
-      "chatgpt": { "title": "How to Use ChatGPT to Write 30 Days of Facebook Ad Copy in 1 Hour", "excerpt": "Discover the exact prompts and workflow we use to generate high-converting ad copy at scale using AI tools.", "category": "AI Marketing" },
-      "guide": { "title": "The Complete Guide to Starting an E-commerce Business in Bangladesh (2024)", "excerpt": "Everything you need to know from product research to your first sale — tailored for the Bangladeshi market.", "category": "Business Launch" },
-      "brand": { "title": "Why Your Brand Identity Is Your Most Important Business Asset", "excerpt": "The psychology behind why customers choose brands over products — and how to build a brand that commands premium prices.", "category": "Branding" },
-      "reels": { "title": "Instagram Reels Strategy That Got Our Client 50K Followers in 90 Days", "excerpt": "The exact content formula, posting schedule, and hashtag strategy that drives massive organic growth in Bangladesh.", "category": "Social Media" },
-      "facebook": { "title": "Facebook Ads for Beginners: How to Get Your First Sale Without Wasting Money", "excerpt": "A step-by-step guide to setting up your first profitable Facebook ad campaign with a small budget.", "category": "Facebook Ads" },
-      "payment": { "title": "Bkash, Nagad, or Card? The Best Payment Gateway Strategy for Your Online Store", "excerpt": "Comparing payment options for Bangladeshi e-commerce and how offering the right choices increases your conversion rate.", "category": "E-commerce Setup" },
-      "winningProducts": { "title": "How to Find Winning Products to Sell in Bangladesh (2026 Guide)", "excerpt": "Finding the right product is the #1 reason most Bangladeshi e-commerce businesses fail before they even start.", "category": "Product Research", "content": "Finding the right product is the #1 reason most Bangladeshi e-commerce businesses fail before they even start. In this guide, I will walk you through the exact framework we use with our Academy students and Growth Partner clients.\n\n**Step 1: Start with Google Trends (Bangladesh filter)**\n\nUse Google Trends with Bangladesh as the country. Look for products that are trending UP, not the ones that already peaked. The sweet spot is \"rising\" products that have 50–200% growth in the last 6 months.\n\n**Step 2: Validate on Facebook Ad Library**\n\nGo to Facebook Ad Library and search for the product. If you see 10+ active ads from different brands running for more than 2 weeks, that is a strong signal the product is profitable.\n\n**Step 3: Use Gemini for competitor analysis**\n\nAsk Gemini to summarize recent news, reviews, and Reddit/forum discussions about the product category. You will quickly see the common pain points and what customers actually want.\n\n**Step 4: Test with a ৳5,000 ad budget**\n\nRun a 5-day test campaign on Facebook with 3 creatives. If your cost-per-purchase is under ৳300, scale. If not, kill the product and try the next one.\n\n**Step 5: Source and launch**\n\nOnce validated, source from Alibaba, IndiaMart, or local wholesale markets in Dhaka (Imam Square, Tantibazar). Aim for a 3x markup after shipping and ad costs.\n\nFollowing this process, our students have launched 500+ products in the last 18 months. About 20% become profitable, which is the industry standard for new product testing." }
+      "chatgpt": {
+        "title": "How to Use ChatGPT to Write 30 Days of Facebook Ad Copy in 1 Hour",
+        "excerpt": "Discover the exact prompts and workflow we use to generate high-converting ad copy at scale using AI tools.",
+        "category": "AI Marketing"
+      },
+      "guide": {
+        "title": "The Complete Guide to Starting an E-commerce Business in Bangladesh (2024)",
+        "excerpt": "Everything you need to know from product research to your first sale — tailored for the Bangladeshi market.",
+        "category": "Business Launch"
+      },
+      "brand": {
+        "title": "Why Your Brand Identity Is Your Most Important Business Asset",
+        "excerpt": "The psychology behind why customers choose brands over products — and how to build a brand that commands premium prices.",
+        "category": "Branding"
+      },
+      "reels": {
+        "title": "Instagram Reels Strategy That Got Our Client 50K Followers in 90 Days",
+        "excerpt": "The exact content formula, posting schedule, and hashtag strategy that drives massive organic growth in Bangladesh.",
+        "category": "Social Media"
+      },
+      "facebook": {
+        "title": "Facebook Ads for Beginners: How to Get Your First Sale Without Wasting Money",
+        "excerpt": "A step-by-step guide to setting up your first profitable Facebook ad campaign with a small budget.",
+        "category": "Facebook Ads"
+      },
+      "payment": {
+        "title": "Bkash, Nagad, or Card? The Best Payment Gateway Strategy for Your Online Store",
+        "excerpt": "Comparing payment options for Bangladeshi e-commerce and how offering the right choices increases your conversion rate.",
+        "category": "E-commerce Setup"
+      },
+      "winningProducts": {
+        "title": "How to Find Winning Products to Sell in Bangladesh (2026 Guide)",
+        "excerpt": "Finding the right product is the #1 reason most Bangladeshi e-commerce businesses fail before they even start.",
+        "category": "Product Research",
+        "content": "Finding the right product is the #1 reason most Bangladeshi e-commerce businesses fail before they even start. In this guide, I will walk you through the exact framework we use with our Academy students and Growth Partner clients.\n\n**Step 1: Start with Google Trends (Bangladesh filter)**\n\nUse Google Trends with Bangladesh as the country. Look for products that are trending UP, not the ones that already peaked. The sweet spot is \"rising\" products that have 50–200% growth in the last 6 months.\n\n**Step 2: Validate on Facebook Ad Library**\n\nGo to Facebook Ad Library and search for the product. If you see 10+ active ads from different brands running for more than 2 weeks, that is a strong signal the product is profitable.\n\n**Step 3: Use Gemini for competitor analysis**\n\nAsk Gemini to summarize recent news, reviews, and Reddit/forum discussions about the product category. You will quickly see the common pain points and what customers actually want.\n\n**Step 4: Test with a ৳5,000 ad budget**\n\nRun a 5-day test campaign on Facebook with 3 creatives. If your cost-per-purchase is under ৳300, scale. If not, kill the product and try the next one.\n\n**Step 5: Source and launch**\n\nOnce validated, source from Alibaba, IndiaMart, or local wholesale markets in Dhaka (Imam Square, Tantibazar). Aim for a 3x markup after shipping and ad costs.\n\nFollowing this process, our students have launched 500+ products in the last 18 months. About 20% become profitable, which is the industry standard for new product testing."
+      }
     }
   },
   "contact": {
@@ -919,9 +1295,18 @@
       "welcomeSubtitle": "Select an option from the sidebar or pick a card below to manage your content.",
       "openCard": "Open {{title}}",
       "cards": {
-        "blog": { "title": "Blog Posts", "desc": "Manage your blog" },
-        "cases": { "title": "Case Studies", "desc": "Manage case studies" },
-        "contacts": { "title": "Contacts", "desc": "View inquiries" }
+        "blog": {
+          "title": "Blog Posts",
+          "desc": "Manage your blog"
+        },
+        "cases": {
+          "title": "Case Studies",
+          "desc": "Manage case studies"
+        },
+        "contacts": {
+          "title": "Contacts",
+          "desc": "View inquiries"
+        }
       }
     },
     "password": {
