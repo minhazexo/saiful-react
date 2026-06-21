@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import api, { IS_DEMO_MODE } from '../../api';
@@ -56,20 +56,20 @@ const HERO_FEATURES = [
 const STAGE_KEYS = ['academy', 'setup', 'growth'];
 
 const STAGE_IMAGES = [
-  'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&h=400&fit=crop',
-  'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
-  'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop',
+  assetPath('/pdf/Website Icons & Images/Website Icons/Learner.jpg'),
+  assetPath('/pdf/Website Icons & Images/Website Icons/Business-Setup.jpg'),
+  assetPath('/pdf/Website Icons & Images/Website Icons/Order.jpg'),
 ];
 
 const STAGE_IMAGES_ICONS = [
-  '/images/Academy 1.png',
-  '/images/Growth 2.png',
-  '/images/Setup 3.png',
+  '/images/icons/learn.svg',
+  '/images/icons/setup.svg',
+  '/images/icons/grow.svg',
 ];
 const PROBLEM_KEYS = ['noBrand', 'noWebsite', 'noContent', 'noMarketing', 'noGrowth'];
 const SOLUTION_KEYS = ['brand', 'website', 'content', 'marketing', 'growth'];
 const FRAMEWORK_KEYS = ['idea', 'learn', 'setup', 'launch', 'grow', 'scale'];
-const FRAMEWORK_ICONS = ['💡', '👥', '⚙️', '🚀', '📈', '🏆'];
+const FRAMEWORK_ICONS = ['idea', 'learn', 'setup', 'launch', 'grow', 'scale'];
 const PACKAGE_KEYS = ['academy', 'setup', 'growth'];
 const AI_TOOL_KEYS = ['canva', 'chatgpt', 'gemini', 'capcut'];
 const WORKFLOW_KEYS = ['research', 'create', 'produce', 'distribute', 'optimize'];
@@ -87,11 +87,13 @@ const CASE_ICONS = ['👜', '🎧', '👗', '🌿', '💻', '🧶'];
 const CASE_TITLES = ['Leathix', 'Future Connect', 'Fashion Nova BD', 'NaturalGlow BD', 'TechZone BD', 'Crafty Hands'];
 const CLIENT_RESULT_KEYS = ['higherSales', 'betterBranding', 'onlinePresence', 'fasterContent'];
 const CLIENT_RESULT_ICONS = {
-  higherSales: '📈',
-  betterBranding: '🎨',
-  onlinePresence: '🌐',
-  fasterContent: '⚡',
+  higherSales: 'grow',
+  betterBranding: 'branding',
+  onlinePresence: 'online-presence',
+  fasterContent: 'fast-content',
 };
+const FOUNDER_IMAGES = ['founder-1.png', 'founder-2.png', 'founder-3.png'];
+
 function HomePage() {
   const t = useTranslation();
   const navigate = useNavigate();
@@ -100,6 +102,14 @@ function HomePage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [openFramework, setOpenFramework] = useState(null);
+  const [heroImgIndex, setHeroImgIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHeroImgIndex((prev) => (prev + 1) % FOUNDER_IMAGES.length);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -188,10 +198,17 @@ function HomePage() {
             >
               <div className="hero-visual-inner">
                 <motion.div className="hero-photo-wrap" variants={fadeUp}>
-                  <img
-                    src={assetPath('/images/Entreprenure-cutout.png')}
-                    alt="Saiful Islam - Founder"
-                  />
+                  <AnimatePresence mode="wait">
+                    <motion.img
+                      key={FOUNDER_IMAGES[heroImgIndex]}
+                      src={assetPath(`/images/${FOUNDER_IMAGES[heroImgIndex]}`)}
+                      alt="Saiful Islam - Founder"
+                      initial={{ opacity: 0, scale: 1.05 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                    />
+                  </AnimatePresence>
                 </motion.div>
 
                 <motion.div
@@ -202,7 +219,17 @@ function HomePage() {
                 >
                   <div className="hero-notif-head">
                     <span className="hero-notif-avatar">
-                      <img src={assetPath('/images/Entreprenure.jpg.jpeg')} alt="" />
+                      <AnimatePresence mode="wait">
+                        <motion.img
+                          key={FOUNDER_IMAGES[heroImgIndex]}
+                          src={assetPath(`/images/${FOUNDER_IMAGES[heroImgIndex]}`)}
+                          alt=""
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.4 }}
+                        />
+                      </AnimatePresence>
                     </span>
                     <span className="hero-notif-name">{t('home.heroCard.name')}</span>
                     <span className="hero-notif-check" aria-hidden="true">
@@ -274,8 +301,8 @@ function HomePage() {
                   className="framework-card"
                   style={{ '--phase-color': color }}
                 >
-                  <div className="framework-step" style={{ background: color }}>
-                    {FRAMEWORK_ICONS[i]}
+                  <div className="framework-step">
+                    <img src={assetPath(`/images/icons/${FRAMEWORK_ICONS[i]}.svg`)} alt="" />
                   </div>
                   <div className="framework-phase-badge">
                     <span className="framework-phase-number">Phase {i + 1}</span>
@@ -307,8 +334,8 @@ function HomePage() {
                     onClick={() => setOpenFramework(isOpen ? null : i)}
                     type="button"
                   >
-                    <div className="framework-acc-icon" style={{ backgroundColor: color }}>
-                      {FRAMEWORK_ICONS[i]}
+                    <div className="framework-acc-icon">
+                      <img src={assetPath(`/images/icons/${FRAMEWORK_ICONS[i]}.svg`)} alt="" />
                     </div>
                     <div className="framework-acc-title">
                       {t(`home.framework.${key}.title`)}
@@ -432,7 +459,7 @@ function HomePage() {
               >
                 <div className="hero-photo">
                   <img
-                    src={assetPath('/images/before.png')}
+                    src={assetPath('/images/before-new.png')}
                     alt={t('home.problems.beforeTitle')}
                     loading="lazy"
                   />
@@ -448,7 +475,7 @@ function HomePage() {
               >
                 <div className="hero-photo">
                   <img
-                    src={assetPath('/images/after.png')}
+                    src={assetPath('/images/after-new.png')}
                     alt={t('home.problems.afterTitle')}
                     loading="lazy"
                   />
@@ -570,7 +597,7 @@ function HomePage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               >
-                <div className="result-icon">{CLIENT_RESULT_ICONS[key]}</div>
+                <div className="result-icon"><img src={assetPath(`/images/icons/${CLIENT_RESULT_ICONS[key]}.svg`)} alt="" /></div>
                 <h3>{t(`home.clientResults.cards.${key}.title`)}</h3>
                 <p>{t(`home.clientResults.cards.${key}.desc`)}</p>
                 <span className="result-stat">{t(`home.clientResults.cards.${key}.stat`)}</span>
@@ -588,11 +615,11 @@ function HomePage() {
             <p>{t('home.ai.subtitle')}</p>
           </MotionFadeUp>
 
-          <MobileCarousel className="ai-grid">
+          <MobileCarousel className="ai-grid" interval={3000} reverse>
             {AI_TOOL_KEYS.map((key, i) => (
               <motion.div key={key} className="ai-card" initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
                 <div className="ai-icon">
-                  <img src={assetPath(`/images/${['canva.webp', 'chatgpt.png', 'gemini.jpg', 'capcut.webp'][i]}`)} alt={t(`home.ai.tools.${key}.name`)} />
+                  <img src={assetPath(`/pdf/Website Icons & Images/Website Icons/${['Canva_Logo_0.svg', 'ChatGPT_Logo_0.svg', 'google-gemini-seeklogo.svg', 'Capcut Logo.svg'][i]}`)} alt={t(`home.ai.tools.${key}.name`)} />
                 </div>
                 <h3>{t(`home.ai.tools.${key}.name`)}</h3>
                 <div className="ai-role">{t(`home.ai.tools.${key}.role`)}</div>
@@ -654,9 +681,6 @@ function HomePage() {
                   <div className="case-highlight-label">{t('caseStudies.keyOutcome')}</div>
                   <div className="case-highlight-value">{t(`caseStudies.defaults.${key}.highlight`)}</div>
                 </div>
-                  <span className="case-cta-link">
-                    {t('home.cases.viewProject')} →
-                  </span>
               </motion.div>
             ))}
           </MobileCarousel>
@@ -797,7 +821,7 @@ function HomePage() {
             <motion.div className="founder-image-wrap" variants={fadeUp}>
               <img
                 className="founder-image"
-                src={assetPath('/images/gpt-image-1.5-high-fidelity_a_Create_a_professiona.png')}
+                src={assetPath('/images/Saiful Islam.png')}
                 alt="Saiful Islam"
                 loading="lazy"
               />
@@ -859,7 +883,7 @@ function HomePage() {
           <MotionFadeUp className="founder-video-wrapper">
             <video
               className="founder-video"
-              poster={assetPath('/images/gpt-image-1.5-high-fidelity_a_Create_a_professiona.png')}
+              poster={assetPath('/images/Saiful Islam.png')}
               controls
               preload="metadata"
               playsInline

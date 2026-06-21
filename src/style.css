@@ -424,14 +424,14 @@ ul {
 }
 
 .btn-primary.btn-block {
-  background: #000000;
-  color: #fff;
-  border: 1px solid #fff;
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
 }
 
 .btn-primary.btn-block:hover {
-  background: #ffffff !important;
-  color: #000000 !important;
+  background: #000000 !important;
+  color: #ffffff !important;
   border-color: #000000 !important;
 }
 
@@ -750,6 +750,37 @@ html[lang='bn'] .eyebrow {
   @page {
     margin: 2cm;
   }
+}
+
+/* ── Icon container <img> sizing ── */
+.framework-step img,
+.framework-acc-icon img,
+.client-result-card .result-icon img,
+.module-icon img,
+.value-icon img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+}
+
+.framework-step img,
+.framework-acc-icon img {
+  filter: brightness(0) invert(1);
+}
+
+.ai-tool-icon img {
+  width: 56px;
+  height: 56px;
+}
+
+.ai-workflow-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+.card-icon img {
+  width: 24px;
+  height: 24px;
 }
 
 /* Demo banner (only rendered when VITE_DEMO_MODE=true) */

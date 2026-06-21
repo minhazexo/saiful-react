@@ -4,10 +4,11 @@ import { getWhatsAppUrl } from '../../utils/whatsapp';
 import Seo from '../../components/Seo';
 import { MotionFadeUp } from '../../motion/MotionFadeUp';
 import { staggerContainer, fadeUp } from '../../motion/presets';
+import { assetPath } from '../../utils/assets';
 import '../Service/ServicePage.css';
 import '../Service/ServicePage.responsive.css';
 
-const SERVICE_ICONS = ['✏️', '📢', '🎬', '📊'];
+const SERVICE_ICONS = ['fast-content', 'online-presence', 'launch', 'grow'];
 const SERVICE_KEYS = ['content', 'ads', 'video', 'reporting'];
 
 function GrowthPage() {
@@ -54,7 +55,7 @@ function GrowthPage() {
                   transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                 >
                   {isPopular && <span className="popular-badge">★ Most Popular</span>}
-                  <div className="card-icon">{SERVICE_ICONS[SERVICE_KEYS.indexOf(key)]}</div>
+                  <div className="card-icon"><img src={assetPath(`/images/icons/${SERVICE_ICONS[SERVICE_KEYS.indexOf(key)]}.svg`)} alt="" /></div>
                   <h3>{t(`growth.services.items.${key}.title`)}</h3>
                   <p className="desc">{t(`growth.services.items.${key}.desc`)}</p>
                   <ul className="check-list">

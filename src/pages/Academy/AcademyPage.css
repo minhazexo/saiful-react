@@ -99,14 +99,14 @@
 }
 
 .btn-primary.btn-block {
-  background: #22D66E !important;
-  color: #06200F !important;
-  border: none !important;
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid #000000 !important;
 }
 
 .btn-primary.btn-block:hover {
-  background: #ffffff !important;
-  color: #000000 !important;
+  background: #000000 !important;
+  color: #ffffff !important;
   border: 1px solid #000000 !important;
 }
 

@@ -45,9 +45,20 @@
   font-size: 15px;
   font-weight: 600;
   margin-top: 30px;
-  margin-bottom: 22px;
+  margin-bottom: 32px;
   letter-spacing: 0;
   width: fit-content;
+  position: relative;
+}
+
+.hero-badge::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: gray;
 }
 
 .hero-badge-check {
@@ -206,6 +217,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-top: 24px;
   min-height: clamp(420px, 40vw, 520px);
   overflow: visible;
 }
@@ -214,50 +226,52 @@
   position: relative;
   display: flex;
   justify-content: center;
-  width: clamp(240px, 32vw, 440px);
+  width: clamp(180px, 26vw, 340px);
   max-width: 100%;
 }
 
 .hero-photo-wrap {
   width: 100%;
+  aspect-ratio: 3 / 4;
   border-radius: 0;
-  overflow: visible;
+  overflow: hidden;
   border: none;
   box-shadow: none;
 }
 
 .hero-photo-wrap img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center top;
 }
 
 /* Floating testimonial card — anchored to the photo's top-right corner */
 .hero-notif-card {
   position: absolute;
-  top: clamp(16px, 3vw, 44px);
-  right: clamp(-80px, -5vw, -36px);
+  top: clamp(12px, 2.5vw, 32px);
+  right: clamp(-180px, -12vw, -80px);
   left: auto;
   bottom: auto;
-  width: clamp(196px, 17vw, 264px);
+  width: clamp(160px, 14vw, 210px);
   background: #0f1115;
-  border-radius: 16px;
-  padding: 18px 20px;
-  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.3);
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .hero-notif-head {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: 8px;
+  margin-bottom: 8px;
 }
 
 .hero-notif-avatar {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
@@ -267,10 +281,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 20%;
 }
 
 .hero-notif-name {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   color: #fff;
   flex: 1;
@@ -330,23 +345,25 @@
 
 @media (max-width: 768px) {
   .hero-visual { min-height: auto; padding: 0; overflow: visible; }
-  .hero-visual-inner { width: auto; max-width: none; align-items: flex-start; padding-left: 20px; }
-  .hero-photo-wrap { width: clamp(200px, 50vw, 260px); }
+  .hero-visual-inner { flex-direction: column; align-items: center; width: 100%; gap: 12px; padding: 0 16px; }
+  .hero-photo-wrap { width: clamp(180px, 50vw, 240px); order: 2; }
   .hero-notif-card {
-    position: absolute;
-    top: 20px;
-    right: -10px;
+    position: relative;
+    top: auto;
+    right: auto;
     left: auto;
-    width: clamp(180px, 48vw, 240px);
+    width: 100%;
+    max-width: 300px;
+    order: 1;
     padding: 12px 14px;
   }
-  .hero-notif-head { gap: 8px; margin-bottom: 8px; }
-  .hero-notif-avatar { width: 28px; height: 28px; }
-  .hero-notif-name { font-size: 12px; }
-  .hero-notif-quote { font-size: 11px; margin-bottom: 8px; }
-  .hero-notif-stats { gap: 12px; padding-top: 8px; }
-  .hero-notif-stat strong { font-size: 14px; }
-  .hero-notif-stat span { font-size: 9px; }
+  .hero-notif-head { gap: 6px; margin-bottom: 6px; }
+  .hero-notif-avatar { width: 32px; height: 32px; }
+  .hero-notif-name { font-size: 11px; }
+  .hero-notif-quote { font-size: 10px; margin-bottom: 6px; }
+  .hero-notif-stats { gap: 10px; padding-top: 6px; }
+  .hero-notif-stat strong { font-size: 12px; }
+  .hero-notif-stat span { font-size: 8px; }
 }
 
 /* ============ STATS ============ */
@@ -408,6 +425,13 @@
   color: #000;
   font-size: 14px;
   font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .stats-section { padding: 40px 0; }
+  .stat-card { width: clamp(150px, 40vw, 200px); padding: 20px 14px; border-radius: 12px; }
+  .stat-num { font-size: clamp(22px, 6vw, 32px); margin-bottom: 6px; }
+  .stat-label { font-size: 12px; }
 }
 
 /* ============ TRUST ============ */
@@ -508,7 +532,7 @@
   border-radius: 24px 24px 0 0;
 }
 
-.journey-card-image img {
+.journey-card-image > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -516,30 +540,51 @@
   border-radius: 24px 24px 0 0;
 }
 
+.journey-card-icon-circle img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
 .journey-card-icon-circle {
   position: absolute;
-  bottom: -48px;
+  bottom: -40px;
   left: 50%;
   transform: translateX(-50%);
-  width: 96px;
-  height: 96px;
-  background: var(--dark);
+  width: 80px;
+  height: 80px;
+  background: #000000;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-
   z-index: 2;
-  border: 4px solid #fff;
+  transition: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 3px solid #fff;
 }
 
-.journey-card-icon-circle svg {
-  width: 48px;
-  height: 48px;
+.journey-card-icon-circle::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.journey-card:hover .journey-card-icon-circle {
+  transform: translateX(-50%) scale(1.12);
+}
+
+.journey-card:hover .journey-card-icon-circle::after {
+  opacity: 1;
+  transform: scale(1.15);
 }
 
 .journey-card-content {
-  padding: 56px 28px 28px;
+  padding: 60px 28px 28px;
   text-align: center;
 }
 
@@ -1048,12 +1093,12 @@ html[data-lang='bn'] .journey-card-content p {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--green-light);
-  border: 1px solid var(--green-soft);
+  background: #f1f5f9;
+  border: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #16a34a;
+  color: #1e293b;
 }
 
 .solution-icon-circle svg {
@@ -1216,20 +1261,9 @@ html[data-lang='bn'] .journey-card-content p {
 
 /* ============ FRAMEWORK ============ */
 .framework-section {
-  background: var(--surface);
+  background: #fff;
   padding: var(--section-pad) 0;
   position: relative;
-}
-
-.framework-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
-  background-size: 30px 30px;
-  pointer-events: none;
 }
 
 .eyebrow.light {
@@ -1315,8 +1349,6 @@ html[data-lang='bn'] .journey-card-content p {
 .framework-card:hover {
   transform: translateY(-12px) scale(1.04);
   border-color: #888;
-
-  background: rgba(255, 255, 255, 0.07);
 }
 
 .framework-card h3 {
@@ -1864,15 +1896,15 @@ html[data-lang='bn'] .journey-card-content p {
 }
 
 .client-result-card .result-icon {
-  width: 48px;
-  height: 48px;
+  width: 60px;
+  height: 60px;
   background: #fff;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 28px;
   margin: 0 auto 20px;
 }
 
@@ -2692,7 +2724,7 @@ html[lang='bn'] .case-card .case-highlight-value {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: var(--phase-color, #000);
+    background: #000;
     color: #fff;
     border: 2px solid #fff;
     box-shadow: 0 0 0 1px var(--border);
@@ -2736,12 +2768,12 @@ html[lang='bn'] .case-card .case-highlight-value {
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    background: #000000;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 18px;
     flex-shrink: 0;
-
   }
 
   .framework-acc-title {
@@ -3040,15 +3072,24 @@ html[lang='bn'] .case-card .case-highlight-value {
     justify-content: center;
   }
 
+  .hero-visual-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
   .hero-photo-wrap {
-    width: clamp(260px, 35vw, 400px);
+    width: clamp(200px, 30vw, 320px);
+    order: 2;
   }
 
   .hero-notif-card {
-    top: 24px;
-    right: -60px;
-    width: clamp(220px, 22vw, 280px);
-    padding: 16px 18px;
+    position: relative;
+    top: auto;
+    right: auto;
+    width: clamp(220px, 60vw, 280px);
+    padding: 14px 16px;
+    order: 1;
   }
 
   .hero-title {
@@ -3366,24 +3407,32 @@ html[lang='bn'] .case-card .case-highlight-value {
   }
 
   .hero-visual-inner {
-    padding-left: 14px;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 16px;
+    gap: 12px;
   }
 
   .hero-photo-wrap {
-    width: clamp(170px, 48vw, 220px);
+    width: clamp(180px, 60vw, 260px);
+    order: 2;
   }
 
   .hero-notif-card {
-    position: absolute;
-    top: 14px;
-    right: -8px;
+    position: relative;
+    top: auto;
+    right: auto;
     left: auto;
-    width: clamp(160px, 45vw, 210px);
-    padding: 10px 12px;
+    bottom: auto;
+    width: 100%;
+    max-width: 320px;
+    order: 1;
+    padding: 12px 14px;
   }
 
-  .hero-notif-head { gap: 6px; margin-bottom: 6px; }
-  .hero-notif-avatar { width: 24px; height: 24px; }
+  .hero-notif-head { gap: 5px; margin-bottom: 5px; }
+  .hero-notif-avatar { width: 30px; height: 30px; }
   .hero-notif-name { font-size: 11px; }
   .hero-notif-check { width: 14px; height: 14px; }
   .hero-notif-check svg { width: 7px; height: 7px; }
@@ -3436,15 +3485,10 @@ html[lang='bn'] .case-card .case-highlight-value {
   }
 
   .journey-card-icon-circle {
-    width: 80px;
-    height: 80px;
-    bottom: -40px;
-    border-width: 4px;
-  }
-
-  .journey-card-icon-circle svg {
-    width: 40px;
-    height: 40px;
+    width: 68px;
+    height: 68px;
+    bottom: -34px;
+    border-width: 2px;
   }
 
   .start-here {
@@ -3989,15 +4033,10 @@ html[lang='bn'] .case-card .case-highlight-value {
   }
 
   .journey-card-icon-circle {
-    width: 68px;
-    height: 68px;
-    bottom: -34px;
-    border-width: 3px;
-  }
-
-  .journey-card-icon-circle svg {
-    width: 34px;
-    height: 34px;
+    width: 58px;
+    height: 58px;
+    bottom: -29px;
+    border-width: 2px;
   }
 
   .start-here {
@@ -4248,11 +4287,13 @@ html[lang='bn'] .case-card .case-highlight-value {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 440px;
+    max-width: 360px;
+    gap: 14px;
   }
 
   .hero-photo-wrap {
-    width: min(380px, 84%);
+    width: min(300px, 80%);
+    order: 2;
   }
 
   .hero-notif-card {
@@ -4261,8 +4302,8 @@ html[lang='bn'] .case-card .case-highlight-value {
     right: auto;
     left: auto;
     bottom: auto;
-    width: min(360px, 92%);
-    margin-top: -24px;
+    width: min(280px, 88%);
+    order: 1;
   }
 
   .hero-title {
@@ -4390,15 +4431,22 @@ html[lang='bn'] .case-card .case-highlight-value {
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
+    gap: 14px;
   }
 
   .hero-photo-wrap {
     width: min(340px, 82%);
+    order: 2;
   }
 
-  /* Card stays stacked below the photo (inherits ≤1024 rules); just size it */
   .hero-notif-card {
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
+    bottom: auto;
     width: min(330px, 94%);
+    order: 1;
     padding: 16px 18px;
   }
 
@@ -4697,15 +4745,10 @@ html[lang='bn'] .case-card .case-highlight-value {
   }
 
   .journey-card-icon-circle {
-    width: 80px;
-    height: 80px;
-    bottom: -40px;
-    border-width: 4px;
-  }
-
-  .journey-card-icon-circle svg {
-    width: 40px;
-    height: 40px;
+    width: 68px;
+    height: 68px;
+    bottom: -34px;
+    border-width: 2px;
   }
 
   .start-here {
@@ -5265,18 +5308,28 @@ html[lang='bn'] .case-card .case-highlight-value {
   }
 
   .hero-visual-inner {
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     max-width: 320px;
     margin: 0 auto;
+    gap: 12px;
   }
 
   .hero-photo-wrap {
-    width: min(280px, 86%);
+    width: min(260px, 86%);
+    order: 2;
   }
 
   .hero-notif-card {
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
+    bottom: auto;
     width: 100%;
-    padding: 14px 16px;
+    order: 1;
+    padding: 12px 14px;
   }
 
   .hero-section {
@@ -5295,15 +5348,10 @@ html[lang='bn'] .case-card .case-highlight-value {
   }
 
   .journey-card-icon-circle {
-    width: 68px;
-    height: 68px;
-    bottom: -34px;
-    border-width: 3px;
-  }
-
-  .journey-card-icon-circle svg {
-    width: 34px;
-    height: 34px;
+    width: 58px;
+    height: 58px;
+    bottom: -29px;
+    border-width: 2px;
   }
 
   .start-here {

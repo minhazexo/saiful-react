@@ -5,13 +5,14 @@ import Seo from '../../components/Seo';
 import MobileCarousel from '../../components/MobileCarousel/MobileCarousel';
 import { MotionFadeUp } from '../../motion/MotionFadeUp';
 import { staggerContainer, fadeUp, buttonHover } from '../../motion/presets';
+import { assetPath } from '../../utils/assets';
 import './AIPage.css';
 import './AIPage.responsive.css';
 
-const TOOL_ICONS = ['🎨', '🤖', '✨', '🎬'];
+const TOOL_ICONS = ['canva', 'chatgpt', 'gemini', 'capcut'];
 const TOOL_KEYS = ['canva', 'chatgpt', 'gemini', 'capcut'];
 const WORKFLOW_KEYS = ['idea', 'design', 'copy', 'video', 'analyze'];
-const WORKFLOW_ICONS = ['🤖', '🎨', '✨', '🎬', '📈'];
+const WORKFLOW_ICONS = ['research', 'branding', 'fast-content', 'launch', 'grow'];
 const OUTCOMES = [
   { metric: '10x', key: 'output' },
   { metric: '60%', key: 'cpa' },
@@ -51,7 +52,7 @@ function AIPage() {
           <MobileCarousel className="ai-tools-grid">
             {TOOL_KEYS.map((key, i) => (
               <motion.div key={key} className="ai-tool-card" initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
-                <div className="ai-tool-icon">{TOOL_ICONS[i]}</div>
+                <div className="ai-tool-icon"><img src={assetPath(`/images/icons/${TOOL_ICONS[i]}.svg`)} alt="" /></div>
                 <h3>{key.charAt(0).toUpperCase() + key.slice(1)}</h3>
                 <div className="ai-tool-role">{t(`ai.tools.items.${key}.role`)}</div>
                 <p>{t(`ai.tools.items.${key}.desc`)}</p>
@@ -87,7 +88,7 @@ function AIPage() {
             {WORKFLOW_KEYS.map((key, i) => (
               <motion.div key={key} className="ai-workflow-step" initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
                 <div className="ai-workflow-day">{i + 1}</div>
-                <div className="ai-workflow-icon">{WORKFLOW_ICONS[i]}</div>
+                <div className="ai-workflow-icon"><img src={assetPath(`/images/icons/${WORKFLOW_ICONS[i]}.svg`)} alt="" /></div>
                 <h3>{t(`ai.workflow.items.${key}.title`)}</h3>
                 <p>{t(`ai.workflow.items.${key}.desc`)}</p>
               </motion.div>

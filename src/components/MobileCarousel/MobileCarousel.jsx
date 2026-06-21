@@ -10,6 +10,12 @@ const slideVariants = {
   exit: (dir) => ({ x: dir < 0 ? 80 : -80, opacity: 0 }),
 };
 
+const slideVariantsReverse = {
+  enter: (dir) => ({ x: dir > 0 ? -80 : 80, opacity: 0 }),
+  center: { x: 0, opacity: 1 },
+  exit: (dir) => ({ x: dir < 0 ? -80 : 80, opacity: 0 }),
+};
+
 export default function MobileCarousel({
   className = '',
   children,
@@ -19,6 +25,9 @@ export default function MobileCarousel({
   staggerDelay = 0.1,
   inViewAmount = 0.15,
   forceCarousel = false,
+  marquee = false,
+  marqueeSpeed = 20,
+  reverse = false,
 }) {
   const shouldReduceMotion = useReducedMotion();
   const [isMobile, setIsMobile] = useState(false);
@@ -92,6 +101,24 @@ export default function MobileCarousel({
     );
   }
 
+  /* --- Mobile: marquee (continuous scroll) --- */
+  if (marquee && isMobile && !shouldReduceMotion) {
+    const kids = Array.isArray(children) ? children : [children];
+    return (
+      <div className={`mobile-marquee-wrapper ${className}`} ref={containerRef}>
+        <div
+          className="mobile-marquee-track"
+          style={{ animationDuration: `${marqueeSpeed}s` }}
+          onMouseEnter={(e) => { e.currentTarget.style.animationPlayState = 'paused'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.animationPlayState = 'running'; }}
+        >
+          <div className="mobile-marquee-content">{kids}</div>
+          <div className="mobile-marquee-content" aria-hidden="true">{kids}</div>
+        </div>
+      </div>
+    );
+  }
+
   /* --- Mobile: carousel --- */
   const transition = shouldReduceMotion
     ? { duration: 0 }
@@ -105,12 +132,12 @@ export default function MobileCarousel({
         onMouseLeave={() => setIsPaused(false)}
       >
         <div className="carousel-viewport">
-          <AnimatePresence mode="wait" custom={dir}>
+          <AnimatePresence mode="wait" custom={reverse ? -dir : dir}>
             <motion.div
               key={current}
               className="carousel-slide"
-              custom={dir}
-              variants={slideVariants}
+              custom={reverse ? -dir : dir}
+              variants={reverse ? slideVariantsReverse : slideVariants}
               initial="enter"
               animate="center"
               exit="exit"

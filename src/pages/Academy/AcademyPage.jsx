@@ -4,10 +4,11 @@ import { useTranslation } from '../../context/LanguageContext';
 import Seo from '../../components/Seo';
 import { MotionFadeUp } from '../../motion/MotionFadeUp';
 import { staggerContainer, fadeUp } from '../../motion/presets';
+import { assetPath } from '../../utils/assets';
 import './AcademyPage.css';
 import './AcademyPage.responsive.css';
 
-const MODULE_ICONS = ['📖', '🎨', '💻', '📣', '📱', '💰', '🤖', '📈'];
+const MODULE_ICONS = ['learn', 'branding', 'setup', 'fast-content', 'online-presence', 'launch', 'idea', 'grow'];
 const MODULE_KEYS = [
   'foundations',
   'brand',
@@ -115,7 +116,7 @@ function AcademyPage() {
                 transition={{ duration: 0.45, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
               >
                 <div className="module-top">
-                  <div className="module-icon">{MODULE_ICONS[i]}</div>
+                  <div className="module-icon"><img src={assetPath(`/images/icons/${MODULE_ICONS[i]}.svg`)} alt="" /></div>
                   <div className="module-num">0{i + 1}</div>
                 </div>
                 <h3>{t(`academy.modules.items.${key}.title`)}</h3>

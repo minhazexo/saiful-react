@@ -6,10 +6,11 @@ import Seo from '../../components/Seo';
 import MobileCarousel from '../../components/MobileCarousel/MobileCarousel';
 import { MotionFadeUp } from '../../motion/MotionFadeUp';
 import { staggerContainer, fadeUp, slideInLeft, buttonHover } from '../../motion/presets';
+import { assetPath } from '../../utils/assets';
 import './AboutPage.css';
 import './AboutPage.responsive.css';
 
-const VALUE_ICONS = ['🎯', '🤝', '🚀', '📚', '🌍', '💡'];
+const VALUE_ICONS = ['scale', 'learn', 'launch', 'learn', 'idea', 'grow'];
 const VALUE_KEYS = ['results', 'honest', 'innovation', 'learning', 'bangladesh', 'empowerment'];
 const TIMELINE_KEYS = ['2014', '2017', '2019', '2022', '2024', '2026'];
 
@@ -42,7 +43,7 @@ function AboutPage() {
               viewport={{ once: true, amount: 0.3 }}
             >
               <div className="about-image-card">
-                <img src={`${import.meta.env.BASE_URL}images/gpt-image-1.5-high-fidelity_a_Create_a_professiona.png`} alt="Saiful Studios" loading="lazy" />
+                <img src={assetPath('/images/founder-3.png')} alt="Saiful Islam" loading="lazy" />
               </div>
               <div className="about-image-stat">
                 <strong>10+</strong>
@@ -77,7 +78,7 @@ function AboutPage() {
             {VALUE_KEYS.map((key, i) => (
               <motion.div key={key} className="value-card" initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
                 <div className="value-icon" aria-hidden="true">
-                  {VALUE_ICONS[i]}
+                  <img src={assetPath(`/images/icons/${VALUE_ICONS[i]}.svg`)} alt="" />
                 </div>
                 <h3>{t(`about.values.items.${key}.title`)}</h3>
                 <p>{t(`about.values.items.${key}.desc`)}</p>
