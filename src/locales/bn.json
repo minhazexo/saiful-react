@@ -170,10 +170,10 @@
         "noMarketing": "কোনো মার্কেটিং স্ট্র্যাটেজি বা অ্যাড প্ল্যান নেই",
         "noGrowth": "ধারাবাহিক বিক্রির গ্রোথ নেই"
       },
-      "beforeLabel": "BEFORE",
-      "afterLabel": "AFTER",
-      "beforeTitle": "Struggling & Stuck",
-      "afterTitle": "Growing & Successful",
+      "beforeLabel": "আগে",
+      "afterLabel": "পরে",
+      "beforeTitle": "সংগ্রাম ও স্থবিরতা",
+      "afterTitle": "প্রবৃদ্ধি ও সফলতা",
       "comparison": [
         {
           "problemBn": "ব্র্যান্ড আইডেন্টিটি নেই",

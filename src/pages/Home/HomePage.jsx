@@ -92,7 +92,7 @@ const CLIENT_RESULT_ICONS = {
   onlinePresence: 'online-presence',
   fasterContent: 'fast-content',
 };
-const FOUNDER_IMAGES = ['founder-1.png', 'founder-2.png', 'founder-3.png'];
+const FOUNDER_IMAGES = ['founder-1.png', 'founder-2.png'];
 
 function HomePage() {
   const t = useTranslation();
@@ -457,6 +457,10 @@ function HomePage() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5 }}
               >
+                <div className="hero-card-header before">
+                  <span className="hc-label">{t('home.problems.beforeLabel')}</span>
+                  <span className="hc-title-en">{t('home.problems.beforeTitle')}</span>
+                </div>
                 <div className="hero-photo">
                   <img
                     src={assetPath('/images/before-new.png')}
@@ -473,6 +477,10 @@ function HomePage() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5 }}
               >
+                <div className="hero-card-header after">
+                  <span className="hc-label">{t('home.problems.afterLabel')}</span>
+                  <span className="hc-title-en">{t('home.problems.afterTitle')}</span>
+                </div>
                 <div className="hero-photo">
                   <img
                     src={assetPath('/images/after-new.png')}
