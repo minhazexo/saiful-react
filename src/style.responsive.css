@@ -176,12 +176,14 @@
     transform: none;
   }
 
-  /* Improve body text contrast on dark backgrounds */
+  /* Mobile: keep card body text dark for legibility on light cards.
+     Exclude genuinely dark-background cards (.hero-notif-card, the
+     .featured pricing card) so their light text stays visible. */
   .framework-card p,
   .ai-card p,
   .service-card p,
   .client-result-card p,
-  [class*="card"] p {
+  [class*="card"]:not(.hero-notif-card):not(.featured) p {
     color: black;
   }
 

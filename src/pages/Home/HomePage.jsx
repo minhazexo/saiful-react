@@ -144,7 +144,17 @@ function HomePage() {
                 {t('home.heroTitleSub')}
               </motion.p>
               <motion.p className="hero-description" variants={fadeUpSmall}>
-                {t('home.heroSubtitle')}
+                {(() => {
+                  const parts = t('home.heroSubtitle').split('—');
+                  if (parts.length < 2) return t('home.heroSubtitle');
+                  return (
+                    <>
+                      <strong>{parts[0].trim()}</strong>
+                      {' — '}
+                      {parts.slice(1).join('—').trim()}
+                    </>
+                  );
+                })()}
               </motion.p>
               <motion.div className="hero-actions" variants={fadeUpSmall}>
                 <motion.button
@@ -167,14 +177,6 @@ function HomePage() {
                 >
                   {t('home.heroBtnSecondary')}
                 </motion.button>
-              </motion.div>
-              <motion.div className="hero-features" variants={fadeUpSmall}>
-                {HERO_FEATURES.map((f) => (
-                  <div className="hero-feature" key={f.key}>
-                    <span className="hero-feature-icon" aria-hidden="true">{f.icon}</span>
-                    <span className="hero-feature-label">{t(`home.heroFeatures.${f.key}`)}</span>
-                  </div>
-                ))}
               </motion.div>
             </motion.div>
 
@@ -222,6 +224,20 @@ function HomePage() {
               </div>
             </motion.div>
           </div>
+
+          <motion.div
+            className="hero-features"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            {HERO_FEATURES.map((f) => (
+              <div className="hero-feature" key={f.key}>
+                <span className="hero-feature-icon" aria-hidden="true">{f.icon}</span>
+                <span className="hero-feature-label">{t(`home.heroFeatures.${f.key}`)}</span>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </section>
 

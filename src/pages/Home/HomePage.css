@@ -28,27 +28,46 @@
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 48px;
   align-items: center;
 }
 
-/* ===== Badge ===== */
+/* ===== Eyebrow (green check + muted text, borderless — matches PC reference) ===== */
 .hero-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   background: transparent;
-  border: 2px solid var(--green);
-  color: var(--dark);
-  padding: 10px 24px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 700;
+  border: none;
+  color: var(--text-muted);
+  padding: 0;
+  font-size: 15px;
+  font-weight: 600;
   margin-top: 30px;
-  margin-bottom: 24px;
-  letter-spacing: 0.5px;
+  margin-bottom: 22px;
+  letter-spacing: 0;
   width: fit-content;
+}
+
+.hero-badge-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--green-light);
+  border: 1px solid var(--green-soft);
+  flex-shrink: 0;
+}
+
+.hero-badge-check svg {
+  width: 12px;
+  height: 12px;
+  stroke: var(--green);
+  stroke-width: 2.6;
+  fill: none;
 }
 
 /* ===== Headline ===== */
@@ -72,6 +91,11 @@
   font-weight: 400;
 }
 
+.hero-description strong {
+  color: var(--dark);
+  font-weight: 700;
+}
+
 @media (max-width: 768px) {
   .hero-description {
     text-align: center;
@@ -93,13 +117,14 @@
   margin: 0 0 14px;
 }
 
+/* Full-width row below the hero grid, with a divider spanning the whole width */
 .hero-features {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 24px;
-  margin-top: 28px;
-  padding-top: 24px;
+  gap: 36px;
+  margin-top: 44px;
+  padding-top: 28px;
   border-top: 1px solid #e5e7eb;
 }
 
@@ -135,9 +160,9 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 16px 32px;
-  border-radius: 12px;
-  font-size: 16px;
+  padding: 15px 30px;
+  border-radius: 999px;
+  font-size: 15px;
   font-weight: 700;
   font-family: var(--font-heading);
   cursor: pointer;
@@ -170,28 +195,31 @@
 
 }
 
-/* ===== Hero Visual (photo + notification card) ===== */
+/* ===== Hero Visual (photo + notification card) =====
+   Unified model: .hero-visual-inner tracks the photo's width, the photo
+   fills it, and .hero-notif-card is anchored to the photo's top-right
+   (transparent area of the cutout) with a *bounded* overhang so it can
+   never overflow / be clipped at any viewport width. */
 .hero-visual {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: 500px;
+  min-height: clamp(420px, 40vw, 520px);
   overflow: visible;
 }
 
 .hero-visual-inner {
   position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
+  justify-content: center;
+  width: clamp(240px, 32vw, 440px);
   max-width: 100%;
 }
 
 .hero-photo-wrap {
-  width: clamp(200px, 38vw, 480px);
+  width: 100%;
   border-radius: 0;
   overflow: visible;
   border: none;
@@ -205,14 +233,14 @@
   object-fit: contain;
 }
 
-/* Notification card below photo */
+/* Floating testimonial card — anchored to the photo's top-right corner */
 .hero-notif-card {
   position: absolute;
-  top: 36px;
-  right: -100px;
+  top: clamp(16px, 3vw, 44px);
+  right: clamp(-80px, -5vw, -36px);
   left: auto;
   bottom: auto;
-  width: clamp(180px, 24vw, 290px);
+  width: clamp(196px, 17vw, 264px);
   background: #0f1115;
   border-radius: 16px;
   padding: 18px 20px;
@@ -269,7 +297,7 @@
 
 .hero-notif-quote {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.72);
+  color: #fff;
   line-height: 1.5;
   margin-bottom: 12px;
   font-style: italic;
@@ -297,7 +325,7 @@
 
 .hero-notif-stat span {
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.6);
+  color: #fff;
 }
 
 @media (max-width: 768px) {
@@ -834,6 +862,10 @@ html[data-lang='bn'] .journey-card-content p {
   grid-template-columns: 1fr 1fr;
   gap: 24px;
   margin-bottom: 24px;
+  /* Keep the grid within .container padding and let the image columns
+     shrink below their intrinsic width (fixes ~10px overflow at 1024px) */
+  max-width: 100%;
+  min-width: 0;
 }
 
 /* ── Column Headers ── */
@@ -874,6 +906,8 @@ html[data-lang='bn'] .journey-card-content p {
 .hero-card {
   border-radius: 20px;
   overflow: hidden;
+  /* Allow the card (a grid item) to shrink below the image's intrinsic size */
+  min-width: 0;
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.4s ease;
 }
 
@@ -1207,10 +1241,13 @@ html[data-lang='bn'] .journey-card-content p {
 .framework-grid {
   display: flex;
   justify-content: center;
-  gap: 28px;
+  /* Fluid gap so 6 cards in a row breathe smoothly from 1025px → wide
+     instead of cramping at the low-desktop end */
+  gap: clamp(14px, 2.2vw, 28px);
   position: relative;
   z-index: 1;
   padding: 40px 0 24px;
+  width: 100%;
 }
 
 /* Glowing connecting line behind cards */
@@ -1218,8 +1255,8 @@ html[data-lang='bn'] .journey-card-content p {
   content: '';
   position: absolute;
   top: 60px;
-  left: 80px;
-  right: 80px;
+  left: clamp(40px, 7vw, 80px);
+  right: clamp(40px, 7vw, 80px);
   height: 2px;
   background: linear-gradient(90deg, #f97316, #3b82f6, #8b5cf6, #ec4899, #06b6d4);
   border-radius: 2px;
@@ -1231,8 +1268,8 @@ html[data-lang='bn'] .journey-card-content p {
   content: '';
   position: absolute;
   top: 60px;
-  left: 80px;
-  right: 80px;
+  left: clamp(40px, 7vw, 80px);
+  right: clamp(40px, 7vw, 80px);
   height: 2px;
   background: linear-gradient(90deg, #f97316, #3b82f6, #8b5cf6, #ec4899, #06b6d4);
   border-radius: 2px;
@@ -1242,12 +1279,13 @@ html[data-lang='bn'] .journey-card-content p {
 }
 
 .framework-card {
-  flex: 1;
+  flex: 1 1 0;
+  min-width: 0;
   max-width: 185px;
   background: var(--orange-light);
   border: 1px solid var(--orange-soft);
   border-radius: 18px;
-  padding: 42px 18px 26px;
+  padding: 42px clamp(12px, 1.4vw, 18px) 26px;
   text-align: center;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
   transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -1424,8 +1462,6 @@ html[data-lang='bn'] .journey-card-content p {
   position: relative;
   z-index: 2;
 }
-
-
 
 .package-card.featured .package-icon {
   font-size: 44px;
@@ -2442,8 +2478,6 @@ html[lang='bn'] .lead-badge {
 
 }
 
-
-
 .lead-success {
   color: var(--success);
   text-align: center;
@@ -2658,8 +2692,10 @@ html[lang='bn'] .case-card .case-highlight-value {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: #ffffff;
-    color: #000000;
+    background: var(--phase-color, #000);
+    color: #fff;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 1px var(--border);
     font-size: 11px;
     font-weight: 700;
     display: flex;
@@ -2675,23 +2711,24 @@ html[lang='bn'] .case-card .case-highlight-value {
     gap: 12px;
     padding: 16px 44px 16px 16px;
     cursor: pointer;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #ffffff;
+    border: 1px solid var(--border);
     border-radius: 16px;
     width: 100%;
     text-align: left;
     font-family: var(--font-heading);
-    color: #fff;
+    color: #000;
     font-size: 15px;
     font-weight: 600;
     min-height: 56px;
     position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     transition: background 0.35s ease, border-color 0.35s ease;
   }
 
   .framework-acc-item.open .framework-acc-header {
-    background: rgba(255, 255, 255, 0.07);
-    border-color: rgba(255, 255, 255, 0.15);
+    background: var(--orange-light);
+    border-color: var(--orange-soft);
     border-radius: 16px 16px 0 0;
   }
 
@@ -2719,7 +2756,7 @@ html[lang='bn'] .case-card .case-highlight-value {
     top: 50%;
     transform: translateY(-50%);
     font-size: 12px;
-    color: rgba(255,255,255,0.3);
+    color: #000;
     transition: transform 0.35s ease, color 0.35s ease;
     flex-shrink: 0;
     margin-left: 0;
@@ -2731,13 +2768,13 @@ html[lang='bn'] .case-card .case-highlight-value {
   }
 
   .framework-acc-body {
-    padding: 0 16px 16px;
-    color: rgba(255, 255, 255, 0.6);
+    padding: 14px 16px 16px;
+    color: #000;
     font-size: 13px;
     line-height: 1.7;
     text-align: left;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--orange-light);
+    border: 1px solid var(--orange-soft);
     border-top: none;
     border-radius: 0 0 16px 16px;
   }
@@ -2852,45 +2889,6 @@ html[lang='bn'] .case-card .case-highlight-value {
     gap: 50px;
   }
 
-  .hero-portrait-wrapper {
-    width: 440px;
-    height: 500px;
-    transform: none;
-  }
-
-  .hero-portrait-circle {
-    width: 270px;
-    height: 270px;
-    top: 130px;
-    right: 40px;
-    left: auto;
-    transform: none;
-  }
-
-  .hero-portrait {
-    width: 270px;
-    height: 270px;
-    top: 130px;
-    right: 40px;
-    left: auto;
-    transform: none;
-  }
-
-  .service-pill {
-    width: 72px;
-    height: 72px;
-    font-size: 10px;
-    padding: 4px;
-  }
-
-  .pill-independent { top: 64px; left: 51.36%; transform: translateX(-50%); }
-  .pill-logo { top: 154px; right: 305px; left: auto; }
-  .pill-ecommerce { top: 254px; right: 305px; left: auto; }
-  .pill-backend { top: 354px; right: 305px; left: auto; }
-  .pill-seller-left { top: 154px; left: 395px; right: auto; }
-  .pill-social { top: 254px; left: 395px; right: auto; }
-  .pill-facebook { top: 354px; left: 395px; right: auto; }
-  .pill-seller-right { top: 395px; left: 51.36%; transform: translateX(-50%); }
 }
 
 @media (min-width: 1025px) and (max-width: 1200px) {
@@ -2898,38 +2896,6 @@ html[lang='bn'] .case-card .case-highlight-value {
     gap: 50px;
   }
 
-  .hero-portrait-wrapper {
-    width: 400px;
-    height: 460px;
-    transform: none;
-  }
-
-  .hero-portrait-circle {
-    width: 250px;
-    height: 250px;
-    top: 125px;
-    right: 35px;
-    left: auto;
-    transform: none;
-  }
-
-  .hero-portrait {
-    width: 250px;
-    height: 250px;
-    top: 125px;
-    right: 35px;
-    left: auto;
-    transform: none;
-  }
-
-  .pill-independent { top: 65px; left: 50%; transform: translateX(-50%); }
-  .pill-logo { top: 152px; right: 286px; left: auto; }
-  .pill-ecommerce { top: 245px; right: 286px; left: auto; }
-  .pill-backend { top: 338px; right: 286px; left: auto; }
-  .pill-seller-left { top: 152px; left: 366px; right: auto; }
-  .pill-social { top: 245px; left: 366px; right: auto; }
-  .pill-facebook { top: 338px; left: 366px; right: auto; }
-  .pill-seller-right { top: 376px; left: 50%; transform: translateX(-50%); }
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
@@ -2970,7 +2936,8 @@ html[lang='bn'] .case-card .case-highlight-value {
   }
 
   .framework-card {
-    flex: 0 0 calc(33.333% - 14px);
+    flex: 0 0 calc(33.333% - 12px);
+    min-width: 0;
     max-width: none;
     padding: 38px 14px 20px;
   }
@@ -3084,26 +3051,6 @@ html[lang='bn'] .case-card .case-highlight-value {
     padding: 16px 18px;
   }
 
-  .hero-portrait-wrapper {
-    width: 340px;
-    height: 420px;
-    transform: none;
-  }
-
-  .hero-portrait-circle {
-    width: 220px;
-    height: 220px;
-    top: 115px;
-    right: 30px;
-  }
-
-  .hero-portrait {
-    width: 220px;
-    height: 220px;
-    top: 115px;
-    right: 30px;
-  }
-
   .hero-title {
     font-size: clamp(36px, 8vw, 56px);
   }
@@ -3111,20 +3058,6 @@ html[lang='bn'] .case-card .case-highlight-value {
   .hero-description {
     font-size: 18px;
   }
-
-  .service-pill {
-    font-size: 9px;
-    padding: 4px;
-  }
-
-  .pill-independent { top: 60px; left: 50%; transform: translateX(-50%); }
-  .pill-logo { top: 140px; right: 251px; left: auto; }
-  .pill-ecommerce { top: 215px; right: 251px; left: auto; }
-  .pill-backend { top: 290px; right: 251px; left: auto; }
-  .pill-seller-left { top: 140px; left: 311px; right: auto; }
-  .pill-social { top: 215px; left: 311px; right: auto; }
-  .pill-facebook { top: 290px; left: 311px; right: auto; }
-  .pill-seller-right { top: 336px; left: 50%; transform: translateX(-50%); }
 
   .package-card.featured {
     padding: 48px 32px;
@@ -3204,40 +3137,6 @@ html[lang='bn'] .case-card .case-highlight-value {
   .hero-content {
     text-align: center;
   }
-
-  .hero-portrait-wrapper {
-    width: 280px;
-    height: 350px;
-    transform: none;
-  }
-
-  .hero-portrait-circle {
-    width: 195px;
-    height: 195px;
-    top: 105px;
-    right: 25px;
-  }
-
-  .hero-portrait {
-    width: 195px;
-    height: 195px;
-    top: 105px;
-    right: 25px;
-  }
-
-  .service-pill {
-    font-size: 9px;
-    padding: 4px;
-  }
-
-  .pill-independent { top: 50px; left: 50%; transform: translateX(-50%); }
-  .pill-logo { top: 125px; right: 221px; left: auto; }
-  .pill-ecommerce { top: 195px; right: 221px; left: auto; }
-  .pill-backend { top: 265px; right: 221px; left: auto; }
-  .pill-seller-left { top: 125px; left: 256px; right: auto; }
-  .pill-social { top: 195px; left: 256px; right: auto; }
-  .pill-facebook { top: 265px; left: 256px; right: auto; }
-  .pill-seller-right { top: 301px; left: 50%; transform: translateX(-50%); }
 
   .trust-grid {
     display: none;
@@ -3459,7 +3358,7 @@ html[lang='bn'] .case-card .case-highlight-value {
     height: 52px;
     padding: 0 24px;
     font-size: 16px;
-    border-radius: 14px;
+    border-radius: 999px;
   }
 
   .hero-visual {
@@ -3492,40 +3391,6 @@ html[lang='bn'] .case-card .case-highlight-value {
   .hero-notif-stats { gap: 10px; padding-top: 6px; }
   .hero-notif-stat strong { font-size: 13px; }
   .hero-notif-stat span { font-size: 8px; }
-
-  .hero-portrait-wrapper {
-    width: 230px;
-    height: 321px;
-    transform: none;
-  }
-
-  .hero-portrait-circle {
-    width: 170px;
-    height: 170px;
-    top: 70px;
-    right: 20px;
-  }
-
-  .hero-portrait {
-    width: 170px;
-    height: 170px;
-    top: 70px;
-    right: 20px;
-  }
-
-  .service-pill {
-    font-size: 8px;
-    padding: 4px;
-  }
-
-  .pill-independent { top: 15px; left: 41%; transform: translateX(-50%); font-size: 8px; }
-  .pill-logo { top: 48px; right: 148px; left: auto; }
-  .pill-ecommerce { top: 125px; right: 182px; left: auto; }
-  .pill-backend { top: 195px; right: 150px; left: auto; font-size: 10px; }
-  .pill-seller-left { top: 45px; left: 168px; right: auto; }
-  .pill-social { top: 120px; left: 202px; right: auto; }
-  .pill-facebook { top: 190px; left: 180px; right: auto; }
-  .pill-seller-right { top: 232px; left: 42%; transform: translateX(calc(-50% - 15px)); }
 
   .trust-section {
     padding: 40px 0;
@@ -4112,40 +3977,6 @@ html[lang='bn'] .case-card .case-highlight-value {
     font-size: 14px;
   }
 
-  .hero-portrait-wrapper {
-    width: 210px;
-    height: 280px;
-    transform: none;
-  }
-
-  .hero-portrait-circle {
-    width: 145px;
-    height: 145px;
-    top: 60px;
-    right: 15px;
-  }
-
-  .hero-portrait {
-    width: 145px;
-    height: 145px;
-    top: 60px;
-    right: 15px;
-  }
-
-  .service-pill {
-    font-size: 8px;
-    padding: 4px;
-  }
-
-  .pill-independent { top: 28px; left: 50%; transform: translateX(-50%); font-size: 8px; }
-  .pill-logo { top: 77px; right: 135px; left: auto; }
-  .pill-ecommerce { top: 125px; right: 135px; left: auto; }
-  .pill-backend { top: 173px; right: 85px; left: auto; font-size: 10px; }
-  .pill-seller-left { top: 77px; left: 155px; right: auto; }
-  .pill-social { top: 125px; left: 155px; right: auto; }
-  .pill-facebook { top: 173px; left: 155px; right: auto; }
-  .pill-seller-right { top: 206px; left: 50%; transform: translateX(-50%); }
-
   .journey-card-content h3 {
     font-size: 18px;
   }
@@ -4258,43 +4089,6 @@ html[lang='bn'] .case-card .case-highlight-value {
     gap: 50px;
   }
 
-  .hero-portrait-wrapper {
-    width: 440px;
-    height: 500px;
-    transform: none;
-  }
-
-  .hero-portrait-circle {
-    width: 270px;
-    height: 270px;
-    top: 130px;
-    right: 40px;
-    left: auto;
-    transform: none;
-  }
-
-  .hero-portrait {
-    width: 270px;
-    height: 270px;
-    top: 130px;
-    right: 40px;
-    left: auto;
-    transform: none;
-  }
-
-  .service-pill {
-    font-size: 10px;
-    padding: 4px;
-  }
-
-  .pill-independent { top: 70px; left: 50%; transform: translateX(-50%); }
-  .pill-logo { top: 160px; right: 311px; left: auto; }
-  .pill-ecommerce { top: 260px; right: 311px; left: auto; }
-  .pill-backend { top: 360px; right: 311px; left: auto; }
-  .pill-seller-left { top: 160px; left: 401px; right: auto; }
-  .pill-social { top: 260px; left: 401px; right: auto; }
-  .pill-facebook { top: 360px; left: 401px; right: auto; }
-  .pill-seller-right { top: 401px; left: 50%; transform: translateX(-50%); }
 }
 
 @media (min-width: 1025px) and (max-width: 1200px) {
@@ -4302,38 +4096,6 @@ html[lang='bn'] .case-card .case-highlight-value {
     gap: 50px;
   }
 
-  .hero-portrait-wrapper {
-    width: 400px;
-    height: 460px;
-    transform: none;
-  }
-
-  .hero-portrait-circle {
-    width: 250px;
-    height: 250px;
-    top: 125px;
-    right: 35px;
-    left: auto;
-    transform: none;
-  }
-
-  .hero-portrait {
-    width: 250px;
-    height: 250px;
-    top: 125px;
-    right: 35px;
-    left: auto;
-    transform: none;
-  }
-
-  .pill-independent { top: 65px; left: 50%; transform: translateX(-50%); }
-  .pill-logo { top: 152px; right: 286px; left: auto; }
-  .pill-ecommerce { top: 245px; right: 286px; left: auto; }
-  .pill-backend { top: 338px; right: 286px; left: auto; }
-  .pill-seller-left { top: 152px; left: 366px; right: auto; }
-  .pill-social { top: 245px; left: 366px; right: auto; }
-  .pill-facebook { top: 338px; left: 366px; right: auto; }
-  .pill-seller-right { top: 376px; left: 50%; transform: translateX(-50%); }
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
@@ -4374,7 +4136,8 @@ html[lang='bn'] .case-card .case-highlight-value {
   }
 
   .framework-card {
-    flex: 0 0 calc(33.333% - 14px);
+    flex: 0 0 calc(33.333% - 12px);
+    min-width: 0;
     max-width: none;
     padding: 38px 14px 20px;
   }
@@ -4471,24 +4234,35 @@ html[lang='bn'] .case-card .case-highlight-value {
     padding: 0 24px;
   }
 
+  /* Stacked layout: photo on top, testimonial card centered just below it.
+     No min-height (kills the empty gap) and no overlap on the face. */
   .hero-visual {
     min-height: 0;
     display: flex;
     justify-content: center;
-    margin-top: 40px;
+    align-items: center;
+    margin-top: 8px;
   }
 
-  .hero-portrait-wrapper {
-    transform: scale(1.35);
-    transform-origin: center center;
-  }
-
-  .hero-portrait img {
+  .hero-visual-inner {
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
+    max-width: 440px;
+  }
+
+  .hero-photo-wrap {
+    width: min(380px, 84%);
+  }
+
+  .hero-notif-card {
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
+    bottom: auto;
+    width: min(360px, 92%);
+    margin-top: -24px;
   }
 
   .hero-title {
@@ -4497,11 +4271,6 @@ html[lang='bn'] .case-card .case-highlight-value {
 
   .hero-description {
     font-size: 18px;
-  }
-
-  .service-pill {
-    font-size: 9px;
-    padding: 4px;
   }
 
   .package-card.featured {
@@ -4604,52 +4373,33 @@ html[lang='bn'] .case-card .case-highlight-value {
     text-align: center;
   }
 
+  .hero-features {
+    justify-content: center;
+    gap: 20px 28px;
+    margin-top: 28px;
+  }
+
   .hero-visual {
-    margin-top: 40px;
+    min-height: 0;
+    margin-top: 8px;
   }
 
   .hero-visual-inner {
-    align-items: flex-start;
-    padding-left: 20px;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
   }
 
   .hero-photo-wrap {
-    width: clamp(200px, 50vw, 260px);
+    width: min(340px, 82%);
   }
 
+  /* Card stays stacked below the photo (inherits ≤1024 rules); just size it */
   .hero-notif-card {
-    position: absolute;
-    top: 20px;
-    right: -10px;
-    left: auto;
-    width: clamp(180px, 48vw, 240px);
-    padding: 12px 14px;
-  }
-
-  .hero-notif-head { gap: 8px; margin-bottom: 8px; }
-  .hero-notif-avatar { width: 28px; height: 28px; }
-  .hero-notif-name { font-size: 12px; }
-  .hero-notif-quote { font-size: 11px; margin-bottom: 8px; }
-  .hero-notif-stats { gap: 12px; padding-top: 8px; }
-  .hero-notif-stat strong { font-size: 14px; }
-  .hero-notif-stat span { font-size: 9px; }
-
-  .hero-portrait-wrapper {
-    transform: scale(1.35);
-    transform-origin: center center;
-  }
-
-  .hero-portrait img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-  }
-
-  .service-pill {
-    font-size: 9px;
-    padding: 4px;
+    width: min(330px, 94%);
+    padding: 16px 18px;
   }
 
   .trust-grid {
@@ -4880,56 +4630,27 @@ html[lang='bn'] .case-card .case-highlight-value {
     height: 52px;
     padding: 0 24px;
     font-size: 16px;
-    border-radius: 14px;
+    border-radius: 999px;
   }
 
   .hero-visual {
-    margin-top: 30px;
+    min-height: 0;
+    margin-top: 6px;
   }
 
   .hero-visual-inner {
-    padding-left: 14px;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
   }
 
   .hero-photo-wrap {
-    width: clamp(170px, 48vw, 220px);
+    width: min(300px, 84%);
   }
 
   .hero-notif-card {
-    position: absolute;
-    top: 14px;
-    right: -8px;
-    left: auto;
-    width: clamp(160px, 45vw, 210px);
-    padding: 10px 12px;
-  }
-
-  .hero-notif-head { gap: 6px; margin-bottom: 6px; }
-  .hero-notif-avatar { width: 24px; height: 24px; }
-  .hero-notif-name { font-size: 11px; }
-  .hero-notif-check { width: 14px; height: 14px; }
-  .hero-notif-check svg { width: 7px; height: 7px; }
-  .hero-notif-quote { font-size: 10px; margin-bottom: 6px; line-height: 1.4; }
-  .hero-notif-stats { gap: 10px; padding-top: 6px; }
-  .hero-notif-stat strong { font-size: 13px; }
-  .hero-notif-stat span { font-size: 8px; }
-
-  .hero-portrait-wrapper {
-    transform: scale(1.35);
-    transform-origin: center center;
-  }
-
-  .hero-portrait img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-  }
-
-  .service-pill {
-    font-size: 8px;
-    padding: 4px;
+    padding: 14px 16px;
   }
 
   .trust-section {
@@ -5539,52 +5260,23 @@ html[lang='bn'] .case-card .case-highlight-value {
   }
 
   .hero-visual {
-    margin-top: 30px;
+    min-height: 0;
+    margin-top: 6px;
   }
 
   .hero-visual-inner {
-    padding-left: 10px;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
   }
 
   .hero-photo-wrap {
-    width: clamp(150px, 46vw, 190px);
+    width: min(280px, 86%);
   }
 
   .hero-notif-card {
-    position: absolute;
-    top: 10px;
-    right: -6px;
-    left: auto;
-    width: clamp(140px, 42vw, 180px);
-    padding: 8px 10px;
-  }
-
-  .hero-notif-head { gap: 5px; margin-bottom: 5px; }
-  .hero-notif-avatar { width: 20px; height: 20px; }
-  .hero-notif-name { font-size: 10px; }
-  .hero-notif-check { width: 12px; height: 12px; }
-  .hero-notif-check svg { width: 6px; height: 6px; }
-  .hero-notif-quote { font-size: 9px; margin-bottom: 5px; line-height: 1.3; }
-  .hero-notif-stats { gap: 8px; padding-top: 5px; }
-  .hero-notif-stat strong { font-size: 12px; }
-  .hero-notif-stat span { font-size: 7px; }
-
-  .hero-portrait-wrapper {
-    transform: scale(1.35);
-    transform-origin: center center;
-  }
-
-  .hero-portrait img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-  }
-
-  .service-pill {
-    font-size: 8px;
-    padding: 4px;
+    padding: 14px 16px;
   }
 
   .hero-section {
@@ -5727,7 +5419,6 @@ html[lang='bn'] .case-card .case-highlight-value {
     font-size: 15px;
   }
 
-
   .ai-grid {
     grid-template-columns: 1fr;
   }
@@ -5749,3 +5440,6 @@ html[lang='bn'] .case-card .case-highlight-value {
     aspect-ratio: 16 / 10;
   }
 }
+
+/* Mobile: all cards on this page have light backgrounds, so card body
+   text stays dark for legibility (keeps each card's designed base color). */

@@ -46,9 +46,20 @@
   --font-heading:   'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-body:      'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
-  /* Spacing */
-  --section-pad:    80px;
-  --container-pad:  24px;
+  /* ── Canonical breakpoint ladder ──
+     Use these widths everywhere instead of ad-hoc values.
+     (CSS vars can't be used inside @media conditions, so these
+      are documentation — match them in media queries by hand.)
+        --bp-xs: 375px   small phone
+        --bp-sm: 480px   phone
+        --bp-md: 768px   tablet portrait
+        --bp-lg: 1024px  tablet landscape
+        --bp-xl: 1280px  small desktop                              */
+
+  /* Spacing — fluid so section rhythm scales smoothly instead of
+     snapping at 768/480 breakpoints */
+  --section-pad:    clamp(48px, 8vw, 80px);
+  --container-pad:  clamp(16px, 4vw, 24px);
   --container-max:  1200px;
   --nav-h:          90px;
 
@@ -93,9 +104,16 @@ body {
 }
 
 img,
-svg {
+svg,
+video,
+iframe {
   max-width: 100%;
   display: block;
+}
+
+img,
+video {
+  height: auto;
 }
 
 a {
@@ -219,7 +237,8 @@ input,
 textarea,
 select {
   font-family: var(--font-body);
-  font-size: 14px;
+  /* 16px minimum so iOS Safari does not auto-zoom the viewport on focus */
+  font-size: 16px;
   color: var(--text);
   background: var(--bg);
   border: 1px solid var(--border);
@@ -685,6 +704,21 @@ html[lang='bn'] .eyebrow {
   margin-bottom: 24px;
   color: var(--text-muted);
   font-size: 16px;
+}
+
+/* ===== Reduced motion =====
+   Honor the OS "reduce motion" setting: kill infinite marquees
+   (.stats-marquee, .testimonial-marquee, .trust-marquee), floating
+   loops, and long transitions for users who opt out. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* ===== Print Stylesheet ===== */
