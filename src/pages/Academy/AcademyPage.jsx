@@ -80,22 +80,24 @@ function AcademyPage() {
         </div>
       </section>
 
-      <div className="stat-strip">
-        <MotionFadeUp>
-          <div className="wrap stat-grid">
-              {(() => {
-                const items = t('academy.stats.items');
-                if (!Array.isArray(items)) return null;
-                return items.map((item, i) => (
-                  <div key={i}>
-                    <div className="num">{item.num}</div>
-                    <div className="lbl">{item.label}</div>
+      <section className="stats-section">
+        <div className="stats-marquee">
+          <div className="stats-marquee-track">
+            {(() => {
+              const items = t('academy.stats.items');
+              if (!Array.isArray(items)) return null;
+              return [...Array(2)].flatMap((_, dup) =>
+                items.map((item, i) => (
+                  <div key={`${dup}-${i}`} className="stat-card" aria-hidden={dup === 1}>
+                    <div className="stat-num">{item.num}</div>
+                    <div className="stat-label">{item.label}</div>
                   </div>
-                ));
-              })()}
-            </div>
-          </MotionFadeUp>
-      </div>
+                ))
+              );
+            })()}
+          </div>
+        </div>
+      </section>
 
       <section className="section modules-section" id="modules">
         <div className="wrap">

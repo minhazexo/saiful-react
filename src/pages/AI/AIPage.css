@@ -42,7 +42,8 @@
 .ai-tool-role {
   display: inline-block;
   background: var(--orange-light);
-  color: var(--orange);
+  border: 1px solid var(--orange-soft);
+  color: #000;
   padding: 4px 12px;
   border-radius: var(--radius-pill);
   font-size: 12px;
@@ -79,9 +80,9 @@
 }
 
 .workflow-section .eyebrow {
-  background: rgba(0, 255, 0, 0.2);
-  color: var(--orange);
-  border-color: rgba(0, 255, 0, 0.4);
+  background: var(--orange-light);
+  color: #000;
+  border-color: var(--orange-soft);
 }
 
 .workflow-section .section-head h2,

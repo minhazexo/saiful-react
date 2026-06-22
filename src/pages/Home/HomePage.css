@@ -1010,12 +1010,12 @@ html[data-lang='bn'] .journey-card-content p {
 }
 
 .hc-label {
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 800;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: #fff;
-  padding: 3px 12px;
+  padding: 5px 16px;
   border-radius: 999px;
   margin-bottom: 6px;
 }
@@ -1261,6 +1261,13 @@ html[data-lang='bn'] .journey-card-content p {
   border-radius: 50%;
   border: 2px solid #fff;
   margin-right: -8px;
+  overflow: hidden;
+}
+
+.trust-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .trust-rating {
@@ -1321,9 +1328,9 @@ html[data-lang='bn'] .journey-card-content p {
 }
 
 .eyebrow.light {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  background: var(--orange-light);
+  border-color: var(--orange-soft);
+  color: #000;
 }
 
 .framework-grid {
@@ -2028,6 +2035,9 @@ html[data-lang='bn'] .journey-card-content p {
   text-align: center;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
   transition: all var(--t);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .ai-card:hover {
@@ -2069,6 +2079,7 @@ html[data-lang='bn'] .journey-card-content p {
   color: #555;
   font-size: 14px;
   line-height: 1.6;
+  flex: 1;
 }
 
 .workflow {
@@ -3616,12 +3627,13 @@ html[lang='bn'] .case-card .case-highlight-value {
     font-size: 12px;
   }
 
+  .problem-icon-circle,
   .solution-icon-circle {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
     font-size: 12px;
-    background: var(--green-light);
-    border-color: var(--green-soft);
+    background: #f1f5f9;
+    border-color: var(--border);
   }
 
   .problem-text-group strong {
@@ -4899,11 +4911,12 @@ html[lang='bn'] .case-card .case-highlight-value {
     font-size: 12px;
   }
 
+  .problem-icon-circle,
   .solution-icon-circle {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
     font-size: 12px;
-    background: var(--green-light);
+    background: #f1f5f9;
     border-color: var(--border);
   }
 

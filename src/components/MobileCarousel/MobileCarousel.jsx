@@ -74,7 +74,7 @@ export default function MobileCarousel({
     const tick = () => { if (inViewRef.current) next(); };
     timerRef.current = setInterval(tick, interval);
     return () => clearInterval(timerRef.current);
-  }, [autoPlay, slideCount, isMobile, isPaused, interval, next, shouldReduceMotion]);
+  }, [autoPlay, slideCount, isMobile, isPaused, interval, next, shouldReduceMotion, forceCarousel]);
 
   /* --- Desktop: staggered grid (unless forceCarousel) --- */
   if ((!isMobile && !forceCarousel) || slideCount <= 1) {

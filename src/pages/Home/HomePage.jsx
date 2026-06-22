@@ -578,10 +578,10 @@ function HomePage() {
             </div>
             <div className="trust-center">
               <div className="trust-avatars">
-                <div className="trust-avatar" style={{ background: 'linear-gradient(135deg,#22c55e,#16a34a)' }} />
-                <div className="trust-avatar" style={{ background: 'linear-gradient(135deg,#3b82f6,#2563eb)' }} />
-                <div className="trust-avatar" style={{ background: 'linear-gradient(135deg,#f97316,#ea580c)' }} />
-                <div className="trust-avatar" style={{ background: 'linear-gradient(135deg,#8b5cf6,#7c3aed)' }} />
+                <div className="trust-avatar"><img src={assetPath('/pdf/All Imge Comprase Website/745.png')} alt="" /></div>
+                <div className="trust-avatar"><img src={assetPath('/pdf/All Imge Comprase Website/7845.png')} alt="" /></div>
+                <div className="trust-avatar"><img src={assetPath('/pdf/All Imge Comprase Website/9987.png')} alt="" /></div>
+                <div className="trust-avatar"><img src={assetPath('/pdf/All Imge Comprase Website/987154.png')} alt="" /></div>
               </div>
               <div className="trust-rating">
                 <span className="trust-stars">★★★★★</span>

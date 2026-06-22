@@ -18,9 +18,9 @@ function SetupPage() {
 
       <section className="lp-hero">
         <svg className="lp-hero-path" viewBox="0 0 1180 420" preserveAspectRatio="none">
-          <path d="M -50 380 C 250 380, 350 120, 650 140 C 880 155, 950 40, 1230 30"
-                fill="none" stroke="#39ff6a" strokeWidth="1.5" strokeDasharray="4 7" opacity="0.45"/>
-          <circle r="5" fill="#39ff6a">
+<path d="M -50 380 C 250 380, 350 120, 650 140 C 880 155, 950 40, 1230 30"
+              fill="none" stroke="#000" strokeWidth="1.5" strokeDasharray="4 7" opacity="0.15"/>
+          <circle r="5" fill="#000">
             <animateMotion dur="9s" repeatCount="indefinite"
               path="M -50 380 C 250 380, 350 120, 650 140 C 880 155, 950 40, 1230 30"/>
           </circle>

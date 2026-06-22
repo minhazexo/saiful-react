@@ -299,6 +299,21 @@ ul {
   list-style: none;
 }
 
+/* ===== Eyebrow (shared across all pages) ===== */
+.eyebrow {
+  display: inline-block;
+  background: var(--orange-light);
+  color: #000;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  border: 1px solid var(--orange-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 /* ===== Layout ===== */
 .container {
   max-width: var(--container-max);
@@ -590,14 +605,14 @@ ul {
 
 .page-hero .eyebrow {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background: var(--orange-light);
+  color: #000;
   padding: 6px 14px;
   border-radius: var(--radius-pill);
   font-size: 12px;
   font-weight: 600;
   margin-bottom: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--orange-soft);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
