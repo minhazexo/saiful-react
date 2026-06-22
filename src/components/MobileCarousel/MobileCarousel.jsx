@@ -10,12 +10,6 @@ const slideVariants = {
   exit: (dir) => ({ x: dir < 0 ? 80 : -80, opacity: 0 }),
 };
 
-const slideVariantsReverse = {
-  enter: (dir) => ({ x: dir > 0 ? -80 : 80, opacity: 0 }),
-  center: { x: 0, opacity: 1 },
-  exit: (dir) => ({ x: dir < 0 ? -80 : 80, opacity: 0 }),
-};
-
 export default function MobileCarousel({
   className = '',
   children,
@@ -30,7 +24,9 @@ export default function MobileCarousel({
   reverse = false,
 }) {
   const shouldReduceMotion = useReducedMotion();
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== 'undefined' && window.innerWidth <= MOBILE_BREAKPOINT
+  );
   const [current, setCurrent] = useState(0);
   const [dir, setDir] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
@@ -137,7 +133,7 @@ export default function MobileCarousel({
               key={current}
               className="carousel-slide"
               custom={reverse ? -dir : dir}
-              variants={reverse ? slideVariantsReverse : slideVariants}
+              variants={slideVariants}
               initial="enter"
               animate="center"
               exit="exit"
