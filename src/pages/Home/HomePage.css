@@ -335,17 +335,29 @@
 
 @media (max-width: 768px) {
   .hero-visual { min-height: auto; padding: 0; overflow: visible; }
-  .hero-visual-inner { flex-direction: column; align-items: center; width: 100%; gap: 12px; padding: 0 16px; }
-  .hero-photo-wrap { width: clamp(180px, 50vw, 240px); order: 2; }
-  .hero-notif-card {
+  .hero-notif-card { display: none; }
+  .hero-visual-inner {
     position: relative;
+    width: clamp(260px, 82vw, 360px);
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+  .hero-photo-wrap { width: 100%; }
+  .hero-notif-card {
+    position: absolute;
     top: auto;
-    right: auto;
-    left: auto;
-    width: 100%;
-    max-width: 300px;
-    order: 1;
-    padding: 12px 14px;
+    left: 5%;
+    right: 5%;
+    bottom: 0;
+    width: auto;
+    max-width: none;
+    padding: 14px 16px;
+    background: #0f1115;
+    border-radius: 20px;
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
+    /* Freeze the floating animation so the bottom stays aligned to the photo */
+    transform: none !important;
   }
   .hero-notif-head { gap: 6px; margin-bottom: 6px; }
   .hero-notif-avatar { width: 32px; height: 32px; }
@@ -4468,28 +4480,30 @@ html[lang='bn'] .case-card .case-highlight-value {
   }
 
   .hero-visual-inner {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 400px;
+    position: relative;
+    width: min(360px, 82%);
+    max-width: 100%;
     margin: 0 auto;
-    gap: 14px;
   }
 
   .hero-photo-wrap {
-    width: min(340px, 82%);
-    order: 2;
+    width: 100%;
   }
 
+  /* Notif card overlays the lower part of the photo, bottoms aligned */
   .hero-notif-card {
-    position: relative;
+    position: absolute;
     top: auto;
-    right: auto;
-    left: auto;
-    bottom: auto;
-    width: min(330px, 94%);
-    order: 1;
+    left: 5%;
+    right: 5%;
+    bottom: 0;
+    width: auto;
+    max-width: none;
     padding: 16px 18px;
+    background: #0f1115;
+    border-radius: 20px;
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
+    transform: none !important;
   }
 
   .trust-grid {
@@ -4729,18 +4743,27 @@ html[lang='bn'] .case-card .case-highlight-value {
   }
 
   .hero-visual-inner {
-    width: 100%;
-    max-width: 360px;
+    position: relative;
+    width: min(330px, 92%);
+    max-width: 100%;
     margin: 0 auto;
   }
 
   .hero-photo-wrap {
-    width: min(300px, 84%);
+    width: 100%;
   }
 
   .hero-notif-card {
-    width: 100%;
+    position: absolute;
+    top: auto;
+    left: 5%;
+    right: 5%;
+    bottom: 0;
+    width: auto;
+    max-width: none;
     padding: 14px 16px;
+    border-radius: 20px;
+    transform: none !important;
   }
 
   .trust-section {
@@ -5350,28 +5373,27 @@ html[lang='bn'] .case-card .case-highlight-value {
   }
 
   .hero-visual-inner {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 320px;
+    position: relative;
+    width: min(300px, 94%);
+    max-width: 100%;
     margin: 0 auto;
-    gap: 12px;
   }
 
   .hero-photo-wrap {
-    width: min(260px, 86%);
-    order: 2;
+    width: 100%;
   }
 
   .hero-notif-card {
-    position: relative;
+    position: absolute;
     top: auto;
-    right: auto;
-    left: auto;
-    bottom: auto;
-    width: 100%;
-    order: 1;
+    left: 5%;
+    right: 5%;
+    bottom: 0;
+    width: auto;
+    max-width: none;
     padding: 12px 14px;
+    border-radius: 18px;
+    transform: none !important;
   }
 
   .hero-section {

@@ -92,7 +92,19 @@ const CLIENT_RESULT_ICONS = {
   onlinePresence: 'online-presence',
   fasterContent: 'fast-content',
 };
-const FOUNDER_IMAGES = ['founder-1.png', 'founder-2.png'];
+const HERO_DESKTOP_IMAGES = [
+  { file: 'Founder-1.png', dir: 'pdf/All Imge Comprase Website' },
+  { file: 'Founder-2.png', dir: 'pdf/All Imge Comprase Website' },
+];
+const HERO_MOBILE_IMAGES = [
+  { file: 'hero-mobile-1.jpeg', dir: 'images' },
+  { file: 'hero-mobile-2.jpeg', dir: 'images' },
+];
+const HERO_CARDS = [
+  { localeKey: 'home.heroCardGirl', avatar: { file: 'Founder-1.png', dir: 'pdf/All Imge Comprase Website' } },
+  { localeKey: 'home.heroCardBoy', avatar: { file: 'Founder-2.png', dir: 'pdf/All Imge Comprase Website' } },
+];
+const MOBILE_BREAKPOINT = 768;
 
 function HomePage() {
   const t = useTranslation();
@@ -103,10 +115,18 @@ function HomePage() {
   const [submitStatus, setSubmitStatus] = useState(null);
   const [openFramework, setOpenFramework] = useState(null);
   const [heroImgIndex, setHeroImgIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setHeroImgIndex((prev) => (prev + 1) % FOUNDER_IMAGES.length);
+      setHeroImgIndex((prev) => prev + 1);
     }, 8000);
     return () => clearInterval(interval);
   }, []);
@@ -200,8 +220,8 @@ function HomePage() {
                 <motion.div className="hero-photo-wrap" variants={fadeUp}>
                   <AnimatePresence mode="wait">
                     <motion.img
-                      key={FOUNDER_IMAGES[heroImgIndex]}
-                      src={assetPath(`/images/${FOUNDER_IMAGES[heroImgIndex]}`)}
+                      key={(isMobile ? HERO_MOBILE_IMAGES : HERO_DESKTOP_IMAGES)[heroImgIndex % (isMobile ? HERO_MOBILE_IMAGES : HERO_DESKTOP_IMAGES).length].file}
+                      src={assetPath(`/${(isMobile ? HERO_MOBILE_IMAGES : HERO_DESKTOP_IMAGES)[heroImgIndex % (isMobile ? HERO_MOBILE_IMAGES : HERO_DESKTOP_IMAGES).length].dir}/${(isMobile ? HERO_MOBILE_IMAGES : HERO_DESKTOP_IMAGES)[heroImgIndex % (isMobile ? HERO_MOBILE_IMAGES : HERO_DESKTOP_IMAGES).length].file}`)}
                       alt="Saiful Islam - Founder"
                       initial={{ opacity: 0, scale: 1.05 }}
                       animate={{ opacity: 1, scale: 1 }}
@@ -211,6 +231,7 @@ function HomePage() {
                   </AnimatePresence>
                 </motion.div>
 
+                {!isMobile && (
                 <motion.div
                   className="hero-notif-card"
                   variants={fadeUpSmall}
@@ -221,33 +242,34 @@ function HomePage() {
                     <span className="hero-notif-avatar">
                       <AnimatePresence mode="wait">
                         <motion.img
-                          key={FOUNDER_IMAGES[heroImgIndex]}
-                          src={assetPath(`/images/${FOUNDER_IMAGES[heroImgIndex]}`)}
+                          key={HERO_CARDS[heroImgIndex % HERO_CARDS.length].avatar.file}
+                          src={assetPath(`/${HERO_CARDS[heroImgIndex % HERO_CARDS.length].avatar.dir}/${HERO_CARDS[heroImgIndex % HERO_CARDS.length].avatar.file}`)}
                           alt=""
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
-                          transition={{ duration: 0.4 }}
+                          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                         />
                       </AnimatePresence>
                     </span>
-                    <span className="hero-notif-name">{t('home.heroCard.name')}</span>
+                    <span className="hero-notif-name">{t(`${HERO_CARDS[heroImgIndex % HERO_CARDS.length].localeKey}.name`)}</span>
                     <span className="hero-notif-check" aria-hidden="true">
                       <svg viewBox="0 0 20 20"><path d="M4 10l4 4 8-8"/></svg>
                     </span>
                   </div>
-                  <p className="hero-notif-quote">"{t('home.heroCard.quote')}"</p>
+                  <p className="hero-notif-quote">"{t(`${HERO_CARDS[heroImgIndex % HERO_CARDS.length].localeKey}.quote`)}"</p>
                   <div className="hero-notif-stats">
                     <div className="hero-notif-stat">
-                      <strong>{t('home.heroCard.stat1')}</strong>
-                      <span>{t('home.heroCard.stat1Label')}</span>
+                      <strong>{t(`${HERO_CARDS[heroImgIndex % HERO_CARDS.length].localeKey}.stat1`)}</strong>
+                      <span>{t(`${HERO_CARDS[heroImgIndex % HERO_CARDS.length].localeKey}.stat1Label`)}</span>
                     </div>
                     <div className="hero-notif-stat">
-                      <strong>{t('home.heroCard.stat2')}</strong>
-                      <span>{t('home.heroCard.stat2Label')}</span>
+                      <strong>{t(`${HERO_CARDS[heroImgIndex % HERO_CARDS.length].localeKey}.stat2`)}</strong>
+                      <span>{t(`${HERO_CARDS[heroImgIndex % HERO_CARDS.length].localeKey}.stat2Label`)}</span>
                     </div>
                   </div>
                 </motion.div>
+                )}
               </div>
             </motion.div>
           </div>

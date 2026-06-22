@@ -52,3 +52,20 @@ Thumbs.db
 
 # Windows reserved device names
 nul
+
+# AI/Tool configurations (not needed for website)
+.claude/
+.opencode/
+
+# Knowledge graph output
+graphify-out/
+
+# Documentation files (not needed for deployment)
+docs/
+e2e/
+*.md
+!README.md
+
+# Deployment docs
+HOSTINGER_DEPLOYMENT.md
+RESPONSIVE-IMPROVEMENTS.md

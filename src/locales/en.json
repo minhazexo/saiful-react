@@ -495,6 +495,22 @@
       "growth": "Business Growth"
     },
     "heroCard": {
+      "name": "Saiful Islam-Dhaka",
+      "quote": "I trained 2,000+ founders and built profitable e-commerce brands. Now I help you do the same.",
+      "stat1": "2,000+",
+      "stat1Label": "Founders Trained",
+      "stat2": "10+",
+      "stat2Label": "Years Experience"
+    },
+    "heroCardGirl": {
+      "name": "Rumana-Dhaka",
+      "quote": "1 year ago I had no online business experience. Now I earn 55,000+ BDT per month sitting at home.",
+      "stat1": "55,000৳",
+      "stat1Label": "Monthly Income",
+      "stat2": "1",
+      "stat2Label": "Year Taken"
+    },
+    "heroCardBoy": {
       "name": "Rafiul-Dhaka",
       "quote": "8 months ago I had no business experience. Now I earn 80,000+ BDT per month.",
       "stat1": "80,000৳",
