@@ -10,6 +10,7 @@ import '../Service/ServicePage.responsive.css';
 
 const SERVICE_ICONS = ['fast-content', 'online-presence', 'launch', 'grow'];
 const SERVICE_KEYS = ['content', 'ads', 'video', 'reporting'];
+const STAT_KEYS = ['brandPartners', 'avgRoas', 'avgRevenue', 'experience'];
 
 function GrowthPage() {
   const t = useTranslation();
@@ -86,28 +87,18 @@ function GrowthPage() {
         </div>
       </section>
 
-      <section className="stats">
-        <div className="wrap">
-          <MotionFadeUp>
-            <div className="stats-grid">
-              <div className="stat-item">
-                <div className="stat-num">{t('growth.stats.brandPartnersNum')}<span>{t('growth.stats.brandPartnersSym')}</span></div>
-                <div className="stat-label">{t('growth.stats.brandPartners')}</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-num">{t('growth.stats.avgRoasNum')}<span>{t('growth.stats.avgRoasSym')}</span></div>
-                <div className="stat-label">{t('growth.stats.avgRoas')}</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-num">{t('growth.stats.avgRevenueNum')}<span>{t('growth.stats.avgRevenueSym')}</span></div>
-                <div className="stat-label">{t('growth.stats.avgRevenue')}</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-num">{t('growth.stats.experienceNum')}<span>{t('growth.stats.experienceSym')}</span></div>
-                <div className="stat-label">{t('growth.stats.experience')}</div>
-              </div>
-            </div>
-          </MotionFadeUp>
+      <section className="stats-section">
+        <div className="stats-marquee">
+          <div className="stats-marquee-track">
+            {[...Array(2)].flatMap((_, dup) =>
+              STAT_KEYS.map((key, i) => (
+                <div key={`${dup}-${i}`} className="stat-card" aria-hidden={dup === 1}>
+                  <div className="stat-num">{t(`growth.stats.${key}Num`)}<span>{t(`growth.stats.${key}Sym`)}</span></div>
+                  <div className="stat-label">{t(`growth.stats.${key}`)}</div>
+                </div>
+              ))
+            )}
+          </div>
         </div>
       </section>
 

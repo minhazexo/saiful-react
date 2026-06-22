@@ -8,16 +8,6 @@
     grid-template-columns: 1fr;
   }
 
-  .stats-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-  }
-
-  .stat-item {
-    border-right: none;
-    padding: 0;
-  }
-
   .testi-grid {
     grid-template-columns: 1fr;
   }
