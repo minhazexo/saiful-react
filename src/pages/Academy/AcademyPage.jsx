@@ -6,6 +6,7 @@ import { MotionFadeUp } from '../../motion/MotionFadeUp';
 import { staggerContainer, fadeUp } from '../../motion/presets';
 import { assetPath } from '../../utils/assets';
 import './AcademyPage.css';
+import Packages from '../../components/Packages/Packages';
 import './AcademyPage.responsive.css';
 
 const MODULE_ICONS = ['learn', 'branding', 'setup', 'fast-content', 'online-presence', 'launch', 'idea', 'grow'];
@@ -341,6 +342,8 @@ function AcademyPage() {
           </div>
         </div>
       </section>
+
+      <Packages />
     </div>
   );
 }

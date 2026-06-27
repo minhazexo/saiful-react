@@ -110,11 +110,11 @@
     "aiPowered": "AI-Powered",
     "aiPoweredSub": "Marketing on autopilot",
     "stats": {
-      "designProjects": "Design Projects Delivered",
-      "industriesServed": "Industries Served",
-      "yearsExperience": "Years of Experience",
-      "consultations": "Business Consultations",
-      "businessesLaunched": "Businesses Launched",
+      "designProjects": "Successful Brands",
+      "industriesServed": "Student Training",
+      "yearsExperience": "Websites Created",
+      "consultations": "Average ROAS",
+      "businessesLaunched": "Years Experience",
       "students": "Students",
       "liveTraining": "Hours Live Training",
       "successfulEntrepreneurs": "Successful Entrepreneurs",
@@ -122,33 +122,54 @@
     },
     "startHere": {
       "eyebrow": "Start Your First Step",
-      "title": "Choose Your Journey",
+      "title": "Choose Your Category",
       "subtitle": "Enter the digital world — begin your journey today.",
       "stages": {
         "academy": {
-          "title": "I Want to Start a Business",
-          "desc": "Want to start from scratch? Learn everything you need to build a digital business — from the fundamentals to the path of success.",
-          "cta": "Start Learning About Experts"
+          "title": "I want to learn business",
+          "heading": "Academy",
+          "desc": "Learn online business and run it yourself.",
+          "features": [
+            "Online live classes",
+            "Lifetime support",
+            "Practical courses",
+            "Online business community support"
+          ],
+          "cta": "View Academy"
         },
         "setup": {
-          "title": "I Need Business Setup",
-          "desc": "Get a professional, customized, and complete business setup solution. Create the systems — simple and organized sales system.",
-          "cta": "Set Up My Business"
+          "title": "I want business setup",
+          "heading": "Setup Service",
+          "desc": "Get complete business setup with professional team.",
+          "features": [
+            "Logo & branding",
+            "Website setup",
+            "Automatic delivery integration",
+            "Social media page setup"
+          ],
+          "cta": "View Setup Service"
         },
         "growth": {
-          "title": "I Want More Sales",
-          "desc": "Already running a business? Optimize your marketing, content strategy, and sales funnel to unlock greater growth opportunities.",
-          "cta": "Grow My Business"
+          "title": "I want sales & growth",
+          "heading": "Growth Service",
+          "desc": "Grow business by increasing sales.",
+          "features": [
+            "Reels & video content",
+            "Meta ads & targeting",
+            "Conversion tracking & reporting",
+            "Private online business community"
+          ],
+          "cta": "View Growth Service"
         }
       },
       "trust": {
         "reliable": {
           "title": "Reliable & Secure",
-          "desc": "Your data & business 100% secure"
+          "desc": "Your information & business 100% secure"
         },
         "expert": {
           "title": "Expert Support",
-          "desc": "24/7 expert team assistance"
+          "desc": "Directly with expert team"
         },
         "results": {
           "title": "Results-Based Solution",
@@ -157,17 +178,17 @@
       }
     },
     "problems": {
-      "eyebrow": "Sound familiar?",
-      "title": "The problems you face — and how we solve them",
+      "eyebrow": "7 common reasons for failing in online business",
+      "title": "How we make your business successful",
       "subtitle": "If you have felt any of these, you are not alone — and you are not stuck.",
       "holdingBack": "What's holding you back",
       "howWeHelp": "How Saiful Studios helps",
       "items": {
-        "noBrand": "No Brand Identity or Logo",
-        "noWebsite": "No Professional Website",
-        "noContent": "No Content System or Strategy",
-        "noMarketing": "No Marketing Strategy or Ad Plan",
-        "noGrowth": "No Consistent Sales Growth"
+        "noBrand": "No good brand identity",
+        "noWebsite": "No professional website",
+        "noContent": "Ineffective web content & marketing",
+        "noMarketing": "Ad money is being wasted",
+        "noGrowth": "No consistent sales process"
       },
       "beforeLabel": "BEFORE",
       "afterLabel": "AFTER",
@@ -175,91 +196,91 @@
       "afterTitle": "Growing & Successful",
       "comparison": [
         {
-          "problemBn": "No Brand Identity",
-          "problemSubBn": "Visual trust is not built",
-          "benefitBn": "Trust increases",
-          "benefitSubBn": "Visual identity is created"
+          "problemBn": "No good brand identity",
+          "problemSubBn": "No one seems trustworthy",
+          "benefitBn": "Trust in brand increases",
+          "benefitSubBn": "Logo, color theme, typography & brand guidelines"
         },
         {
-          "problemBn": "No Professional Website",
-          "problemSubBn": "Customers can't find you",
-          "benefitBn": "Orders increase",
-          "benefitSubBn": "Customer growth happens"
+          "problemBn": "No professional website",
+          "problemSubBn": "Customer trust isn't built properly",
+          "benefitBn": "Digital customers are created",
+          "benefitSubBn": "Premium website design, payment integration, automatic delivery system"
         },
         {
-          "problemBn": "No Content System",
-          "problemSubBn": "Can't post consistently",
-          "benefitBn": "Saves 70% time",
-          "benefitSubBn": "Content goes consistently"
+          "problemBn": "Ineffective web content & marketing",
+          "problemSubBn": "Experience isn't created, brand isn't remembered",
+          "benefitBn": "Promotion",
+          "benefitSubBn": "Content calendar strategy, image ads, video ads analysis"
         },
         {
-          "problemBn": "No Marketing Strategy",
-          "problemSubBn": "Can't reach the right audience",
-          "benefitBn": "Leads increase",
-          "benefitSubBn": "Leads & sales grow"
+          "problemBn": "Ad money is being wasted",
+          "problemSubBn": "Running without proper experience & strategy",
+          "benefitBn": "More sales at less cost",
+          "benefitSubBn": "Low output, tracking setup, more sales & returning"
         },
         {
-          "problemBn": "No Consistent Sales Growth",
-          "problemSubBn": "Sales drop, income stays flat",
+          "problemBn": "No consistent sales process",
+          "problemSubBn": "Sometimes sales happen, sometimes not",
           "benefitBn": "Consistent sales",
-          "benefitSubBn": "And business growth"
+          "benefitSubBn": "Channel, architecture, automation & flowmetric work"
         }
       ],
       "solutions": {
         "brand": {
-          "title": "Complete Brand Identity",
-          "desc": "Logo, color palette, typography, brand guidelines"
+          "title": "Professional Brand Identity",
+          "desc": "Logo, color theme, typography & brand guidelines"
         },
         "website": {
-          "title": "High-Converting Website",
-          "desc": "Custom e-commerce with payment gateway integration"
+          "title": "High-Converting E-commerce Website",
+          "desc": "Premium website design, payment integration, automatic delivery system"
         },
         "content": {
-          "title": "AI-Powered Content System",
-          "desc": "Automated content pipeline using Canva, ChatGPT, CapCut"
+          "title": "Customer Creative Content & Marketing Strategy",
+          "desc": "Content calendar strategy, image ads, video ads analysis"
         },
         "marketing": {
-          "title": "Full-Stack Marketing Strategy",
-          "desc": "Facebook Ads, organic content, video marketing, data-driven growth"
+          "title": "Data-Driven Marketing Strategy",
+          "desc": "Low output, tracking setup, more sales & returning"
         },
         "growth": {
-          "title": "Consistent Sales Growth",
-          "desc": "Proven strategy & funnel system for sustainable business growth"
+          "title": "Systematic Growth Plan",
+          "desc": "Channel, architecture, automation & flowmetric work"
         }
       },
       "bottom": {
         "text": "Identify the real problems of your business and get the right solution!",
-        "trust": "500+ businesses trust us",
+        "trust": "100+ businesses real answers",
         "cta": "Get Free Business Consultation"
       }
     },
     "framework": {
-      "eyebrow": "The Framework",
-      "title": "Your E-commerce Roadmap",
-      "subtitle": "A proven 6-step framework to take your business from idea to scale.",
+      "eyebrow": "Framework",
+      "title": "Your Complete Online Business Journey",
+      "subtitle": "From idea to growth and client — we are with you at every step.",
       "idea": {
-        "title": "Idea",
-        "desc": "Validate your business idea with market research and find your winning product niche."
+        "title": "Academy",
+        "desc": "Learn business, digital marketing & AI, social media, email, branding & business planning."
       },
       "learn": {
-        "title": "Learn",
-        "desc": "Master the fundamentals of e-commerce, branding, and AI tools in our Academy."
+        "title": "Branding",
+        "desc": "New logo, professional visual setup, brand identity & recognition."
       },
       "setup": {
-        "title": "Setup",
-        "desc": "Build a real, sellable brand with our Setup team — store, logo, pages, payment."
+        "title": "Website",
+        "desc": "Professional & mobile-friendly website for customer business."
       },
       "launch": {
-        "title": "Launch",
-        "desc": "Go live with a high-converting website, payment gateway, and professional branding."
+        "title": "Content Creation",
+        "desc": "Organized & AI-powered through photos, videos & content."
       },
       "grow": {
-        "title": "Grow",
-        "desc": "Scale with our Growth Partners — AI marketing, ads, automation, and SOPs."
+        "title": "Marketing & Growth",
+        "desc": "Social media, paid ads, email marketing & conversion."
       },
       "scale": {
-        "title": "Scale",
-        "desc": "Expand to new markets, multiply revenue streams, and build a sustainable brand empire."
+        "title": "Growth & Scaling",
+        "desc": "Automation, more customer targeting & business expansion."
       }
     },
     "packages": {
@@ -312,15 +333,16 @@
       }
     },
     "founder": {
-      "eyebrow": "Meet the founder",
+      "title": "My real experience on your path to success",
       "role": "Founder & E-commerce Strategist",
-      "bio": "For the last 10+ years I have helped Bangladeshi founders turn ideas into real, profitable e-commerce brands. I started with design, grew into branding, and now run a full-stack growth studio focused on AI marketing systems. My mission: make world-class e-commerce education and execution accessible to every ambitious founder in Bangladesh.",
-      "bookCall": "Book a call with Saiful",
+      "bookCall": "Talk to me",
       "yearsExp": "Years experience",
+      "specialty": "Graphic Designer + Video Editor + Marketing Strategist",
       "stats": {
-        "projects": "Projects delivered",
-        "industries": "Industries served",
-        "founders": "Founders trained"
+        "exp": "10+ years digital experience",
+        "brands": "20+ brands worked with",
+        "entrepreneurs": "50+ entrepreneurs trained",
+        "businesses": "80+ businesses launched"
       }
     },
     "founderIntro": {
@@ -407,38 +429,38 @@
     },
     "cases": {
       "eyebrow": "Real Results",
-      "title": "Case studies from our portfolio",
+      "title": "Real results from client brands",
       "subtitle": "Six brands. Six stories. Real numbers — not vanity metrics.",
       "seeAll": "See all case studies",
       "viewProject": "View Project",
       "challenge": "Challenge",
-      "solution": "Solution",
-      "result": "Result"
+      "whatWeDid": "What we did",
+      "keyResult": "Key Result"
     },
     "testimonials": {
       "eyebrow": "Testimonials",
-      "title": "What founders say",
+      "title": "Our success stories & client testimonials",
       "subtitle": "Honest words from real clients we have worked with.",
       "items": {
         "rahim": {
-          "name": "Rahim Uddin",
-          "role": "Founder of Leathix",
-          "text": "Saiful Studios completely transformed my leather brand. The website they built is stunning and professional. Within 3 months, my online orders tripled. Best investment I have made for my business."
+          "name": "Rakibul Hasan",
+          "role": "Founder & CEO",
+          "text": "Created logo, brand color & complete brand identity for my business. Now the brand looks much more professional on all platforms."
         },
         "farida": {
-          "name": "Farida Khanam",
-          "role": "Fashion Entrepreneur",
-          "text": "The AI Marketing System training was a game-changer. I now create a month\\'s worth of content in a single weekend. My Instagram following grew from 500 to 15,000 in just 4 months!"
+          "name": "Tasnim Akter",
+          "role": "Founder",
+          "text": "The entire website setup process was very easy. Now customers can easily order online."
         },
         "nusrat": {
-          "name": "Nusrat Jahan",
-          "role": "E-commerce Academy Graduate",
-          "text": "Joining the E-commerce Academy was the best decision. Saiful explains everything so clearly. I went from zero knowledge to launching my own business and making sales in just 60 days."
+          "name": "Mohini Hasan",
+          "role": "Founder",
+          "text": "What I like most is their strategy - not just ads, they work on content, website and the entire growth system."
         },
         "kamal": {
-          "name": "Kamal Hossain",
-          "role": "Founder of TechZone BD",
-          "text": "Our brand positioning strategy with Saiful Studios changed everything. We went from being just another electronics reseller to a trusted brand. Our margins improved by 40% and customers now seek us out."
+          "name": "Ayub Ali",
+          "role": "Founder",
+          "text": "Our margin improved by 40% and customers now find us on their own."
         },
         "sultana": {
           "name": "Sultana Begum",
@@ -520,32 +542,49 @@
     }
   },
   "faq": {
-    "eyebrow": "FAQ",
+    "eyebrow": "Can't decide yet?",
     "title": "Frequently Asked Questions",
+    "subtitle": "",
     "items": {
       "experience": {
-        "q": "Do I need any prior experience to join the E-commerce Academy?",
-        "a": "Absolutely not! Designed for complete beginners. Start from basics to launching a profitable business."
+        "q": "I'm completely new, can I still start?",
+        "a": "Yes. Our Academy, Setup & Growth system is designed for new entrepreneurs."
       },
-      "setupTime": {
-        "q": "How long does the Business Setup take?",
-        "a": "2–4 weeks depending on complexity. Regular progress updates."
+      "diffAcademySetupGrowth": {
+        "q": "What's the difference between Academy, Setup & Growth?",
+        "a": "Academy teaches you, Setup builds your business, and Growth helps increase your business sales & growth."
       },
-      "payment": {
-        "q": "What payment methods do you accept?",
-        "a": "Bkash, Nagad, Rocket, bank transfers. For international clients: PayPal and bank wire transfers. Payment plans available."
+      "separateServices": {
+        "q": "Can I take Website, Branding & Marketing separately?",
+        "a": "Yes. You can take specific services or complete packages as per your needs."
       },
-      "consultation": {
-        "q": "Do you offer a free consultation before starting?",
-        "a": "Yes, complimentary 30-minute consultation. No obligation."
+      "budget": {
+        "q": "How much money is needed to start a business?",
+        "a": "This varies depending on your product, market & goals. In free consultation we give a realistic budget plan."
       },
-      "upgrade": {
-        "q": "Can I upgrade from the Academy to Business Setup later?",
-        "a": "Yes, many clients do. Discounts available for Academy graduates."
+      "selfRun": {
+        "q": "Can I run the business myself?",
+        "a": "Yes. Our goal is not just to get work done, but to give you a system so you can run the business yourself."
       },
-      "growth": {
-        "q": "How do the monthly Growth Partner services work?",
-        "a": "Monthly retainer handling content creation, ad management, growth strategy. Includes dedicated account manager, weekly progress reports, monthly strategy session."
+      "timeline": {
+        "q": "How long does it take to see results?",
+        "a": "Depends on business type and budget. Usually significant data and improvement are seen within 30-50 days."
+      },
+      "realExperience": {
+        "q": "Do you work from real business experience?",
+        "a": "Yes. Our Strategy, SOP & Framework are built based on experience working with real brands."
+      },
+      "bestService": {
+        "q": "Which service is best for my business?",
+        "a": "Based on your current situation, we recommend the right solution among Academy, Setup or Growth."
+      },
+      "freeConsultation": {
+        "q": "What do I get in free consultation?",
+        "a": "Analysis of your current situation, problem identification & a clear roadmap for next steps."
+      },
+      "whyDifferent": {
+        "q": "Why is Saiful Studios different from others?",
+        "a": "Because we don't just sell work, don't just make websites, don't just run ads. We provide learning & setup & growth — a complete e-commerce ecosystem."
       }
     }
   },
@@ -1113,28 +1152,36 @@
     "challenge": "Challenge",
     "solution": "Solution",
     "result": "Result",
-    "keyOutcome": "Key Outcome",
+    "keyResult": "Key Result",
     "defaults": {
       "leathix": {
         "category": "Premium Leather Brand",
-        "challenge": "No brand identity, inconsistent visuals, zero online presence.",
-        "solution": "Complete brand identity, e-commerce website, product photography direction, Instagram growth strategy.",
-        "result": "300% increase in online sales within 3 months.",
-        "highlight": "300% sales increase"
+        "challenge": "Newly created leather bags with low orders, weak brand presence and no online visibility.",
+        "whatWeDid": [
+          "Created professional brand kit and visual identity",
+          "Built e-commerce website and optimized customer journey"
+        ],
+        "highlight": "48 orders in 45 days"
       },
       "futureConnect": {
-        "category": "Tech Accessories Brand",
-        "challenge": "Basic Facebook page only, no website, no ads strategy, declining organic reach.",
-        "solution": "Custom website with SEO, Facebook Ads campaign setup, content calendar, monthly growth management.",
-        "result": "৳500K+ monthly revenue achieved in 6 months with 4x ROAS.",
-        "highlight": "৳500K+ monthly"
+        "category": "E-commerce Leather Brand",
+        "challenge": "Leather products need more sales but no proper strategy, customer trust not building on website.",
+        "whatWeDid": [
+          "Content marketing and social media strategy",
+          "Product catalog and visual content creation",
+          "Instagram and Facebook ad setup",
+          "Customer review and social proof campaign"
+        ],
+        "highlight": "2 Lakh+ sales in first month"
       },
       "fashionNova": {
-        "category": "Fashion E-commerce",
-        "challenge": "New entrepreneur with budget constraints, needed full e-commerce setup from scratch.",
-        "solution": "Brand identity, website, Bkash/Nagad payment integration, AI content system training, first ad campaign.",
-        "result": "First ৳1M revenue milestone within 4 months.",
-        "highlight": "৳1M in 4 months"
+        "category": "Shop House BD",
+        "challenge": "No professional brand identity, customer trust not building on website, and sales process not systematic.",
+        "whatWeDid": [
+          "Logo and brand identity design",
+          "Built user-friendly e-commerce website"
+        ],
+        "highlight": "Professional brand image"
       },
       "naturalGlow": {
         "category": "Skincare Brand",

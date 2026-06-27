@@ -6,6 +6,7 @@ import Seo from '../../components/Seo';
 import { fadeUp, fadeUpSmall, staggerContainer } from '../../motion/presets';
 import { assetPath } from '../../utils/assets';
 import '../../pages/Home/HomePage.css';
+import Packages from '../../components/Packages/Packages';
 import './RoadmapPage.css';
 
 function RoadmapPage() {
@@ -126,6 +127,8 @@ function RoadmapPage() {
           </div>
         </div>
       </section>
+
+      <Packages />
     </div>
   );
 }

@@ -8,6 +8,7 @@ import MobileCarousel from '../../components/MobileCarousel/MobileCarousel';
 import { staggerContainer, fadeUp } from '../../motion/presets';
 import { formatDate } from '../../utils/date';
 import './BlogPage.css';
+import Packages from '../../components/Packages/Packages';
 import './BlogPage.responsive.css';
 
 const DEFAULT_KEYS = [
@@ -159,6 +160,8 @@ function BlogPage() {
           )}
         </div>
       </section>
+
+      <Packages />
     </div>
   );
 }

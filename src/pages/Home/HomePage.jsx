@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import api, { IS_DEMO_MODE } from '../../api';
 import { useTranslation } from '../../context/LanguageContext';
 import FAQ from '../../components/FAQ/FAQ';
+import Packages from '../../components/Packages/Packages';
 import Seo from '../../components/Seo';
 import MobileCarousel from '../../components/MobileCarousel/MobileCarousel';
 import { MotionFadeUp, MotionStaggerContainer, MotionStaggerItem } from '../../motion/MotionFadeUp';
@@ -70,7 +70,6 @@ const PROBLEM_KEYS = ['noBrand', 'noWebsite', 'noContent', 'noMarketing', 'noGro
 const SOLUTION_KEYS = ['brand', 'website', 'content', 'marketing', 'growth'];
 const FRAMEWORK_KEYS = ['idea', 'learn', 'setup', 'launch', 'grow', 'scale'];
 const FRAMEWORK_ICONS = ['idea', 'learn', 'setup', 'launch', 'grow', 'scale'];
-const PACKAGE_KEYS = ['academy', 'setup', 'growth'];
 const AI_TOOL_KEYS = ['canva', 'chatgpt', 'gemini', 'capcut'];
 const WORKFLOW_KEYS = ['research', 'create', 'produce', 'distribute', 'optimize'];
 const TESTIMONIAL_KEYS = ['rahim', 'farida', 'nusrat', 'kamal', 'sultana', 'hasan'];
@@ -110,9 +109,6 @@ function HomePage() {
   const t = useTranslation();
   const navigate = useNavigate();
 
-  const [formData, setFormData] = useState({ name: '', email: '', whatsapp: '' });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
   const [openFramework, setOpenFramework] = useState(null);
   const [heroImgIndex, setHeroImgIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
@@ -130,23 +126,6 @@ function HomePage() {
     }, 8000);
     return () => clearInterval(interval);
   }, []);
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    try {
-      await api.post('/contact', { ...formData, source: 'lead-magnet' });
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', whatsapp: '' });
-    } catch (err) {
-      setSubmitStatus(IS_DEMO_MODE || err?.isDemoMode ? 'demo' : 'error');
-    } finally { setIsSubmitting(false); }
-  };
 
   return (
     <div className="home-page">
@@ -170,9 +149,6 @@ function HomePage() {
               <motion.h1 className="hero-title" variants={fadeUp}>
                 {t('home.heroTitle')}
               </motion.h1>
-              <motion.p className="hero-subtitle-line" variants={fadeUpSmall}>
-                {t('home.heroTitleSub')}
-              </motion.p>
               <motion.p className="hero-description" variants={fadeUpSmall}>
                 {(() => {
                   const parts = t('home.heroSubtitle').split('—');
@@ -405,8 +381,19 @@ function HomePage() {
                   </div>
                 </div>
                 <div className="journey-card-content">
+                  <span className="journey-pill">{t(`home.startHere.stages.${key}.heading`)}</span>
                   <h3>{t(`home.startHere.stages.${key}.title`)}</h3>
                   <p>{t(`home.startHere.stages.${key}.desc`)}</p>
+                  {t(`home.startHere.stages.${key}.features`, { returnObjects: true }) && (
+                    <ul className="journey-features">
+                      {t(`home.startHere.stages.${key}.features`, { returnObjects: true }).map((f, fi) => (
+                        <li key={fi}>
+                          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10l4 4 8-8"/></svg>
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                   <button
                     className="btn btn-journey"
                     onClick={() => navigate(`/${key === 'academy' ? 'academy' : key}`)}
@@ -539,9 +526,6 @@ function HomePage() {
                       </div>
                     </div>
 
-                    {/* Arrow */}
-                    <div className="row-arrow" aria-hidden="true">→</div>
-
                     {/* Solution Side */}
                     <div className="solution-side">
                       <div className="solution-icon-circle">
@@ -553,10 +537,11 @@ function HomePage() {
                         <strong>{t(`home.problems.solutions.${solutionKey}.title`)}</strong>
                         <small>{t(`home.problems.solutions.${solutionKey}.desc`)}</small>
                       </div>
-                      <div className="solution-benefit">
-                        <span className="benefit-sub">{t(`home.problems.comparison.${i}.benefitSubBn`)}</span>
-                        <span className="benefit-text">{t(`home.problems.comparison.${i}.benefitBn`)}</span>
-                      </div>
+                    </div>
+
+                    {/* Benefit Badge */}
+                    <div className="solution-benefit">
+                      <span className="benefit-text">{t(`home.problems.comparison.${i}.resultBn`)}</span>
                     </div>
                   </motion.div>
                 );
@@ -690,26 +675,30 @@ function HomePage() {
                   <div className="case-header-icon" aria-hidden="true">
                     {CASE_ICONS[i]}
                   </div>
-                  <div className="case-header-text">
-                    <span className="case-category">{t(`caseStudies.defaults.${key}.category`)}</span>
-                    <h3>{CASE_TITLES[i]}</h3>
+                  <h3>{CASE_TITLES[i]}</h3>
+                </div>
+                <div className="case-body">
+                  <div className="case-block">
+                    <div className="case-block-label">{t('home.cases.challenge')}</div>
+                    <p>{t(`caseStudies.defaults.${key}.challenge`)}</p>
+                  </div>
+                  <div className="case-block">
+                    <div className="case-block-label">{t('home.cases.whatWeDid')}</div>
+                    <ul className="case-checklist">
+                      {t(`caseStudies.defaults.${key}.whatWeDid`, { returnObjects: true }) && (
+                        t(`caseStudies.defaults.${key}.whatWeDid`, { returnObjects: true }).map((item, ci) => (
+                          <li key={ci}>
+                            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10l4 4 8-8"/></svg>
+                            {item}
+                          </li>
+                        ))
+                      )}
+                    </ul>
                   </div>
                 </div>
-                <div className="case-block">
-                  <div className="case-block-label">{t('home.cases.challenge')}</div>
-                  <p>{t(`caseStudies.defaults.${key}.challenge`)}</p>
-                </div>
-                <div className="case-block">
-                  <div className="case-block-label">{t('home.cases.solution')}</div>
-                  <p>{t(`caseStudies.defaults.${key}.solution`)}</p>
-                </div>
-                <div className="case-block">
-                  <div className="case-block-label">{t('home.cases.result')}</div>
-                  <p>{t(`caseStudies.defaults.${key}.result`)}</p>
-                </div>
-                <div className="case-highlight-box">
-                  <div className="case-highlight-label">{t('caseStudies.keyOutcome')}</div>
-                  <div className="case-highlight-value">{t(`caseStudies.defaults.${key}.highlight`)}</div>
+                <div className="case-result-box">
+                  <div className="case-result-label">{t('home.cases.keyResult')}</div>
+                  <div className="case-result-value">{t(`caseStudies.defaults.${key}.highlight`)}</div>
                 </div>
               </motion.div>
             ))}
@@ -774,70 +763,7 @@ function HomePage() {
 
       <FAQ />
 
-      <section className="section packages-section" id="packages">
-        <div className="container">
-          <MotionFadeUp className="section-head">
-            <span className="eyebrow">
-              <span aria-hidden="true">💼</span> {t('home.packages.eyebrow')}
-            </span>
-            <h2>{t('home.packages.title')}</h2>
-            <p>{t('home.packages.subtitle')}</p>
-          </MotionFadeUp>
-
-          <div className="packages-grid">
-            {PACKAGE_KEYS.map((key) => {
-              const featured = key === 'setup';
-              const featureKeys =
-                key === 'academy'
-                  ? ['liveClasses', 'templates', 'community', 'aiTools', 'lifetime']
-                  : key === 'setup'
-                    ? ['logo', 'brand', 'website', 'payment', 'social']
-                    : ['content', 'ads', 'video', 'strategy', 'reporting'];
-              return (
-                <motion.div
-                  key={key}
-                  className={`package-card ${featured ? 'featured' : ''}`}
-                  initial={{ opacity: 0, y: 14 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  {featured && (
-                    <div className="package-badge">⭐ {t('home.packages.mostPopular')}</div>
-                  )}
-                  <div className="package-icon">
-                    {key === 'academy' ? '🎓' : key === 'setup' ? '🚀' : '📈'}
-                  </div>
-                  <h3 className="package-name">{t(`home.packages.${key}.name`)}</h3>
-                  <div className="package-price">
-                    {t(`home.packages.${key}.price`)}
-                    <span>{t(`home.packages.${key}.period`)}</span>
-                  </div>
-                  <p className="package-desc">{t(`home.packages.${key}.desc`)}</p>
-                  <ul className="package-features">
-                    {featureKeys.map((fKey) => (
-                      <li key={fKey}>
-                        <span className="check">✓</span>
-                        {t(`home.packages.${key}.features.${fKey}`)}
-                      </li>
-                    ))}
-                  </ul>
-                  <button
-                    className={`btn ${featured ? 'btn-primary' : 'btn-dark'} btn-block`}
-                    onClick={() =>
-                      navigate(
-                        key === 'academy' ? '/academy' : key === 'setup' ? '/setup' : '/growth'
-                      )
-                    }
-                  >
-                    {t(`home.packages.${key}.cta`)}
-                  </button>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <Packages />
 
       <section className="section founder-section">
         <div className="container">
@@ -856,43 +782,33 @@ function HomePage() {
                 loading="lazy"
               />
               <div className="founder-exp-badge">
-                <strong>10+</strong>
+                <strong>১০+</strong>
                 <span>{t('home.founder.yearsExp')}</span>
               </div>
             </motion.div>
 
             <motion.div className="founder-content" variants={fadeUp}>
-              <span className="eyebrow">
-                <span aria-hidden="true">👋</span> {t('home.founder.eyebrow')}
-              </span>
               <h2>{t('home.founderName')}</h2>
               <p className="founder-role">{t('home.founder.role')}</p>
-              <p className="founder-bio">{t('home.founder.bio')}</p>
 
-              <div className="founder-stats">
-                <div>
-                  <div className="founder-stat-num">5,000+</div>
-                  <div className="founder-stat-label">{t('home.founder.stats.projects')}</div>
-                </div>
-                <div>
-                  <div className="founder-stat-num">20+</div>
-                  <div className="founder-stat-label">{t('home.founder.stats.industries')}</div>
-                </div>
-                <div>
-                  <div className="founder-stat-num">2,000+</div>
-                  <div className="founder-stat-label">{t('home.founder.stats.founders')}</div>
-                </div>
-              </div>
+              <ul className="founder-stats-list">
+                <li>{t('home.founder.stats.exp')}</li>
+                <li>{t('home.founder.stats.brands')}</li>
+                <li>{t('home.founder.stats.entrepreneurs')}</li>
+                <li>{t('home.founder.stats.businesses')}</li>
+              </ul>
+
+              <p className="founder-specialty">{t('home.founder.specialty')}</p>
 
               <motion.button
-                className="btn btn-primary"
+                className="btn btn-dark"
                 onClick={() => navigate('/contact')}
                 variants={buttonHover}
                 initial="rest"
                 whileHover="hover"
                 whileTap="tap"
               >
-                📞 {t('home.founder.bookCall')}
+                {t('home.founder.bookCall')}
               </motion.button>
             </motion.div>
           </motion.div>
@@ -921,96 +837,6 @@ function HomePage() {
               <source src={assetPath('/videos/founder-intro.mp4')} type="video/mp4" />
             </video>
           </MotionFadeUp>
-        </div>
-      </section>
-
-      <section className="section lead-magnet">
-        <div className="lead-glow lead-glow-1" />
-        <div className="lead-glow lead-glow-2" />
-        <div className="container">
-          <div className="lead-grid">
-            <motion.div
-              className="lead-content"
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-            >
-              <motion.div className="lead-badge" variants={fadeUpSmall}>
-                🔥 {t('home.leadMagnet.badge')}
-              </motion.div>
-              <motion.h2 className="lead-heading" variants={fadeUp}>
-                {t('home.leadMagnet.title')}
-              </motion.h2>
-              <motion.div className="lead-cover-wrap" variants={fadeUp}>
-                <motion.img
-                  src={assetPath('/for-cover/e-book-cover.png')}
-                  alt="E-Book Cover"
-                  className="lead-cover-img"
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 5, ease: 'easeInOut', repeat: Infinity }}
-                />
-              </motion.div>
-            </motion.div>
-
-            <motion.div
-              className="lead-form-card"
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-            >
-              <motion.h3 className="lead-form-title" variants={fadeUpSmall}>
-                {t('home.leadMagnet.formTitle')} 📦
-              </motion.h3>
-              <form onSubmit={handleFormSubmit}>
-                <motion.div className="lead-form-group" variants={fadeUpSmall}>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder={t('home.leadMagnet.namePlaceholder')}
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </motion.div>
-                <motion.div className="lead-form-group" variants={fadeUpSmall}>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder={t('home.leadMagnet.emailPlaceholder')}
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </motion.div>
-                <motion.div className="lead-form-group" variants={fadeUpSmall}>
-                  <input
-                    type="tel"
-                    name="whatsapp"
-                    placeholder={t('home.leadMagnet.whatsappPlaceholder')}
-                    value={formData.whatsapp}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </motion.div>
-                <motion.button
-                  type="submit"
-                  className="lead-cta-btn"
-                  disabled={isSubmitting}
-                  variants={fadeUpSmall}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  {isSubmitting ? `⏳ ${t('home.leadMagnet.submitting')}` : `⬇ ${t('home.leadMagnet.submit')}`}
-                </motion.button>
-                {submitStatus === 'success' && <p className="lead-success">✅ {t('home.leadMagnet.success')}</p>}
-                {submitStatus === 'error' && <p className="lead-error">❌ {t('home.leadMagnet.error')}</p>}
-                {submitStatus === 'demo' && <p className="lead-error" role="status">👀 {t('demo.formMessage')}</p>}
-
-              </form>
-            </motion.div>
-          </div>
         </div>
       </section>
 

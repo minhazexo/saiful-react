@@ -11,6 +11,7 @@ import { fadeUp, fadeUpSmall, staggerContainer } from '../../motion/presets';
 import { formatDate } from '../../utils/date';
 import '../Blog/BlogPage.css';
 import '../Blog/BlogPage.responsive.css';
+import Packages from '../../components/Packages/Packages';
 import './BlogDetailPage.responsive.css';
 
 const FALLBACK_KEY = 'winningProducts';
@@ -138,6 +139,8 @@ function BlogDetailPage() {
           </motion.div>
         </motion.div>
       </div>
+
+      <Packages />
     </div>
   );
 }

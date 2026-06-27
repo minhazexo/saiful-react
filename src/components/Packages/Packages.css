@@ -1,0 +1,247 @@
+.packages-section {
+  background: #f9f9fb;
+  scroll-margin-top: 70px;
+}
+
+.package-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 36px 28px;
+  text-align: left;
+  transition: all var(--t);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.package-card:not(.featured) {
+  border-color: #999;
+}
+
+.package-card:first-child .btn-dark:hover,
+.package-card:last-child .btn-dark:hover {
+  background: #000000 !important;
+}
+
+.package-card:hover {
+  transform: translateY(-6px);
+}
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1.6fr 1.6fr;
+  gap: 24px;
+  align-items: end;
+}
+
+.package-icon {
+  font-size: 38px;
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+.package-card .package-icon {
+  text-align: center;
+}
+
+.package-card.featured {
+  background: #000000;
+  border: 2px solid #000;
+  padding: 48px 36px 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.package-card.featured .package-icon {
+  font-size: 44px;
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.package-card.featured .package-name {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+}
+
+.package-card.featured .package-price {
+  color: #fff;
+  font-size: 48px;
+  margin-bottom: 6px;
+}
+
+.package-card.featured .package-price span {
+  color: #fff;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.package-card.featured .package-desc {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 14px;
+  min-height: 0;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.package-card.featured .package-features {
+  gap: 0;
+  margin-bottom: 28px;
+}
+
+.package-card.featured .package-features li {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 14px;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.package-card.featured .package-features li:last-child {
+  border-bottom: none;
+}
+
+.package-card.featured .check {
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 800;
+  width: auto;
+  height: auto;
+  display: inline;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border-radius: 0;
+  flex-shrink: 0;
+}
+
+.package-card.featured .btn {
+  background: #fff;
+  color: #000;
+  padding: 16px 28px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: var(--radius-pill, 50px);
+  border: 1px solid #000;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.package-card.featured .btn:hover {
+  background: #000;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.package-card.featured:hover {
+  transform: translateY(-6px);
+}
+
+.package-badge {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--green);
+  color: #000000;
+  padding: 8px 22px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+  z-index: 3;
+}
+
+.package-name {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #000000;
+  margin-bottom: 8px;
+}
+
+.package-price {
+  font-family: var(--font-heading);
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--dark);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.package-price span {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+.package-desc {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-bottom: 12px;
+  min-height: 0;
+  line-height: 1.6;
+}
+
+.package-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+.package-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text);
+  padding: 8px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.package-features li:last-child {
+  border-bottom: none;
+}
+
+.check {
+  color: var(--green);
+  font-weight: 800;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.package-card:not(.featured) .check {
+  color: #000;
+}
+
+.package-card:not(.featured) .btn {
+  background: transparent;
+  color: var(--dark);
+  border: 2px solid #666;
+  padding: 14px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: var(--radius-pill, 50px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.package-card:not(.featured) .btn:hover {
+  background: var(--dark);
+  color: #fff;
+}
+
+.btn-block {
+  width: 100%;
+  display: block;
+}

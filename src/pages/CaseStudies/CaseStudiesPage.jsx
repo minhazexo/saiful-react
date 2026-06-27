@@ -6,6 +6,7 @@ import Seo from '../../components/Seo';
 import MobileCarousel from '../../components/MobileCarousel/MobileCarousel';
 import { staggerContainer, fadeUp } from '../../motion/presets';
 import './CaseStudiesPage.css';
+import Packages from '../../components/Packages/Packages';
 import './CaseStudiesPage.responsive.css';
 
 const DEFAULT_CASES = [
@@ -117,6 +118,8 @@ function CaseStudiesPage() {
           )}
         </div>
       </section>
+
+      <Packages />
     </div>
   );
 }

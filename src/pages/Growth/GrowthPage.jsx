@@ -6,6 +6,7 @@ import { MotionFadeUp } from '../../motion/MotionFadeUp';
 import { staggerContainer, fadeUp } from '../../motion/presets';
 import { assetPath } from '../../utils/assets';
 import '../Service/ServicePage.css';
+import Packages from '../../components/Packages/Packages';
 import '../Service/ServicePage.responsive.css';
 
 const SERVICE_ICONS = ['fast-content', 'online-presence', 'launch', 'grow'];
@@ -163,6 +164,8 @@ function GrowthPage() {
           </motion.div>
         </motion.div>
       </section>
+
+      <Packages />
     </div>
   );
 }

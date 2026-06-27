@@ -17,11 +17,15 @@ function FAQ({ items, title, subtitle, eyebrow }) {
 
   const translated = [
     'experience',
-    'setupTime',
-    'payment',
-    'consultation',
-    'upgrade',
-    'growth',
+    'diffAcademySetupGrowth',
+    'separateServices',
+    'budget',
+    'selfRun',
+    'timeline',
+    'realExperience',
+    'bestService',
+    'freeConsultation',
+    'whyDifferent',
   ].map((key) => ({ q: t(`faq.items.${key}.q`), a: t(`faq.items.${key}.a`) }));
 
   const faqs = items || translated;

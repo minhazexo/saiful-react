@@ -4,6 +4,7 @@ import Seo from '../../components/Seo';
 import { MotionFadeUp } from '../../motion/MotionFadeUp';
 import { staggerContainer, fadeUp } from '../../motion/presets';
 import './SetupPage.css';
+import Packages from '../../components/Packages/Packages';
 import './SetupPage.responsive.css';
 
 const SERVICE_KEYS = ['brand', 'website', 'payment', 'social'];
@@ -159,6 +160,8 @@ function SetupPage() {
           </motion.div>
         </div>
       </section>
+
+      <Packages />
     </div>
   );
 }

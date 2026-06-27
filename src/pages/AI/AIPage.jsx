@@ -7,6 +7,7 @@ import { MotionFadeUp } from '../../motion/MotionFadeUp';
 import { staggerContainer, fadeUp, buttonHover } from '../../motion/presets';
 import { assetPath } from '../../utils/assets';
 import './AIPage.css';
+import Packages from '../../components/Packages/Packages';
 import './AIPage.responsive.css';
 
 const TOOL_ICONS = ['canva', 'chatgpt', 'gemini', 'capcut'];
@@ -148,6 +149,8 @@ function AIPage() {
           </motion.div>
         </div>
       </section>
+
+      <Packages />
     </div>
   );
 }

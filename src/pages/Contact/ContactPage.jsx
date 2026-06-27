@@ -5,6 +5,7 @@ import { useTranslation } from '../../context/LanguageContext';
 import Seo from '../../components/Seo';
 import { staggerContainer, fadeUp, fadeUpSmall, buttonHover } from '../../motion/presets';
 import './ContactPage.css';
+import Packages from '../../components/Packages/Packages';
 import './ContactPage.responsive.css';
 
 const SERVICE_KEYS = ['academy', 'setup', 'growth', 'ai', 'other'];
@@ -280,6 +281,8 @@ function ContactPage() {
           </div>
         </div>
       </section>
+
+      <Packages />
     </div>
   );
 }

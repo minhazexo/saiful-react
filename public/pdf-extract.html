@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PDF Bengali Text Extractor</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 20px auto; padding: 20px; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+        #output { margin-top: 20px; padding: 15px; background: #f5f5f5; border: 1px solid #ddd; min-height: 100px; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <h1>PDF Bengali Text Extractor</h1>
+    <p>Using Mozilla PDF.js to extract text (including Bengali/Bangla) from the PDF file.</p>
+    <button onclick="extractPdf()">Extract Text from PDF</button>
+    <div id="status"></div>
+    <h2>Extracted Text:</h2>
+    <pre id="output"></pre>
+    
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@4.0.338/build/pdf.min.js"></script>
+    <script>
+        async function extractPdf() {
+            const output = document.getElementById('output');
+            const status = document.getElementById('status');
+            
+            status.textContent = 'Loading PDF...';
+            output.textContent = '';
+            
+            try {
+                pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.0.338/build/pdf.worker.min.js';
+                
+                // Load PDF from relative path (works with Vite dev server)
+                const loadingTask = pdfjsLib.getDocument('./pdf/Final Home Page words.pdf');
+                const pdf = await loadingTask.promise;
+                
+                let fullText = '';
+                for (let i = 1; i <= pdf.numPages; i++) {
+                    const page = await pdf.getPage(i);
+                    const textContent = await page.getTextContent();
+                    const pageText = textContent.items.map(item => item.str).join(' ');
+                    fullText += pageText + '\n\n';
+                }
+                
+                output.textContent = fullText;
+                
+                // Extract Bengali text
+                const bengaliMatches = fullText.match(/[\u0980-\u09FF]+/g);
+                if (bengaliMatches && bengaliMatches.length > 0) {
+                    status.innerHTML = '<p style="color: green;">✓ Bengali text found! Check below.</p>';
+                    console.log('Bengali text segments:', [...new Set(bengaliMatches)]);
+                } else {
+                    status.innerHTML = '<p style="color: orange;">No Bengali characters detected in extracted text.</p>';
+                }
+            } catch (err) {
+                status.innerHTML = '<p style="color: red;">Error: ' + err.message + '</p>';
+                console.error('Error:', err);
+            }
+        }
+    </script>
+</body>
+</html>

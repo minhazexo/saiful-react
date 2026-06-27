@@ -8,6 +8,7 @@ import { MotionFadeUp } from '../../motion/MotionFadeUp';
 import { staggerContainer, fadeUp, slideInLeft, buttonHover } from '../../motion/presets';
 import { assetPath } from '../../utils/assets';
 import './AboutPage.css';
+import Packages from '../../components/Packages/Packages';
 import './AboutPage.responsive.css';
 
 const VALUE_ICONS = ['scale', 'learn', 'launch', 'learn', 'idea', 'grow'];
@@ -137,6 +138,8 @@ function AboutPage() {
           </motion.div>
         </div>
       </section>
+
+      <Packages />
     </div>
   );
 }
