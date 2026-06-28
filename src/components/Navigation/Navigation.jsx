@@ -182,6 +182,12 @@ function Navigation() {
                   </Link>
                 </li>
                 <li>
+                  <Link to="/ai-workplace" onClick={closeMobileMenu}>
+                    <span className="nav-dd-icon" aria-hidden="true">⚡</span>
+                    {t('nav.aiWorkplace')}
+                  </Link>
+                </li>
+                <li>
                   <Link to="/blog" onClick={closeMobileMenu}>
                     <span className="nav-dd-icon" aria-hidden="true">✍️</span>
                     {t('nav.blog')}

@@ -1,0 +1,305 @@
+/* ═══════════════════════════════════════
+   AI WORKPLACE — RESPONSIVE
+   ═══════════════════════════════════════ */
+
+/* ===== Tablet (≤1024px) ===== */
+@media (max-width: 1024px) {
+  .aiw-tools-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .aiw-workflow-steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .aiw-credit-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .aiw-hero {
+    min-height: auto;
+    padding: 100px 0 60px;
+  }
+
+  .aiw-hero-stats {
+    gap: 32px;
+  }
+
+  .aiw-profit-grid {
+    gap: 16px;
+  }
+
+  .aiw-profit-card {
+    padding: 22px 28px;
+  }
+}
+
+/* ===== Tablet Portrait (≤768px) ===== */
+@media (max-width: 768px) {
+  .aiw-tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .aiw-tool-card {
+    padding: 22px 16px;
+  }
+
+  .aiw-tool-card h3 {
+    font-size: 14px;
+  }
+
+  .aiw-tool-card > p {
+    font-size: 12px;
+  }
+
+  .aiw-tool-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+
+  .aiw-workflow-steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .aiw-workflow-step {
+    padding: 22px 16px;
+  }
+
+  .aiw-workflow-step h3 {
+    font-size: 15px;
+  }
+
+  .aiw-workflow-step p {
+    font-size: 12px;
+  }
+
+  .aiw-step-icon {
+    font-size: 28px;
+  }
+
+  .aiw-credit-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .aiw-credit-card {
+    padding: 28px 18px;
+  }
+
+  .aiw-hero {
+    padding: 80px 0 50px;
+    min-height: auto;
+  }
+
+  .aiw-hero-content h1 {
+    font-size: clamp(30px, 6vw, 44px);
+  }
+
+  .aiw-hero-content p {
+    font-size: 15px;
+  }
+
+  .aiw-hero-stats {
+    gap: 24px;
+    margin-top: 44px;
+  }
+
+  .aiw-hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .aiw-profit-grid {
+    gap: 14px;
+  }
+
+  .aiw-profit-card {
+    padding: 20px 24px;
+  }
+
+  .aiw-profit-arrow {
+    display: none;
+  }
+
+  .aiw-agent-start {
+    padding: 28px 24px;
+  }
+
+  .aiw-agent-chain {
+    gap: 8px;
+  }
+
+  .aiw-agent-step {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+}
+
+/* ===== Phone (≤480px) ===== */
+@media (max-width: 480px) {
+  .aiw-tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .aiw-tool-card {
+    padding: 18px 12px;
+    border-radius: 12px;
+  }
+
+  .aiw-tool-card h3 {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .aiw-tool-card > p {
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+
+  .aiw-tool-icon {
+    font-size: 26px;
+    margin-bottom: 8px;
+  }
+
+  .aiw-tool-badge {
+    font-size: 10px;
+    padding: 2px 8px;
+  }
+
+  .aiw-workflow-steps {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .aiw-workflow-step {
+    padding: 18px 14px;
+  }
+
+  .aiw-workflow-step h3 {
+    font-size: 14px;
+  }
+
+  .aiw-workflow-step p {
+    font-size: 12px;
+  }
+
+  .aiw-credit-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .aiw-credit-card {
+    padding: 24px 20px;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .aiw-hero {
+    padding: 70px 0 40px;
+  }
+
+  .aiw-hero-content h1 {
+    font-size: clamp(26px, 7vw, 36px);
+  }
+
+  .aiw-hero-content p {
+    font-size: 14px;
+  }
+
+  .aiw-hero-stats {
+    gap: 20px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .aiw-stat-item {
+    flex: 0 0 auto;
+    min-width: 80px;
+  }
+
+  .aiw-stat-num {
+    font-size: clamp(22px, 5vw, 30px);
+  }
+
+  .aiw-stat-label {
+    font-size: 11px;
+  }
+
+  .aiw-profit-card {
+    padding: 16px 20px;
+    width: 100%;
+  }
+
+  .aiw-profit-amount {
+    font-size: clamp(28px, 8vw, 40px);
+  }
+
+  .aiw-agent-start-icon {
+    font-size: 36px;
+  }
+
+  .aiw-agent-start p {
+    font-size: 13px;
+  }
+
+  .aiw-agent-step {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+
+  .aiw-cta-section {
+    padding: 60px 0;
+  }
+
+  .aiw-cta-content p {
+    font-size: 14px;
+  }
+}
+
+/* ===== Small Phone (≤375px) ===== */
+@media (max-width: 375px) {
+  .aiw-tools-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .aiw-tool-card {
+    padding: 14px 10px;
+  }
+
+  .aiw-tool-card h3 {
+    font-size: 12px;
+  }
+
+  .aiw-tool-card > p {
+    font-size: 10px;
+  }
+
+  .aiw-tool-icon {
+    font-size: 22px;
+  }
+
+  .aiw-credit-card {
+    padding: 20px 16px;
+  }
+
+  .aiw-price {
+    font-size: 28px;
+  }
+
+  .aiw-hero {
+    padding: 60px 0 32px;
+  }
+
+  .aiw-hero-content h1 {
+    font-size: clamp(22px, 6vw, 30px);
+  }
+
+  .aiw-hero-stats {
+    gap: 14px;
+  }
+}

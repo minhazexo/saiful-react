@@ -13,11 +13,11 @@ import { getWhatsAppUrl } from '../../utils/whatsapp';
 import './HomePage.css';
 
 const STAT_NUMBERS = [
-  { num: '৪০+', key: 'businessesLaunched' },
-  { num: '২৭০+', key: 'students' },
-  { num: '৮০+', key: 'liveTraining' },
-  { num: '৩২+', key: 'successfulEntrepreneurs' },
-  { num: '৯৫%', key: 'satisfaction' },
+  { num: '৪৫+', key: 'designProjects' },
+  { num: '১৫০+', key: 'industriesServed' },
+  { num: '৭০+', key: 'yearsExperience' },
+  { num: '৭.২X', key: 'consultations' },
+  { num: '১০+', key: 'businessesLaunched' },
 ];
 
 const HERO_FEATURES = [
@@ -66,13 +66,13 @@ const STAGE_IMAGES_ICONS = [
   '/images/icons/setup.svg',
   '/images/icons/grow.svg',
 ];
-const PROBLEM_KEYS = ['noBrand', 'noWebsite', 'noContent', 'noMarketing', 'noGrowth'];
-const SOLUTION_KEYS = ['brand', 'website', 'content', 'marketing', 'growth'];
+const PROBLEM_KEYS = ['noBrand', 'noWebsite', 'noContent', 'noMarketing', 'noGrowth', 'noProcess', 'noSales'];
+const SOLUTION_KEYS = ['brand', 'website', 'content', 'marketing', 'growth', 'process', 'sales'];
 const FRAMEWORK_KEYS = ['idea', 'learn', 'setup', 'launch', 'grow', 'scale'];
 const FRAMEWORK_ICONS = ['idea', 'learn', 'setup', 'launch', 'grow', 'scale'];
 const AI_TOOL_KEYS = ['canva', 'chatgpt', 'gemini', 'capcut'];
 const WORKFLOW_KEYS = ['research', 'create', 'produce', 'distribute', 'optimize'];
-const TESTIMONIAL_KEYS = ['rahim', 'farida', 'nusrat', 'kamal', 'sultana', 'hasan'];
+const TESTIMONIAL_KEYS = ['rahim', 'farida', 'nusrat', 'kamal'];
 const CASE_KEYS = [
   'leathix',
   'futureConnect',
@@ -84,24 +84,29 @@ const CASE_KEYS = [
 
 const CASE_ICONS = ['👜', '🎧', '👗', '🌿', '💻', '🧶'];
 const CASE_TITLES = ['Leathix', 'Future Connect', 'Fashion Nova BD', 'NaturalGlow BD', 'TechZone BD', 'Crafty Hands'];
-const CLIENT_RESULT_KEYS = ['higherSales', 'betterBranding', 'onlinePresence', 'fasterContent'];
+const CLIENT_RESULT_KEYS = ['leathix', 'evoLeather', 'shopHouse'];
 const CLIENT_RESULT_ICONS = {
-  higherSales: 'grow',
-  betterBranding: 'branding',
-  onlinePresence: 'online-presence',
-  fasterContent: 'fast-content',
+  leathix: 'grow',
+  evoLeather: 'branding',
+  shopHouse: 'online-presence',
 };
 const HERO_DESKTOP_IMAGES = [
   { file: 'Founder-1.png', dir: 'pdf/All Imge Comprase Website' },
   { file: 'Founder-2.png', dir: 'pdf/All Imge Comprase Website' },
+  { file: 'Founder-3.png', dir: 'pdf/All Imge Comprase Website' },
+  { file: 'My-pic.jpg', dir: 'pdf/All Imge Comprase Website' },
 ];
 const HERO_MOBILE_IMAGES = [
   { file: 'hero-mobile-1.jpeg', dir: 'images' },
   { file: 'hero-mobile-2.jpeg', dir: 'images' },
+  { file: 'hero vis mob.jpeg', dir: 'pdf' },
+  { file: 'girl.jpeg', dir: 'pdf' },
 ];
 const HERO_CARDS = [
   { localeKey: 'home.heroCardGirl', avatar: { file: 'Founder-1.png', dir: 'pdf/All Imge Comprase Website' } },
   { localeKey: 'home.heroCardBoy', avatar: { file: 'Founder-2.png', dir: 'pdf/All Imge Comprase Website' } },
+  { localeKey: 'home.heroCard3', avatar: { file: 'Founder-3.png', dir: 'pdf/All Imge Comprase Website' } },
+  { localeKey: 'home.heroCard4', avatar: { file: 'My-pic.jpg', dir: 'pdf/All Imge Comprase Website' } },
 ];
 const MOBILE_BREAKPOINT = 768;
 
@@ -183,6 +188,17 @@ function HomePage() {
                 >
                   {t('home.heroBtnSecondary')}
                 </motion.button>
+              </motion.div>
+              <motion.div
+                className="hero-subtitle-line"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+              >
+                <span className="hero-subtitle-check" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                </span>
+                <span className="hero-subtitle-text">{t('home.heroTitleSub')}</span>
               </motion.div>
             </motion.div>
 
@@ -267,16 +283,43 @@ function HomePage() {
       </section>
 
       <section className="stats-section">
-        <div className="stats-marquee">
+        <div className="container">
           <div className="stats-marquee-track">
-            {[...Array(2)].flatMap((_, dup) =>
-              STAT_NUMBERS.map((s, i) => (
-                <div key={`${dup}-${i}`} className="stat-card" aria-hidden={dup === 1}>
+            {STAT_NUMBERS.map((s, i) => (
+              <div key={i} className="stat-card">
+                <div className="stat-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                </div>
+                <div>
                   <div className="stat-num">{s.num}</div>
                   <div className="stat-label">{t(`home.stats.${s.key}`)}</div>
                 </div>
-              ))
-            )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="client-logos-section">
+        <div className="client-logos-bar">
+          <div className="client-logo-item">
+            <span className="client-logo-text">EVO</span>
+            <span className="client-logo-sub">LEATHER</span>
+          </div>
+          <div className="client-logo-item">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            <span className="client-logo-text">LEATHIX</span>
+          </div>
+          <div className="client-logo-item">
+            <span className="client-logo-icon">⚡</span>
+            <span className="client-logo-text">GADGET</span>
+          </div>
+          <div className="client-logo-item">
+            <span className="client-logo-text">Shavershop</span>
+          </div>
+          <div className="client-logo-item">
+            <span className="client-logo-text">SSB</span>
+            <span className="client-logo-sub">Leather</span>
           </div>
         </div>
       </section>
@@ -403,37 +446,7 @@ function HomePage() {
                 </div>
               </motion.div>
             ))}
-          </div>
-
-          <MotionFadeUp className="trust-bar">
-            <div className="trust-bar-item">
-              <div className="trust-bar-icon-circle">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-              </div>
-              <div className="trust-bar-text">
-                <strong>{t('home.startHere.trust.reliable.title')}</strong>
-                <span>{t('home.startHere.trust.reliable.desc')}</span>
-              </div>
-            </div>
-            <div className="trust-bar-item">
-              <div className="trust-bar-icon-circle">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 21a8 8 0 0 0-16 0"/><circle cx="10" cy="8" r="5"/><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"/></svg>
-              </div>
-              <div className="trust-bar-text">
-                <strong>{t('home.startHere.trust.expert.title')}</strong>
-                <span>{t('home.startHere.trust.expert.desc')}</span>
-              </div>
-            </div>
-            <div className="trust-bar-item">
-              <div className="trust-bar-icon-circle">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-              </div>
-              <div className="trust-bar-text">
-                <strong>{t('home.startHere.trust.results.title')}</strong>
-                <span>{t('home.startHere.trust.results.desc')}</span>
-              </div>
-            </div>
-          </MotionFadeUp>
+           </div>
         </div>
       </section>
 
@@ -591,6 +604,40 @@ function HomePage() {
         </div>
       </section>
 
+      <MotionFadeUp className="trust-bar-section">
+        <div className="container">
+          <div className="trust-bar">
+            <div className="trust-bar-item">
+              <div className="trust-bar-icon-circle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+              </div>
+              <div className="trust-bar-text">
+                <strong>{t('home.startHere.trust.reliable.title')}</strong>
+                <span>{t('home.startHere.trust.reliable.desc')}</span>
+              </div>
+            </div>
+            <div className="trust-bar-item">
+              <div className="trust-bar-icon-circle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 21a8 8 0 0 0-16 0"/><circle cx="10" cy="8" r="5"/><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"/></svg>
+              </div>
+              <div className="trust-bar-text">
+                <strong>{t('home.startHere.trust.expert.title')}</strong>
+                <span>{t('home.startHere.trust.expert.desc')}</span>
+              </div>
+            </div>
+            <div className="trust-bar-item">
+              <div className="trust-bar-icon-circle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+              </div>
+              <div className="trust-bar-text">
+                <strong>{t('home.startHere.trust.results.title')}</strong>
+                <span>{t('home.startHere.trust.results.desc')}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </MotionFadeUp>
+
       {/* ===== CLIENT RESULTS SECTION ===== */}
       <section className="client-results-section">
         <div className="container">
@@ -615,7 +662,10 @@ function HomePage() {
                 <div className="result-icon"><img src={assetPath(`/images/icons/${CLIENT_RESULT_ICONS[key]}.svg`)} alt="" /></div>
                 <h3>{t(`home.clientResults.cards.${key}.title`)}</h3>
                 <p>{t(`home.clientResults.cards.${key}.desc`)}</p>
-                <span className="result-stat">{t(`home.clientResults.cards.${key}.stat`)}</span>
+                <div className="result-stat-box">
+                  <span className="result-stat-label">{t('home.clientResults.keyResult')}</span>
+                  <span className="result-stat">{t(`home.clientResults.cards.${key}.stat`)}</span>
+                </div>
               </motion.div>
             ))}
           </div>

@@ -12,6 +12,7 @@ const AboutPage = lazy(() => import('./pages/About/AboutPage'));
 const AcademyPage = lazy(() => import('./pages/Academy/AcademyPage'));
 const SetupPage = lazy(() => import('./pages/Setup/SetupPage'));
 const GrowthPage = lazy(() => import('./pages/Growth/GrowthPage'));
+const AIWorkplacePage = lazy(() => import('./pages/AIWorkplace/AIWorkplacePage'));
 const AIPage = lazy(() => import('./pages/AI/AIPage'));
 const CaseStudiesPage = lazy(() => import('./pages/CaseStudies/CaseStudiesPage'));
 const BlogPage = lazy(() => import('./pages/Blog/BlogPage'));
@@ -42,6 +43,7 @@ function MetaManager() {
       '/academy': `${t('academy.title')} · ${t('common.brandFull')}`,
       '/setup': `${t('setup.title')} · ${t('common.brandFull')}`,
       '/growth': `${t('growth.title')} · ${t('common.brandFull')}`,
+      '/ai-workplace': `${t('aiWorkplace.title')} · ${t('common.brandFull')}`,
       '/ai': `${t('ai.title')} · ${t('common.brandFull')}`,
       '/case-studies': `${t('caseStudies.title')} · ${t('common.brandFull')}`,
       '/blog': `${t('blog.title')} · ${t('common.brandFull')}`,
@@ -76,6 +78,7 @@ function AppRoutes() {
           <Route path="/academy" element={<AcademyPage />} />
           <Route path="/setup" element={<SetupPage />} />
           <Route path="/growth" element={<GrowthPage />} />
+          <Route path="/ai-workplace" element={<AIWorkplacePage />} />
           <Route path="/ai" element={<AIPage />} />
           <Route path="/case-studies" element={<CaseStudiesPage />} />
           <Route path="/blog" element={<BlogPage />} />

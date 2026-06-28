@@ -99,6 +99,9 @@ function Footer() {
                 <Link to="/growth">{t('footer.growthServices')}</Link>
               </li>
               <li>
+                <a href="/#packages">{t('nav.pricing')}</a>
+              </li>
+              <li>
                 <Link to="/ai">{t('footer.aiMarketing')}</Link>
               </li>
             </ul>

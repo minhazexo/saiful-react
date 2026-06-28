@@ -44,6 +44,7 @@
     "setup": "Business Setup",
     "growth": "Growth",
     "ai": "AI System",
+    "aiWorkplace": "AI Workplace",
     "caseStudies": "Case Studies",
     "successStories": "Success Stories",
     "blog": "Blog",
@@ -184,11 +185,13 @@
       "holdingBack": "What's holding you back",
       "howWeHelp": "How Saiful Studios helps",
       "items": {
-        "noBrand": "No good brand identity",
-        "noWebsite": "No professional website",
-        "noContent": "Ineffective web content & marketing",
-        "noMarketing": "Ad money is being wasted",
-        "noGrowth": "No consistent sales process"
+        "noBrand": "Start business without enough knowledge",
+        "noWebsite": "No good brand identity",
+        "noContent": "No professional website",
+        "noMarketing": "Ineffective web content & marketing",
+        "noGrowth": "Ad money is being wasted",
+        "noProcess": "No consistent sales process",
+        "noSales": "Don't know target audience"
       },
       "beforeLabel": "BEFORE",
       "afterLabel": "AFTER",
@@ -196,56 +199,83 @@
       "afterTitle": "Growing & Successful",
       "comparison": [
         {
+          "problemBn": "Start business without enough knowledge",
+          "problemSubBn": "No clear business strategy understanding",
+          "benefitBn": "Training to make business ready",
+          "benefitSubBn": "What to sell, who to sell, where to start — enough understanding",
+          "resultBn": "Start with confidence"
+        },
+        {
           "problemBn": "No good brand identity",
           "problemSubBn": "No one seems trustworthy",
-          "benefitBn": "Trust in brand increases",
-          "benefitSubBn": "Logo, color theme, typography & brand guidelines"
+          "benefitBn": "Professional brand identity",
+          "benefitSubBn": "Logo, color theme, typography & brand guidelines",
+          "resultBn": "Trust in brand increases"
         },
         {
           "problemBn": "No professional website",
           "problemSubBn": "Customer trust isn't built properly",
-          "benefitBn": "Digital customers are created",
-          "benefitSubBn": "Premium website design, payment integration, automatic delivery system"
+          "benefitBn": "High-converting e-commerce website",
+          "benefitSubBn": "Premium website design, payment integration, automatic delivery system",
+          "resultBn": "Digital customers are created"
         },
         {
           "problemBn": "Ineffective web content & marketing",
           "problemSubBn": "Experience isn't created, brand isn't remembered",
-          "benefitBn": "Promotion",
-          "benefitSubBn": "Content calendar strategy, image ads, video ads analysis"
+          "benefitBn": "Customer-centric content & marketing",
+          "benefitSubBn": "Content calendar strategy, image ads, video ads analysis",
+          "resultBn": "Engagement increases"
         },
         {
           "problemBn": "Ad money is being wasted",
           "problemSubBn": "Running without proper experience & strategy",
-          "benefitBn": "More sales at less cost",
-          "benefitSubBn": "Low output, tracking setup, more sales & returning"
+          "benefitBn": "Data-driven marketing strategy",
+          "benefitSubBn": "Meta ads, creative testing, more sales & returning",
+          "resultBn": "More sales at less cost"
         },
         {
           "problemBn": "No consistent sales process",
           "problemSubBn": "Sometimes sales happen, sometimes not",
-          "benefitBn": "Consistent sales",
-          "benefitSubBn": "Channel, architecture, automation & flowmetric work"
+          "benefitBn": "Systematic growth plan",
+          "benefitSubBn": "Channel, automation, analysis & clean work",
+          "resultBn": "Consistent sales"
+        },
+        {
+          "problemBn": "Don't know target audience",
+          "problemSubBn": "Not clear who to sell to",
+          "benefitBn": "Customer persona & targeting",
+          "benefitSubBn": "Market research, customer profiling & persona creation",
+          "resultBn": "Reach the right audience"
         }
       ],
       "solutions": {
         "brand": {
           "title": "Professional Brand Identity",
-          "desc": "Logo, color theme, typography & brand guidelines"
+          "desc": "Logo, color system, typography & brand guidelines"
         },
         "website": {
           "title": "High-Converting E-commerce Website",
           "desc": "Premium website design, payment integration, automatic delivery system"
         },
         "content": {
-          "title": "Customer Creative Content & Marketing Strategy",
+          "title": "Customer-Centric Content & Marketing",
           "desc": "Content calendar strategy, image ads, video ads analysis"
         },
         "marketing": {
           "title": "Data-Driven Marketing Strategy",
-          "desc": "Low output, tracking setup, more sales & returning"
+          "desc": "Meta ads, creative testing, more sales & returning"
         },
         "growth": {
           "title": "Systematic Growth Plan",
-          "desc": "Channel, architecture, automation & flowmetric work"
+          "desc": "Channel, automation, analysis & clean work"
+        },
+        "process": {
+          "title": "Systematic Growth Plan",
+          "desc": "Channel, automation, analysis & clean work"
+        },
+        "sales": {
+          "title": "Customer Persona & Targeting",
+          "desc": "Market research, customer profiling & persona creation"
         }
       },
       "bottom": {
@@ -339,10 +369,10 @@
       "yearsExp": "Years experience",
       "specialty": "Graphic Designer + Video Editor + Marketing Strategist",
       "stats": {
-        "exp": "10+ years digital experience",
-        "brands": "20+ brands worked with",
+        "exp": "10+ years e-commerce experience",
+        "brands": "40+ brands worked with",
         "entrepreneurs": "50+ entrepreneurs trained",
-        "businesses": "80+ businesses launched"
+        "businesses": "80+ businesses running"
       }
     },
     "founderIntro": {
@@ -351,29 +381,24 @@
       "subtitle": "Hear directly from our founder about his vision, journey, and how we help Bangladeshi entrepreneurs succeed."
     },
     "clientResults": {
-      "eyebrow": "Client Result",
-      "title": "What Our Client Will Achieve",
-      "subtitle": "A proven 6-step framework to take your business from idea to scale",
+      "eyebrow": "Client Results",
+      "title": "Real Results from Client Brands",
+      "subtitle": "Customized solutions for every client — real numbers, real results.",
       "cards": {
-        "higherSales": {
-          "title": "Higher Sales",
-          "desc": "Clients see measurable revenue growth through targeted marketing systems, optimized product pages and conversion-focused funnels.",
-          "stat": "Avg. 3x revenue in 90 days"
+        "leathix": {
+          "title": "Leathix",
+          "desc": "New entrepreneur with low budget, needed setup from zero. Brand identity, website, video/content, 5 AI content system, YouTube campaign created.",
+          "stat": "First day 14 wallet sales"
         },
-        "betterBranding": {
-          "title": "Better Branding",
-          "desc": "A consistent, professional brand identity that builds trust instantly — logo, color system, typography and visual language all aligned.",
-          "stat": "Stand out in your market"
+        "evoLeather": {
+          "title": "Evo Leather",
+          "desc": "They produce premium leather shoes but couldn't sell. Found the reason customers weren't buying, engaged with horizontal content.",
+          "stat": "First month sales 2 Lakh+"
         },
-        "onlinePresence": {
-          "title": "Professional Online Presence",
-          "desc": "A fast, mobile-optimized e-commerce store that converts visitors into buyers — built to look great and perform even better.",
-          "stat": "Store live in 7–14 days"
-        },
-        "fasterContent": {
-          "title": "Faster Content Creation",
-          "desc": "Our AI-powered content workflow means posts, banners and video ads get created in hours — not weeks. Consistent output, every week.",
-          "stat": "70% less time on content"
+        "shopHouse": {
+          "title": "Shop House BD",
+          "desc": "No professional logo, no brand identity. Logo and branding design, colors, typography, brand guidelines, professional website.",
+          "stat": "Professional brand image"
         }
       }
     },
@@ -406,24 +431,24 @@
       },
       "workflow": {
         "research": {
-          "title": "Research",
-          "desc": "Use Gemini to find trending products and analyze competitors."
+          "title": "Free Strategy Call",
+          "desc": "Start with a free strategy call to understand your goals, market and customers"
         },
         "create": {
-          "title": "Create",
-          "desc": "Use ChatGPT + Canva to build product pages, ads, and brand kit."
+          "title": "Learn & Plan",
+          "desc": "Learn and plan through academy, courses, page tools and step-by-step plans"
         },
         "produce": {
-          "title": "Produce",
-          "desc": "Use CapCut to create video content and Reels for ads & social."
+          "title": "Brand & Website Setup",
+          "desc": "Create professional website and brand identity for customer trust"
         },
         "distribute": {
-          "title": "Distribute",
-          "desc": "Push content to Facebook, Instagram, TikTok with auto-scheduling."
+          "title": "Marketing & First Sale",
+          "desc": "Achieve first sale through ads, content, funnel and sales systems"
         },
         "optimize": {
-          "title": "Optimize",
-          "desc": "Review performance, refine with AI, and double down on winners."
+          "title": "Growth & Scaling",
+          "desc": "Grow business with automation, data analysis and scalable strategies"
         }
       }
     },
@@ -539,6 +564,22 @@
       "stat1Label": "Monthly Income",
       "stat2": "1",
       "stat2Label": "Year Taken"
+    },
+    "heroCard3": {
+      "name": "Nasir-Dhaka",
+      "quote": "Joining the Academy changed everything. Within 2 months I launched my brand and got my first 20 orders.",
+      "stat1": "20",
+      "stat1Label": "Orders in First Month",
+      "stat2": "2",
+      "stat2Label": "Months to Launch"
+    },
+    "heroCard4": {
+      "name": "Fatima-Dhaka",
+      "quote": "Professional branding and website setup made my store look trustworthy. Sales increased by 60% in the first month.",
+      "stat1": "60%",
+      "stat1Label": "Sales Increase",
+      "stat2": "15",
+      "stat2Label": "Days to Launch"
     }
   },
   "faq": {
@@ -1057,6 +1098,106 @@
       "title": "Book a free strategy call",
       "subtitle": "Tell us about your store and current numbers. We will give you 3 specific growth moves you can implement this week — no commitment.",
       "book": "Book Free Strategy Call"
+    }
+  },
+  "aiWorkplace": {
+    "eyebrow": "AI SaaS Platform",
+    "title": "AI Workplace",
+    "subtitle": "AI-powered tools for Bangladeshi e-commerce businesses",
+    "heroTitle": "Your Complete AI-Powered Marketing Workspace",
+    "heroSubtitle": "Upload a product image and let AI create product descriptions, ad copies, banners, videos, and Meta Ads — all in one place. The future of e-commerce marketing is here.",
+    "heroCta": "Get Started Free",
+    "heroCta2": "Explore Tools",
+    "credits": "Credits",
+    "creditsUnit": "Credits",
+    "stats": {
+      "tools": { "num": "10", "label": "AI Tools" },
+      "credits": { "num": "500", "label": "Free Credits" },
+      "users": { "num": "2K+", "label": "Active Users" },
+      "uptime": { "num": "99.9%", "label": "Uptime" }
+    },
+    "tools": {
+      "eyebrow": "AI Tools",
+      "title": "10 Powerful AI Tools for Your Business",
+      "subtitle": "Generate professional marketing content in seconds — descriptions, ads, images, videos, and more.",
+      "items": {
+        "description": { "name": "Product Description", "desc": "Generate compelling product descriptions that sell", "cost": "2" },
+        "fbAd": { "name": "Facebook Ad Copy", "desc": "High-converting ad copy for Facebook & Instagram", "cost": "5" },
+        "headline": { "name": "Headline Generator", "desc": "Catchy headlines that grab attention instantly", "cost": "2" },
+        "productImage": { "name": "Product Image", "desc": "AI-enhanced product images with professional quality", "cost": "15" },
+        "bgRemove": { "name": "Background Remove", "desc": "Remove background from images in one click", "cost": "3" },
+        "banner": { "name": "Banner Generator", "desc": "Create stunning banners for ads & social media", "cost": "10" },
+        "productVideo": { "name": "Product Video", "desc": "Short promotional videos for your products", "cost": "80" },
+        "seo": { "name": "SEO Description", "desc": "SEO-optimized meta descriptions for ranking", "cost": "2" },
+        "email": { "name": "Email Copy", "desc": "Persuasive email sequences for marketing", "cost": "3" },
+        "whatsapp": { "name": "WhatsApp Reply", "desc": "Professional WhatsApp business replies", "cost": "1" }
+      }
+    },
+    "workflow": {
+      "eyebrow": "How It Works",
+      "title": "From Upload to Download in 5 Simple Steps",
+      "subtitle": "Your AI marketing workflow — fast, automated, and effortless.",
+      "items": {
+        "upload": { "title": "Upload", "desc": "Upload your product image or enter your product details" },
+        "process": { "title": "Process", "desc": "Our backend processes your request securely" },
+        "generate": { "title": "Generate", "desc": "AI generates high-quality content using MuAPI" },
+        "save": { "title": "Save", "desc": "Review, edit, and save your generated content" },
+        "download": { "title": "Download", "desc": "Download and publish directly to your channels" }
+      }
+    },
+    "credits": {
+      "eyebrow": "Credit System",
+      "title": "Pay As You Grow",
+      "subtitle": "Buy credits once, use them anytime. ৳100 = 100 Credits. No monthly subscription.",
+      "mostPopular": "Most Popular",
+      "oneTime": "one-time",
+      "asLowAs": "As low as",
+      "buyNow": "Buy Now",
+      "note": "Each API call's actual cost is deducted from your wallet. You only pay for what you use.",
+      "plans": {
+        "starter": {
+          "name": "Starter",
+          "perks": ["500 Credits for basic tasks", "Valid for 30 days", "Email support"]
+        },
+        "popular": {
+          "name": "Growth",
+          "perks": ["2,000 Credits for growing businesses", "Valid for 60 days", "Priority support"]
+        },
+        "pro": {
+          "name": "Professional",
+          "perks": ["5,000 Credits for professionals", "Valid for 90 days", "Priority support + API access"]
+        },
+        "enterprise": {
+          "name": "Enterprise",
+          "perks": ["15,000 Credits for teams", "Valid for 180 days", "Dedicated support + Custom API"]
+        }
+      }
+    },
+    "profit": {
+      "eyebrow": "Profit Model",
+      "title": "Built for Your Profit",
+      "subtitle": "Pay less per task than traditional freelancers — keep more of what you earn.",
+      "yourCost": "Your Cost",
+      "custPrice": "Customer Price",
+      "yourProfit": "Your Profit",
+      "perTask": "profit per task"
+    },
+    "agent": {
+      "eyebrow": "Future AI Agent",
+      "title": "One Image. Full Campaign.",
+      "subtitle": "The ultimate AI agent that understands your product and creates everything — from descriptions to Meta ad campaigns.",
+      "start": "Upload a product image and let AI handle the rest",
+      "steps": {
+        "understands": "AI Understands Product",
+        "content": "Description + Title + SEO",
+        "creative": "Banner + Video + Ad Creative",
+        "publish": "Campaign Ready — Approve & Publish"
+      }
+    },
+    "cta": {
+      "title": "Ready to Transform Your E-commerce Marketing?",
+      "subtitle": "Join 2,000+ Bangladeshi entrepreneurs using AI to create better content, faster. Start with 500 free credits.",
+      "button": "Start with 500 Free Credits"
     }
   },
   "ai": {
