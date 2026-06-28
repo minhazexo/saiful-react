@@ -1259,21 +1259,23 @@ html[data-lang='bn'] .journey-card-content p {
   margin-top: 28px;
   background: #fff;
   border-radius: 18px;
-
   gap: 16px;
   flex-wrap: wrap;
   border: 1px solid var(--border);
+  overflow: hidden;
 }
 
 .trust-left {
   display: flex;
   align-items: center;
   gap: 10px;
+  min-width: 0;
 }
 
 .trust-target {
   font-size: 24px;
   line-height: 1;
+  flex-shrink: 0;
 }
 
 .problems-trust-label {
@@ -1281,17 +1283,22 @@ html[data-lang='bn'] .journey-card-content p {
   font-weight: 600;
   color: #0f172a;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
 }
 
 .trust-center {
   display: flex;
   align-items: center;
   gap: 14px;
+  min-width: 0;
 }
 
 .trust-avatars {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .trust-avatar {
@@ -1301,6 +1308,7 @@ html[data-lang='bn'] .journey-card-content p {
   border: 2px solid #fff;
   margin-right: -8px;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .trust-avatar img {
@@ -1314,6 +1322,7 @@ html[data-lang='bn'] .journey-card-content p {
   flex-direction: column;
   align-items: flex-start;
   gap: 1px;
+  min-width: 0;
 }
 
 .trust-stars {
@@ -1327,7 +1336,9 @@ html[data-lang='bn'] .journey-card-content p {
   font-size: 11px;
   color: #000000;
   white-space: nowrap;
-  font-weight: 500;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  line-height: 1.2;
 }
 
 /* ── CTA Button ── */
@@ -2107,7 +2118,7 @@ html[data-lang='bn'] .journey-card-content p {
 }
 
 .workflow {
-  background: #1a1a1a;
+  background: #fff;
   border: none;
   border-radius: var(--radius);
   padding: 40px;
@@ -2116,7 +2127,7 @@ html[data-lang='bn'] .journey-card-content p {
 }
 
 .workflow-title {
-  color: #fff;
+  color: #000;
   text-align: center;
   margin-bottom: 32px;
   font-size: 22px;
@@ -2135,20 +2146,20 @@ html[data-lang='bn'] .journey-card-content p {
 }
 
 .workflow-step h4 {
-  color: #fff;
+  color: #000;
 }
 
 .workflow-step p {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .workflow-num {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 2px solid #fff;
+  border: 2px solid #000;
   background: transparent;
-  color: #fff;
+  color: #000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2159,13 +2170,13 @@ html[data-lang='bn'] .journey-card-content p {
 }
 
 .workflow-step h4 {
-  color: var(--text);
+  color: #000;
   font-size: 16px;
   margin-bottom: 6px;
 }
 
 .workflow-step p {
-  color: #555;
+  color: #333;
   font-size: 13px;
 }
 
@@ -3720,11 +3731,14 @@ html[lang='bn'] .case-card .case-result-value {
     gap: 10px;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
+    overflow: visible;
   }
 
   .trust-left {
     gap: 6px;
     justify-content: center;
+    width: 100%;
   }
 
   .trust-target {
@@ -3733,11 +3747,15 @@ html[lang='bn'] .case-card .case-result-value {
 
   .problems-trust-label {
     font-size: 11px;
+    white-space: normal;
   }
 
   .trust-center {
     flex-direction: row;
     gap: 8px;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   .trust-avatars {
@@ -3756,6 +3774,7 @@ html[lang='bn'] .case-card .case-result-value {
 
   .trust-rating {
     align-items: center;
+    width: 100%;
   }
 
   .trust-stars {
@@ -3763,11 +3782,11 @@ html[lang='bn'] .case-card .case-result-value {
   }
 
   .trust-count {
-    font-size: 10px;
-  }
-
-  .trust-count {
-    font-size: 10px;
+    font-size: 12px;
+    white-space: normal;
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: 0.3px;
   }
 
   .problems-cta-btn {
@@ -4144,8 +4163,12 @@ html[lang='bn'] .case-card .case-result-value {
   }
 
   .trust-strip {
-    padding: 16px;
-    gap: 12px;
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .problems-trust-label {
+    font-size: 10px;
   }
 
   .problems-cta-btn {
@@ -4983,11 +5006,14 @@ html[lang='bn'] .case-card .case-result-value {
     gap: 10px;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
+    overflow: visible;
   }
 
   .trust-left {
     gap: 6px;
     justify-content: center;
+    width: 100%;
   }
 
   .trust-target {
@@ -4996,11 +5022,15 @@ html[lang='bn'] .case-card .case-result-value {
 
   .problems-trust-label {
     font-size: 11px;
+    white-space: normal;
   }
 
   .trust-center {
     flex-direction: row;
     gap: 8px;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   .trust-avatars {
@@ -5019,6 +5049,7 @@ html[lang='bn'] .case-card .case-result-value {
 
   .trust-rating {
     align-items: center;
+    width: 100%;
   }
 
   .trust-stars {
@@ -5026,11 +5057,11 @@ html[lang='bn'] .case-card .case-result-value {
   }
 
   .trust-count {
-    font-size: 10px;
-  }
-
-  .trust-count {
-    font-size: 10px;
+    font-size: 12px;
+    white-space: normal;
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: 0.3px;
   }
 
   .problems-cta-btn {
@@ -5449,8 +5480,12 @@ html[lang='bn'] .case-card .case-result-value {
   }
 
   .trust-strip {
-    padding: 16px;
-    gap: 12px;
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .problems-trust-label {
+    font-size: 10px;
   }
 
   .problems-cta-btn {
