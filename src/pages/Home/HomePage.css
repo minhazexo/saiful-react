@@ -234,51 +234,39 @@
 
 /* Client logos bar */
 .client-logos-section {
-  background: #000;
+  background: #0a0a0a;
   padding: 0;
   overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .client-logos-bar {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  padding: 24px 40px;
-  gap: 32px;
+  justify-content: space-between;
+  padding: 28px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .client-logo-item {
   display: flex;
   align-items: center;
-  gap: 6px;
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  white-space: nowrap;
-  opacity: 0.8;
+  justify-content: center;
+  flex: 1;
+  opacity: 0.75;
   transition: opacity 0.3s ease;
+  padding: 8px 12px;
 }
 
 .client-logo-item:hover {
   opacity: 1;
 }
 
-.client-logo-text {
-  font-family: var(--font-heading);
-  text-transform: uppercase;
-}
-
-.client-logo-sub {
-  font-size: 11px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  opacity: 0.7;
-}
-
-.client-logo-icon {
-  font-size: 20px;
+.client-logo-svg {
+  width: 100%;
+  max-width: 140px;
+  height: 40px;
 }
 
 /* ===== Hero Visual (photo + notification card) ===== */
@@ -286,10 +274,12 @@
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   margin-top: 24px;
-  min-height: clamp(420px, 40vw, 520px);
+  padding-top: 20px;
+  padding-bottom: 200px;
+  min-height: clamp(460px, 44vw, 560px);
   overflow: visible;
 }
 
@@ -297,8 +287,10 @@
   position: relative;
   display: flex;
   justify-content: center;
-  width: clamp(180px, 26vw, 340px);
+  width: clamp(220px, 22vw, 280px);
   max-width: 100%;
+  overflow: visible;
+  margin-left: 50px;
 }
 
 .hero-photo-wrap {
@@ -308,41 +300,45 @@
   overflow: hidden;
   border: none;
   box-shadow: none;
+  position: relative;
+  z-index: 1;
+  left: 40px;
 }
 
 .hero-photo-wrap img {
-  width: 100%;
-  height: 100%;
   display: block;
-  object-fit: cover;
-  object-position: center top;
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  margin-left: 25px;
 }
 
-/* Floating testimonial card — anchored to the photo's top-right corner */
+/* Floating testimonial card — overlaps the bottom portion of the photo */
 .hero-notif-card {
   position: absolute;
-  top: clamp(12px, 2.5vw, 32px);
-  right: clamp(-150px, -10vw, -60px);
-  left: auto;
-  bottom: auto;
-  width: clamp(160px, 14vw, 210px);
+  top: auto;
+  bottom: -195px;
+  left: -40px;
+  right: -165px;
+  width: auto;
   background: #111;
-  border-radius: 14px;
-  padding: 14px 16px;
+  border-radius: 16px;
+  padding: 24px 36px;
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.06);
+  z-index: 2;
 }
 
 .hero-notif-head {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
+  gap: 12px;
+  margin-bottom: 14px;
 }
 
 .hero-notif-avatar {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
@@ -356,7 +352,7 @@
 }
 
 .hero-notif-name {
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 700;
   color: #fff;
   flex: 1;
@@ -366,33 +362,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   background: var(--green);
   color: #fff;
 }
 
 .hero-notif-check svg {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   stroke: #fff;
   stroke-width: 3;
   fill: none;
 }
 
 .hero-notif-quote {
-  font-size: 13px;
+  font-size: 16px;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.5;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   font-style: italic;
 }
 
 .hero-notif-stats {
   display: flex;
-  gap: 20px;
-  padding-top: 12px;
+  gap: 28px;
+  padding-top: 14px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -403,50 +399,51 @@
 
 .hero-notif-stat strong {
   font-family: var(--font-heading);
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 800;
   color: #fff;
   line-height: 1.2;
 }
 
 .hero-notif-stat span {
-  font-size: 11px;
+  font-size: 13px;
   color: rgba(255, 255, 255, 0.7);
 }
 
 @media (max-width: 768px) {
   .hero-visual { min-height: auto; padding: 0; overflow: visible; }
-  .hero-notif-card { display: none; }
   .hero-visual-inner {
     position: relative;
-    width: clamp(260px, 82vw, 360px);
+    width: clamp(240px, 78vw, 340px);
     max-width: 100%;
     margin: 0 auto;
     padding: 0;
+    overflow: visible;
   }
-  .hero-photo-wrap { width: 100%; }
+  .hero-photo-wrap { width: 100%; margin-left: 0; }
+  .hero-photo-wrap img { margin: 0 auto; position: relative; left: -25px; }
   .hero-notif-card {
     position: absolute;
     top: auto;
-    left: 5%;
-    right: 5%;
+    left: 0;
+    right: 0;
     bottom: 0;
     width: auto;
     max-width: none;
-    padding: 14px 16px;
+    padding: 16px 18px;
     background: #0f1115;
     border-radius: 20px;
     box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
-    /* Freeze the floating animation so the bottom stays aligned to the photo */
     transform: none !important;
+    z-index: 2;
   }
-  .hero-notif-head { gap: 6px; margin-bottom: 6px; }
-  .hero-notif-avatar { width: 32px; height: 32px; }
-  .hero-notif-name { font-size: 11px; }
-  .hero-notif-quote { font-size: 10px; margin-bottom: 6px; }
-  .hero-notif-stats { gap: 10px; padding-top: 6px; }
-  .hero-notif-stat strong { font-size: 12px; }
-  .hero-notif-stat span { font-size: 8px; }
+  .hero-notif-head { gap: 8px; margin-bottom: 8px; }
+  .hero-notif-avatar { width: 36px; height: 36px; }
+  .hero-notif-name { font-size: 12px; }
+  .hero-notif-quote { font-size: 11px; margin-bottom: 8px; }
+  .hero-notif-stats { gap: 14px; padding-top: 8px; }
+  .hero-notif-stat strong { font-size: 15px; }
+  .hero-notif-stat span { font-size: 9px; }
 }
 
 /* ============ STATS ============ */
@@ -523,8 +520,27 @@
   font-weight: 500;
 }
 
+@keyframes statsScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 @media (max-width: 768px) {
   .stats-section { padding: 40px 0; }
+  .stats-marquee {
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  }
+  .stats-marquee-track {
+    width: max-content;
+    justify-content: flex-start;
+    gap: 18px;
+    animation: statsScroll 32s linear infinite;
+  }
+  .stats-marquee:hover .stats-marquee-track {
+    animation-play-state: paused;
+  }
   .stat-card { width: clamp(150px, 40vw, 200px); padding: 20px 14px; border-radius: 12px; }
   .stat-num { font-size: clamp(22px, 6vw, 32px); margin-bottom: 6px; }
   .stat-label { font-size: 12px; }
@@ -3035,7 +3051,6 @@ html[lang='bn'] .case-card .case-result-value {
     color: #000;
     transition: transform 0.35s ease, color 0.35s ease;
     flex-shrink: 0;
-    margin-left: 0;
   }
 
   .framework-acc-item.open .framework-acc-arrow {
@@ -3174,12 +3189,6 @@ html[lang='bn'] .case-card .case-result-value {
 
 }
 
-@media (min-width: 1025px) and (max-width: 1280px) {
-  .hero-visual {
-    min-height: 520px;
-  }
-}
-
 /* ===== Tablet (≤1024px) ===== */
 @media (max-width: 1024px) {
   .packages-grid {
@@ -3313,26 +3322,33 @@ html[lang='bn'] .case-card .case-result-value {
     min-height: 0;
     display: flex;
     justify-content: center;
+    align-items: flex-end;
   }
 
   .hero-visual-inner {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
+    position: relative;
+    width: clamp(200px, 24vw, 260px);
+    max-width: 100%;
   }
 
   .hero-photo-wrap {
-    width: clamp(200px, 30vw, 320px);
-    order: 2;
+    width: 100%;
+    margin-left: 0;
+  }
+
+   {
+    margin: 0 auto;
+    position: relative;
+    left: -20px;
   }
 
   .hero-notif-card {
-    position: relative;
-    top: auto;
-    right: auto;
-    width: clamp(220px, 60vw, 280px);
-    padding: 14px 16px;
-    order: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: -40px;
+    width: auto;
+    padding: 16px 18px;
   }
 
   .hero-title {
@@ -3657,8 +3673,9 @@ html[lang='bn'] .case-card .case-result-value {
   }
 
   .hero-photo-wrap {
-    width: clamp(180px, 60vw, 260px);
+    width: clamp(160px, 50vw, 220px);
     order: 2;
+    margin-left: 0;
   }
 
   .hero-notif-card {
@@ -3670,7 +3687,7 @@ html[lang='bn'] .case-card .case-result-value {
     width: 100%;
     max-width: 320px;
     order: 1;
-    padding: 12px 14px;
+    padding: 16px 18px;
   }
 
   .hero-notif-head { gap: 5px; margin-bottom: 5px; }
@@ -4373,12 +4390,6 @@ html[lang='bn'] .case-card .case-result-value {
 
 }
 
-@media (min-width: 1025px) and (max-width: 1280px) {
-  .hero-visual {
-    min-height: 520px;
-  }
-}
-
 /* ===== Tablet (≤1024px) ===== */
 @media (max-width: 1024px) {
   .packages-grid {
@@ -4527,8 +4538,9 @@ html[lang='bn'] .case-card .case-result-value {
   }
 
   .hero-photo-wrap {
-    width: min(300px, 80%);
+    width: min(240px, 70%);
     order: 2;
+    margin-left: 0;
   }
 
   .hero-notif-card {
@@ -4537,7 +4549,8 @@ html[lang='bn'] .case-card .case-result-value {
     right: auto;
     left: auto;
     bottom: auto;
-    width: min(280px, 88%);
+    width: min(320px, 92%);
+    padding: 18px 20px;
     order: 1;
   }
 
@@ -4704,8 +4717,8 @@ html[lang='bn'] .case-card .case-result-value {
   .hero-notif-card {
     position: absolute;
     top: auto;
-    left: 5%;
-    right: 5%;
+    left: 0;
+    right: 0;
     bottom: 0;
     width: auto;
     max-width: none;
@@ -4714,6 +4727,7 @@ html[lang='bn'] .case-card .case-result-value {
     border-radius: 20px;
     box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
     transform: none !important;
+    z-index: 2;
   }
 
   .trust-grid {
@@ -4990,14 +5004,15 @@ html[lang='bn'] .case-card .case-result-value {
   .hero-notif-card {
     position: absolute;
     top: auto;
-    left: 5%;
-    right: 5%;
+    left: 0;
+    right: 0;
     bottom: 0;
     width: auto;
     max-width: none;
-    padding: 14px 16px;
+    padding: 16px 18px;
     border-radius: 20px;
     transform: none !important;
+    z-index: 2;
   }
 
   .trust-section {
@@ -5610,14 +5625,15 @@ html[lang='bn'] .case-card .case-result-value {
   .hero-notif-card {
     position: absolute;
     top: auto;
-    left: 5%;
-    right: 5%;
+    left: 0;
+    right: 0;
     bottom: 0;
     width: auto;
     max-width: none;
-    padding: 12px 14px;
+    padding: 14px 16px;
     border-radius: 18px;
     transform: none !important;
+    z-index: 2;
   }
 
   .hero-section {

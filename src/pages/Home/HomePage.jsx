@@ -93,20 +93,14 @@ const CLIENT_RESULT_ICONS = {
 const HERO_DESKTOP_IMAGES = [
   { file: 'Founder-1.png', dir: 'pdf/All Imge Comprase Website' },
   { file: 'Founder-2.png', dir: 'pdf/All Imge Comprase Website' },
-  { file: 'Founder-3.png', dir: 'pdf/All Imge Comprase Website' },
-  { file: 'My-pic.jpg', dir: 'pdf/All Imge Comprase Website' },
 ];
 const HERO_MOBILE_IMAGES = [
-  { file: 'hero-mobile-1.jpeg', dir: 'images' },
-  { file: 'hero-mobile-2.jpeg', dir: 'images' },
-  { file: 'hero vis mob.jpeg', dir: 'pdf' },
-  { file: 'girl.jpeg', dir: 'pdf' },
+  { file: 'Founder-1.png', dir: 'pdf/All Imge Comprase Website' },
+  { file: 'Founder-2.png', dir: 'pdf/All Imge Comprase Website' },
 ];
 const HERO_CARDS = [
   { localeKey: 'home.heroCardGirl', avatar: { file: 'Founder-1.png', dir: 'pdf/All Imge Comprase Website' } },
   { localeKey: 'home.heroCardBoy', avatar: { file: 'Founder-2.png', dir: 'pdf/All Imge Comprase Website' } },
-  { localeKey: 'home.heroCard3', avatar: { file: 'Founder-3.png', dir: 'pdf/All Imge Comprase Website' } },
-  { localeKey: 'home.heroCard4', avatar: { file: 'My-pic.jpg', dir: 'pdf/All Imge Comprase Website' } },
 ];
 const MOBILE_BREAKPOINT = 768;
 
@@ -145,12 +139,6 @@ function HomePage() {
               initial="hidden"
               animate="visible"
             >
-              <motion.div className="hero-badge" variants={fadeUpSmall}>
-                <span className="hero-badge-check" aria-hidden="true">
-                  <svg viewBox="0 0 20 20"><path d="M4 10l4 4 8-8"/></svg>
-                </span>
-                <span>{t('home.eyebrow')}</span>
-              </motion.div>
               <motion.h1 className="hero-title" variants={fadeUp}>
                 {t('home.heroTitle')}
               </motion.h1>
@@ -177,16 +165,6 @@ function HomePage() {
                   whileTap="tap"
                 >
                   <span aria-hidden="true">📞</span> {t('home.heroBtnPrimary')}
-                </motion.button>
-                <motion.button
-                  className="hero-btn hero-btn-green"
-                  onClick={() => navigate('/case-studies')}
-                  variants={buttonHover}
-                  initial="rest"
-                  whileHover="hover"
-                  whileTap="tap"
-                >
-                  {t('home.heroBtnSecondary')}
                 </motion.button>
               </motion.div>
               <motion.div
@@ -223,7 +201,6 @@ function HomePage() {
                   </AnimatePresence>
                 </motion.div>
 
-                {!isMobile && (
                 <motion.div
                   className="hero-notif-card"
                   variants={fadeUpSmall}
@@ -261,31 +238,16 @@ function HomePage() {
                     </div>
                   </div>
                 </motion.div>
-                )}
               </div>
             </motion.div>
           </div>
-
-          <motion.div
-            className="hero-features"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            {HERO_FEATURES.map((f) => (
-              <div className="hero-feature" key={f.key}>
-                <span className="hero-feature-icon" aria-hidden="true">{f.icon}</span>
-                <span className="hero-feature-label">{t(`home.heroFeatures.${f.key}`)}</span>
-              </div>
-            ))}
-          </motion.div>
         </div>
       </section>
 
       <section className="stats-section">
         <div className="container">
           <div className="stats-marquee-track">
-            {STAT_NUMBERS.map((s, i) => (
+            {(isMobile ? [...STAT_NUMBERS, ...STAT_NUMBERS] : STAT_NUMBERS).map((s, i) => (
               <div key={i} className="stat-card">
                 <div className="stat-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
@@ -302,24 +264,56 @@ function HomePage() {
 
       <section className="client-logos-section">
         <div className="client-logos-bar">
+          {/* EVO LEATHER */}
           <div className="client-logo-item">
-            <span className="client-logo-text">EVO</span>
-            <span className="client-logo-sub">LEATHER</span>
+            <svg viewBox="0 0 120 40" className="client-logo-svg" aria-label="EVO Leather">
+              <text x="60" y="22" textAnchor="middle" fill="white" fontFamily="'Inter','Helvetica Neue',Arial,sans-serif" fontWeight="700" fontSize="22" letterSpacing="2">EVO</text>
+              <line x1="15" y1="30" x2="42" y2="30" stroke="rgba(255,255,255,0.4)" strokeWidth="0.5"/>
+              <line x1="78" y1="30" x2="105" y2="30" stroke="rgba(255,255,255,0.4)" strokeWidth="0.5"/>
+              <text x="60" y="36" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontFamily="'Inter','Helvetica Neue',Arial,sans-serif" fontWeight="400" fontSize="7" letterSpacing="4">LEATHER</text>
+            </svg>
           </div>
+
+          {/* LEATHIX */}
           <div className="client-logo-item">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-            <span className="client-logo-text">LEATHIX</span>
+            <svg viewBox="0 0 150 40" className="client-logo-svg" aria-label="Leathix">
+              <g transform="translate(5,8)">
+                <path d="M12 0 L18 8 L12 16 L6 8 Z" fill="none" stroke="white" strokeWidth="1.5"/>
+                <path d="M6 4 L12 12 L18 4" fill="none" stroke="white" strokeWidth="1.2"/>
+              </g>
+              <text x="35" y="26" fill="white" fontFamily="'Inter','Helvetica Neue',Arial,sans-serif" fontWeight="600" fontSize="17" letterSpacing="3">LEATHIX</text>
+            </svg>
           </div>
+
+          {/* GADGET */}
           <div className="client-logo-item">
-            <span className="client-logo-icon">⚡</span>
-            <span className="client-logo-text">GADGET</span>
+            <svg viewBox="0 0 155 40" className="client-logo-svg" aria-label="Gadget">
+              <g transform="translate(5,5)">
+                <line x1="0" y1="0" x2="28" y2="30" stroke="white" strokeWidth="1.8"/>
+                <line x1="28" y1="0" x2="0" y2="30" stroke="white" strokeWidth="1.8"/>
+                <line x1="14" y1="0" x2="14" y2="30" stroke="white" strokeWidth="1.2"/>
+                <line x1="0" y1="15" x2="28" y2="15" stroke="white" strokeWidth="1.2"/>
+              </g>
+              <text x="42" y="26" fill="white" fontFamily="'Inter','Helvetica Neue',Arial,sans-serif" fontWeight="700" fontSize="16" letterSpacing="2">GADGET</text>
+            </svg>
           </div>
+
+          {/* Shavershop */}
           <div className="client-logo-item">
-            <span className="client-logo-text">Shavershop</span>
+            <svg viewBox="0 0 150 40" className="client-logo-svg" aria-label="Shavershop">
+              <text x="75" y="27" textAnchor="middle" fill="white" fontFamily="Georgia,'Times New Roman',serif" fontWeight="400" fontSize="19" fontStyle="italic" letterSpacing="0.5">Shavershop</text>
+            </svg>
           </div>
+
+          {/* SSB Leather */}
           <div className="client-logo-item">
-            <span className="client-logo-text">SSB</span>
-            <span className="client-logo-sub">Leather</span>
+            <svg viewBox="0 0 110 45" className="client-logo-svg" aria-label="SSB Leather">
+              <g transform="translate(5,2)">
+                <path d="M18 4 C10 4, 6 10, 6 15 C6 20, 10 24, 16 24 C10 24, 6 28, 6 34" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+              </g>
+              <text x="58" y="22" fill="white" fontFamily="'Inter','Helvetica Neue',Arial,sans-serif" fontWeight="800" fontSize="22" letterSpacing="1">SSB</text>
+              <text x="58" y="36" fill="rgba(255,255,255,0.6)" fontFamily="Georgia,'Times New Roman',serif" fontWeight="400" fontSize="10" fontStyle="italic" letterSpacing="1">Leather</text>
+            </svg>
           </div>
         </div>
       </section>
