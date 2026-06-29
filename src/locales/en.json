@@ -122,13 +122,13 @@
       "satisfaction": "Entrepreneurs Satisfied"
     },
     "startHere": {
-      "eyebrow": "Start Your First Step",
+      "eyebrow": "Which stage are you in right now?",
       "title": "Choose Your Category",
-      "subtitle": "Enter the digital world — begin your journey today.",
+      "subtitle": "",
       "stages": {
         "academy": {
-          "title": "I want to learn business",
-          "heading": "Academy",
+          "title": "Academy",
+          "heading": "I want to learn business",
           "desc": "Learn online business and run it yourself.",
           "features": [
             "Online live classes",
@@ -139,38 +139,38 @@
           "cta": "View Academy"
         },
         "setup": {
-          "title": "I want business setup",
-          "heading": "Setup Service",
-          "desc": "Get complete business setup with professional team.",
+          "title": "Business Setup Service",
+          "heading": "I want business setup",
+          "desc": "Get complete business setup with a professional team.",
           "features": [
             "Logo & branding",
             "Website setup",
             "Automatic delivery integration",
             "Social media page setup"
           ],
-          "cta": "View Setup Service"
+          "cta": "View Business Setup Service"
         },
         "growth": {
-          "title": "I want sales & growth",
-          "heading": "Growth Service",
-          "desc": "Grow business by increasing sales.",
+          "title": "Growth Marketing Service",
+          "heading": "I want sales & growth",
+          "desc": "Grow your current business by increasing sales.",
           "features": [
-            "Reels & video content",
+            "Image & video content",
             "Meta ads & targeting",
             "Conversion tracking & reporting",
-            "Private online business community"
+            "Ad optimization & scaling"
           ],
-          "cta": "View Growth Service"
+          "cta": "View Growth Marketing Service"
         }
       },
       "trust": {
         "reliable": {
           "title": "Reliable & Secure",
-          "desc": "Your information & business 100% secure"
+          "desc": "Your data & business 100% secure"
         },
         "expert": {
           "title": "Expert Support",
-          "desc": "Directly with expert team"
+          "desc": "Round-the-clock expert team support"
         },
         "results": {
           "title": "Results-Based Solution",
@@ -179,19 +179,18 @@
       }
     },
     "problems": {
-      "eyebrow": "7 common reasons for failing in online business",
-      "title": "How we make your business successful",
-      "subtitle": "If you have felt any of these, you are not alone — and you are not stuck.",
+      "eyebrow": "",
+      "title": "6 Common Reasons Online Businesses Fail—And How We Make Yours Succeed",
+      "subtitle": "",
       "holdingBack": "What's holding you back",
       "howWeHelp": "How Saiful Studios helps",
       "items": {
-        "noBrand": "Start business without enough knowledge",
+        "noBrand": "Start a business without enough knowledge",
         "noWebsite": "No good brand identity",
         "noContent": "No professional website",
-        "noMarketing": "Ineffective web content & marketing",
+        "noMarketing": "Messy ad content & marketing",
         "noGrowth": "Ad money is being wasted",
-        "noProcess": "No consistent sales process",
-        "noSales": "Don't know target audience"
+        "noProcess": "No consistent sales growth"
       },
       "beforeLabel": "BEFORE",
       "afterLabel": "AFTER",
@@ -249,68 +248,64 @@
         }
       ],
       "solutions": {
+        "training": {
+          "title": "1 month of training to make you business-ready",
+          "desc": "What to sell, who to sell to, and where to start."
+        },
         "brand": {
           "title": "Professional Brand Identity",
-          "desc": "Logo, color system, typography & brand guidelines"
+          "desc": "Logo, color, typography, branding & brand guidelines"
         },
         "website": {
           "title": "High-Converting E-commerce Website",
           "desc": "Premium website design, payment integration, automatic delivery system"
         },
         "content": {
-          "title": "Customer-Centric Content & Marketing",
-          "desc": "Content calendar strategy, image ads, video ads analysis"
+          "title": "Customer-Centric Content & Marketing Strategy",
+          "desc": "Content calendar strategy, image ads, video ads & automation"
         },
         "marketing": {
-          "title": "Data-Driven Marketing Strategy",
-          "desc": "Meta ads, creative testing, more sales & returning"
+          "title": "Data-Driven Marketing System",
+          "desc": "Meta ads, creative testing, more sales & retargeting"
         },
         "growth": {
           "title": "Systematic Growth Plan",
-          "desc": "Channel, automation, analysis & clean work"
-        },
-        "process": {
-          "title": "Systematic Growth Plan",
-          "desc": "Channel, automation, analysis & clean work"
-        },
-        "sales": {
-          "title": "Customer Persona & Targeting",
-          "desc": "Market research, customer profiling & persona creation"
+          "desc": "Funnel, automation, optimization & scaling framework"
         }
       },
       "bottom": {
         "text": "Identify the real problems of your business and get the right solution!",
-        "trust": "100+ businesses real answers",
+        "trust": "500+ businesses trust us",
         "cta": "Get Free Business Consultation"
       }
     },
     "framework": {
-      "eyebrow": "Framework",
+      "eyebrow": "From idea to sales and scaling",
       "title": "Your Complete Online Business Journey",
-      "subtitle": "From idea to growth and client — we are with you at every step.",
+      "subtitle": "",
       "idea": {
         "title": "Academy",
-        "desc": "Learn business, digital marketing & AI, social media, email, branding & business planning."
+        "desc": "Learn business, business community, AI, product research, e-book, SOP & business foundation"
       },
       "learn": {
         "title": "Branding",
-        "desc": "New logo, professional visual setup, brand identity & recognition."
+        "desc": "Name, logo, social media setup, brand identity & positioning"
       },
       "setup": {
         "title": "Website",
-        "desc": "Professional & mobile-friendly website for customer business."
+        "desc": "A professional, fast e-commerce website built to boost conversions"
       },
       "launch": {
         "title": "Content Creation",
-        "desc": "Organized & AI-powered through photos, videos & content."
+        "desc": "Photos, videos & ad creatives powered by AI"
       },
       "grow": {
-        "title": "Marketing & Growth",
-        "desc": "Social media, paid ads, email marketing & conversion."
+        "title": "Marketing & Ads",
+        "desc": "Facebook ads, Google ads, retargeting and conversions."
       },
       "scale": {
         "title": "Growth & Scaling",
-        "desc": "Automation, more customer targeting & business expansion."
+        "desc": "Automation, AI workflow, team building and business scaling."
       }
     },
     "packages": {
@@ -381,23 +376,40 @@
       "subtitle": "Hear directly from our founder about his vision, journey, and how we help Bangladeshi entrepreneurs succeed."
     },
     "clientResults": {
-      "eyebrow": "Client Results",
+      "eyebrow": "",
       "title": "Real Results from Client Brands",
-      "subtitle": "Customized solutions for every client — real numbers, real results.",
+      "subtitle": "",
+      "challenge": "Challenge",
+      "whatWeDid": "What we did",
+      "keyResult": "Key Result",
       "cards": {
         "leathix": {
           "title": "Leathix",
-          "desc": "New entrepreneur with low budget, needed setup from zero. Brand identity, website, video/content, 5 AI content system, YouTube campaign created.",
-          "stat": "First day 14 wallet sales"
+          "challenge": "New entrepreneur with a low budget, needed setup from zero.",
+          "whatWeDid": [
+            "Brand identity, website, bKash/Nagad payment",
+            "AI content system, ad campaign training"
+          ],
+          "stat": "14 wallets sold on day 5"
         },
         "evoLeather": {
           "title": "Evo Leather",
-          "desc": "They produce premium leather shoes but couldn't sell. Found the reason customers weren't buying, engaged with horizontal content.",
+          "challenge": "They produce premium leather shoes but couldn't sell much, and didn't know what to do.",
+          "whatWeDid": [
+            "Found the reason customers weren't buying",
+            "Engaged customers with storytelling content",
+            "Launched 360 marketing",
+            "Then Meta ad campaigns brought strong sales"
+          ],
           "stat": "First month sales 2 Lakh+"
         },
         "shopHouse": {
           "title": "Shop House BD",
-          "desc": "No professional logo, no brand identity. Logo and branding design, colors, typography, brand guidelines, professional website.",
+          "challenge": "No professional logo, no brand identity. Social media pages were messy. No orders, no website.",
+          "whatWeDid": [
+            "Logo and branding design, colors, typography",
+            "Brand guidelines, professional website"
+          ],
           "stat": "Professional brand image"
         }
       }
@@ -406,7 +418,8 @@
       "eyebrow": "AI Marketing",
       "title": "Our 4-tool AI marketing stack",
       "subtitle": "The exact 4 tools we use to run ads, content, and research for every client.",
-      "workflowTitle": "The 5-step AI workflow SOP",
+      "workflowTitle": "Start your online business in just 5 steps",
+      "workflowSubtitle": "From free advice to growth—we're with you at every step",
       "tools": {
         "canva": {
           "name": "Canva",
@@ -432,23 +445,23 @@
       "workflow": {
         "research": {
           "title": "Free Strategy Call",
-          "desc": "Start with a free strategy call to understand your goals, market and customers"
+          "desc": "We build a clear roadmap by understanding your goals, budget and business idea"
         },
         "create": {
           "title": "Learn & Plan",
-          "desc": "Learn and plan through academy, courses, page tools and step-by-step plans"
+          "desc": "Build a strong foundation through academy, SOPs, AI tools and a business plan."
         },
         "produce": {
           "title": "Brand & Website Setup",
-          "desc": "Create professional website and brand identity for customer trust"
+          "desc": "A professional, fast e-commerce website built to boost conversions"
         },
         "distribute": {
           "title": "Marketing & First Sale",
-          "desc": "Achieve first sale through ads, content, funnel and sales systems"
+          "desc": "We help you get your first customer through content, Facebook ads, Google ads and sales funnels."
         },
         "optimize": {
           "title": "Growth & Scaling",
-          "desc": "Grow business with automation, data analysis and scalable strategies"
+          "desc": "Automation, AI workflow, team building and business scaling."
         }
       }
     },
@@ -463,28 +476,28 @@
       "keyResult": "Key Result"
     },
     "testimonials": {
-      "eyebrow": "Testimonials",
+      "eyebrow": "Honest words from real clients we have worked with.",
       "title": "Our success stories & client testimonials",
-      "subtitle": "Honest words from real clients we have worked with.",
+      "subtitle": "",
       "items": {
         "rahim": {
-          "name": "Rakibul Hasan",
+          "name": "Rakib Hasan",
           "role": "Founder & CEO",
           "text": "Created logo, brand color & complete brand identity for my business. Now the brand looks much more professional on all platforms."
         },
         "farida": {
           "name": "Tasnim Akter",
           "role": "Founder",
-          "text": "The entire website setup process was very easy. Now customers can easily order online."
+          "text": "The entire website setup process was very easy. Now customers can order online directly."
         },
         "nusrat": {
-          "name": "Mohini Hasan",
+          "name": "Mehedi Hasan",
           "role": "Founder",
-          "text": "What I like most is their strategy - not just ads, they work on content, website and the entire growth system."
+          "text": "What I like most is their strategy approach — not just ads, they work on content, website and the entire growth system."
         },
         "kamal": {
           "name": "Ayub Ali",
-          "role": "Founder",
+          "role": "Proprietor",
           "text": "Our margin improved by 40% and customers now find us on their own."
         },
         "sultana": {
@@ -526,9 +539,18 @@
     },
     "finalCta": {
       "badge": "Limited Slots Available This Month",
-      "title": "Ready To Launch Your E-commerce Business?",
-      "subtitle": "Book a free consultation today. No commitment, no pressure — just clarity on your next best step.",
-      "book": "Book Free Consultation",
+      "eyebrow": "Free Strategy Call",
+      "title": "What You Get on the Free Strategy Call",
+      "subtitle": "Your business audit • Where you're going wrong • Online business roadmap • Setup & marketing plan • Budget guidance • Growth & scaling strategy",
+      "perks": [
+        "Your business audit",
+        "Where you're going wrong",
+        "Online business roadmap",
+        "Setup & marketing plan",
+        "Budget guidance",
+        "Growth & scaling strategy"
+      ],
+      "book": "📅 Book Free Consultation",
       "join": "Join the Academy"
     },
     "heroTitleSub": "Let your business journey begin right here",

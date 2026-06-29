@@ -3334,12 +3334,8 @@ html[lang='bn'] .case-card .case-result-value {
   .hero-photo-wrap {
     width: 100%;
     margin-left: 0;
-  }
-
-   {
     margin: 0 auto;
     position: relative;
-    left: -20px;
   }
 
   .hero-notif-card {
@@ -3679,14 +3675,13 @@ html[lang='bn'] .case-card .case-result-value {
   }
 
   .hero-notif-card {
-    position: relative;
-    top: auto;
-    right: auto;
-    left: auto;
-    bottom: auto;
-    width: 100%;
+    position: absolute;
+    bottom: -80px;
+    left: 0;
+    right: 0;
+    width: auto;
     max-width: 320px;
-    order: 1;
+    margin: 0 auto;
     padding: 16px 18px;
   }
 
@@ -4544,14 +4539,14 @@ html[lang='bn'] .case-card .case-result-value {
   }
 
   .hero-notif-card {
-    position: relative;
-    top: auto;
-    right: auto;
-    left: auto;
-    bottom: auto;
-    width: min(320px, 92%);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+    max-width: 320px;
+    margin: 0 auto;
     padding: 18px 20px;
-    order: 1;
   }
 
   .hero-title {
@@ -5799,3 +5794,97 @@ html[lang='bn'] .case-card .case-result-value {
 
 /* Mobile: all cards on this page have light backgrounds, so card body
    text stays dark for legibility (keeps each card's designed base color). */
+
+/* ============================================================
+   DESIGN-MATCH ADDITIONS (Final Home Page)
+   ============================================================ */
+
+/* Plain gray eyebrow (no pill) used by the design's section heads */
+.eyebrow.eyebrow-plain {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-bottom: 10px;
+  color: #6b7280;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.eyebrow.eyebrow-plain.on-dark {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* 5-step process band (dark) */
+.process-section {
+  background: #0d0d0d;
+  color: #fff;
+}
+.process-section .section-head h2 {
+  color: #fff;
+}
+.process-section .section-head p {
+  color: rgba(255, 255, 255, 0.72);
+}
+.process-section .workflow-num {
+  border-color: #fff;
+  color: #fff;
+}
+.process-section .workflow-step h4 {
+  color: #fff;
+}
+.process-section .workflow-step p {
+  color: rgba(255, 255, 255, 0.72);
+}
+.process-section .problems-cta-btn {
+  background: #fff;
+  color: #000;
+}
+.process-section .problems-cta-btn:hover {
+  background: #f0f0f0;
+}
+
+/* Founder section heading above the grid */
+.founder-section .section-head {
+  margin-bottom: 40px;
+}
+
+/* Final CTA — gray eyebrow + perks list */
+.final-cta-eyebrow {
+  color: #6b7280;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+.final-cta-perks {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 32px;
+  max-width: 640px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 32px;
+  text-align: left;
+}
+.final-cta-perks li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111;
+}
+.final-cta-perks li span {
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .final-cta-perks {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    max-width: 360px;
+  }
+  .final-cta-perks li {
+    font-size: 16px;
+  }
+}

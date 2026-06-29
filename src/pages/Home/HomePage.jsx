@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from '../../context/LanguageContext';
 import FAQ from '../../components/FAQ/FAQ';
-import Packages from '../../components/Packages/Packages';
 import Seo from '../../components/Seo';
 import MobileCarousel from '../../components/MobileCarousel/MobileCarousel';
 import { MotionFadeUp, MotionStaggerContainer, MotionStaggerItem } from '../../motion/MotionFadeUp';
@@ -13,44 +12,11 @@ import { getWhatsAppUrl } from '../../utils/whatsapp';
 import './HomePage.css';
 
 const STAT_NUMBERS = [
-  { num: '৪৫+', key: 'designProjects' },
+  { num: '১৫+', key: 'designProjects' },
   { num: '১৫০+', key: 'industriesServed' },
-  { num: '৭০+', key: 'yearsExperience' },
+  { num: '৩০+', key: 'yearsExperience' },
   { num: '৭.২X', key: 'consultations' },
   { num: '১০+', key: 'businessesLaunched' },
-];
-
-const HERO_FEATURES = [
-  {
-    key: 'branding',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
-    ),
-  },
-  {
-    key: 'website',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-    ),
-  },
-  {
-    key: 'metaAds',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
-    ),
-  },
-  {
-    key: 'content',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg>
-    ),
-  },
-  {
-    key: 'growth',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-    ),
-  },
 ];
 
 const STAGE_KEYS = ['academy', 'setup', 'growth'];
@@ -66,30 +32,20 @@ const STAGE_IMAGES_ICONS = [
   '/images/icons/setup.svg',
   '/images/icons/grow.svg',
 ];
-const PROBLEM_KEYS = ['noBrand', 'noWebsite', 'noContent', 'noMarketing', 'noGrowth', 'noProcess', 'noSales'];
-const SOLUTION_KEYS = ['brand', 'website', 'content', 'marketing', 'growth', 'process', 'sales'];
+
+// Problems → Solutions comparison (6 rows, matches the design)
+const PROBLEM_KEYS = ['noBrand', 'noWebsite', 'noContent', 'noMarketing', 'noGrowth', 'noProcess'];
+const SOLUTION_KEYS = ['training', 'brand', 'website', 'content', 'marketing', 'growth'];
+
 const FRAMEWORK_KEYS = ['idea', 'learn', 'setup', 'launch', 'grow', 'scale'];
 const FRAMEWORK_ICONS = ['idea', 'learn', 'setup', 'launch', 'grow', 'scale'];
-const AI_TOOL_KEYS = ['canva', 'chatgpt', 'gemini', 'capcut'];
 const WORKFLOW_KEYS = ['research', 'create', 'produce', 'distribute', 'optimize'];
 const TESTIMONIAL_KEYS = ['rahim', 'farida', 'nusrat', 'kamal'];
-const CASE_KEYS = [
-  'leathix',
-  'futureConnect',
-  'fashionNova',
-  'naturalGlow',
-  'techZone',
-  'craftyHands',
-];
 
-const CASE_ICONS = ['👜', '🎧', '👗', '🌿', '💻', '🧶'];
-const CASE_TITLES = ['Leathix', 'Future Connect', 'Fashion Nova BD', 'NaturalGlow BD', 'TechZone BD', 'Crafty Hands'];
+// Client results (rendered as case-study style cards)
 const CLIENT_RESULT_KEYS = ['leathix', 'evoLeather', 'shopHouse'];
-const CLIENT_RESULT_ICONS = {
-  leathix: 'grow',
-  evoLeather: 'branding',
-  shopHouse: 'online-presence',
-};
+const CLIENT_RESULT_ICONS = ['👜', '👞', '🛍️'];
+
 const HERO_DESKTOP_IMAGES = [
   { file: 'Founder-1.png', dir: 'pdf/All Imge Comprase Website' },
   { file: 'Founder-2.png', dir: 'pdf/All Imge Comprase Website' },
@@ -246,7 +202,8 @@ function HomePage() {
 
       <section className="stats-section">
         <div className="container">
-          <div className="stats-marquee-track">
+          <div className="stats-marquee">
+            <div className="stats-marquee-track">
             {(isMobile ? [...STAT_NUMBERS, ...STAT_NUMBERS] : STAT_NUMBERS).map((s, i) => (
               <div key={i} className="stat-card">
                 <div className="stat-icon">
@@ -258,6 +215,7 @@ function HomePage() {
                 </div>
               </div>
             ))}
+            </div>
           </div>
         </div>
       </section>
@@ -318,132 +276,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="framework-section">
-        <div className="container">
-          <MotionFadeUp className="section-head">
-            <span className="eyebrow">🧭 {t('home.framework.eyebrow')}</span>
-            <h2>{t('home.framework.title')}</h2>
-            <p>{t('home.framework.subtitle')}</p>
-          </MotionFadeUp>
-
-          <MotionStaggerContainer className="framework-grid">
-            {FRAMEWORK_KEYS.map((key, i) => {
-              const colors = ['var(--orange)', 'var(--blue)', '#10b981', 'var(--orange)', 'var(--blue)', '#10b981'];
-              const color = colors[i];
-              return (
-                <MotionStaggerItem
-                  key={key}
-                  className="framework-card"
-                  style={{ '--phase-color': color }}
-                >
-                  <div className="framework-step">
-                    <img src={assetPath(`/images/icons/${FRAMEWORK_ICONS[i]}.svg`)} alt="" />
-                  </div>
-                  <div className="framework-phase-badge">
-                    <span className="framework-phase-number">Phase {i + 1}</span>
-                  </div>
-                  <h3>{t(`home.framework.${key}.title`)}</h3>
-                  <p>{t(`home.framework.${key}.desc`)}</p>
-                </MotionStaggerItem>
-              );
-            })}
-          </MotionStaggerContainer>
-
-          <div className="framework-accordion">
-            {FRAMEWORK_KEYS.map((key, i) => {
-              const colors = ['var(--orange)', 'var(--blue)', '#10b981', 'var(--orange)', 'var(--blue)', '#10b981'];
-              const color = colors[i];
-              const isOpen = openFramework === i;
-              return (
-                <motion.div
-                  key={key}
-                  className={`framework-acc-item ${isOpen ? 'open' : ''}`}
-                  style={{ '--phase-color': color }}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.35, delay: i * 0.06 }}
-                >
-                  <button
-                    className="framework-acc-header"
-                    onClick={() => setOpenFramework(isOpen ? null : i)}
-                    type="button"
-                  >
-                    <div className="framework-acc-icon">
-                      <img src={assetPath(`/images/icons/${FRAMEWORK_ICONS[i]}.svg`)} alt="" />
-                    </div>
-                    <div className="framework-acc-title">
-                      {t(`home.framework.${key}.title`)}
-                    </div>
-                    <span className="framework-acc-arrow">▼</span>
-                  </button>
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        className="framework-acc-body"
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-                        style={{ overflow: 'hidden' }}
-                      >
-                        {t(`home.framework.${key}.desc`)}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="section start-here">
-        <div className="container">
-          <MotionFadeUp className="section-head">
-            <span className="eyebrow">
-              <span aria-hidden="true">🚀</span> {t('home.startHere.eyebrow')}
-            </span>
-            <h2>{t('home.startHere.title')}</h2>
-            <p>{t('home.startHere.subtitle')}</p>
-          </MotionFadeUp>
-
-          <div className="journey-cards">
-            {STAGE_KEYS.map((key, i) => (
-              <motion.div key={key} className="journey-card" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}>
-                <div className="journey-card-image">
-                  <img src={STAGE_IMAGES[i]} alt={t(`home.startHere.stages.${key}.title`)} loading="lazy" />
-                  <div className="journey-card-icon-circle">
-                    <img src={assetPath(STAGE_IMAGES_ICONS[i])} alt={t(`home.startHere.stages.${key}.title`)} />
-                  </div>
-                </div>
-                <div className="journey-card-content">
-                  <span className="journey-pill">{t(`home.startHere.stages.${key}.heading`)}</span>
-                  <h3>{t(`home.startHere.stages.${key}.title`)}</h3>
-                  <p>{t(`home.startHere.stages.${key}.desc`)}</p>
-                  {t(`home.startHere.stages.${key}.features`, { returnObjects: true }) && (
-                    <ul className="journey-features">
-                      {t(`home.startHere.stages.${key}.features`, { returnObjects: true }).map((f, fi) => (
-                        <li key={fi}>
-                          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10l4 4 8-8"/></svg>
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  <button
-                    className="btn btn-journey"
-                    onClick={() => navigate(`/${key === 'academy' ? 'academy' : key}`)}
-                  >
-                    {t(`home.startHere.stages.${key}.cta`)} →
-                  </button>
-                </div>
-              </motion.div>
-            ))}
-           </div>
-        </div>
-      </section>
-
+      {/* ===== PROBLEMS → SOLUTIONS ===== */}
       <section className="section problems-section">
         <div className="container">
           {/* ── Header ── */}
@@ -454,12 +287,11 @@ function HomePage() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="problems-badge">{t('home.problems.eyebrow')}</span>
             <h2 className="problems-heading">
-              {(t('home.problems.title').split('—')[0] || t('home.problems.title'))}—<br />
+              {(t('home.problems.title').split('—')[0] || t('home.problems.title'))}
+              <br />
               <span className="problems-heading-green">{t('home.problems.title').split('—')[1] || ''}</span>
             </h2>
-            <p className="problems-subtitle">{t('home.problems.subtitle')}</p>
           </motion.div>
 
           {/* ── Comparison Grid ── */}
@@ -586,18 +418,64 @@ function HomePage() {
           <motion.button
             className="problems-cta-btn"
             onClick={() => navigate('/contact')}
-            whileHover={{ scale: 1.02, boxShadow: '0 16px 40px rgba(22,163,74,0.35)' }}
+            whileHover={{ scale: 1.02, boxShadow: '0 16px 40px rgba(0,0,0,0.25)' }}
             whileTap={{ scale: 0.98 }}
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.25 }}
           >
-            🚀 {t('home.problems.bottom.cta')}
+            <span aria-hidden="true">📢</span> {t('home.problems.bottom.cta')}
           </motion.button>
         </div>
       </section>
 
+      {/* ===== CHOOSE YOUR CATEGORY ===== */}
+      <section className="section start-here">
+        <div className="container">
+          <MotionFadeUp className="section-head">
+            <span className="eyebrow eyebrow-plain">{t('home.startHere.eyebrow')}</span>
+            <h2>{t('home.startHere.title')}</h2>
+            {t('home.startHere.subtitle') && <p>{t('home.startHere.subtitle')}</p>}
+          </MotionFadeUp>
+
+          <div className="journey-cards">
+            {STAGE_KEYS.map((key, i) => (
+              <motion.div key={key} className="journey-card" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}>
+                <div className="journey-card-image">
+                  <img src={STAGE_IMAGES[i]} alt={t(`home.startHere.stages.${key}.title`)} loading="lazy" />
+                  <div className="journey-card-icon-circle">
+                    <img src={assetPath(STAGE_IMAGES_ICONS[i])} alt={t(`home.startHere.stages.${key}.title`)} />
+                  </div>
+                </div>
+                <div className="journey-card-content">
+                  <span className="journey-pill">{t(`home.startHere.stages.${key}.heading`)}</span>
+                  <h3>{t(`home.startHere.stages.${key}.title`)}</h3>
+                  <p>{t(`home.startHere.stages.${key}.desc`)}</p>
+                  {t(`home.startHere.stages.${key}.features`, { returnObjects: true }) && (
+                    <ul className="journey-features">
+                      {t(`home.startHere.stages.${key}.features`, { returnObjects: true }).map((f, fi) => (
+                        <li key={fi}>
+                          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10l4 4 8-8"/></svg>
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <button
+                    className="btn btn-journey"
+                    onClick={() => navigate(`/${key === 'academy' ? 'academy' : key}`)}
+                  >
+                    {t(`home.startHere.stages.${key}.cta`)} →
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+           </div>
+        </div>
+      </section>
+
+      {/* ===== TRUST BAR ===== */}
       <MotionFadeUp className="trust-bar-section">
         <div className="container">
           <div className="trust-bar">
@@ -632,185 +510,125 @@ function HomePage() {
         </div>
       </MotionFadeUp>
 
-      {/* ===== CLIENT RESULTS SECTION ===== */}
-      <section className="client-results-section">
+      {/* ===== FRAMEWORK / FULL JOURNEY ===== */}
+      <section className="framework-section">
         <div className="container">
           <MotionFadeUp className="section-head">
-            <span className="eyebrow">
-              📊 {t('home.clientResults.eyebrow')}
-            </span>
-            <h2>{t('home.clientResults.title')}</h2>
-            <p>{t('home.clientResults.subtitle')}</p>
+            <span className="eyebrow eyebrow-plain">{t('home.framework.eyebrow')}</span>
+            <h2>{t('home.framework.title')}</h2>
+            {t('home.framework.subtitle') && <p>{t('home.framework.subtitle')}</p>}
           </MotionFadeUp>
 
-          <div className="client-results-grid">
-            {CLIENT_RESULT_KEYS.map((key) => (
-              <motion.div
-                key={key}
-                className="client-result-card"
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <div className="result-icon"><img src={assetPath(`/images/icons/${CLIENT_RESULT_ICONS[key]}.svg`)} alt="" /></div>
-                <h3>{t(`home.clientResults.cards.${key}.title`)}</h3>
-                <p>{t(`home.clientResults.cards.${key}.desc`)}</p>
-                <div className="result-stat-box">
-                  <span className="result-stat-label">{t('home.clientResults.keyResult')}</span>
-                  <span className="result-stat">{t(`home.clientResults.cards.${key}.stat`)}</span>
-                </div>
-              </motion.div>
-            ))}
+          <MotionStaggerContainer className="framework-grid">
+            {FRAMEWORK_KEYS.map((key, i) => {
+              const colors = ['var(--orange)', 'var(--blue)', '#10b981', 'var(--orange)', 'var(--blue)', '#10b981'];
+              const color = colors[i];
+              return (
+                <MotionStaggerItem
+                  key={key}
+                  className="framework-card"
+                  style={{ '--phase-color': color }}
+                >
+                  <div className="framework-step">
+                    <img src={assetPath(`/images/icons/${FRAMEWORK_ICONS[i]}.svg`)} alt="" />
+                  </div>
+                  <div className="framework-phase-badge">
+                    <span className="framework-phase-number">Phase {i + 1}</span>
+                  </div>
+                  <h3>{t(`home.framework.${key}.title`)}</h3>
+                  <p>{t(`home.framework.${key}.desc`)}</p>
+                </MotionStaggerItem>
+              );
+            })}
+          </MotionStaggerContainer>
+
+          <div className="framework-accordion">
+            {FRAMEWORK_KEYS.map((key, i) => {
+              const colors = ['var(--orange)', 'var(--blue)', '#10b981', 'var(--orange)', 'var(--blue)', '#10b981'];
+              const color = colors[i];
+              const isOpen = openFramework === i;
+              return (
+                <motion.div
+                  key={key}
+                  className={`framework-acc-item ${isOpen ? 'open' : ''}`}
+                  style={{ '--phase-color': color }}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: i * 0.06 }}
+                >
+                  <button
+                    className="framework-acc-header"
+                    onClick={() => setOpenFramework(isOpen ? null : i)}
+                    type="button"
+                  >
+                    <div className="framework-acc-icon">
+                      <img src={assetPath(`/images/icons/${FRAMEWORK_ICONS[i]}.svg`)} alt="" />
+                    </div>
+                    <div className="framework-acc-title">
+                      {t(`home.framework.${key}.title`)}
+                    </div>
+                    <span className="framework-acc-arrow">▼</span>
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        className="framework-acc-body"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                        style={{ overflow: 'hidden' }}
+                      >
+                        {t(`home.framework.${key}.desc`)}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      <section className="ai-section">
+      {/* ===== 5-STEP PROCESS (dark) ===== */}
+      <section className="section process-section">
         <div className="container">
           <MotionFadeUp className="section-head">
-            <span className="eyebrow">🤖 {t('home.ai.eyebrow')}</span>
-            <h2>{t('home.ai.title')}</h2>
-            <p>{t('home.ai.subtitle')}</p>
+            <span className="eyebrow eyebrow-plain on-dark">{t('home.ai.workflowSubtitle')}</span>
+            <h2>{t('home.ai.workflowTitle')}</h2>
           </MotionFadeUp>
 
-          <MobileCarousel className="ai-grid" interval={3000} reverse>
-            {AI_TOOL_KEYS.map((key, i) => (
-              <motion.div key={key} className="ai-card" initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
-                <div className="ai-icon">
-                  <img src={assetPath(`/pdf/Website Icons & Images/Website Icons/${['Canva_Logo_0.svg', 'ChatGPT_Logo_0.svg', 'google-gemini-seeklogo.svg', 'Capcut Logo.svg'][i]}`)} alt={t(`home.ai.tools.${key}.name`)} />
-                </div>
-                <h3>{t(`home.ai.tools.${key}.name`)}</h3>
-                <div className="ai-role">{t(`home.ai.tools.${key}.role`)}</div>
-                <p>{t(`home.ai.tools.${key}.desc`)}</p>
+          <MobileCarousel className="workflow-steps">
+            {WORKFLOW_KEYS.map((key, i) => (
+              <motion.div key={key} className="workflow-step" initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
+                <div className="workflow-num">{i + 1}</div>
+                <h4>{t(`home.ai.workflow.${key}.title`)}</h4>
+                <p>{t(`home.ai.workflow.${key}.desc`)}</p>
               </motion.div>
             ))}
           </MobileCarousel>
 
-          <MotionFadeUp className="workflow" delay={0.1}>
-            <h3 className="workflow-title">⚙️ {t('home.ai.workflowTitle')}</h3>
-            <MobileCarousel className="workflow-steps">
-              {WORKFLOW_KEYS.map((key, i) => (
-                <motion.div key={key} className="workflow-step" initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
-                  <div className="workflow-num">{i + 1}</div>
-                  <h4>{t(`home.ai.workflow.${key}.title`)}</h4>
-                  <p>{t(`home.ai.workflow.${key}.desc`)}</p>
-                </motion.div>
-              ))}
-            </MobileCarousel>
-          </MotionFadeUp>
-        </div>
-      </section>
-
-      <section className="section cases-section">
-        <div className="container">
-          <MotionFadeUp className="section-head">
-            <span className="eyebrow">
-              <span aria-hidden="true">📊</span> {t('home.cases.eyebrow')}
-            </span>
-            <h2>{t('home.cases.title')}</h2>
-            <p>{t('home.cases.subtitle')}</p>
-          </MotionFadeUp>
-
-          <MobileCarousel className="grid grid-3">
-            {CASE_KEYS.slice(0, 3).map((key, i) => (
-              <motion.div key={key} className="case-card" initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
-                <div className="case-header">
-                  <div className="case-header-icon" aria-hidden="true">
-                    {CASE_ICONS[i]}
-                  </div>
-                  <h3>{CASE_TITLES[i]}</h3>
-                </div>
-                <div className="case-body">
-                  <div className="case-block">
-                    <div className="case-block-label">{t('home.cases.challenge')}</div>
-                    <p>{t(`caseStudies.defaults.${key}.challenge`)}</p>
-                  </div>
-                  <div className="case-block">
-                    <div className="case-block-label">{t('home.cases.whatWeDid')}</div>
-                    <ul className="case-checklist">
-                      {t(`caseStudies.defaults.${key}.whatWeDid`, { returnObjects: true }) && (
-                        t(`caseStudies.defaults.${key}.whatWeDid`, { returnObjects: true }).map((item, ci) => (
-                          <li key={ci}>
-                            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10l4 4 8-8"/></svg>
-                            {item}
-                          </li>
-                        ))
-                      )}
-                    </ul>
-                  </div>
-                </div>
-                <div className="case-result-box">
-                  <div className="case-result-label">{t('home.cases.keyResult')}</div>
-                  <div className="case-result-value">{t(`caseStudies.defaults.${key}.highlight`)}</div>
-                </div>
-              </motion.div>
-            ))}
-          </MobileCarousel>
-
-          <div className="text-center" style={{ marginTop: 40 }}>
+          <div className="text-center" style={{ marginTop: 44 }}>
             <motion.button
-              className="btn btn-dark"
-              onClick={() => navigate('/case-studies')}
-              variants={buttonHover}
-              initial="rest"
-              whileHover="hover"
-              whileTap="tap"
+              className="problems-cta-btn"
+              onClick={() => navigate('/contact')}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
-              {t('home.cases.seeAll')} →
+              <span aria-hidden="true">📢</span> {t('home.problems.bottom.cta')}
             </motion.button>
           </div>
         </div>
       </section>
 
-      <section className="section testimonials-section">
-        <div className="container">
-          <MotionFadeUp className="section-head">
-            <span className="eyebrow">
-              <span aria-hidden="true">💬</span> {t('home.testimonials.eyebrow')}
-            </span>
-            <h2>{t('home.testimonials.title')}</h2>
-            <p>{t('home.testimonials.subtitle')}</p>
-          </MotionFadeUp>
-
-          <div className="testimonial-marquee">
-            <div className="testimonial-marquee-track">
-              {[...Array(2)].flatMap(() =>
-                TESTIMONIAL_KEYS.map((key) => (
-                  <div key={key} className="testimonial-card">
-                    <div className="testimonial-stars">{'★'.repeat(5)}</div>
-                    <p className="testimonial-text">"{t(`home.testimonials.items.${key}.text`)}"</p>
-                    <div className="testimonial-author">
-                      <div className="testimonial-avatar">
-                        {t(`home.testimonials.items.${key}.name`)
-                          .split(' ')
-                          .map((n) => n[0])
-                          .join('')
-                          .slice(0, 2)}
-                      </div>
-                      <div>
-                        <div className="testimonial-name">
-                          {t(`home.testimonials.items.${key}.name`)}
-                        </div>
-                        <div className="testimonial-role">
-                          {t(`home.testimonials.items.${key}.role`)}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <FAQ />
-
-      <Packages />
-
+      {/* ===== FOUNDER ===== */}
       <section className="section founder-section">
         <div className="container">
+          <MotionFadeUp className="section-head">
+            <h2>{t('home.founder.title')}</h2>
+          </MotionFadeUp>
+
           <motion.div
             className="founder-grid"
             variants={staggerContainer}
@@ -840,9 +658,8 @@ function HomePage() {
                 <li>{t('home.founder.stats.brands')}</li>
                 <li>{t('home.founder.stats.entrepreneurs')}</li>
                 <li>{t('home.founder.stats.businesses')}</li>
+                <li>{t('home.founder.specialty')}</li>
               </ul>
-
-              <p className="founder-specialty">{t('home.founder.specialty')}</p>
 
               <motion.button
                 className="btn btn-dark"
@@ -859,31 +676,96 @@ function HomePage() {
         </div>
       </section>
 
-      {/* ===== FOUNDER INTRO VIDEO SECTION ===== */}
-      <section className="founder-intro-section">
+      {/* ===== CLIENT RESULTS (case-study cards) ===== */}
+      <section className="section cases-section client-results-section">
         <div className="container">
           <MotionFadeUp className="section-head">
-            <span className="eyebrow">
-              <span aria-hidden="true">🎬</span> {t('home.founderIntro.eyebrow')}
-            </span>
-            <h2>{t('home.founderIntro.title')}</h2>
-            <p>{t('home.founderIntro.subtitle')}</p>
+            <h2>{t('home.clientResults.title')}</h2>
+            {t('home.clientResults.subtitle') && <p>{t('home.clientResults.subtitle')}</p>}
           </MotionFadeUp>
 
-          <MotionFadeUp className="founder-video-wrapper">
-            <video
-              className="founder-video"
-              poster={assetPath('/images/Saiful Islam.png')}
-              controls
-              preload="metadata"
-              playsInline
-            >
-              <source src={assetPath('/videos/founder-intro.mp4')} type="video/mp4" />
-            </video>
-          </MotionFadeUp>
+          <MobileCarousel className="grid grid-3">
+            {CLIENT_RESULT_KEYS.map((key, i) => (
+              <motion.div key={key} className="case-card" initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
+                <div className="case-header">
+                  <div className="case-header-icon" aria-hidden="true">
+                    {CLIENT_RESULT_ICONS[i]}
+                  </div>
+                  <h3>{t(`home.clientResults.cards.${key}.title`)}</h3>
+                </div>
+                <div className="case-body">
+                  <div className="case-block">
+                    <div className="case-block-label">{t('home.clientResults.challenge')}</div>
+                    <p>{t(`home.clientResults.cards.${key}.challenge`)}</p>
+                  </div>
+                  <div className="case-block">
+                    <div className="case-block-label">{t('home.clientResults.whatWeDid')}</div>
+                    <ul className="case-checklist">
+                      {t(`home.clientResults.cards.${key}.whatWeDid`, { returnObjects: true }) && (
+                        t(`home.clientResults.cards.${key}.whatWeDid`, { returnObjects: true }).map((item, ci) => (
+                          <li key={ci}>
+                            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10l4 4 8-8"/></svg>
+                            {item}
+                          </li>
+                        ))
+                      )}
+                    </ul>
+                  </div>
+                </div>
+                <div className="case-result-box">
+                  <div className="case-result-label">{t('home.clientResults.keyResult')}</div>
+                  <div className="case-result-value">{t(`home.clientResults.cards.${key}.stat`)}</div>
+                </div>
+              </motion.div>
+            ))}
+          </MobileCarousel>
         </div>
       </section>
 
+      {/* ===== TESTIMONIALS ===== */}
+      <section className="section testimonials-section">
+        <div className="container">
+          <MotionFadeUp className="section-head">
+            <span className="eyebrow eyebrow-plain">{t('home.testimonials.eyebrow')}</span>
+            <h2>{t('home.testimonials.title')}</h2>
+            {t('home.testimonials.subtitle') && <p>{t('home.testimonials.subtitle')}</p>}
+          </MotionFadeUp>
+
+          <div className="testimonial-marquee">
+            <div className="testimonial-marquee-track">
+              {[...Array(2)].flatMap((_, copy) =>
+                TESTIMONIAL_KEYS.map((key) => (
+                  <div key={`${copy}-${key}`} className="testimonial-card">
+                    <div className="testimonial-stars">{'★'.repeat(5)}</div>
+                    <p className="testimonial-text">"{t(`home.testimonials.items.${key}.text`)}"</p>
+                    <div className="testimonial-author">
+                      <div className="testimonial-avatar">
+                        {t(`home.testimonials.items.${key}.name`)
+                          .split(' ')
+                          .map((n) => n[0])
+                          .join('')
+                          .slice(0, 2)}
+                      </div>
+                      <div>
+                        <div className="testimonial-name">
+                          {t(`home.testimonials.items.${key}.name`)}
+                        </div>
+                        <div className="testimonial-role">
+                          {t(`home.testimonials.items.${key}.role`)}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <FAQ />
+
+      {/* ===== FINAL CTA ===== */}
       <section className="final-cta">
         <div className="container">
           <motion.div
@@ -893,11 +775,18 @@ function HomePage() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
           >
-            <motion.div className="badge" variants={fadeUpSmall}>
-              🚀 {t('home.finalCta.badge')}
+            <motion.div className="final-cta-eyebrow" variants={fadeUpSmall}>
+              {t('home.finalCta.eyebrow')}
             </motion.div>
             <motion.h2 variants={fadeUp}>{t('home.finalCta.title')}</motion.h2>
-            <motion.p variants={fadeUpSmall}>{t('home.finalCta.subtitle')}</motion.p>
+            <motion.ul className="final-cta-perks" variants={fadeUpSmall}>
+              {t('home.finalCta.perks', { returnObjects: true }) &&
+                t('home.finalCta.perks', { returnObjects: true }).map((perk, i) => (
+                  <li key={i}>
+                    <span aria-hidden="true">📌</span> {perk}
+                  </li>
+                ))}
+            </motion.ul>
             <motion.div className="final-cta-actions" variants={fadeUpSmall}>
               <motion.button
                 className="btn btn-white"
@@ -907,17 +796,7 @@ function HomePage() {
                 whileHover="hover"
                 whileTap="tap"
               >
-                📅 {t('home.finalCta.book')}
-              </motion.button>
-              <motion.button
-                className="btn btn-dark"
-                onClick={() => navigate('/academy')}
-                variants={buttonHover}
-                initial="rest"
-                whileHover="hover"
-                whileTap="tap"
-              >
-                🎓 {t('home.finalCta.join')}
+                {t('home.finalCta.book')}
               </motion.button>
             </motion.div>
           </motion.div>

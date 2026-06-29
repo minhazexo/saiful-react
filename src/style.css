@@ -659,6 +659,10 @@ ul {
 }
 
 /* ===== Language-specific styles ===== */
+html[data-lang='bn'] {
+  --font-heading: 'Hind Siliguri', 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Hind Siliguri', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
 html[data-lang='bn'] body,
 html[lang='bn'] body {
   font-family:
