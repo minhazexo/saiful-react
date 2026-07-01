@@ -1,27 +1,13 @@
-/* ≤880px — hide nav links (handled by layout) */
-@media (max-width: 880px) {
-}
-
-/* ≤760px — services grid 1 col */
-@media (max-width: 760px) {
-  .lp-grid-4 {
+@media (max-width: 900px) {
+  .sp .grid-3, .sp .solution-wrap, .sp .grid-4, .sp .grid-2, .sp .why-grid, .sp .incl-wrap, .sp .ba-wrap {
     grid-template-columns: 1fr;
   }
+  .sp .console-body { grid-template-columns: repeat(2, 1fr); }
+  .sp-section { padding: 80px 0; }
+  .sp-hero { padding: 150px 0 80px; }
+  .sp .incl-card { position: static; }
 }
 
-/* ≤880px — timeline 1 col, hide connecting line */
-@media (max-width: 880px) {
-  .lp-timeline {
-    grid-template-columns: 1fr;
-  }
-  .lp-timeline::before {
-    display: none;
-  }
-}
-
-/* ≤780px — trust grid 1 col */
-@media (max-width: 780px) {
-  .lp-trust-grid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 600px) {
+  .sp .console-body { grid-template-columns: 1fr 1fr; }
 }

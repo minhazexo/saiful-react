@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saiful Studios — Growth Marketing System</title>
+<meta name="description" content="Saiful Studios — আপনার ব্যবসার জন্য সম্পূর্ণ Growth Marketing System। Strategy, Ads, Creative, Landing Page, Analytics — সব একসাথে।">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#0A0D12;
+    --void-2:#141922;
+    --void-3:#1B212C;
+    --surface:#EEF2EA;
+    --surface-2:#E2E8DC;
+    --card:#FFFFFF;
+    --ink:#10131A;
+    --ink-soft:#4A515C;
+    --muted:#8B93A0;
+    --muted-dark:#6E7788;
+    --lime:#C6FF3D;
+    --lime-dim:#8FCC2A;
+    --coral:#FF5A3C;
+    --line-dark:rgba(255,255,255,0.09);
+    --line-light:rgba(16,19,26,0.10);
+    --radius:18px;
+    --disp:'Space Grotesk',sans-serif;
+    --body:'Inter',sans-serif;
+    --mono:'JetBrains Mono',monospace;
+    --bn:'Noto Sans Bengali',sans-serif;
+    --ease:cubic-bezier(.22,1,.36,1);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--body);
+    background:var(--void);
+    color:#fff;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .bn{font-family:var(--bn);}
+  img,svg{display:block; max-width:100%;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  button{font-family:inherit; cursor:pointer;}
+  .container{width:100%; max-width:1240px; margin:0 auto; padding:0 24px;}
+  .icon{width:1em; height:1em; stroke:currentColor; fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round;}
+  ::selection{background:var(--lime); color:var(--void);}
+
+  h1,h2,h3,h4{font-family:var(--disp); line-height:1.05; letter-spacing:-0.01em; font-weight:600;}
+  .eyebrow{
+    font-family:var(--mono); text-transform:uppercase; letter-spacing:0.14em;
+    font-size:12px; font-weight:600; display:inline-flex; align-items:center; gap:8px;
+  }
+  .eyebrow::before{content:''; width:7px; height:7px; border-radius:50%; background:var(--lime); display:inline-block; box-shadow:0 0 10px var(--lime);}
+
+  section{position:relative;}
+  .section-pad{padding:110px 0;}
+  @media(max-width:768px){ .section-pad{padding:72px 0;} }
+
+  .on-dark{background:var(--void); color:#fff;}
+  .on-dark-2{background:var(--void-2); color:#fff;}
+  .on-light{background:var(--surface); color:var(--ink);}
+  .on-light-2{background:var(--surface-2); color:var(--ink);}
+
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    padding:16px 30px; border-radius:100px; font-weight:600; font-size:15.5px;
+    border:1px solid transparent; transition:transform .35s var(--ease), box-shadow .35s var(--ease), background .3s, color .3s, border-color .3s;
+    white-space:nowrap;
+  }
+  .btn-primary{ background:var(--lime); color:var(--void); }
+  .btn-primary:hover{ transform:translateY(-3px); box-shadow:0 14px 30px -8px rgba(198,255,61,.5); }
+  .btn-ghost{ border-color:rgba(255,255,255,0.22); color:#fff; }
+  .btn-ghost:hover{ border-color:#fff; background:rgba(255,255,255,0.06); transform:translateY(-3px); }
+  .btn-ghost-dark{ border-color:rgba(16,19,26,0.25); color:var(--ink); }
+  .btn-ghost-dark:hover{ border-color:var(--ink); background:rgba(16,19,26,0.05); transform:translateY(-3px); }
+  .btn-sm{ padding:12px 22px; font-size:14px; }
+
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--lime); outline-offset:3px; border-radius:8px; }
+
+  /* ===== NAV ===== */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(10,13,18,0.72); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line-dark);
+  }
+  .nav{ display:flex; align-items:center; justify-content:space-between; padding:16px 24px; }
+  .logo{ display:flex; align-items:center; gap:10px; font-family:var(--disp); font-weight:700; font-size:19px; letter-spacing:-0.01em; }
+  .logo .dot{ width:9px; height:9px; border-radius:50%; background:var(--lime); box-shadow:0 0 12px var(--lime); }
+  .nav-links{ display:flex; align-items:center; gap:30px; font-size:14.5px; color:rgba(255,255,255,.78); }
+  .nav-links a{ transition:color .25s; position:relative; }
+  .nav-links a:hover{ color:#fff; }
+  .nav-cta{ display:flex; align-items:center; gap:14px; }
+  .menu-toggle{ display:none; background:none; border:1px solid var(--line-dark); color:#fff; width:42px; height:42px; border-radius:10px; align-items:center; justify-content:center; }
+  @media(max-width:940px){
+    .nav-links{ display:none; }
+    .nav-cta .btn-ghost{ display:none; }
+    .menu-toggle{ display:flex; }
+  }
+
+  /* ===== TICKER ===== */
+  .ticker-wrap{
+    background:var(--void-2); border-bottom:1px solid var(--line-dark); overflow:hidden;
+    padding:11px 0; margin-top:65px;
+  }
+  .ticker-track{ display:flex; width:max-content; animation:scroll-left 30s linear infinite; }
+  .ticker-track span{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:.04em; color:var(--muted);
+    display:flex; align-items:center; gap:8px; padding:0 26px; white-space:nowrap;
+  }
+  .ticker-track span b{ color:var(--lime); font-weight:600; }
+  .ticker-track span .up{ color:var(--lime); }
+  @keyframes scroll-left{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+  @media(prefers-reduced-motion:reduce){ .ticker-track{ animation:none; } }
+
+  /* ===== HERO ===== */
+  .hero{ padding:80px 0 90px; }
+  .hero-grid{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:64px; align-items:center; }
+  @media(max-width:980px){ .hero-grid{ grid-template-columns:1fr; gap:56px; } }
+  .badge{
+    display:inline-flex; align-items:center; gap:8px; padding:8px 16px 8px 10px; border-radius:100px;
+    background:rgba(198,255,61,0.1); border:1px solid rgba(198,255,61,0.35); color:var(--lime);
+    font-family:var(--mono); font-size:12.5px; letter-spacing:.05em; margin-bottom:26px;
+  }
+  .badge .emoji{ font-size:15px; }
+  .hero h1{ font-size:clamp(34px,4.6vw,54px); color:#fff; margin-bottom:22px; }
+  .hero h1 .hl{ color:var(--lime); }
+  .hero p.lead{ font-size:17.5px; line-height:1.75; color:rgba(255,255,255,.7); max-width:560px; margin-bottom:36px; }
+  .hero-ctas{ display:flex; gap:16px; flex-wrap:wrap; margin-bottom:44px; }
+  .hero-trust{ display:flex; gap:28px; flex-wrap:wrap; }
+  .hero-trust div{ font-family:var(--mono); font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; }
+  .hero-trust b{ display:block; font-family:var(--disp); font-size:22px; color:#fff; letter-spacing:0; text-transform:none; margin-bottom:2px; }
+
+  /* dashboard mock */
+  .dash{
+    background:linear-gradient(160deg,var(--void-3),var(--void-2));
+    border:1px solid var(--line-dark); border-radius:22px; padding:22px;
+    box-shadow:0 40px 80px -30px rgba(0,0,0,.6);
+    position:relative;
+  }
+  .dash::before{
+    content:''; position:absolute; inset:-1px; border-radius:22px; padding:1px;
+    background:linear-gradient(140deg,rgba(198,255,61,.35),transparent 40%);
+    -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none;
+  }
+  .dash-top{ display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; }
+  .dash-title{ font-family:var(--mono); font-size:12px; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; display:flex; align-items:center; gap:8px;}
+  .dash-dots{ display:flex; gap:6px; }
+  .dash-dots span{ width:8px; height:8px; border-radius:50%; background:var(--line-dark); }
+  .dash-dots span:first-child{ background:var(--coral); }
+  .dash-dots span:nth-child(2){ background:#f5c542; }
+  .dash-dots span:last-child{ background:var(--lime); }
+
+  .dash-chart{ background:var(--void); border:1px solid var(--line-dark); border-radius:14px; padding:16px 16px 6px; margin-bottom:16px; }
+  .dash-chart-head{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px;}
+  .dash-chart-head .rev-num{ font-family:var(--disp); font-size:26px; color:#fff; }
+  .dash-chart-head .rev-up{ font-family:var(--mono); font-size:12px; color:var(--lime); background:rgba(198,255,61,.1); padding:3px 9px; border-radius:100px; }
+  .dash-svg{ width:100%; height:90px; display:block; }
+  .dash-svg path.line{ stroke:var(--lime); stroke-width:2; fill:none; stroke-dasharray:400; stroke-dashoffset:400; animation:draw 2.2s var(--ease) forwards .3s; }
+  .dash-svg path.area{ fill:url(#areaFill); opacity:0; animation:fadein 1s ease forwards 1.6s; }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  @keyframes fadein{ to{ opacity:1; } }
+
+  .dash-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+  .dash-metric{ background:var(--void); border:1px solid var(--line-dark); border-radius:12px; padding:13px 12px; }
+  .dash-metric .lbl{ font-family:var(--mono); font-size:10.5px; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px; }
+  .dash-metric .val{ font-family:var(--disp); font-size:19px; color:#fff; }
+  .dash-metric .diff{ font-family:var(--mono); font-size:10.5px; color:var(--lime); margin-top:3px; }
+  .dash-bars{ display:flex; align-items:flex-end; gap:4px; height:26px; margin-top:8px; }
+  .dash-bars i{ flex:1; background:linear-gradient(180deg,var(--lime),var(--lime-dim)); border-radius:2px; transform:scaleY(0); transform-origin:bottom; animation:barup .8s var(--ease) forwards; opacity:.85; }
+
+  /* ===== reveal ===== */
+  .reveal{ opacity:0; transform:translateY(26px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+  .stagger > *{ transition-delay:calc(var(--i,0) * 70ms); }
+
+  /* ===== section head ===== */
+  .head{ max-width:680px; margin-bottom:56px; }
+  .head.center{ margin-left:auto; margin-right:auto; text-align:center; }
+  .head h2{ font-size:clamp(26px,3.4vw,40px); margin-top:16px; }
+  .head p{ margin-top:16px; font-size:16px; line-height:1.75; color:var(--ink-soft); }
+  .on-dark .head p, .on-dark-2 .head p{ color:rgba(255,255,255,.65); }
+
+  /* ===== challenges ===== */
+  .chal-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  @media(max-width:980px){ .chal-grid{ grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:560px){ .chal-grid{ grid-template-columns:1fr;} }
+  .chal-card{
+    background:var(--card); border:1px solid var(--line-light); border-radius:16px; padding:24px;
+    transition:transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s;
+  }
+  .chal-card:hover{ transform:translateY(-6px); box-shadow:0 22px 40px -20px rgba(16,19,26,.22); border-color:rgba(255,90,60,.4); }
+  .chal-card .x{ width:38px; height:38px; border-radius:10px; background:rgba(255,90,60,.1); color:var(--coral); display:flex; align-items:center; justify-content:center; margin-bottom:16px; font-size:17px; }
+  .chal-card h4{ font-family:var(--bn); font-size:16.5px; font-weight:700; margin-bottom:8px; line-height:1.4; }
+  .chal-card p{ font-size:13.5px; color:var(--ink-soft); line-height:1.6; }
+
+  /* ===== roadmap ===== */
+  .roadmap{ display:flex; align-items:center; justify-content:space-between; gap:0; margin-top:56px; flex-wrap:wrap; }
+  .rm-step{ text-align:center; flex:1; min-width:110px; position:relative; }
+  .rm-step .circle{
+    width:64px; height:64px; border-radius:50%; margin:0 auto 14px; display:flex; align-items:center; justify-content:center;
+    background:var(--void-2); border:1.5px solid var(--line-dark); color:var(--lime); font-size:22px;
+    transition:border-color .4s, transform .4s;
+  }
+  .rm-step:hover .circle{ border-color:var(--lime); transform:scale(1.07); }
+  .rm-step span{ font-family:var(--mono); font-size:13px; color:rgba(255,255,255,.75); }
+  .rm-arrow{ color:var(--muted); font-size:20px; flex:0 0 auto; padding:0 6px; }
+  @media(max-width:760px){ .roadmap{ flex-direction:column; } .rm-arrow{ transform:rotate(90deg); padding:6px 0; } }
+
+  /* ===== services ===== */
+  .serv-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  @media(max-width:980px){ .serv-grid{ grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:560px){ .serv-grid{ grid-template-columns:1fr;} }
+  .serv-card{
+    background:var(--card); border:1px solid var(--line-light); border-radius:16px; padding:26px 22px;
+    overflow:hidden; position:relative; transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+  }
+  .serv-card::after{
+    content:''; position:absolute; inset:0; background:radial-gradient(120px 90px at 20% 0%, rgba(198,255,61,.16), transparent 70%);
+    opacity:0; transition:opacity .4s;
+  }
+  .serv-card:hover{ transform:translateY(-6px); box-shadow:0 22px 44px -22px rgba(16,19,26,.25); }
+  .serv-card:hover::after{ opacity:1; }
+  .serv-card .icon-wrap{
+    width:44px; height:44px; border-radius:12px; background:var(--surface-2); color:var(--ink); display:flex; align-items:center; justify-content:center;
+    font-size:20px; margin-bottom:18px; transition:transform .45s var(--ease), background .35s, color .35s;
+  }
+  .serv-card:hover .icon-wrap{ background:var(--lime); color:var(--void); transform:rotate(-8deg) scale(1.08); }
+  .serv-card h4{ font-size:15.5px; margin-bottom:7px; position:relative; }
+  .serv-card p{ font-size:13px; color:var(--ink-soft); line-height:1.6; position:relative; }
+
+  /* ===== process timeline ===== */
+  .timeline{ position:relative; margin-top:20px; }
+  .tl-line{ position:absolute; left:29px; top:8px; bottom:8px; width:1px; background:var(--line-light); }
+  .tl-item{ display:flex; gap:24px; padding:22px 0; position:relative; }
+  .tl-num{
+    width:58px; height:58px; flex:0 0 58px; border-radius:50%; background:var(--card); border:1px solid var(--line-light);
+    display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-weight:700; font-size:15px; color:var(--ink);
+    position:relative; z-index:1; transition:background .35s, color .35s, border-color .35s;
+  }
+  .tl-item:hover .tl-num{ background:var(--ink); color:var(--lime); border-color:var(--ink); }
+  .tl-body h4{ font-size:17px; margin-bottom:6px; }
+  .tl-body p{ font-size:13.5px; color:var(--ink-soft); max-width:480px; line-height:1.6; }
+
+  /* ===== fail section ===== */
+  .fail-grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:20px; }
+  @media(max-width:800px){ .fail-grid{ grid-template-columns:1fr; } }
+  .fail-col h3{ font-family:var(--mono); font-size:13px; text-transform:uppercase; letter-spacing:.08em; margin-bottom:20px; display:flex; align-items:center; gap:8px; }
+  .fail-col.bad h3{ color:var(--coral); }
+  .fail-col.good h3{ color:var(--lime); }
+  .fail-list li{
+    display:flex; gap:12px; align-items:flex-start; padding:15px 16px; border-radius:12px; margin-bottom:10px;
+    border:1px solid var(--line-dark); font-size:14.5px; line-height:1.55;
+  }
+  .fail-col.bad li{ background:rgba(255,90,60,.06); }
+  .fail-col.good li{ background:rgba(198,255,61,.06); }
+  .fail-list .ico{ flex:0 0 auto; font-size:15px; margin-top:1px; }
+  .fail-col.bad .ico{ color:var(--coral); }
+  .fail-col.good .ico{ color:var(--lime); }
+  .fail-list b{ font-family:var(--bn); font-weight:600; }
+
+  /* ===== results dashboard stats ===== */
+  .res-grid{ display:grid; grid-template-columns:repeat(6,1fr); gap:16px; margin-top:16px; }
+  @media(max-width:980px){ .res-grid{ grid-template-columns:repeat(3,1fr);} }
+  @media(max-width:560px){ .res-grid{ grid-template-columns:repeat(2,1fr);} }
+  .res-card{ background:var(--void-2); border:1px solid var(--line-dark); border-radius:16px; padding:22px 16px; text-align:center; }
+  .res-card .num{ font-family:var(--disp); font-size:clamp(24px,3vw,32px); color:var(--lime); margin-bottom:6px; }
+  .res-card .lbl{ font-family:var(--mono); font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; line-height:1.5; }
+  .placeholder-note{ text-align:center; font-family:var(--mono); font-size:11.5px; color:var(--muted-dark); margin-top:20px; }
+
+  /* ===== case studies ===== */
+  .case-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  @media(max-width:980px){ .case-grid{ grid-template-columns:1fr; } }
+  .case-card{ background:var(--card); border:1px solid var(--line-light); border-radius:20px; overflow:hidden; transition:transform .4s var(--ease), box-shadow .4s var(--ease); }
+  .case-card:hover{ transform:translateY(-6px); box-shadow:0 26px 48px -22px rgba(16,19,26,.25); }
+  .case-top{ background:var(--ink); color:#fff; padding:22px 24px; }
+  .case-top .tag{ font-family:var(--mono); font-size:11px; color:var(--lime); text-transform:uppercase; letter-spacing:.06em; }
+  .case-top h4{ font-size:19px; margin-top:8px; }
+  .case-body{ padding:22px 24px; }
+  .case-body .row{ margin-bottom:14px; }
+  .case-body .row span{ font-family:var(--mono); font-size:10.5px; text-transform:uppercase; color:var(--muted-dark); letter-spacing:.05em; display:block; margin-bottom:4px; }
+  .case-body .row p{ font-size:13.5px; color:var(--ink-soft); line-height:1.55; }
+  .case-metrics{ display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--line-light); }
+  .case-metrics div{ padding:14px 8px; text-align:center; border-right:1px solid var(--line-light); }
+  .case-metrics div:last-child{ border-right:none; }
+  .case-metrics b{ display:block; font-family:var(--disp); font-size:16px; color:var(--ink); }
+  .case-metrics small{ font-family:var(--mono); font-size:9.5px; color:var(--muted-dark); text-transform:uppercase; }
+
+  /* ===== industries ===== */
+  .ind-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+  @media(max-width:800px){ .ind-grid{ grid-template-columns:repeat(2,1fr);} }
+  .ind-card{
+    background:var(--card); border:1px solid var(--line-light); border-radius:14px; padding:20px; text-align:center;
+    transition:transform .35s var(--ease), border-color .35s;
+  }
+  .ind-card:hover{ transform:translateY(-4px); border-color:var(--ink); }
+  .ind-card .ic{ font-size:26px; margin-bottom:10px; }
+  .ind-card span{ font-size:13.5px; font-weight:600; }
+
+  /* ===== tech stack ===== */
+  .stack-grid{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:10px; }
+  .stack-chip{
+    display:flex; align-items:center; gap:9px; padding:11px 18px; border-radius:100px; border:1px solid var(--line-dark);
+    font-family:var(--mono); font-size:13px; color:rgba(255,255,255,.8); background:var(--void-2);
+    transition:border-color .3s, color .3s, transform .3s;
+  }
+  .stack-chip:hover{ border-color:var(--lime); color:var(--lime); transform:translateY(-3px); }
+  .stack-chip .icon{ font-size:15px; }
+
+  /* ===== testimonials ===== */
+  .test-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  @media(max-width:980px){ .test-grid{ grid-template-columns:1fr; } }
+  .test-card{ background:var(--card); border:1px solid var(--line-light); border-radius:18px; padding:28px; position:relative; }
+  .test-card .quote-mark{ font-family:var(--disp); font-size:44px; color:var(--surface-2); line-height:1; position:absolute; top:16px; right:22px; }
+  .test-card .stars{ color:#f5b942; font-size:14px; margin-bottom:16px; letter-spacing:2px; }
+  .test-card p{ font-size:14.5px; line-height:1.75; color:var(--ink-soft); margin-bottom:22px; }
+  .test-person{ display:flex; align-items:center; gap:12px; }
+  .test-avatar{ width:42px; height:42px; border-radius:50%; background:var(--ink); color:var(--lime); display:flex; align-items:center; justify-content:center; font-family:var(--disp); font-weight:600; font-size:15px; }
+  .test-person b{ font-size:14px; display:block; }
+  .test-person small{ font-size:12px; color:var(--muted-dark); }
+
+  /* ===== FAQ ===== */
+  .faq-list{ max-width:760px; margin:0 auto; }
+  .faq-item{ border-bottom:1px solid var(--line-light); }
+  .faq-q{ width:100%; display:flex; align-items:center; justify-content:space-between; gap:20px; padding:22px 4px; text-align:left; background:none; border:none; font-family:var(--disp); font-size:16.5px; color:var(--ink); }
+  .faq-q .plus{ flex:0 0 auto; width:26px; height:26px; border-radius:50%; border:1px solid var(--line-light); display:flex; align-items:center; justify-content:center; font-size:14px; transition:transform .35s var(--ease), background .3s, color .3s; }
+  .faq-item.open .faq-q .plus{ transform:rotate(45deg); background:var(--ink); color:var(--lime); border-color:var(--ink); }
+  .faq-a{ max-height:0; overflow:hidden; transition:max-height .45s var(--ease); }
+  .faq-a p{ font-size:14.5px; color:var(--ink-soft); line-height:1.75; padding:0 4px 24px; max-width:640px; }
+
+  /* ===== final cta ===== */
+  .cta-wrap{ text-align:center; padding:90px 0; position:relative; }
+  .cta-glow{ position:absolute; top:-80px; left:50%; transform:translateX(-50%); width:600px; height:300px; background:radial-gradient(ellipse,rgba(198,255,61,.16),transparent 70%); pointer-events:none; }
+  .cta-wrap h2{ font-size:clamp(28px,4.2vw,46px); margin-bottom:18px; position:relative; }
+  .cta-wrap p{ font-size:16.5px; color:rgba(255,255,255,.68); max-width:560px; margin:0 auto 38px; line-height:1.75; position:relative; }
+
+  footer{ background:var(--void-2); border-top:1px solid var(--line-dark); padding:50px 0 28px; }
+  .foot-grid{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:30px; margin-bottom:36px; }
+  .foot-brand p{ font-size:13.5px; color:var(--muted); max-width:280px; margin-top:12px; line-height:1.6; }
+  .foot-cols{ display:flex; gap:60px; flex-wrap:wrap; }
+  .foot-col span{ font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.07em; color:var(--muted-dark); display:block; margin-bottom:14px; }
+  .foot-col a{ display:block; font-size:13.5px; color:rgba(255,255,255,.7); margin-bottom:10px; transition:color .25s; }
+  .foot-col a:hover{ color:var(--lime); }
+  .foot-bottom{ border-top:1px solid var(--line-dark); padding-top:22px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-family:var(--mono); font-size:11.5px; color:var(--muted-dark); }
+
+  @keyframes barup{ to{ transform:scaleY(1); } }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+<defs>
+<linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0%" stop-color="#C6FF3D" stop-opacity="0.35"/>
+  <stop offset="100%" stop-color="#C6FF3D" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <nav class="nav container">
+    <div class="logo"><span class="dot"></span>Saiful Studios</div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#results">Results</a>
+      <a href="#cases">Case Studies</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#final-cta" class="btn btn-ghost btn-sm">Case Study দেখুন</a>
+      <a href="#final-cta" class="btn btn-primary btn-sm bn">Growth Audit বুক করুন</a>
+      <button class="menu-toggle" aria-label="Menu">
+        <svg class="icon" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- ============ TICKER ============ -->
+<div class="ticker-wrap">
+  <div class="ticker-track" id="tickerTrack">
+    <!-- duplicated via JS -->
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="on-dark hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge reveal"><span class="emoji">🚀</span> Growth Marketing Solution</div>
+      <h1 class="reveal bn">আপনার ব্যবসাকে আরও বেশি মানুষের কাছে <span class="hl">পৌঁছে দিন</span> এবং বিক্রি বাড়ান।</h1>
+      <p class="lead reveal bn">Saiful Studios আপনার ব্যবসার জন্য তৈরি করে সম্পূর্ণ একটি Growth System — Marketing Strategy, Advertising, Creative Design, Landing Page Optimization, Analytics এবং প্রতিদিনের Optimization, সবকিছু এক জায়গায়।</p>
+      <div class="hero-ctas reveal">
+        <a href="#final-cta" class="btn btn-primary bn">ফ্রি Growth Audit বুক করুন</a>
+        <a href="#cases" class="btn btn-ghost bn">আমাদের Case Study দেখুন</a>
+      </div>
+      <div class="hero-trust reveal">
+        <div><b>120+</b>Businesses Helped</div>
+        <div><b>4.8x</b>Average ROAS</div>
+        <div><b>950+</b>Campaigns Managed</div>
+      </div>
+    </div>
+
+    <div class="dash reveal" id="dashCard">
+      <div class="dash-top">
+        <div class="dash-title"><svg class="icon" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg> Live Growth Dashboard</div>
+        <div class="dash-dots"><span></span><span></span><span></span></div>
+      </div>
+
+      <div class="dash-chart">
+        <div class="dash-chart-head">
+          <div>
+            <div class="dash-title" style="margin-bottom:4px;">Revenue Growth</div>
+            <div class="rev-num" id="revNum">৳0</div>
+          </div>
+          <div class="rev-up">▲ 187% MoM</div>
+        </div>
+        <svg class="dash-svg" viewBox="0 0 300 90" preserveAspectRatio="none">
+          <path class="area" d="M0,70 L30,60 L60,64 L90,45 L120,50 L150,30 L180,36 L210,18 L240,24 L270,10 L300,14 L300,90 L0,90 Z"/>
+          <path class="line" d="M0,70 L30,60 L60,64 L90,45 L120,50 L150,30 L180,36 L210,18 L240,24 L270,10 L300,14"/>
+        </svg>
+      </div>
+
+      <div class="dash-grid">
+        <div class="dash-metric">
+          <div class="lbl">ROAS</div>
+          <div class="val" data-count="4.8" data-suffix="x">0x</div>
+          <div class="diff">▲ 32%</div>
+        </div>
+        <div class="dash-metric">
+          <div class="lbl">Orders</div>
+          <div class="val" data-count="3240" data-suffix="">0</div>
+          <div class="diff">▲ 58%</div>
+        </div>
+        <div class="dash-metric">
+          <div class="lbl">Visitors</div>
+          <div class="val" data-count="92" data-suffix="K">0K</div>
+          <div class="diff">▲ 41%</div>
+        </div>
+        <div class="dash-metric" style="grid-column:span 1;">
+          <div class="lbl">Conv. Rate</div>
+          <div class="val" data-count="6.2" data-suffix="%">0%</div>
+          <div class="dash-bars">
+            <i style="height:40%; animation-delay:.1s"></i><i style="height:55%; animation-delay:.2s"></i><i style="height:35%; animation-delay:.3s"></i><i style="height:70%; animation-delay:.4s"></i><i style="height:50%; animation-delay:.5s"></i>
+          </div>
+        </div>
+        <div class="dash-metric">
+          <div class="lbl">Sales Growth</div>
+          <div class="val" data-count="187" data-suffix="%">0%</div>
+          <div class="diff">▲ this quarter</div>
+        </div>
+        <div class="dash-metric">
+          <div class="lbl">Ad Spend</div>
+          <div class="val" data-count="1.2" data-suffix="Cr">0Cr</div>
+          <div class="diff">managed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHALLENGES ============ -->
+<section class="on-light section-pad" id="challenges">
+  <div class="container">
+    <div class="head reveal">
+      <span class="eyebrow">THE PROBLEM</span>
+      <h2 class="bn">আপনার ব্যবসা কি এই সমস্যাগুলোর কারণে আটকে আছে?</h2>
+      <p class="bn">অনেক ব্যবসাই বিজ্ঞাপনে খরচ করছে, কিন্তু প্রত্যাশিত ফলাফল পাচ্ছে না। নিচের সমস্যাগুলোর সাথে কি আপনি পরিচিত?</p>
+    </div>
+    <div class="chal-grid stagger" id="chalGrid"></div>
+  </div>
+</section>
+
+<!-- ============ SOLUTION / ROADMAP ============ -->
+<section class="on-dark section-pad">
+  <div class="container">
+    <div class="head center reveal">
+      <span class="eyebrow">OUR APPROACH</span>
+      <h2 class="bn">আমরা শুধু বিজ্ঞাপন চালাই না, আপনার ব্যবসার Growth System তৈরি করি।</h2>
+      <p class="bn">প্রতিটি ব্যবসার জন্য আমরা একটি সুনির্দিষ্ট, ডেটা-চালিত সিস্টেম তৈরি করি — যা Research থেকে শুরু হয়ে Scaling পর্যন্ত প্রতিটি ধাপে আপনার ব্যবসাকে এগিয়ে নিয়ে যায়।</p>
+    </div>
+    <div class="roadmap reveal" id="roadmap"></div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="on-light section-pad" id="services">
+  <div class="container">
+    <div class="head reveal">
+      <span class="eyebrow">GROWTH SERVICES</span>
+      <h2 class="bn">সব সার্ভিস, এক ছাদের নিচে</h2>
+      <p class="bn">Strategy থেকে Analytics পর্যন্ত — আপনার ব্যবসার Growth-এর জন্য প্রয়োজনীয় প্রতিটি সার্ভিস আমরা এক জায়গায় প্রদান করি।</p>
+    </div>
+    <div class="serv-grid stagger" id="servGrid"></div>
+  </div>
+</section>
+
+<!-- ============ PROCESS TIMELINE ============ -->
+<section class="on-light-2 section-pad" id="process">
+  <div class="container">
+    <div class="head reveal">
+      <span class="eyebrow">HOW WE WORK</span>
+      <h2 class="bn">Growth Process — ধাপে ধাপে</h2>
+      <p class="bn">Audit থেকে Monthly Reporting পর্যন্ত — আমাদের প্রতিটি ক্লায়েন্টের জন্য একই প্রমাণিত ৮-ধাপের প্রক্রিয়া অনুসরণ করি।</p>
+    </div>
+    <div class="timeline reveal" id="timeline">
+      <div class="tl-line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY FAIL (DARK) ============ -->
+<section class="on-dark section-pad">
+  <div class="container">
+    <div class="head center reveal">
+      <span class="eyebrow" style="color:var(--coral);"><span style="display:none"></span>WHY BUSINESSES FAIL</span>
+      <h2 class="bn">বেশিরভাগ ব্যবসা কেন Grow করতে পারে না?</h2>
+      <p class="bn">সঠিক সিস্টেম ছাড়া বিজ্ঞাপনের বাজেট বাড়ালেও ফলাফল আসে না। আমরা প্রতিটি সমস্যার একটি স্পষ্ট সমাধান নিয়ে কাজ করি।</p>
+    </div>
+    <div class="fail-grid reveal" id="failGrid"></div>
+  </div>
+</section>
+
+<!-- ============ RESULTS DASHBOARD ============ -->
+<section class="on-dark-2 section-pad" id="results">
+  <div class="container">
+    <div class="head center reveal">
+      <span class="eyebrow">BY THE NUMBERS</span>
+      <h2 class="bn">আমাদের Result Dashboard</h2>
+      <p>এখন পর্যন্ত আমরা যেসব ব্যবসার সাথে কাজ করেছি, তার একটি সংক্ষিপ্ত চিত্র।</p>
+    </div>
+    <div class="res-grid reveal" id="resGrid"></div>
+    <p class="placeholder-note">*Placeholder figures for demonstration — actual numbers vary by engagement.</p>
+  </div>
+</section>
+
+<!-- ============ CASE STUDIES ============ -->
+<section class="on-light section-pad" id="cases">
+  <div class="container">
+    <div class="head reveal">
+      <span class="eyebrow">PROOF OF WORK</span>
+      <h2 class="bn">Case Studies</h2>
+      <p class="bn">বিভিন্ন ইন্ডাস্ট্রির ব্যবসার সাথে কাজ করার কিছু ফলাফল — সমস্যা, সমাধান এবং সংখ্যাসহ।</p>
+    </div>
+    <div class="case-grid stagger" id="caseGrid"></div>
+  </div>
+</section>
+
+<!-- ============ INDUSTRIES ============ -->
+<section class="on-light-2 section-pad">
+  <div class="container">
+    <div class="head reveal">
+      <span class="eyebrow">WHO WE WORK WITH</span>
+      <h2 class="bn">Industries We Work With</h2>
+      <p class="bn">প্রতিটি ইন্ডাস্ট্রির নিজস্ব চ্যালেঞ্জ আছে — আমরা সেই অনুযায়ী স্ট্র্যাটেজি তৈরি করি।</p>
+    </div>
+    <div class="ind-grid stagger" id="indGrid"></div>
+  </div>
+</section>
+
+<!-- ============ TECH STACK ============ -->
+<section class="on-dark section-pad">
+  <div class="container">
+    <div class="head center reveal">
+      <span class="eyebrow">MARKETING TECH STACK</span>
+      <h2 class="bn">যেসব টুলস দিয়ে আমরা কাজ করি</h2>
+      <p>Industry-standard tools ব্যবহার করে আমরা প্রতিটি ক্যাম্পেইন নির্ভুলভাবে Track, Optimize এবং Scale করি।</p>
+    </div>
+    <div class="stack-grid reveal" id="stackGrid"></div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="on-light section-pad">
+  <div class="container">
+    <div class="head reveal">
+      <span class="eyebrow">CLIENT VOICES</span>
+      <h2 class="bn">যা বলছেন আমাদের ক্লায়েন্টরা</h2>
+    </div>
+    <div class="test-grid stagger" id="testGrid"></div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="on-light-2 section-pad" id="faq">
+  <div class="container">
+    <div class="head center reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="bn">সাধারণ প্রশ্নসমূহ</h2>
+    </div>
+    <div class="faq-list reveal" id="faqList"></div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="on-dark cta-wrap" id="final-cta">
+  <div class="cta-glow"></div>
+  <div class="container">
+    <h2 class="bn reveal">আপনার ব্যবসাকে পরবর্তী ধাপে নিয়ে যেতে প্রস্তুত?</h2>
+    <p class="bn reveal">আজই একটি ফ্রি Growth Audit বুক করুন এবং জেনে নিন কীভাবে আপনার ব্যবসার বিক্রি, লিড এবং কনভার্সন আরও বাড়ানো যায়।</p>
+    <a href="#" class="btn btn-primary bn reveal" style="font-size:16.5px; padding:18px 36px;">ফ্রি Growth Audit বুক করুন →</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo"><span class="dot"></span>Saiful Studios</div>
+        <p class="bn">আপনার ব্যবসার জন্য সম্পূর্ণ Growth Marketing System — Strategy থেকে Scaling পর্যন্ত।</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <span>Company</span>
+          <a href="#services">Services</a>
+          <a href="#process">Process</a>
+          <a href="#cases">Case Studies</a>
+        </div>
+        <div class="foot-col">
+          <span>Get In Touch</span>
+          <a href="#">hello@saifulstudios.com</a>
+          <a href="#">+880 1XXX-XXXXXX</a>
+          <a href="#">Dhaka, Bangladesh</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 SAIFUL STUDIOS. ALL RIGHTS RESERVED.</span>
+      <span>DESIGNED FOR GROWTH.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- ICON LIBRARY (inline SVG paths, 24x24, stroke) ---------- */
+const ICONS = {
+  sales:      '<svg class="icon" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>',
+  spend:      '<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M15 9.5c0-1.4-1.3-2.5-3-2.5s-3 1-3 2.3 1.2 1.9 3 2.2 3 .9 3 2.2-1.3 2.3-3 2.3-3-1-3-2.4"/></svg>',
+  roas:       '<svg class="icon" viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19V3"/></svg>',
+  cart:       '<svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.4a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6"/></svg>',
+  creative:   '<svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>',
+  target:     '<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="0.6" fill="currentColor"/></svg>',
+  track:      '<svg class="icon" viewBox="0 0 24 24"><path d="M4 4v16h16"/><path d="M8 15l3-4 3 2 4-6"/></svg>',
+  scale:      '<svg class="icon" viewBox="0 0 24 24"><path d="M4 20L20 4M20 4h-6M20 4v6"/></svg>',
+  strategy:   '<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>',
+  meta:       '<svg class="icon" viewBox="0 0 24 24"><path d="M4 15c0-5 2.5-8 5-8s3.5 3.5 4 6c.5-2.5 1.5-6 4-6s5 3 5 8"/></svg>',
+  google:     '<svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="12" r="8.5"/><path d="M11 12h9"/></svg>',
+  design:     '<svg class="icon" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18"/><path d="M2 2l7.6 7.6"/><circle cx="11" cy="11" r="1.5"/></svg>',
+  motion:     '<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 8l6 4-6 4V8z"/></svg>',
+  video:      '<svg class="icon" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="14" height="13" rx="2"/><path d="M16.5 10l5-3v10l-5-3"/></svg>',
+  social:     '<svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>',
+  landing:    '<svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8h18"/><path d="M6 6h.01M9 6h.01"/></svg>',
+  cro:        '<svg class="icon" viewBox="0 0 24 24"><path d="M3 12l5 5L21 4"/></svg>',
+  analytics:  '<svg class="icon" viewBox="0 0 24 24"><path d="M4 20V10M11 20V4M18 20v-7"/></svg>',
+  pixel:      '<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M22 12h-4M6 12H2M19 5l-2.8 2.8M7.8 16.2 5 19M19 19l-2.8-2.8M7.8 7.8 5 5"/></svg>',
+  server:     '<svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><circle cx="7" cy="7" r=".6" fill="currentColor"/><circle cx="7" cy="17" r=".6" fill="currentColor"/></svg>',
+  ga4:        '<svg class="icon" viewBox="0 0 24 24"><circle cx="7" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><circle cx="17" cy="7" r="3"/><path d="M7 14V7l7 3"/></svg>',
+  gtm:        '<svg class="icon" viewBox="0 0 24 24"><path d="M20.5 12.3 13.4 3a2 2 0 0 0-3 0L3.5 12.3a2 2 0 0 0 0 2.4l6.9 9.3a2 2 0 0 0 3 0l6.9-9.3a2 2 0 0 0 .2-2.4z"/><circle cx="12" cy="13" r="2.4"/></svg>',
+  remarket:   '<svg class="icon" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg>',
+  ai:         '<svg class="icon" viewBox="0 0 24 24"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3z"/><path d="M19 15l.8 2.1L22 18l-2.2.9L19 21l-.8-2.1L16 18l2.2-.9L19 15z"/></svg>',
+  audit:      '<svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>',
+  research:   '<svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5V5a2 2 0 0 1 2-2h11l3 3v13.5"/><path d="M8 8h9M8 12h9M8 16h5"/></svg>',
+  develop:    '<svg class="icon" viewBox="0 0 24 24"><path d="M8 5 2 12l6 7M16 5l6 7-6 7"/></svg>',
+  launch:     '<svg class="icon" viewBox="0 0 24 24"><path d="M13 3s5 1 6 6-2 7-2 7l-5 1-1-5s2-8 2-9z"/><path d="M8 16l-4 4M7.5 12.5C5 12 3 14 3 18c4 0 6-2 5.5-4.5z"/></svg>',
+  optimize:   '<svg class="icon" viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h6"/><circle cx="18" cy="12" r="2.2"/><circle cx="15" cy="18" r="2.2"/></svg>',
+  report:     '<svg class="icon" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>',
+  check:      '<svg class="icon" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg>',
+  cross:      '<svg class="icon" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg>',
+  ecom:       '🛍️', health:'🏥', edu:'🎓', restaurant:'🍽️', corp:'🏢', realestate:'🏠', personal:'⭐', servicebiz:'🛠️'
+};
+
+/* ---------- TICKER ---------- */
+const tickerItems = [
+  ['SALES','▲ 187%'], ['ROAS','▲ 4.8x'], ['REVENUE','▲ ৳2.4Cr'], ['ORDERS','▲ 3,240+'],
+  ['VISITORS','▲ 92K'], ['CONV. RATE','▲ 6.2%'], ['AD SPEND MANAGED','৳1.2Cr+'], ['CLIENT SATISFACTION','98%']
+];
+function buildTicker(){
+  const track = document.getElementById('tickerTrack');
+  let html = '';
+  for(let r=0;r<2;r++){
+    tickerItems.forEach(([l,v])=>{
+      html += `<span>${l} <b class="up">${v}</b></span>`;
+    });
+  }
+  track.innerHTML = html;
+}
+buildTicker();
+
+/* ---------- CHALLENGES ---------- */
+const challenges = [
+  ['Sales বাড়ছে না', 'বিজ্ঞাপন চালিয়েও কাঙ্ক্ষিত বিক্রি আসছে না।'],
+  ['বিজ্ঞাপনে বেশি খরচ হচ্ছে', 'Ad spend বাড়ছে কিন্তু রেজাল্ট বাড়ছে না।'],
+  ['ROAS কম', 'প্রতি টাকা বিজ্ঞাপনে খরচ করে যথেষ্ট রিটার্ন আসছে না।'],
+  ['Website থেকে অর্ডার আসছে না', 'ট্রাফিক আছে, কিন্তু কনভার্সন নেই।'],
+  ['Creative কাজ করছে না', 'একই ক্রিয়েটিভ বারবার ব্যবহারে পারফরম্যান্স কমে যাচ্ছে।'],
+  ['Wrong Audience Targeting', 'ভুল অডিয়েন্সের কাছে বিজ্ঞাপন পৌঁছাচ্ছে, তাই লিড কম মানের।'],
+  ['Conversion Tracking নেই', 'কোন ক্যাম্পেইন কাজ করছে তা সঠিকভাবে বোঝা যাচ্ছে না।'],
+  ['Scaling করা যাচ্ছে না', 'বাজেট বাড়ালেই পারফরম্যান্স ভেঙে পড়ছে।'],
+];
+document.getElementById('chalGrid').innerHTML = challenges.map((c,i)=>`
+  <div class="chal-card reveal" style="--i:${i}">
+    <div class="x">${ICONS.cross}</div>
+    <h4>${c[0]}</h4>
+    <p class="bn">${c[1]}</p>
+  </div>`).join('');
+
+/* ---------- ROADMAP ---------- */
+const roadmapSteps = [
+  ['Research', ICONS.research], ['Strategy', ICONS.strategy], ['Creative', ICONS.design],
+  ['Campaign', ICONS.launch], ['Optimization', ICONS.optimize], ['Scaling', ICONS.scale]
+];
+document.getElementById('roadmap').innerHTML = roadmapSteps.map((s,i)=>{
+  const arrow = i < roadmapSteps.length-1 ? `<div class="rm-arrow">→</div>` : '';
+  return `<div class="rm-step"><div class="circle">${s[1]}</div><span>${s[0]}</span></div>${arrow}`;
+}).join('');
+
+/* ---------- SERVICES ---------- */
+const services = [
+  ['Marketing Strategy','ব্যবসার লক্ষ্য অনুযায়ী সম্পূর্ণ গ্রোথ রোডম্যাপ তৈরি।', ICONS.strategy],
+  ['Meta Ads','Facebook ও Instagram-এ নির্ভুল টার্গেটিং সহ ক্যাম্পেইন।', ICONS.meta],
+  ['Google Ads','Search, Display ও Shopping ক্যাম্পেইন ম্যানেজমেন্ট।', ICONS.google],
+  ['Creative Design','Scroll-stopping ব্যানার ও ক্রিয়েটিভ ডিজাইন।', ICONS.design],
+  ['Motion Graphic Ads','অ্যানিমেটেড, আই-ক্যাচিং motion ক্রিয়েটিভ।', ICONS.motion],
+  ['Video Editing','পারফরম্যান্স-ফোকাসড ভিডিও অ্যাড এডিটিং।', ICONS.video],
+  ['Social Media Content','প্রতিদিনের কন্টেন্ট ক্যালেন্ডার ও পোস্টিং।', ICONS.social],
+  ['Landing Page Optimization','কনভার্সন বাড়াতে ল্যান্ডিং পেজ অপটিমাইজেশন।', ICONS.landing],
+  ['Conversion Rate Optimization','ডেটা দেখে A/B টেস্টিং করে CRO।', ICONS.cro],
+  ['Analytics','সম্পূর্ণ পারফরম্যান্স রিপোর্টিং ও ইনসাইট।', ICONS.analytics],
+  ['Meta Pixel','সঠিক ইভেন্ট ট্র্যাকিং সেটআপ ও অডিট।', ICONS.pixel],
+  ['Conversion API','সার্ভার-সাইড ট্র্যাকিং দিয়ে ডেটা লস কমানো।', ICONS.server],
+  ['Google Analytics 4','GA4 সেটআপ, ইভেন্ট ও ফানেল ট্র্যাকিং।', ICONS.ga4],
+  ['Google Tag Manager','সব ট্র্যাকিং ট্যাগ এক জায়গায় ম্যানেজ।', ICONS.gtm],
+  ['Remarketing','যারা ইন্টারেস্ট দেখিয়েছে তাদের ফিরিয়ে আনা।', ICONS.remarket],
+  ['AI Marketing','AI টুলস দিয়ে ক্রিয়েটিভ ও অপটিমাইজেশন দ্রুততর।', ICONS.ai],
+];
+document.getElementById('servGrid').innerHTML = services.map((s,i)=>`
+  <div class="serv-card reveal" style="--i:${i%4}">
+    <div class="icon-wrap">${s[2]}</div>
+    <h4>${s[0]}</h4>
+    <p class="bn">${s[1]}</p>
+  </div>`).join('');
+
+/* ---------- PROCESS TIMELINE ---------- */
+const process = [
+  ['01','Business Audit','আপনার বর্তমান মার্কেটিং, ওয়েবসাইট ও ডেটা পুরোপুরি বিশ্লেষণ করি।', ICONS.audit],
+  ['02','Market Research','ইন্ডাস্ট্রি, কম্পিটিটর ও অডিয়েন্স নিয়ে গভীর গবেষণা।', ICONS.research],
+  ['03','Growth Strategy','আপনার ব্যবসার জন্য একটি কাস্টম গ্রোথ প্ল্যান তৈরি।', ICONS.strategy],
+  ['04','Creative Development','কনভার্সন-ফোকাসড ক্রিয়েটিভ ও কপি তৈরি।', ICONS.design],
+  ['05','Campaign Launch','সঠিক অডিয়েন্স ও বাজেট দিয়ে ক্যাম্পেইন লঞ্চ।', ICONS.launch],
+  ['06','Daily Optimization','প্রতিদিন পারফরম্যান্স মনিটর করে অপটিমাইজ করি।', ICONS.optimize],
+  ['07','Scaling','যা কাজ করছে তা ধাপে ধাপে স্কেল করি।', ICONS.scale],
+  ['08','Monthly Reporting','স্বচ্ছ, বিস্তারিত মাসিক রিপোর্ট প্রদান করি।', ICONS.report],
+];
+const tl = document.getElementById('timeline');
+tl.innerHTML += process.map(p=>`
+  <div class="tl-item reveal">
+    <div class="tl-num">${p[0]}</div>
+    <div class="tl-body"><h4>${p[2]}</h4><p class="bn">${p[3]}</p></div>
+  </div>`).join('').replace(/<h4>(.*?)<\/h4>/g,(m,g)=>m); // placeholder, corrected below
+
+// rebuild correctly (title/desc mapping fix)
+tl.innerHTML = '<div class="tl-line"></div>' + process.map(p=>`
+  <div class="tl-item reveal">
+    <div class="tl-num">${p[0]}</div>
+    <div class="tl-body"><h4>${p[1]}</h4><p class="bn">${p[2]}</p></div>
+  </div>`).join('');
+
+/* ---------- FAIL / SOLVE ---------- */
+const mistakes = [
+  ['No Strategy','Data-driven Growth Strategy তৈরি করি প্রতিটি ব্যবসার জন্য আলাদাভাবে।'],
+  ['Poor Creatives','Scroll-stopping, কনভার্সন-ফোকাসড ক্রিয়েটিভ ডিজাইন করি।'],
+  ['Wrong Audience','Pixel ও Audience Research দিয়ে সঠিক মানুষের কাছে পৌঁছাই।'],
+  ['Weak Landing Page','High-converting ল্যান্ডিং পেজ তৈরি ও অপটিমাইজ করি।'],
+  ['No Analytics','GA4, Pixel ও CAPI দিয়ে সম্পূর্ণ ট্র্যাকিং সেটআপ করি।'],
+  ['No Optimization','প্রতিদিন ক্যাম্পেইন মনিটর ও অপটিমাইজ করি।'],
+  ['No Scaling Plan','প্রমাণিত Growth System দিয়ে ধাপে ধাপে স্কেল করি।'],
+];
+document.getElementById('failGrid').innerHTML = `
+  <div class="fail-col bad">
+    <h3>${ICONS.cross} Common Mistakes</h3>
+    <ul class="fail-list">${mistakes.map(m=>`<li><span class="ico">${ICONS.cross}</span><span>${m[0]}</span></li>`).join('')}</ul>
+  </div>
+  <div class="fail-col good">
+    <h3>${ICONS.check} Saiful Studios Solves It</h3>
+    <ul class="fail-list">${mistakes.map(m=>`<li><span class="ico">${ICONS.check}</span><span class="bn">${m[1]}</span></li>`).join('')}</ul>
+  </div>`;
+
+/* ---------- RESULTS ---------- */
+const results = [
+  ['180+','Projects Completed'], ['950+','Campaigns Managed'], ['120+','Businesses Helped'],
+  ['৳1.2Cr+','Ad Spend Managed'], ['4.8x','Average ROAS'], ['98%','Client Satisfaction']
+];
+document.getElementById('resGrid').innerHTML = results.map(r=>`
+  <div class="res-card"><div class="num" data-final="${r[0]}">0</div><div class="lbl">${r[1]}</div></div>`).join('');
+
+/* ---------- CASE STUDIES ---------- */
+const cases = [
+  ['Ecommerce','Fashion Brand','Sales বাড়ছিল না এবং ROAS ছিল খুবই কম।','Audience সেগমেন্টেশন নতুন করে সাজিয়ে, নতুন ক্রিয়েটিভ ও Landing Page দিয়ে ক্যাম্পেইন রিলঞ্চ করি।',['+165%','3.2x → 5.6x','+৳38L','-42%']],
+  ['Restaurant','Food Delivery Chain','Website থেকে অর্ডার আসছিল না, শুধু কল আসতো।','Conversion Tracking সেটআপ করে, রিমার্কেটিং ও অপটিমাইজড ল্যান্ডিং পেজ চালু করি।',['+210%','4.1x','+৳21L','-35%']],
+  ['Education','Online Course Platform','Wrong audience targeting-এর কারণে লিডের মান কম ছিল।','সঠিক Pixel সেটআপ, নতুন Creative ও নতুন অডিয়েন্স স্ট্র্যাটেজি প্রয়োগ করি।',['+140%','5.0x','+৳15L','-50%']],
+];
+document.getElementById('caseGrid').innerHTML = cases.map(c=>`
+  <div class="case-card reveal">
+    <div class="case-top"><span class="tag">${c[0]}</span><h4>${c[1]}</h4></div>
+    <div class="case-body">
+      <div class="row"><span>Problem</span><p class="bn">${c[2]}</p></div>
+      <div class="row"><span>Solution</span><p class="bn">${c[3]}</p></div>
+    </div>
+    <div class="case-metrics">
+      <div><b>${c[4][0]}</b><small>Sales</small></div>
+      <div><b>${c[4][1]}</b><small>ROAS</small></div>
+      <div><b>${c[4][2]}</b><small>Revenue</small></div>
+      <div><b>${c[4][3]}</b><small>CPA</small></div>
+    </div>
+  </div>`).join('');
+
+/* ---------- INDUSTRIES ---------- */
+const industries = [
+  ['Ecommerce', ICONS.ecom], ['Healthcare', ICONS.health], ['Education', ICONS.edu], ['Restaurant', ICONS.restaurant],
+  ['Corporate', ICONS.corp], ['Real Estate', ICONS.realestate], ['Personal Brand', ICONS.personal], ['Service Business', ICONS.servicebiz]
+];
+document.getElementById('indGrid').innerHTML = industries.map(i=>`
+  <div class="ind-card reveal"><div class="ic">${i[1]}</div><span>${i[0]}</span></div>`).join('');
+
+/* ---------- TECH STACK ---------- */
+const stack = ['Meta Ads','Google Ads','Google Analytics 4','Meta Pixel','Google Tag Manager','Looker Studio','Hotjar','WordPress','WooCommerce','Canva','Adobe','ChatGPT','Claude'];
+document.getElementById('stackGrid').innerHTML = stack.map(s=>`<div class="stack-chip"><span class="icon">◆</span>${s}</div>`).join('');
+
+/* ---------- TESTIMONIALS ---------- */
+const testimonials = [
+  ['আমাদের ROAS ৩ মাসে দ্বিগুণ হয়ে গেছে। এখন প্রতিটি সিদ্ধান্ত ডেটা দেখে নিই।','Rafiul Karim','Founder, Ecommerce Brand'],
+  ['Saiful Studios আমাদের পুরো মার্কেটিং সিস্টেমটাই নতুন করে সাজিয়ে দিয়েছে।','Nusrat Jahan','Owner, Restaurant Chain'],
+  ['প্রতিমাসে রিপোর্ট পাই, সব কিছু transparent। এটাই সবচেয়ে ভালো লাগে।','Tanvir Ahmed','CMO, Education Platform'],
+];
+document.getElementById('testGrid').innerHTML = testimonials.map(t=>`
+  <div class="test-card reveal">
+    <div class="quote-mark">"</div>
+    <div class="stars">★★★★★</div>
+    <p class="bn">${t[0]}</p>
+    <div class="test-person">
+      <div class="test-avatar">${t[1][0]}</div>
+      <div><b>${t[1]}</b><small>${t[2]}</small></div>
+    </div>
+  </div>`).join('');
+
+/* ---------- FAQ ---------- */
+const faqs = [
+  ['কত বাজেট প্রয়োজন?','আপনার ইন্ডাস্ট্রি ও লক্ষ্য অনুযায়ী বাজেট নির্ভর করে। Free Growth Audit-এর সময় আমরা আপনার ব্যবসার জন্য উপযুক্ত বাজেট রেঞ্জ সাজেস্ট করি।'],
+  ['ফলাফল দেখতে কতদিন লাগে?','সাধারণত ২-৪ সপ্তাহের মধ্যে প্রাথমিক উন্নতি দেখা যায়, তবে টেকসই গ্রোথের জন্য ৯০ দিনের একটি পূর্ণাঙ্গ সাইকেল প্রয়োজন।'],
+  ['ক্রিয়েটিভ কারা তৈরি করে?','আমাদের ইন-হাউস ডিজাইন ও ভিডিও টিম প্রতিটি ক্রিয়েটিভ আপনার ব্র্যান্ড অনুযায়ী কাস্টম তৈরি করে।'],
+  ['আমি কি রিপোর্ট পাবো?','হ্যাঁ, প্রতি মাসে বিস্তারিত পারফরম্যান্স রিপোর্ট এবং প্রয়োজনে সাপ্তাহিক আপডেট দেওয়া হয়।'],
+  ['আমার বিদ্যমান ক্যাম্পেইন কি অপটিমাইজ করতে পারবেন?','অবশ্যই। আমরা প্রথমে আপনার বর্তমান ক্যাম্পেইন অডিট করি, তারপর সমস্যা চিহ্নিত করে অপটিমাইজেশন প্ল্যান তৈরি করি।'],
+];
+document.getElementById('faqList').innerHTML = faqs.map((f,i)=>`
+  <div class="faq-item ${i===0?'open':''}">
+    <button class="faq-q bn"><span>${f[0]}</span><span class="plus">+</span></button>
+    <div class="faq-a"><p class="bn">${f[1]}</p></div>
+  </div>`).join('');
+
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item = btn.closest('.faq-item');
+    const answer = item.querySelector('.faq-a');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(f=>{ f.classList.remove('open'); f.querySelector('.faq-a').style.maxHeight=null; });
+    if(!wasOpen){ item.classList.add('open'); answer.style.maxHeight = answer.scrollHeight+'px'; }
+  });
+});
+// open first by default
+window.addEventListener('load',()=>{
+  const first = document.querySelector('.faq-item.open .faq-a');
+  if(first) first.style.maxHeight = first.scrollHeight+'px';
+});
+
+/* ---------- REVEAL ON SCROLL ---------- */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{ threshold:0.12 });
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---------- COUNTERS ---------- */
+function animateCount(el, end, suffix, decimals){
+  const dur = 1400; const start = performance.now();
+  function tick(now){
+    const p = Math.min((now-start)/dur, 1);
+    const eased = 1 - Math.pow(1-p, 3);
+    const val = end * eased;
+    el.textContent = (decimals ? val.toFixed(decimals) : Math.round(val).toLocaleString()) + suffix;
+    if(p<1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+const countIO = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const el = e.target;
+      const end = parseFloat(el.dataset.count);
+      const suffix = el.dataset.suffix || '';
+      const decimals = (el.dataset.count.includes('.')) ? 1 : 0;
+      animateCount(el, end, suffix, decimals);
+      countIO.unobserve(el);
+    }
+  });
+},{ threshold:0.4 });
+document.querySelectorAll('[data-count]').forEach(el=>countIO.observe(el));
+
+// revenue number in hero
+const revIO = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const el = document.getElementById('revNum');
+      let v=0; const target=248000; const dur=1800; const start=performance.now();
+      function tick(now){
+        const p=Math.min((now-start)/dur,1); const eased=1-Math.pow(1-p,3);
+        v = Math.round(target*eased);
+        el.textContent = '৳' + v.toLocaleString();
+        if(p<1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      revIO.disconnect();
+    }
+  });
+},{threshold:0.3});
+revIO.observe(document.getElementById('dashCard'));
+
+// results grid counters (mixed string format, animate numeric part where possible)
+const resIO = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      document.querySelectorAll('.res-card .num').forEach(el=>{
+        const final = el.dataset.final;
+        const match = final.match(/[\d.]+/);
+        if(!match){ el.textContent = final; return; }
+        const num = parseFloat(match[0]);
+        const prefix = final.slice(0, match.index);
+        const suffix = final.slice(match.index + match[0].length);
+        const decimals = match[0].includes('.') ? 1 : 0;
+        const dur=1500; const start=performance.now();
+        function tick(now){
+          const p=Math.min((now-start)/dur,1); const eased=1-Math.pow(1-p,3);
+          const val = num*eased;
+          el.textContent = prefix + (decimals?val.toFixed(decimals):Math.round(val).toLocaleString()) + suffix;
+          if(p<1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+      resIO.disconnect();
+    }
+  });
+},{threshold:0.3});
+resIO.observe(document.getElementById('resGrid'));
+
+/* ---------- MOBILE MENU (simple toggle to ghost cta) ---------- */
+document.querySelector('.menu-toggle').addEventListener('click', ()=>{
+  const links = document.querySelector('.nav-links');
+  const isOpen = links.style.display === 'flex';
+  links.style.cssText = isOpen ? '' : 'display:flex; flex-direction:column; position:fixed; top:65px; left:0; right:0; background:var(--void); padding:24px; gap:20px; border-bottom:1px solid var(--line-dark);';
+});
+</script>
+</body>
+</html>

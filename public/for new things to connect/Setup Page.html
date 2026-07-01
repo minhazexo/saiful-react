@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>সাইফুল স্টুডিও — সম্পূর্ণ বিজনেস সেটআপ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&family=Instrument+Sans:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#FFFFFF;
+    --paper:#F7F6F2;
+    --ink:#0B0C0E;
+    --ink-soft:#4B4F57;
+    --muted:#6B7076;
+    --muted-light:#8A8F98;
+    --border:rgba(10,10,10,0.09);
+    --border-strong:rgba(10,10,10,0.16);
+    --black:#0A0A0A;
+    --black-soft:#131519;
+    --card-dark:#16181c;
+    --border-dark:rgba(255,255,255,0.09);
+    --green:#22C55E;
+    --green-deep:#16A34A;
+    --green-bright:#4ADE80;
+    --green-wash:rgba(34,197,94,0.09);
+    --green-line:rgba(34,197,94,0.35);
+    --radius:22px;
+    --font-display:'Noto Sans Bengali','Instrument Sans',sans-serif;
+    --font-body:'Noto Sans Bengali','Inter',sans-serif;
+    --font-mono:'IBM Plex Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--font-body);
+    background:var(--white);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+  .container{max-width:1180px;margin:0 auto;padding:0 32px;}
+  .section{padding:120px 0;position:relative;}
+  .section-light{background:var(--white);color:var(--ink);}
+  .section-alt{background:var(--paper);color:var(--ink);}
+  .section-dark{background:var(--black);color:var(--white);}
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    letter-spacing:0.08em;
+    color:var(--green-deep);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:20px;
+  }
+  .section-dark .eyebrow{color:var(--green);}
+  .eyebrow::before{
+    content:'';
+    width:7px;height:7px;border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 0 4px var(--green-wash);
+  }
+  h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;letter-spacing:-0.01em;}
+  .sec-head{max-width:640px;margin-bottom:64px;}
+  .sec-head h2{font-size:clamp(28px,4vw,42px);line-height:1.22;margin-bottom:16px;}
+  .sec-head p{font-size:17px;line-height:1.75;color:var(--ink-soft);}
+  .section-dark .sec-head p{color:#B4B8BF;}
+  .center{text-align:center;margin-left:auto;margin-right:auto;}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:translateY(0);}
+  .reveal-delay-1{transition-delay:.08s;}
+  .reveal-delay-2{transition-delay:.16s;}
+  .reveal-delay-3{transition-delay:.24s;}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    *{animation:none !important;}
+  }
+
+  /* NAV */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:16px 0;
+    background:rgba(255,255,255,0.78);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease;
+  }
+  header.scrolled{border-bottom-color:var(--border);}
+  nav{display:flex;align-items:center;justify-content:space-between;max-width:1180px;margin:0 auto;padding:0 32px;}
+  .logo{font-family:var(--font-display);font-weight:700;font-size:18.5px;letter-spacing:-0.01em;display:flex;align-items:center;gap:9px;color:var(--ink);}
+  .logo .dot{width:8px;height:8px;border-radius:2px;background:var(--green);box-shadow:0 0 12px var(--green);}
+  .nav-links{display:flex;gap:30px;align-items:center;}
+  .nav-links a{font-size:14.5px;color:var(--ink-soft);transition:color .2s;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-cta{
+    font-size:14px;font-weight:600;color:#06170D;
+    background:var(--green);
+    padding:10px 20px;border-radius:100px;
+    transition:box-shadow .25s ease, transform .2s ease, background .2s ease;
+  }
+  .nav-cta:hover{box-shadow:0 8px 24px rgba(34,197,94,0.35);transform:translateY(-1px);background:var(--green-bright);}
+  .menu-btn{display:none;width:34px;height:34px;position:relative;}
+  .menu-btn span{position:absolute;left:6px;right:6px;height:1.5px;background:var(--ink);transition:.25s;}
+  .menu-btn span:nth-child(1){top:12px;}
+  .menu-btn span:nth-child(2){top:19px;}
+  .menu-btn span:nth-child(3){top:26px;}
+  .menu-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .menu-btn.open span:nth-child(2){opacity:0;}
+  .menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  /* BUTTONS */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:15px 28px;border-radius:100px;font-size:15px;font-weight:600;
+    transition:transform .2s ease, box-shadow .3s ease, background .2s ease, color .2s ease, border-color .2s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--green);color:#06170D;}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(34,197,94,0.32);background:var(--green-bright);}
+  .btn-ghost{border:1px solid var(--border-strong);color:var(--ink);}
+  .btn-ghost:hover{border-color:rgba(10,10,10,0.35);background:rgba(10,10,10,0.03);}
+  .section-dark .btn-ghost{border-color:var(--border-dark);color:var(--white);}
+  .section-dark .btn-ghost:hover{border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.05);}
+
+  /* HERO */
+  .hero{
+    padding:190px 0 100px;
+    position:relative;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse 900px 480px at 20% -10%, var(--green-wash), transparent 60%),
+      var(--white);
+  }
+  .hero-grid{
+    position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(10,10,10,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(10,10,10,0.03) 1px, transparent 1px);
+    background-size:64px 64px;
+    mask-image:radial-gradient(ellipse 900px 600px at 50% 0%, black, transparent 75%);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;text-align:center;max-width:760px;margin:0 auto;}
+  .hero h1{font-size:clamp(34px,6vw,60px);line-height:1.2;letter-spacing:-0.01em;margin-bottom:22px;color:var(--ink);}
+  .hero h1 .accent{color:var(--green-deep);}
+  .hero p.lead{font-size:18.5px;line-height:1.75;color:var(--ink-soft);max-width:560px;margin:0 auto 40px;}
+  .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:26px;}
+  .hero-note{font-family:var(--font-mono);font-size:11.5px;color:var(--muted-light);letter-spacing:0.02em;}
+
+  /* SIGNATURE: setup console — dark card floating on light hero */
+  .console{
+    margin:80px auto 0;max-width:920px;
+    border-radius:20px;
+    background:var(--black);
+    box-shadow:0 40px 90px -30px rgba(10,10,10,0.35);
+    overflow:hidden;
+    text-align:left;
+  }
+  .console-bar{
+    display:flex;align-items:center;gap:8px;padding:14px 18px;
+    border-bottom:1px solid var(--border-dark);
+    font-family:var(--font-mono);font-size:12px;color:var(--muted-light);
+  }
+  .console-dot{width:9px;height:9px;border-radius:50%;background:#33363b;}
+  .console-title{margin-left:8px;color:#9AA0A8;}
+  .console-body{padding:28px 30px 32px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .console-node{
+    border:1px solid var(--border-dark);
+    background:var(--card-dark);
+    border-radius:14px;
+    padding:16px 14px;
+    display:flex;flex-direction:column;gap:10px;
+    opacity:0;
+    animation:nodeIn .6s ease forwards;
+  }
+  .console-node .n-top{display:flex;align-items:center;justify-content:space-between;}
+  .console-node .n-id{font-family:var(--font-mono);font-size:10.5px;color:var(--muted-light);letter-spacing:.05em;}
+  .console-node .n-status{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:pulse 2.2s ease-in-out infinite;}
+  .console-node .n-label{font-size:13.5px;font-weight:500;color:#E7E9EC;font-family:var(--font-display);}
+  @keyframes nodeIn{to{opacity:1;}}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.35;}}
+  .console-foot{
+    padding:14px 30px 26px;font-family:var(--font-mono);font-size:11.5px;color:var(--muted-light);
+    display:flex;justify-content:space-between;border-top:1px solid var(--border-dark);
+  }
+  .console-foot .go{color:var(--green);}
+
+  /* CARDS */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  .p-card{
+    border-radius:var(--radius);
+    padding:30px 26px;
+    background:var(--white);
+    border:1px solid var(--border);
+    box-shadow:0 1px 2px rgba(10,10,10,0.02);
+    transition:transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s, box-shadow .35s;
+  }
+  .p-card:hover{transform:translateY(-6px);border-color:var(--green-line);box-shadow:0 26px 50px -24px rgba(10,10,10,0.18);}
+  .p-icon{
+    width:44px;height:44px;border-radius:12px;
+    background:var(--green-wash);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:20px;color:var(--green-deep);
+  }
+  .p-card h4{font-size:17px;margin-bottom:8px;color:var(--ink);}
+  .p-card p{font-size:14.5px;line-height:1.65;color:var(--muted);}
+
+  /* SOLUTION */
+  .solution-wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;}
+  .solution-visual{
+    border-radius:24px;background:var(--black);
+    padding:34px;position:relative;overflow:hidden;
+    min-height:380px;
+  }
+  .sv-row{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:var(--card-dark);border:1px solid var(--border-dark);margin-bottom:12px;}
+  .sv-row .sv-check{width:20px;height:20px;border-radius:50%;background:rgba(34,197,94,0.15);border:1px solid var(--green-line);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .sv-row .sv-check svg{width:11px;height:11px;}
+  .sv-row span{font-size:13px;color:#D6D9DD;font-family:var(--font-mono);}
+  .solution-copy h2{font-size:clamp(26px,3.6vw,36px);margin-bottom:18px;line-height:1.28;}
+  .solution-copy p{font-size:16.5px;line-height:1.8;color:var(--ink-soft);margin-bottom:16px;}
+  .solution-stats{display:flex;gap:34px;margin-top:30px;}
+  .solution-stats div strong{display:block;font-family:var(--font-display);font-size:26px;color:var(--ink);}
+  .solution-stats div span{font-size:13px;color:var(--muted-light);}
+
+  /* SERVICES */
+  .svc-card{
+    border-radius:var(--radius);padding:26px 24px;
+    background:var(--white);border:1px solid var(--border);
+    box-shadow:0 1px 2px rgba(10,10,10,0.02);
+    display:flex;flex-direction:column;gap:16px;
+    transition:transform .3s ease, border-color .3s, box-shadow .3s;
+  }
+  .svc-card:hover{transform:translateY(-5px);border-color:var(--green-line);box-shadow:0 20px 44px -20px rgba(34,197,94,0.22);}
+  .svc-icon{width:42px;height:42px;border-radius:11px;background:var(--green-wash);display:flex;align-items:center;justify-content:center;color:var(--green-deep);}
+  .svc-card h4{font-size:16px;color:var(--ink);}
+  .svc-card p{font-size:13.5px;color:var(--muted);line-height:1.6;}
+
+  /* PROCESS */
+  .process{position:relative;}
+  .process-line{
+    position:absolute;left:29px;top:8px;bottom:8px;width:1px;
+    background:linear-gradient(180deg, var(--green-line), rgba(10,10,10,0.06));
+  }
+  .p-step{display:grid;grid-template-columns:60px 1fr;gap:26px;padding-bottom:52px;position:relative;}
+  .p-step:last-child{padding-bottom:0;}
+  .p-num{
+    width:60px;height:60px;border-radius:50%;
+    background:var(--white);border:1px solid var(--border-strong);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-mono);font-size:13px;color:var(--ink);
+    position:relative;z-index:2;
+  }
+  .p-step.active .p-num{background:var(--green);color:#06170D;border-color:var(--green);}
+  .p-step h4{font-size:19px;margin-bottom:6px;color:var(--ink);}
+  .p-step p{font-size:14.5px;color:var(--ink-soft);line-height:1.65;max-width:480px;}
+
+  /* WHY (dark accent band) */
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border-dark);border:1px solid var(--border-dark);border-radius:var(--radius);overflow:hidden;}
+  .why-item{background:var(--black);padding:36px 30px;}
+  .why-item .wi-num{font-family:var(--font-mono);font-size:12px;color:var(--green);margin-bottom:16px;}
+  .why-item h4{font-size:17.5px;margin-bottom:10px;color:var(--white);}
+  .why-item p{font-size:14px;color:#9AA0A8;line-height:1.65;}
+
+  /* PORTFOLIO */
+  .filters{display:flex;gap:10px;margin-bottom:40px;flex-wrap:wrap;}
+  .filter-btn{
+    padding:9px 18px;border-radius:100px;font-size:13.5px;font-weight:500;
+    border:1px solid var(--border-strong);color:var(--ink-soft);
+    transition:all .2s;
+  }
+  .filter-btn.active,.filter-btn:hover{background:var(--ink);color:var(--white);border-color:var(--ink);}
+  .folio-card{border-radius:20px;overflow:hidden;border:1px solid var(--border);background:var(--white);transition:transform .35s ease, box-shadow .35s ease;}
+  .folio-card:hover{transform:translateY(-6px);box-shadow:0 30px 60px -20px rgba(10,10,10,0.16);}
+  .folio-preview{height:190px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+  .folio-preview::before{content:'';position:absolute;inset:0;background:
+    linear-gradient(135deg, var(--fc1,#123322), var(--fc2,#0A0A0A));}
+  .folio-preview .fp-tag{position:relative;font-family:var(--font-mono);color:rgba(255,255,255,0.9);font-size:12px;letter-spacing:.03em;border:1px solid rgba(255,255,255,0.28);padding:6px 14px;border-radius:100px;}
+  .folio-meta{padding:20px 22px 24px;}
+  .folio-meta .fm-cat{font-family:var(--font-mono);font-size:11px;color:var(--green-deep);margin-bottom:6px;}
+  .folio-meta h4{font-size:16.5px;color:var(--ink);margin-bottom:4px;}
+  .folio-meta p{font-size:13.5px;color:var(--muted-light);}
+  .folio-item{transition:opacity .35s ease, transform .35s ease;}
+  .folio-item.hidden-item{display:none;}
+
+  /* INCLUDED */
+  .incl-wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:start;}
+  .incl-list{display:flex;flex-direction:column;gap:2px;}
+  .incl-row{display:flex;align-items:flex-start;gap:14px;padding:16px 4px;border-bottom:1px solid var(--border);}
+  .incl-row:last-child{border-bottom:none;}
+  .incl-check{width:22px;height:22px;border-radius:50%;background:var(--green-wash);border:1px solid var(--green-line);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+  .incl-check svg{width:12px;height:12px;color:var(--green-deep);}
+  .incl-row span{font-size:15px;color:var(--ink);}
+  .incl-card{
+    border-radius:24px;padding:36px;background:linear-gradient(160deg, #123322, #0d1d15 60%);
+    border:1px solid var(--green-line);position:sticky;top:110px;
+  }
+  .incl-card .ic-eyebrow{font-family:var(--font-mono);font-size:12px;color:var(--green-bright);margin-bottom:14px;}
+  .incl-card h3{font-size:24px;margin-bottom:12px;color:var(--white);}
+  .incl-card p{font-size:14.5px;color:#B9E6C6;line-height:1.7;margin-bottom:26px;}
+
+  /* BEFORE/AFTER */
+  .ba-wrap{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .ba-col{border-radius:var(--radius);padding:34px 30px;}
+  .ba-before{background:var(--paper);border:1px solid var(--border);}
+  .ba-after{background:var(--black);position:relative;}
+  .ba-after::after{content:'';position:absolute;inset:0;border-radius:var(--radius);box-shadow:inset 0 0 60px rgba(34,197,94,0.08);pointer-events:none;}
+  .ba-col h4{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.04em;margin-bottom:22px;}
+  .ba-before h4{color:var(--muted-light);}
+  .ba-after h4{color:var(--green-bright);}
+  .ba-row{display:flex;align-items:center;gap:12px;padding:11px 0;font-size:15px;}
+  .ba-before .ba-row{color:var(--ink-soft);}
+  .ba-after .ba-row{color:#E7E9EC;}
+  .ba-x,.ba-ok{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .ba-x{background:rgba(10,10,10,0.06);}
+  .ba-x svg{width:9px;height:9px;color:#9599a0;}
+  .ba-ok{background:rgba(34,197,94,0.15);}
+  .ba-ok svg{width:10px;height:10px;color:var(--green);}
+
+  /* TESTIMONIALS */
+  .t-card{border-radius:var(--radius);padding:32px 28px;background:var(--white);border:1px solid var(--border);box-shadow:0 1px 2px rgba(10,10,10,0.02);display:flex;flex-direction:column;gap:20px;}
+  .t-stars{display:flex;gap:3px;color:var(--green-deep);font-size:14px;}
+  .t-card p{font-size:15.5px;line-height:1.75;color:var(--ink-soft);}
+  .t-person{display:flex;align-items:center;gap:12px;margin-top:auto;}
+  .t-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--green),#0d3b22);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:12px;font-weight:600;color:#06170D;}
+  .t-person strong{display:block;font-size:14px;color:var(--ink);}
+  .t-person span{font-size:12.5px;color:var(--muted-light);}
+
+  /* FAQ */
+  .faq-item{border-bottom:1px solid var(--border);}
+  .faq-q{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px 4px;font-size:16.5px;font-weight:500;color:var(--ink);}
+  .faq-q .fq-plus{width:22px;height:22px;flex-shrink:0;position:relative;}
+  .faq-q .fq-plus::before,.faq-q .fq-plus::after{content:'';position:absolute;background:var(--ink);border-radius:2px;transition:transform .3s ease;}
+  .faq-q .fq-plus::before{left:0;top:50%;width:100%;height:1.5px;transform:translateY(-50%);}
+  .faq-q .fq-plus::after{top:0;left:50%;height:100%;width:1.5px;transform:translateX(-50%);}
+  .faq-item.open .fq-plus::after{transform:translateX(-50%) rotate(90deg);opacity:0;}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+  .faq-a p{padding:0 4px 24px;font-size:14.5px;color:var(--ink-soft);line-height:1.75;max-width:640px;}
+
+  /* FINAL CTA (dark) */
+  .final-cta{
+    border-radius:32px;padding:80px 60px;text-align:center;
+    background:radial-gradient(ellipse 700px 400px at 50% -10%, rgba(34,197,94,0.22), transparent 65%), var(--black);
+    position:relative;overflow:hidden;
+  }
+  .final-cta h2{font-size:clamp(28px,4.4vw,44px);margin-bottom:18px;color:var(--white);}
+  .final-cta p{font-size:17px;color:#9AA0A8;max-width:520px;margin:0 auto 36px;}
+
+  footer{background:var(--black);padding:56px 0 30px;}
+  .foot-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:30px;margin-bottom:44px;}
+  .foot-top .logo{color:var(--white);}
+  .foot-top>div:first-child p{font-size:14px;color:#9AA0A8;max-width:280px;line-height:1.75;}
+  .foot-links{display:flex;gap:56px;flex-wrap:wrap;}
+  .foot-col h5{font-family:var(--font-mono);font-size:12px;color:var(--muted-light);letter-spacing:.04em;margin-bottom:14px;}
+  .foot-col a{display:block;font-size:14px;color:#B4B8BF;margin-bottom:10px;transition:color .2s;}
+  .foot-col a:hover{color:var(--white);}
+  .foot-bottom{display:flex;justify-content:space-between;padding-top:26px;border-top:1px solid var(--border-dark);font-size:13px;color:var(--muted-light);flex-wrap:wrap;gap:10px;}
+
+  @media (max-width:900px){
+    .nav-links,.nav-cta{display:none;}
+    .menu-btn{display:block;}
+    .grid-3,.solution-wrap,.grid-4,.grid-2,.why-grid,.incl-wrap,.ba-wrap{grid-template-columns:1fr;}
+    .console-body{grid-template-columns:repeat(2,1fr);}
+    .section{padding:80px 0;}
+    .hero{padding:150px 0 80px;}
+    .incl-card{position:static;}
+  }
+  @media (max-width:600px){
+    .console-body{grid-template-columns:1fr 1fr;}
+    .foot-links{gap:34px;}
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <nav>
+    <div class="logo"><span class="dot"></span>সাইফুল স্টুডিও</div>
+    <div class="nav-links">
+      <a href="#services">সেবা</a>
+      <a href="#process">প্রক্রিয়া</a>
+      <a href="#portfolio">পোর্টফোলিও</a>
+      <a href="#faq">প্রশ্নোত্তর</a>
+    </div>
+    <a href="#cta" class="nav-cta">ফ্রি কনসালটেশন বুক করুন</a>
+    <button class="menu-btn" id="menuBtn" aria-label="মেনু"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="container hero-inner">
+    <div class="eyebrow reveal">ডান-ফর-ইউ বিজনেস সেটআপ</div>
+    <h1 class="reveal reveal-delay-1">আত্মবিশ্বাস নিয়ে আপনার <span class="accent">ব্যবসা লঞ্চ করুন</span></h1>
+    <p class="lead reveal reveal-delay-2">আপনি আপনার ব্যবসায় মনোযোগ দিন। লঞ্চের জন্য প্রয়োজনীয় সবকিছু আমরা তৈরি করে দিচ্ছি — ব্র্যান্ডিং, ওয়েবসাইট, সোশ্যাল প্রেজেন্স এবং মার্কেটিং ফাউন্ডেশন, সম্পূর্ণভাবে।</p>
+    <div class="hero-ctas reveal reveal-delay-3">
+      <a href="#cta" class="btn btn-primary">ফ্রি কনসালটেশন বুক করুন</a>
+      <a href="#portfolio" class="btn btn-ghost">পোর্টফোলিও দেখুন</a>
+    </div>
+    <div class="hero-note reveal reveal-delay-3">কোনো টেকনিক্যাল জ্ঞানের প্রয়োজন নেই · কয়েক মাস নয়, কয়েক সপ্তাহে লঞ্চ-রেডি</div>
+
+    <div class="console reveal reveal-delay-3">
+      <div class="console-bar">
+        <span class="console-dot"></span><span class="console-dot"></span><span class="console-dot"></span>
+        <span class="console-title">setup.saifulstudios — আপনার ব্যবসা তৈরি হচ্ছে</span>
+      </div>
+      <div class="console-body" id="consoleBody">
+        <div class="console-node" style="animation-delay:.1s"><div class="n-top"><span class="n-id">MOD_01</span><span class="n-status"></span></div><span class="n-label">ব্র্যান্ড আইডেন্টিটি</span></div>
+        <div class="console-node" style="animation-delay:.2s"><div class="n-top"><span class="n-id">MOD_02</span><span class="n-status"></span></div><span class="n-label">ওয়েবসাইট</span></div>
+        <div class="console-node" style="animation-delay:.3s"><div class="n-top"><span class="n-id">MOD_03</span><span class="n-status"></span></div><span class="n-label">সোশ্যাল পেজ</span></div>
+        <div class="console-node" style="animation-delay:.4s"><div class="n-top"><span class="n-id">MOD_04</span><span class="n-status"></span></div><span class="n-label">পিক্সেল ও অ্যানালিটিক্স</span></div>
+        <div class="console-node" style="animation-delay:.5s"><div class="n-top"><span class="n-id">MOD_05</span><span class="n-status"></span></div><span class="n-label">ডোমেইন ও ইমেইল</span></div>
+        <div class="console-node" style="animation-delay:.6s"><div class="n-top"><span class="n-id">MOD_06</span><span class="n-status"></span></div><span class="n-label">বেসিক SEO</span></div>
+        <div class="console-node" style="animation-delay:.7s"><div class="n-top"><span class="n-id">MOD_07</span><span class="n-status"></span></div><span class="n-label">মার্কেটিং বেস</span></div>
+        <div class="console-node" style="animation-delay:.8s"><div class="n-top"><span class="n-id">MOD_08</span><span class="n-status"></span></div><span class="n-label">লঞ্চ প্রিপারেশন</span></div>
+      </div>
+      <div class="console-foot"><span>৮ / ৮ মডিউল কনফিগার সম্পন্ন</span><span class="go">● লঞ্চের জন্য প্রস্তুত</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMS -->
+<section class="section section-light">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow">সাইফুল স্টুডিওর আগে</div>
+      <h2>ব্যবসা শুরু করা এত কঠিন হওয়ার কথা নয়</h2>
+      <p>বেশিরভাগ উদ্যোক্তা প্রথম বিক্রির আগেই আটকে যান — আইডিয়া দুর্বল বলে নয়, বরং ফাউন্ডেশন তৈরি না থাকার কারণে।</p>
+    </div>
+    <div class="grid-3">
+      <div class="p-card reveal">
+        <div class="p-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.5-2.5 2-2.5 3.5"/><circle cx="12" cy="16.5" r=".6" fill="currentColor"/></svg></div>
+        <h4>কোথা থেকে শুরু করবেন জানেন না</h4>
+        <p>অনেক কাজ, কোনো পরিষ্কার ধাপ নেই, এবং পথ দেখানোর কেউ নেই।</p>
+      </div>
+      <div class="p-card reveal reveal-delay-1">
+        <div class="p-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg></div>
+        <h4>লোগো বা ব্র্যান্ডিং নেই</h4>
+        <p>ব্যবসাকে বিশ্বাসযোগ্য বা মনে রাখার মতো কিছু নেই।</p>
+      </div>
+      <div class="p-card reveal reveal-delay-2">
+        <div class="p-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 4 6 4 9s-1.5 6.5-4 9c-2.5-2.5-4-6-4-9s1.5-6.5 4-9z"/></svg></div>
+        <h4>প্রফেশনাল ওয়েবসাইট নেই</h4>
+        <p>কাস্টমার পাঠানোর জায়গা নেই, অনলাইনে বিক্রির কোনো উপায় নেই।</p>
+      </div>
+      <div class="p-card reveal">
+        <div class="p-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 8l9 6 9-6"/></svg></div>
+        <h4>সোশ্যাল মিডিয়া প্রেজেন্স নেই</h4>
+        <p>সঠিকভাবে সেটআপ করা পেজ নেই, কাস্টমাররা খুঁজে পান না।</p>
+      </div>
+      <div class="p-card reveal reveal-delay-1">
+        <div class="p-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg></div>
+        <h4>মার্কেটিং ফাউন্ডেশন নেই</h4>
+        <p>কোনো ট্র্যাকিং, পিক্সেল বা অ্যানালিটিক্স নেই — লঞ্চের পর কী কাজ করছে জানার উপায় নেই।</p>
+      </div>
+      <div class="p-card reveal reveal-delay-2">
+        <div class="p-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 4 7v6c0 4.5 3.4 7.7 8 9 4.6-1.3 8-4.5 8-9V7l-8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h4>ভুল সিদ্ধান্তের ভয়</h4>
+        <p>ভুল ফ্রিল্যান্সার নিয়োগ বা টাকা নষ্ট হওয়ার দুশ্চিন্তা।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="section section-alt" id="solution">
+  <div class="container">
+    <div class="solution-wrap">
+      <div class="solution-copy reveal">
+        <div class="eyebrow">সমাধান</div>
+        <h2>একজন পার্টনার। আপনার লঞ্চের প্রতিটি অংশ, একসাথে।</h2>
+        <p>সাইফুল স্টুডিও আপনার সম্পূর্ণ বিজনেস সেটআপ পার্টনার। পাঁচজন ফ্রিল্যান্সার নিয়োগ করে সমন্বয়ের আশা করার বদলে, আপনি পাচ্ছেন একটি টিম যারা আপনার ব্র্যান্ড, ওয়েবসাইট এবং অনলাইন উপস্থিতি একটি সংযুক্ত সিস্টেম হিসেবে তৈরি করে।</p>
+        <p>আমরা শেখাই না — আমরা করে দিই, যাতে আপনি সময় ব্যয় করতে পারেন ব্যবসার আসল কাজে।</p>
+        <div class="solution-stats">
+          <div><strong>১৪</strong><span>সেটআপ সেবা</span></div>
+          <div><strong>১</strong><span>ডেডিকেটেড টিম</span></div>
+          <div><strong>১০০%</strong><span>ডান-ফর-ইউ</span></div>
+        </div>
+      </div>
+      <div class="solution-visual reveal reveal-delay-2">
+        <div class="sv-row"><div class="sv-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></div><span>logo-design.setup</span></div>
+        <div class="sv-row"><div class="sv-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></div><span>brand-identity.setup</span></div>
+        <div class="sv-row"><div class="sv-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></div><span>wordpress-site.setup</span></div>
+        <div class="sv-row"><div class="sv-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></div><span>woocommerce-store.setup</span></div>
+        <div class="sv-row"><div class="sv-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></div><span>social-pages.setup</span></div>
+        <div class="sv-row"><div class="sv-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></div><span>meta-pixel.setup</span></div>
+        <div class="sv-row" style="margin-bottom:0;"><div class="sv-check"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></div><span>launch-prep.setup</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section section-light" id="services">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow">আমরা যা তৈরি করি</div>
+      <h2>লঞ্চের জন্য আপনার ব্যবসার সবকিছু</h2>
+      <p>চৌদ্দটি সেবা, একটি সমন্বিত সেটআপ। সম্পূর্ণ প্যাকেজ অথবা আপনার প্রয়োজনীয় অংশগুলো বেছে নিন।</p>
+    </div>
+    <div class="grid-4" id="serviceGrid"></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section section-alt" id="process">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow">কীভাবে কাজ করি</div>
+      <h2>আইডিয়া থেকে লঞ্চ পর্যন্ত পরিষ্কার পথ</h2>
+      <p>আটটি ধাপ, সম্পূর্ণভাবে পরিচালিত, যাতে আপনি সবসময় জানেন কী হচ্ছে এবং পরবর্তীতে কী।</p>
+    </div>
+    <div class="process" style="max-width:640px;">
+      <div class="process-line"></div>
+      <div class="p-step active reveal"><div class="p-num">০১</div><div><h4>ডিসকভারি</h4><p>কিছু তৈরি করার আগে আমরা আপনার ব্যবসা, কাস্টমার ও লক্ষ্য বুঝে নিই।</p></div></div>
+      <div class="p-step reveal"><div class="p-num">০২</div><div><h4>পরিকল্পনা</h4><p>একটি পরিষ্কার সেটআপ রোডম্যাপ — কী তৈরি হবে, কোন ক্রমে, কখন সম্পন্ন হবে।</p></div></div>
+      <div class="p-step reveal"><div class="p-num">০৩</div><div><h4>ব্র্যান্ড ডিজাইন</h4><p>লোগো, রং, টাইপোগ্রাফি এবং ভিজ্যুয়াল আইডেন্টিটি যা সম্পূর্ণভাবে আপনার মতো মনে হয়।</p></div></div>
+      <div class="p-step reveal"><div class="p-num">০৪</div><div><h4>ওয়েবসাইট ডেভেলপমেন্ট</h4><p>আপনার ওয়ার্ডপ্রেস বা উকমার্স সাইট, কনভার্সনের জন্য ডিজাইন করা।</p></div></div>
+      <div class="p-step reveal"><div class="p-num">০৫</div><div><h4>সোশ্যাল সেটআপ</h4><p>ফেসবুক, ইনস্টাগ্রাম, লিংকডইন ও টিকটক পেজ, প্রফেশনালভাবে সেটআপ।</p></div></div>
+      <div class="p-step reveal"><div class="p-num">০৬</div><div><h4>মার্কেটিং ফাউন্ডেশন</h4><p>মেটা বিজনেস ম্যানেজার, পিক্সেল, কনভার্সন API, অ্যানালিটিক্স ও সার্চ কনসোল — সংযুক্ত।</p></div></div>
+      <div class="p-step reveal"><div class="p-num">০৭</div><div><h4>টেস্টিং</h4><p>কাস্টমারের কাছে পৌঁছানোর আগে প্রতিটি পেজ, লিংক ও পিক্সেল যাচাই করা হয়।</p></div></div>
+      <div class="p-step reveal"><div class="p-num">০৮</div><div><h4>লঞ্চ</h4><p>আপনার ব্যবসা লাইভ — প্রফেশনাল, সংযুক্ত এবং বিক্রির জন্য প্রস্তুত।</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY (dark accent band) -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow">কেন সাইফুল স্টুডিও</div>
+      <h2>যারা আপনার লঞ্চকে ঠিক আপনার মতোই গুরুত্ব দিয়ে দেখে</h2>
+    </div>
+    <div class="why-grid reveal">
+      <div class="why-item"><div class="wi-num">০১</div><h4>প্রফেশনাল ডিজাইন</h4><p>প্রতিটি অ্যাসেট প্রিমিয়াম, ব্র্যান্ড-সামঞ্জস্যপূর্ণ মান অনুযায়ী তৈরি — কোনো টেমপ্লেট নয়।</p></div>
+      <div class="why-item"><div class="wi-num">০২</div><h4>বিজনেস-ফোকাসড স্ট্র্যাটেজি</h4><p>সিদ্ধান্ত নেওয়া হয় ব্যবসার প্রবৃদ্ধির কথা মাথায় রেখে, পোর্টফোলিওতে ভালো দেখানোর জন্য নয়।</p></div>
+      <div class="why-item"><div class="wi-num">০৩</div><h4>টেকনিক্যাল দক্ষতা</h4><p>হোস্টিং, পিক্সেল, API এবং অ্যানালিটিক্স প্রথমবারেই সঠিকভাবে কনফিগার করা।</p></div>
+      <div class="why-item"><div class="wi-num">০৪</div><h4>আধুনিক প্রযুক্তি</h4><p>বর্তমান, নির্ভরযোগ্য টুলের উপর তৈরি — পুরনো বা রক্ষণাবেক্ষণে কঠিন কিছু নয়।</p></div>
+      <div class="why-item"><div class="wi-num">০৫</div><h4>দ্রুত ডেলিভারি</h4><p>নির্দিষ্ট সময়সীমা ও সাপ্তাহিক অগ্রগতি, কোনো অনির্দিষ্ট প্রজেক্ট নয়।</p></div>
+      <div class="why-item"><div class="wi-num">০৬</div><h4>চলমান সহায়তা</h4><p>লঞ্চের পরও আমরা যোগাযোগযোগ্য থাকি — এটা হ্যান্ড-অফ করে চলে যাওয়া নয়।</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="section section-light" id="portfolio">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow">আমাদের কাজ</div>
+      <h2>সাম্প্রতিক বিজনেস সেটআপ</h2>
+      <p>আমরা যেসব ব্র্যান্ড, স্টোর ও ওয়েবসাইট লঞ্চ করেছি তার কিছু নমুনা।</p>
+    </div>
+    <div class="filters reveal">
+      <button class="filter-btn active" data-filter="all">সব</button>
+      <button class="filter-btn" data-filter="branding">ব্র্যান্ডিং</button>
+      <button class="filter-btn" data-filter="website">ওয়েবসাইট</button>
+      <button class="filter-btn" data-filter="ecommerce">ই-কমার্স</button>
+      <button class="filter-btn" data-filter="corporate">কর্পোরেট</button>
+    </div>
+    <div class="grid-3" id="folioGrid"></div>
+  </div>
+</section>
+
+<!-- INCLUDED -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="incl-wrap">
+      <div>
+        <div class="eyebrow reveal">কী কী অন্তর্ভুক্ত</div>
+        <h2 class="reveal" style="font-size:clamp(26px,3.6vw,36px);margin-bottom:34px;">আপনার সেটআপ প্যাকেজে যা যা থাকছে</h2>
+        <div class="incl-list reveal">
+          <div class="incl-row"><div class="incl-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></div><span>কাস্টম লোগো ও ব্র্যান্ড আইডেন্টিটি কিট</span></div>
+          <div class="incl-row"><div class="incl-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></div><span>ওয়ার্ডপ্রেস বা উকমার্স ওয়েবসাইট</span></div>
+          <div class="incl-row"><div class="incl-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></div><span>ডোমেইন ও হোস্টিং সেটআপ</span></div>
+          <div class="incl-row"><div class="incl-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></div><span>বিজনেস ইমেইল সেটআপ</span></div>
+          <div class="incl-row"><div class="incl-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></div><span>ফেসবুক, ইনস্টাগ্রাম, লিংকডইন ও টিকটক পেজ</span></div>
+          <div class="incl-row"><div class="incl-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></div><span>মেটা বিজনেস ম্যানেজার কনফিগারেশন</span></div>
+          <div class="incl-row"><div class="incl-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></div><span>মেটা পিক্সেল ও কনভার্সন API সেটআপ</span></div>
+          <div class="incl-row"><div class="incl-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></div><span>গুগল অ্যানালিটিক্স ও সার্চ কনসোল</span></div>
+          <div class="incl-row"><div class="incl-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></div><span>বেসিক SEO সেটআপ</span></div>
+          <div class="incl-row"><div class="incl-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></div><span>প্রাথমিক মার্কেটিং স্ট্র্যাটেজি</span></div>
+          <div class="incl-row"><div class="incl-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></div><span>সম্পূর্ণ লঞ্চ প্রিপারেশন ও টেস্টিং</span></div>
+        </div>
+      </div>
+      <div class="incl-card reveal reveal-delay-2">
+        <div class="ic-eyebrow">সেটআপ প্যাকেজ</div>
+        <h3>আপনার ফাউন্ডেশন তৈরি করতে প্রস্তুত?</h3>
+        <p>আপনার ব্যবসা সম্পর্কে বলুন, আমরা ঠিক করে দেব আপনার সেটআপে কী কী প্রয়োজন — কোনো চাপ নেই, কোনো জটিল শব্দ নেই।</p>
+        <a href="#cta" class="btn btn-primary" style="width:100%;">ফ্রি কনসালটেশন বুক করুন</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE/AFTER -->
+<section class="section section-light">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow">রূপান্তর</div>
+      <h2>আইডিয়া থেকে লঞ্চ-রেডি পর্যন্ত</h2>
+    </div>
+    <div class="ba-wrap reveal">
+      <div class="ba-col ba-before">
+        <h4>আগে</h4>
+        <div class="ba-row"><div class="ba-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></div>কোনো ব্র্যান্ডিং নেই</div>
+        <div class="ba-row"><div class="ba-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></div>কোনো ওয়েবসাইট নেই</div>
+        <div class="ba-row"><div class="ba-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></div>কোনো আইডেন্টিটি নেই</div>
+        <div class="ba-row"><div class="ba-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></div>কোনো স্ট্র্যাটেজি নেই</div>
+        <div class="ba-row"><div class="ba-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></div>কোনো সোশ্যাল প্রেজেন্স নেই</div>
+      </div>
+      <div class="ba-col ba-after">
+        <h4>পরে</h4>
+        <div class="ba-row"><div class="ba-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></div>প্রফেশনাল ব্র্যান্ড</div>
+        <div class="ba-row"><div class="ba-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></div>কনভার্সন-রেডি ওয়েবসাইট</div>
+        <div class="ba-row"><div class="ba-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></div>সম্পূর্ণ অনলাইন উপস্থিতি</div>
+        <div class="ba-row"><div class="ba-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></div>মার্কেটিং রেডি</div>
+        <div class="ba-row"><div class="ba-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></div>লঞ্চ রেডি</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow">ক্লায়েন্ট ফলাফল</div>
+      <h2>যারা আমাদের সাথে লঞ্চ করেছেন</h2>
+    </div>
+    <div class="grid-3">
+      <div class="t-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <p>আমার কোনো টেকনিক্যাল জ্ঞান ছিল না এবং আমি সম্পূর্ণ দিশেহারা ছিলাম। সাইফুল স্টুডিও সবকিছু সামলেছে — লঞ্চের দিন আমি শুধু হাজির হয়েছি।</p>
+        <div class="t-person"><div class="t-avatar">রআ</div><div><strong>রফিক আহমেদ</strong><span>প্রতিষ্ঠাতা, লোকাল রিটেইল ব্র্যান্ড</span></div></div>
+      </div>
+      <div class="t-card reveal reveal-delay-1">
+        <div class="t-stars">★★★★★</div>
+        <p>আমাদের স্টোর একটি নোটবুকের আইডিয়া থেকে ট্র্যাকিং ও সোশ্যাল পেজসহ সম্পূর্ণ কার্যকর উকমার্স সাইটে পরিণত হয়েছে মাত্র কয়েক সপ্তাহে।</p>
+        <div class="t-person"><div class="t-avatar">নস</div><div><strong>নুসরাত সুলতানা</strong><span>প্রতিষ্ঠাতা, ই-কমার্স স্টার্টআপ</span></div></div>
+      </div>
+      <div class="t-card reveal reveal-delay-2">
+        <div class="t-stars">★★★★★</div>
+        <p>শুধু ব্র্যান্ড আইডেন্টিটিই আমাদের দশগুণ বেশি বিশ্বাসযোগ্য দেখিয়েছে। লঞ্চ করার সাথে সাথেই ক্লায়েন্টরা আমাদের সিরিয়াসলি নিতে শুরু করেছে।</p>
+        <div class="t-person"><div class="t-avatar">তহ</div><div><strong>তানভীর হাসান</strong><span>প্রতিষ্ঠাতা, সার্ভিস বিজনেস</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-light" id="faq">
+  <div class="container" style="max-width:820px;">
+    <div class="sec-head reveal">
+      <div class="eyebrow">প্রশ্নোত্তর</div>
+      <h2>সাধারণ জিজ্ঞাসা</h2>
+    </div>
+    <div id="faqList" class="reveal"></div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section section-dark" id="cta">
+  <div class="container">
+    <div class="final-cta reveal">
+      <div class="eyebrow" style="justify-content:center;">আপনি প্রস্তুত হলেই আমরা প্রস্তুত</div>
+      <h2>আজই আপনার ব্যবসা প্রফেশনালভাবে লঞ্চ করুন</h2>
+      <p>একটি ফ্রি কনসালটেশন বুক করুন এবং আমরা ঠিক বের করে দেব আপনার বিজনেস সেটআপে কী কী প্রয়োজন। কোনো চাপ নেই, কোনো জটিল শব্দ নেই, কোনো অনুমান নেই।</p>
+      <div class="hero-ctas">
+        <a href="#" class="btn btn-primary">ফ্রি কনসালটেশন বুক করুন</a>
+        <a href="#portfolio" class="btn btn-ghost">পোর্টফোলিও দেখুন</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div>
+        <div class="logo" style="margin-bottom:14px;"><span class="dot"></span>সাইফুল স্টুডিও</div>
+        <p>যেসব উদ্যোক্তা তাদের ওয়েবসাইটের চেয়ে ব্যবসা তৈরিতেই বেশি সময় দিতে চান, তাদের জন্য ডান-ফর-ইউ বিজনেস সেটআপ।</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h5>সেটআপ</h5>
+          <a href="#services">ব্র্যান্ডিং</a>
+          <a href="#services">ওয়েবসাইট</a>
+          <a href="#services">সোশ্যাল ও মার্কেটিং</a>
+        </div>
+        <div class="foot-col">
+          <h5>স্টুডিও</h5>
+          <a href="#process">প্রক্রিয়া</a>
+          <a href="#portfolio">পোর্টফোলিও</a>
+          <a href="#faq">প্রশ্নোত্তর</a>
+        </div>
+        <div class="foot-col">
+          <h5>শুরু করুন</h5>
+          <a href="#cta">কনসালটেশন বুক করুন</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© ২০২৬ সাইফুল স্টুডিও। সর্বস্বত্ব সংরক্ষিত।</span>
+      <span>বিজনেস সেটআপ, সম্পূর্ণভাবে আপনার জন্য।</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// header scroll state
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 10);
+});
+
+// mobile menu
+const menuBtn = document.getElementById('menuBtn');
+menuBtn.addEventListener('click', () => {
+  menuBtn.classList.toggle('open');
+  const links = document.querySelector('.nav-links');
+  const cta = document.querySelector('.nav-cta');
+  const isOpen = menuBtn.classList.contains('open');
+  links.style.display = isOpen ? 'flex' : 'none';
+  cta.style.display = isOpen ? 'inline-flex' : 'none';
+  if(isOpen){
+    links.style.cssText += 'position:fixed;top:64px;left:0;right:0;background:#FFFFFF;flex-direction:column;padding:24px 32px;border-bottom:1px solid rgba(10,10,10,0.09);gap:18px;z-index:99;';
+    cta.style.cssText += 'position:fixed;bottom:24px;left:32px;right:32px;text-align:center;z-index:99;';
+  }
+});
+
+// scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.15 });
+revealEls.forEach(el => io.observe(el));
+
+// services data
+const services = [
+  {t:'লোগো ডিজাইন', d:'আপনার ব্যবসা আসলে কী করে তার ভিত্তিতে তৈরি একটি স্বতন্ত্র মার্ক।'},
+  {t:'ব্র্যান্ড আইডেন্টিটি', d:'রং, টাইপোগ্রাফি এবং ভিজ্যুয়াল নিয়ম যা প্রতিটি জায়গায় সামঞ্জস্য বজায় রাখে।'},
+  {t:'বিজনেস ব্র্যান্ডিং', d:'কাস্টমার-মুখী প্রতিটি অ্যাসেটে সংগতিপূর্ণ ব্র্যান্ড সিস্টেম।'},
+  {t:'ওয়ার্ডপ্রেস ওয়েবসাইট', d:'দ্রুত, প্রফেশনাল ওয়েবসাইট যা ভিজিটরদের কাস্টমারে রূপান্তরিত করে।'},
+  {t:'উকমার্স স্টোর', d:'সম্পূর্ণ অনলাইন স্টোর, প্রথম দিন থেকেই অর্ডার নেওয়ার জন্য প্রস্তুত।'},
+  {t:'ডোমেইন ও হোস্টিং', d:'আপনার ডোমেইন রেজিস্টার এবং হোস্টিং সঠিকভাবে কনফিগার করা।'},
+  {t:'বিজনেস ইমেইল', d:'প্রফেশনাল বিজনেস ইনবক্স, প্রস্তুত অবস্থায় ডেলিভার করা।'},
+  {t:'সোশ্যাল মিডিয়া সেটআপ', d:'ফেসবুক, ইনস্টাগ্রাম, লিংকডইন ও টিকটক পেজ, সঠিকভাবে তৈরি।'},
+  {t:'মেটা বিজনেস ম্যানেজার', d:'আপনার অ্যাড অ্যাকাউন্ট ও পেজ একটি ম্যানেজারের অধীনে সংগঠিত।'},
+  {t:'পিক্সেল ও কনভার্সন API', d:'প্রতিটি ক্যাম্পেইন পরিমাপযোগ্য করতে ট্র্যাকিং কনফিগার করা।'},
+  {t:'অ্যানালিটিক্স ও সার্চ কনসোল', d:'গুগল অ্যানালিটিক্স ও সার্চ কনসোল সংযুক্ত ও যাচাইকৃত।'},
+  {t:'বেসিক SEO সেটআপ', d:'সার্চ ইঞ্জিন যাতে আপনাকে খুঁজে পায়, তার মৌলিক ভিত্তি।'},
+  {t:'মার্কেটিং স্ট্র্যাটেজি', d:'আপনার প্রথম কাস্টমারদের কাছে পৌঁছানোর একটি শুরুর পরিকল্পনা।'},
+  {t:'লঞ্চ প্রিপারেশন', d:'লাইভ হওয়ার আগে প্রতিটি সিস্টেমের চূড়ান্ত পর্যালোচনা।'}
+];
+const icons = [
+  '<path d="M12 2l2.8 6.3L21 9l-5 4.6L17.4 21 12 17.6 6.6 21 8 13.6 3 9l6.2-.7z"/>',
+  '<circle cx="12" cy="12" r="8"/><path d="M12 4v16M4 12h16"/>',
+  '<rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18"/>',
+  '<path d="M3 12h18M3 6h18M3 18h18"/>',
+  '<circle cx="9" cy="9" r="1.5"/><circle cx="15" cy="9" r="1.5"/><path d="M4 20l4-9 4 6 4-8 4 11z"/>',
+  '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 4 6 4 9s-1.5 6.5-4 9c-2.5-2.5-4-6-4-9s1.5-6.5 4-9z"/>',
+  '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',
+  '<rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 8l9 6 9-6"/>',
+  '<rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="9" cy="9" r="1.4"/><circle cx="15" cy="9" r="1.4"/><circle cx="9" cy="15" r="1.4"/><circle cx="15" cy="15" r="1.4"/>',
+  '<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/>',
+  '<path d="M4 19h16M6 19V9l4-4 4 4v10M14 19v-6h4v6"/>',
+  '<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>',
+  '<path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/>',
+  '<path d="M5 13l4 4L19 7"/><circle cx="12" cy="12" r="9"/>'
+];
+const grid = document.getElementById('serviceGrid');
+services.forEach((s,i) => {
+  const div = document.createElement('div');
+  div.className = 'svc-card reveal reveal-delay-' + ((i%3)+1);
+  div.innerHTML = '<div class="svc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">' + icons[i] + '</svg></div><h4>' + s.t + '</h4><p>' + s.d + '</p>';
+  grid.appendChild(div);
+  io.observe(div);
+});
+
+// portfolio data
+const folio = [
+  {cat:'branding', tag:'ব্র্যান্ড সিস্টেম', name:'Verdant & Co.', sub:'লোগো, আইডেন্টিটি, গাইডলাইন', c1:'#123322', c2:'#0A0A0A'},
+  {cat:'website', tag:'ওয়ার্ডপ্রেস বিল্ড', name:'Northlane Studio', sub:'কর্পোরেট ওয়েবসাইট', c1:'#141824', c2:'#0A0A0A'},
+  {cat:'ecommerce', tag:'উকমার্স', name:'Kindred Goods', sub:'অনলাইন স্টোর সেটআপ', c1:'#1a2318', c2:'#0A0A0A'},
+  {cat:'corporate', tag:'সম্পূর্ণ সেটআপ', name:'Anchor Legal Group', sub:'ব্র্যান্ড + সাইট + সোশ্যাল', c1:'#151515', c2:'#0d1d15'},
+  {cat:'branding', tag:'লোগো ও আইডেন্টিটি', name:'Amber Botanicals', sub:'পার্সোনাল ব্র্যান্ড', c1:'#221812', c2:'#0A0A0A'},
+  {cat:'website', tag:'ল্যান্ডিং পেজ', name:'Fieldstone Coaching', sub:'সার্ভিস বিজনেস সাইট', c1:'#101820', c2:'#0A0A0A'}
+];
+const folioGrid = document.getElementById('folioGrid');
+folio.forEach((f,i) => {
+  const div = document.createElement('div');
+  div.className = 'folio-item folio-card reveal reveal-delay-' + ((i%3)+1);
+  div.dataset.cat = f.cat;
+  div.innerHTML = '<div class="folio-preview" style="--fc1:' + f.c1 + ';--fc2:' + f.c2 + '"><span class="fp-tag">' + f.tag + '</span></div><div class="folio-meta"><div class="fm-cat">' + f.cat + '</div><h4>' + f.name + '</h4><p>' + f.sub + '</p></div>';
+  folioGrid.appendChild(div);
+  io.observe(div);
+});
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    document.querySelectorAll('.folio-item').forEach(item => {
+      item.classList.toggle('hidden-item', f !== 'all' && item.dataset.cat !== f);
+    });
+  });
+});
+
+// FAQ
+const faqs = [
+  {q:'আপনারা ঠিক কী কী সেটআপ করে দেন?', a:'লঞ্চের জন্য প্রয়োজনীয় সবকিছু: আপনার লোগো ও ব্র্যান্ড আইডেন্টিটি, ওয়ার্ডপ্রেস বা উকমার্স ওয়েবসাইট, ডোমেইন, হোস্টিং ও বিজনেস ইমেইল, সোশ্যাল মিডিয়া পেজ, মেটা বিজনেস ম্যানেজার, পিক্সেল ও কনভার্সন API, গুগল অ্যানালিটিক্স ও সার্চ কনসোল, বেসিক SEO এবং একটি প্রাথমিক মার্কেটিং স্ট্র্যাটেজি।'},
+  {q:'আমার কি কোনো টেকনিক্যাল জ্ঞান থাকা দরকার?', a:'না। এটাই ডান-ফর-ইউ সেটআপের মূল উদ্দেশ্য — হোস্টিং থেকে পিক্সেল কনফিগারেশন পর্যন্ত প্রতিটি টেকনিক্যাল ধাপ আমরা সামলাই, যাতে আপনাকে কিছু শিখতে না হয়।'},
+  {q:'সেটআপ করতে কত সময় লাগে?', a:'বেশিরভাগ সম্পূর্ণ সেটআপ ডিসকভারি থেকে লঞ্চ পর্যন্ত কয়েক সপ্তাহ সময় নেয়, স্কোপের উপর নির্ভর করে। কনসালটেশনের সময় আপনি একটি পরিষ্কার সময়সীমা পাবেন।'},
+  {q:'সম্পূর্ণ প্যাকেজের বদলে কি আলাদা সেবা অর্ডার করা যায়?', a:'হ্যাঁ। বেশিরভাগ ক্লায়েন্ট সম্পূর্ণ সেটআপ বেছে নিলেও, আপনি শুধু ব্র্যান্ডিং, শুধু ওয়েবসাইট, বা আপনার ব্যবসার বর্তমান অবস্থার সাথে মানানসই যেকোনো সমন্বয় দিয়ে শুরু করতে পারেন।'},
+  {q:'লঞ্চের পর কী হয়?', a:'আপনার ব্যবসা লাইভ হওয়ার পরও আমরা সহায়তার জন্য যোগাযোগযোগ্য থাকি, এবং আপনার প্রবৃদ্ধির সাথে সাথে সেটআপ সমন্বয় বা সম্প্রসারণে সাহায্য করতে পারি।'},
+  {q:'এটি মার্কেটিং এজেন্সি থেকে কীভাবে আলাদা?', a:'এই পেজটি নির্দিষ্টভাবে আপনার ফাউন্ডেশন তৈরি নিয়ে — ব্র্যান্ড, ওয়েবসাইট ও টেকনিক্যাল সেটআপ — বিক্রি শুরুর আগে। এটি চলমান মার্কেটিং এক্সিকিউশন বা ট্রেনিং নয়; এটি সেই ভিত্তি যা মার্কেটিংকে সম্ভব করে তোলে।'}
+];
+const faqList = document.getElementById('faqList');
+faqs.forEach((f,i) => {
+  const item = document.createElement('div');
+  item.className = 'faq-item';
+  item.innerHTML = '<div class="faq-q"><span>' + f.q + '</span><span class="fq-plus"></span></div><div class="faq-a"><p>' + f.a + '</p></div>';
+  faqList.appendChild(item);
+  const q = item.querySelector('.faq-q');
+  const a = item.querySelector('.faq-a');
+  q.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(it => { it.classList.remove('open'); it.querySelector('.faq-a').style.maxHeight = null; });
+    if(!isOpen){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+  });
+});
+</script>
+</body>
+</html>

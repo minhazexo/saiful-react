@@ -1120,6 +1120,216 @@
       "title": "Book a free strategy call",
       "subtitle": "Tell us about your store and current numbers. We will give you 3 specific growth moves you can implement this week — no commitment.",
       "book": "Book Free Strategy Call"
+    },
+    "heroBadge": "🚀 Growth Marketing Solution",
+    "heroTitle": "Take your business to <span class=\"hl\">more people</span> and increase sales.",
+    "heroSub": "Saiful Studios builds you a complete Growth System — Marketing Strategy, Advertising, Creative Design, Landing Page Optimization, Analytics, and daily Optimization, all in one place.",
+    "heroCta1": "Book Free Growth Audit",
+    "heroCta2": "View Our Case Studies",
+    "heroTrust1Label": "Businesses Helped",
+    "heroTrust1Val": "120+",
+    "heroTrust2Label": "Average ROAS",
+    "heroTrust2Val": "4.8x",
+    "heroTrust3Label": "Campaigns Managed",
+    "heroTrust3Val": "950+",
+    "dashboardTitle": "Live Growth Dashboard",
+    "dashboardRevenue": "Revenue Growth",
+    "dashboardRevUp": "▲ 187% MoM",
+    "dashboardRoas": "ROAS",
+    "dashboardOrders": "Orders",
+    "dashboardVisitors": "Visitors",
+    "dashboardConv": "Conv. Rate",
+    "dashboardSales": "Sales Growth",
+    "dashboardAdSpend": "Ad Spend",
+    "dashboardRoasVal": "4.8x",
+    "dashboardOrdersVal": "3,240",
+    "dashboardVisitorsVal": "92K",
+    "dashboardConvVal": "6.2%",
+    "dashboardSalesVal": "187%",
+    "dashboardAdSpendVal": "1.2Cr",
+    "dashboardRoasDiff": "▲ 32%",
+    "dashboardOrdersDiff": "▲ 58%",
+    "dashboardVisitorsDiff": "▲ 41%",
+    "dashboardConvDiff": "▲ this quarter",
+    "dashboardSalesDiff": "managed",
+    "dashboardAdSpendDiff": "managed",
+    "ticker": [
+      ["SALES", "▲ 187%"],
+      ["ROAS", "▲ 4.8x"],
+      ["REVENUE", "▲ ৳2.4Cr"],
+      ["ORDERS", "▲ 3,240+"],
+      ["VISITORS", "▲ 92K"],
+      ["CONV. RATE", "▲ 6.2%"],
+      ["AD SPEND", "৳1.2Cr+"],
+      ["SATISFACTION", "98%"]
+    ],
+    "challenges": {
+      "eyebrow": "THE PROBLEM",
+      "title": "Is your business stuck because of these problems?",
+      "sub": "Many businesses spend on ads but don't get expected results. Are you familiar with these problems?",
+      "items": [
+        ["Sales not growing", "Even after running ads, desired sales are not coming."],
+        ["High ad spend", "Ad spend is increasing but results aren't."],
+        ["Low ROAS", "Not getting enough return on ad spend."],
+        ["No orders from website", "Traffic is there but no conversions."],
+        ["Creative not working", "Using same creatives repeatedly, performance is dropping."],
+        ["Wrong audience targeting", "Ads reaching wrong audience, low quality leads."],
+        ["No conversion tracking", "Can't properly track which campaigns are working."],
+        ["Can't scale", "Performance drops when budget increases."]
+      ]
+    },
+    "approach": {
+      "eyebrow": "OUR APPROACH",
+      "title": "We don't just run ads — we build your business Growth System.",
+      "sub": "For every business we create a specific, data-driven system — from Research to Scaling, taking your business forward at every step.",
+      "steps": [
+        "Research", "Strategy", "Creative", "Campaign", "Optimization", "Scaling"
+      ]
+    },
+    "services": {
+      "eyebrow": "GROWTH SERVICES",
+      "title": "All services, under one roof",
+      "sub": "From Strategy to Analytics — every service your business needs for growth, we provide in one place.",
+      "itemsFull": [
+        ["Marketing Strategy", "Complete growth roadmap based on business goals."],
+        ["Meta Ads", "Campaigns with precise targeting on Facebook & Instagram."],
+        ["Google Ads", "Search, Display & Shopping campaign management."],
+        ["Creative Design", "Scroll-stopping banners and creative design."],
+        ["Motion Graphic Ads", "Animated, eye-catching motion creatives."],
+        ["Video Editing", "Performance-focused video ad editing."],
+        ["Social Media Content", "Daily content calendar and posting."],
+        ["Landing Page Optimization", "Optimize landing pages to increase conversions."],
+        ["Conversion Rate Optimization", "A/B testing and CRO based on data."],
+        ["Analytics", "Complete performance reporting and insights."],
+        ["Meta Pixel", "Correct event tracking setup and audit."],
+        ["Conversion API", "Reduce data loss with server-side tracking."],
+        ["Google Analytics 4", "GA4 setup, events and funnel tracking."],
+        ["Google Tag Manager", "Manage all tracking tags in one place."],
+        ["Remarketing", "Bring back people who showed interest."],
+        ["AI Marketing", "Faster creative and optimization with AI tools."]
+      ]
+    },
+    "process": {
+      "eyebrow": "HOW WE WORK",
+      "title": "Growth Process — step by step",
+      "sub": "From Audit to Monthly Reporting — we follow the same proven 8-step process for every client.",
+      "steps": [
+        ["Business Audit", "Fully analyze your current marketing, website and data."],
+        ["Market Research", "Deep research on industry, competitors and audience."],
+        ["Growth Strategy", "Create a custom growth plan for your business."],
+        ["Creative Development", "Create conversion-focused creatives and copy."],
+        ["Campaign Launch", "Launch campaigns with the right audience and budget."],
+        ["Daily Optimization", "Monitor and optimize performance daily."],
+        ["Scaling", "Scale what's working step by step."],
+        ["Monthly Reporting", "Provide transparent, detailed monthly reports."]
+      ]
+    },
+    "whyFail": {
+      "eyebrow": "WHY BUSINESSES FAIL",
+      "title": "Why most businesses can't grow?",
+      "sub": "Without the right system, increasing ad budget won't bring results. We work with a clear solution for every problem.",
+      "badTitle": "Common Mistakes",
+      "goodTitle": "Saiful Studios Solves It",
+      "items": [
+        ["No Strategy", "We create a data-driven Growth Strategy for each business separately."],
+        ["Poor Creatives", "We design scroll-stopping, conversion-focused creatives."],
+        ["Wrong Audience", "We reach the right people with Pixel & Audience Research."],
+        ["Weak Landing Page", "We create and optimize high-converting landing pages."],
+        ["No Analytics", "We set up complete tracking with GA4, Pixel & CAPI."],
+        ["No Optimization", "We monitor and optimize campaigns daily."],
+        ["No Scaling Plan", "We scale step by step with a proven Growth System."]
+      ]
+    },
+    "results": {
+      "eyebrow": "BY THE NUMBERS",
+      "title": "Our Result Dashboard",
+      "sub": "A snapshot of the businesses we've worked with so far.",
+      "note": "*Placeholder figures for demonstration — actual numbers vary by engagement.",
+      "items": [
+        "Projects Completed", "Campaigns Managed", "Businesses Helped",
+        "Ad Spend Managed", "Average ROAS", "Client Satisfaction"
+      ],
+      "values": ["180+", "950+", "120+", "৳1.2Cr+", "4.8x", "98%"]
+    },
+    "caseStudies": {
+      "eyebrow": "PROOF OF WORK",
+      "title": "Case Studies",
+      "sub": "Results of working with businesses across different industries — with problems, solutions and numbers.",
+      "items": [
+        {
+          "tag": "Ecommerce",
+          "title": "Fashion Brand",
+          "problem": "Sales weren't growing and ROAS was very low.",
+          "solution": "Restructured audience segmentation, relaunched campaigns with new creatives and landing page.",
+          "metrics": ["+165%", "3.2x → 5.6x", "+৳38L", "-42%"],
+          "metricLabels": ["Sales", "ROAS", "Revenue", "CPA"]
+        },
+        {
+          "tag": "Restaurant",
+          "title": "Food Delivery Chain",
+          "problem": "No orders from website, only calls.",
+          "solution": "Set up conversion tracking, launched remarketing and optimized landing pages.",
+          "metrics": ["+210%", "4.1x", "+৳21L", "-35%"],
+          "metricLabels": ["Sales", "ROAS", "Revenue", "CPA"]
+        },
+        {
+          "tag": "Education",
+          "title": "Online Course Platform",
+          "problem": "Lead quality was low due to wrong audience targeting.",
+          "solution": "Applied correct Pixel setup, new creatives and new audience strategy.",
+          "metrics": ["+140%", "5.0x", "+৳15L", "-50%"],
+          "metricLabels": ["Sales", "ROAS", "Revenue", "CPA"]
+        }
+      ]
+    },
+    "industries": {
+      "eyebrow": "WHO WE WORK WITH",
+      "title": "Industries We Work With",
+      "sub": "Every industry has its own challenges — we create strategies accordingly.",
+      "items": ["Ecommerce", "Healthcare", "Education", "Restaurant", "Corporate", "Real Estate", "Personal Brand", "Service Business"]
+    },
+    "techStack": {
+      "eyebrow": "MARKETING TECH STACK",
+      "title": "Tools we work with",
+      "sub": "Using industry-standard tools, we accurately track, optimize and scale every campaign.",
+      "items": ["Meta Ads", "Google Ads", "Google Analytics 4", "Meta Pixel", "Google Tag Manager", "Looker Studio", "Hotjar", "WordPress", "WooCommerce", "Canva", "Adobe", "ChatGPT", "Claude"]
+    },
+    "testimonialsNew": {
+      "eyebrow": "CLIENT VOICES",
+      "title": "What our clients say",
+      "items": [
+        {
+          "quote": "Our ROAS has doubled in 3 months. Now every decision is made based on data.",
+          "name": "Rafiul Karim",
+          "role": "Founder, Ecommerce Brand"
+        },
+        {
+          "quote": "Saiful Studios has completely restructured our entire marketing system.",
+          "name": "Nusrat Jahan",
+          "role": "Owner, Restaurant Chain"
+        },
+        {
+          "quote": "We get reports every month, everything is transparent. That's what we like most.",
+          "name": "Tanvir Ahmed",
+          "role": "CMO, Education Platform"
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Frequently Asked Questions",
+      "items": [
+        ["How much budget is needed?", "Budget depends on your industry and goals. During the Free Growth Audit, we suggest a suitable budget range for your business."],
+        ["How long to see results?", "Generally initial improvement is seen in 2-4 weeks, but a full 90-day cycle is needed for sustainable growth."],
+        ["Who creates the creatives?", "Our in-house design and video team creates every creative custom for your brand."],
+        ["Will I get reports?", "Yes, detailed performance reports every month and weekly updates as needed."],
+        ["Can you optimize my existing campaigns?", "Absolutely. We first audit your current campaigns, identify problems, then create an optimization plan."]
+      ]
+    },
+    "finalCta": {
+      "title": "Ready to take your business to the next level?",
+      "sub": "Book a free Growth Audit today and find out how to increase your sales, leads and conversions.",
+      "btn": "Book Free Growth Audit →"
     }
   },
   "aiWorkplace": {
