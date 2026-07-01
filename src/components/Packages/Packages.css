@@ -35,6 +35,37 @@
   align-items: end;
 }
 
+@media (max-width: 1024px) {
+  .packages-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .package-card {
+    padding: 28px 20px;
+  }
+
+  .package-card.featured {
+    padding: 28px 20px;
+  }
+
+  .package-card.featured .package-price {
+    font-size: 36px;
+  }
+
+  .package-price {
+    font-size: 32px;
+  }
+
+  .package-badge {
+    font-size: 11px;
+    padding: 6px 14px;
+    top: -14px;
+  }
+}
+
 .package-icon {
   font-size: 38px;
   line-height: 1;

@@ -673,6 +673,11 @@ html[lang='bn'] body {
     Roboto,
     sans-serif;
   line-height: 1.7;
+  font-variant-numeric: normal;
+}
+
+html[data-lang='bn'] body {
+  font-feature-settings: "bnum" 1;
 }
 
 html[data-lang='bn'] h1,

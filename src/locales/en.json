@@ -179,7 +179,7 @@
       }
     },
     "problems": {
-      "eyebrow": "",
+      "eyebrow": "Why does business increase online with resource drop?",
       "title": "6 Common Reasons Online Businesses Fail—And How We Make Yours Succeed",
       "subtitle": "",
       "holdingBack": "What's holding you back",
@@ -194,8 +194,8 @@
       },
       "beforeLabel": "BEFORE",
       "afterLabel": "AFTER",
-      "beforeTitle": "Struggling & Stuck",
-      "afterTitle": "Growing & Successful",
+      "beforeTitle": "6 Mistakes",
+      "afterTitle": "6 Solutions",
       "comparison": [
         {
           "problemBn": "Start business without enough knowledge",
@@ -275,7 +275,7 @@
       },
       "bottom": {
         "text": "Identify the real problems of your business and get the right solution!",
-        "trust": "500+ businesses trust us",
+        "trust": "5000 successful business progress",
         "cta": "Get Free Business Consultation"
       }
     },
@@ -364,10 +364,10 @@
       "yearsExp": "Years experience",
       "specialty": "Graphic Designer + Video Editor + Marketing Strategist",
       "stats": {
-        "exp": "10+ years e-commerce experience",
-        "brands": "40+ brands worked with",
-        "entrepreneurs": "50+ entrepreneurs trained",
-        "businesses": "80+ businesses running"
+        "exp": "<strong>10+</strong> years e-commerce experience",
+        "brands": "<strong>40+</strong> brands worked with",
+        "entrepreneurs": "<strong>50+</strong> entrepreneurs trained",
+        "businesses": "<strong>80+</strong> businesses running"
       }
     },
     "founderIntro": {

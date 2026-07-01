@@ -163,35 +163,79 @@
       }
     },
     "problems": {
-      "eyebrow": "Sound familiar?",
-      "title": "The problems you face — and how we solve them",
-      "subtitle": "If you have felt any of these, you are not alone — and you are not stuck.",
+      "eyebrow": "Why does business increase online with resource drop?",
+      "title": "6 Common Reasons Online Businesses Fail—And How We Make Yours Succeed",
+      "subtitle": "",
       "holdingBack": "What's holding you back",
       "howWeHelp": "How Saiful Studios helps",
       "items": {
-        "noBrand": "No Brand Identity or Logo",
-        "noWebsite": "No Professional Website",
-        "noContent": "No Content System or Strategy",
-        "noMarketing": "No Marketing Strategy or Ad Plan",
-        "noGrowth": "No Consistent Sales Growth"
+        "noBrand": "Start a business without enough knowledge",
+        "noWebsite": "No good brand identity",
+        "noContent": "No professional website",
+        "noMarketing": "Messy ad content & marketing",
+        "noGrowth": "Ad money is being wasted",
+        "noProcess": "No consistent sales growth"
       },
+      "beforeLabel": "BEFORE",
+      "afterLabel": "AFTER",
+      "beforeTitle": "6 Mistakes",
+      "afterTitle": "6 Solutions",
+      "comparison": [
+        {
+          "problemSubBn": "No clear business strategy understanding",
+          "resultBn": "Start with confidence"
+        },
+        {
+          "problemSubBn": "No one seems trustworthy",
+          "resultBn": "Trust in brand increases"
+        },
+        {
+          "problemSubBn": "Customer trust isn't built properly",
+          "resultBn": "Digital customers are created"
+        },
+        {
+          "problemSubBn": "Experience isn't created, brand isn't remembered",
+          "resultBn": "Engagement increases"
+        },
+        {
+          "problemSubBn": "Running without proper experience & strategy",
+          "resultBn": "More sales at less cost"
+        },
+        {
+          "problemSubBn": "Sometimes sales happen, sometimes not",
+          "resultBn": "Consistent sales"
+        }
+      ],
       "solutions": {
+        "training": {
+          "title": "1 month of training to make you business-ready",
+          "desc": "What to sell, who to sell to, and where to start."
+        },
         "brand": {
-          "title": "Complete Brand Identity",
-          "desc": "Logo, color palette, typography, brand guidelines"
+          "title": "Professional Brand Identity",
+          "desc": "Logo, color, typography, branding & brand guidelines"
         },
         "website": {
-          "title": "High-Converting Website",
-          "desc": "Custom e-commerce with payment gateway integration"
+          "title": "High-Converting E-commerce Website",
+          "desc": "Premium website design, payment integration, automatic delivery system"
         },
         "content": {
-          "title": "AI-Powered Content System",
-          "desc": "Automated content pipeline using Canva, ChatGPT, CapCut"
+          "title": "Customer-centric content & marketing strategy",
+          "desc": "Content calendar strategy, image ads, video ads & automation"
         },
         "marketing": {
-          "title": "Full-Stack Marketing Strategy",
-          "desc": "Facebook Ads, organic content, video marketing, data-driven growth"
+          "title": "Data-driven marketing system",
+          "desc": "Meta ads, creative testing, more sales & retargeting"
+        },
+        "growth": {
+          "title": "Systematic Growth Plan",
+          "desc": "Funnel, automation, optimization & scaling framework"
         }
+      },
+      "bottom": {
+        "text": "Identify the real problems of your business and get the right solution!",
+        "trust": "5000 successful business progress",
+        "cta": "Get Free Business Consultation"
       }
     },
     "framework": {

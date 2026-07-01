@@ -222,56 +222,23 @@ function HomePage() {
 
       <section className="client-logos-section">
         <div className="client-logos-bar">
-          {/* EVO LEATHER */}
           <div className="client-logo-item">
-            <svg viewBox="0 0 120 40" className="client-logo-svg" aria-label="EVO Leather">
-              <text x="60" y="22" textAnchor="middle" fill="white" fontFamily="'Inter','Helvetica Neue',Arial,sans-serif" fontWeight="700" fontSize="22" letterSpacing="2">EVO</text>
-              <line x1="15" y1="30" x2="42" y2="30" stroke="rgba(255,255,255,0.4)" strokeWidth="0.5"/>
-              <line x1="78" y1="30" x2="105" y2="30" stroke="rgba(255,255,255,0.4)" strokeWidth="0.5"/>
-              <text x="60" y="36" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontFamily="'Inter','Helvetica Neue',Arial,sans-serif" fontWeight="400" fontSize="7" letterSpacing="4">LEATHER</text>
-            </svg>
+            <img src={assetPath('/pdf/Brand Logos/Evo Leather.png')} alt="EVO Leather" />
           </div>
-
-          {/* LEATHIX */}
           <div className="client-logo-item">
-            <svg viewBox="0 0 150 40" className="client-logo-svg" aria-label="Leathix">
-              <g transform="translate(5,8)">
-                <path d="M12 0 L18 8 L12 16 L6 8 Z" fill="none" stroke="white" strokeWidth="1.5"/>
-                <path d="M6 4 L12 12 L18 4" fill="none" stroke="white" strokeWidth="1.2"/>
-              </g>
-              <text x="35" y="26" fill="white" fontFamily="'Inter','Helvetica Neue',Arial,sans-serif" fontWeight="600" fontSize="17" letterSpacing="3">LEATHIX</text>
-            </svg>
+            <img src={assetPath('/pdf/Brand Logos/Leathix.png')} alt="Leathix" />
           </div>
-
-          {/* GADGET */}
           <div className="client-logo-item">
-            <svg viewBox="0 0 155 40" className="client-logo-svg" aria-label="Gadget">
-              <g transform="translate(5,5)">
-                <line x1="0" y1="0" x2="28" y2="30" stroke="white" strokeWidth="1.8"/>
-                <line x1="28" y1="0" x2="0" y2="30" stroke="white" strokeWidth="1.8"/>
-                <line x1="14" y1="0" x2="14" y2="30" stroke="white" strokeWidth="1.2"/>
-                <line x1="0" y1="15" x2="28" y2="15" stroke="white" strokeWidth="1.2"/>
-              </g>
-              <text x="42" y="26" fill="white" fontFamily="'Inter','Helvetica Neue',Arial,sans-serif" fontWeight="700" fontSize="16" letterSpacing="2">GADGET</text>
-            </svg>
+            <img src={assetPath('/pdf/Brand Logos/DK Gadget.png')} alt="DK Gadget" />
           </div>
-
-          {/* Shavershop */}
           <div className="client-logo-item">
-            <svg viewBox="0 0 150 40" className="client-logo-svg" aria-label="Shavershop">
-              <text x="75" y="27" textAnchor="middle" fill="white" fontFamily="Georgia,'Times New Roman',serif" fontWeight="400" fontSize="19" fontStyle="italic" letterSpacing="0.5">Shavershop</text>
-            </svg>
+            <img src={assetPath('/pdf/Brand Logos/Shavershop.png')} alt="Shavershop" />
           </div>
-
-          {/* SSB Leather */}
           <div className="client-logo-item">
-            <svg viewBox="0 0 110 45" className="client-logo-svg" aria-label="SSB Leather">
-              <g transform="translate(5,2)">
-                <path d="M18 4 C10 4, 6 10, 6 15 C6 20, 10 24, 16 24 C10 24, 6 28, 6 34" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
-              </g>
-              <text x="58" y="22" fill="white" fontFamily="'Inter','Helvetica Neue',Arial,sans-serif" fontWeight="800" fontSize="22" letterSpacing="1">SSB</text>
-              <text x="58" y="36" fill="rgba(255,255,255,0.6)" fontFamily="Georgia,'Times New Roman',serif" fontWeight="400" fontSize="10" fontStyle="italic" letterSpacing="1">Leather</text>
-            </svg>
+            <img src={assetPath('/pdf/Brand Logos/SSB Leather.png')} alt="SSB Leather" />
+          </div>
+          <div className="client-logo-item">
+            <img src={assetPath('/pdf/Brand Logos/Shop House Logo.png')} alt="Shop House" />
           </div>
         </div>
       </section>
@@ -287,11 +254,11 @@ function HomePage() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5 }}
           >
+            <p className="problems-eyebrow">{t('home.problems.eyebrow')}</p>
             <h2 className="problems-heading">
               {(t('home.problems.title').split('—')[0] || t('home.problems.title'))}
-              <br />
-              <span className="problems-heading-green">{t('home.problems.title').split('—')[1] || ''}</span>
             </h2>
+            <p className="problems-heading-green">{t('home.problems.title').split('—')[1] || ''}</p>
           </motion.div>
 
           {/* ── Comparison Grid ── */}
@@ -305,17 +272,13 @@ function HomePage() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5 }}
               >
-                <div className="hero-card-header before">
-                  <span className="hc-label">{t('home.problems.beforeLabel')}</span>
-                  <span className="hc-title-en">{t('home.problems.beforeTitle')}</span>
+                <div className="hero-card-icon before">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="23 18 13.5 8.5 8.5 13.5 1 6" />
+                    <polyline points="17 18 23 18 23 12" />
+                  </svg>
                 </div>
-                <div className="hero-photo">
-                  <img
-                    src={assetPath('/images/before-new.png')}
-                    alt={t('home.problems.beforeTitle')}
-                    loading="lazy"
-                  />
-                </div>
+                <span className="hc-title-bn">{t('home.problems.beforeTitle')}</span>
               </motion.div>
 
               <motion.div
@@ -325,22 +288,18 @@ function HomePage() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5 }}
               >
-                <div className="hero-card-header after">
-                  <span className="hc-label">{t('home.problems.afterLabel')}</span>
-                  <span className="hc-title-en">{t('home.problems.afterTitle')}</span>
+                <div className="hero-card-icon after">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                    <polyline points="17 6 23 6 23 12" />
+                  </svg>
                 </div>
-                <div className="hero-photo">
-                  <img
-                    src={assetPath('/images/after-new.png')}
-                    alt={t('home.problems.afterTitle')}
-                    loading="lazy"
-                  />
-                </div>
+                <span className="hc-title-bn">{t('home.problems.afterTitle')}</span>
               </motion.div>
             </div>
 
-            {/* ── Comparison Rows ── */}
-            <div className="comparison-rows">
+            {/* ── Comparison Rows (Desktop) ── */}
+            <div className="comparison-rows comparison-rows-desktop">
               {PROBLEM_KEYS.map((problemKey, i) => {
                 const solutionKey = SOLUTION_KEYS[i];
                 return (
@@ -386,6 +345,98 @@ function HomePage() {
                 );
               })}
             </div>
+
+            {/* ── Mobile Only: Problems Section ── */}
+            <div className="comparison-rows comparison-rows-mobile-problems">
+              <div className="mobile-card-wrapper">
+                <div className="mobile-before-badge">{t('home.problems.beforeLabel')}</div>
+                <div className="mobile-hero-card mobile-hero-card-before">
+                  <span className="hc-title-bn">{t('home.problems.beforeTitle')}</span>
+                  <div className="hero-card-icon before">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="23 18 13.5 8.5 8.5 13.5 1 6" />
+                      <polyline points="17 18 23 18 23 12" />
+                    </svg>
+                  </div>
+                  <div className="mobile-card-rows">
+                    {PROBLEM_KEYS.map((problemKey, i) => (
+                      <motion.div
+                        className="comparison-row problem-row"
+                        key={`problem-${problemKey}`}
+                        initial={{ opacity: 0, y: 16 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.35, delay: i * 0.07 }}
+                      >
+                        <div className="problem-side">
+                          <div className="problem-icon-circle">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
+                              <path d="M6 6l12 12M18 6L6 18" />
+                            </svg>
+                          </div>
+                          <div className="problem-text-group">
+                            <strong>{t(`home.problems.items.${problemKey}`)}</strong>
+                          </div>
+                        </div>
+                        <div className="row-chevron">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <polyline points="6 9 12 15 18 9" />
+                          </svg>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* ── Mobile Only: Solutions Section ── */}
+            <div className="comparison-rows comparison-rows-mobile-solutions">
+              <div className="mobile-card-wrapper">
+                <div className="mobile-after-badge">{t('home.problems.afterLabel')}</div>
+                <div className="mobile-hero-card mobile-hero-card-after">
+                  <span className="hc-title-bn">{t('home.problems.afterTitle')}</span>
+                  <div className="hero-card-icon after">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                      <polyline points="17 6 23 6 23 12" />
+                    </svg>
+                  </div>
+                  <div className="mobile-card-rows">
+                    {PROBLEM_KEYS.map((problemKey, i) => {
+                      const solutionKey = SOLUTION_KEYS[i];
+                      return (
+                        <motion.div
+                          className="comparison-row solution-row"
+                          key={`solution-${solutionKey}`}
+                          initial={{ opacity: 0, y: 16 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.35, delay: i * 0.07 }}
+                        >
+                          <div className="solution-side">
+                            <div className="solution-icon-circle">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                <path d="M5 12l4.5 4.5L19 7" />
+                              </svg>
+                            </div>
+                            <div className="solution-text-group">
+                              <strong>{t(`home.problems.solutions.${solutionKey}.title`)}</strong>
+                            </div>
+                          </div>
+                          <div className="row-chevron">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                              <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                          </div>
+                        </motion.div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
 
           {/* ── Trust Strip ── */}
@@ -418,7 +469,7 @@ function HomePage() {
           <motion.button
             className="problems-cta-btn"
             onClick={() => navigate('/contact')}
-            whileHover={{ scale: 1.02, boxShadow: '0 16px 40px rgba(0,0,0,0.25)' }}
+            whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -654,10 +705,10 @@ function HomePage() {
               <p className="founder-role">{t('home.founder.role')}</p>
 
               <ul className="founder-stats-list">
-                <li>{t('home.founder.stats.exp')}</li>
-                <li>{t('home.founder.stats.brands')}</li>
-                <li>{t('home.founder.stats.entrepreneurs')}</li>
-                <li>{t('home.founder.stats.businesses')}</li>
+                <li dangerouslySetInnerHTML={{ __html: t('home.founder.stats.exp') }} />
+                <li dangerouslySetInnerHTML={{ __html: t('home.founder.stats.brands') }} />
+                <li dangerouslySetInnerHTML={{ __html: t('home.founder.stats.entrepreneurs') }} />
+                <li dangerouslySetInnerHTML={{ __html: t('home.founder.stats.businesses') }} />
                 <li>{t('home.founder.specialty')}</li>
               </ul>
 
