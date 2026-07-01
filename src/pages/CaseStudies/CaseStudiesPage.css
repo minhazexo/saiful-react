@@ -49,6 +49,19 @@
 
 .case-header-icon {
   font-size: 48px;
+  background: #000;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.case-header-icon img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: 8px;
 }
 
 .case-header-text .case-category {

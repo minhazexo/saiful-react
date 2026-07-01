@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import api from '../../api';
 import { useTranslation } from '../../context/LanguageContext';
+import { CASE_STUDIES } from '../../data/caseStudies';
 import Seo from '../../components/Seo';
 import MobileCarousel from '../../components/MobileCarousel/MobileCarousel';
 import { staggerContainer, fadeUp } from '../../motion/presets';
@@ -9,18 +10,9 @@ import './CaseStudiesPage.css';
 import Packages from '../../components/Packages/Packages';
 import './CaseStudiesPage.responsive.css';
 
-const DEFAULT_CASES = [
-  { title: 'Leathix', slug: 'leathix', icon: '👜', key: 'leathix' },
-  { title: 'Future Connect', slug: 'future-connect', icon: '🎧', key: 'futureConnect' },
-  { title: 'Fashion Nova BD', slug: 'fashion-nova-bd', icon: '👗', key: 'fashionNova' },
-  { title: 'NaturalGlow BD', slug: 'naturalglow-bd', icon: '🌿', key: 'naturalGlow' },
-  { title: 'TechZone BD', slug: 'techzone-bd', icon: '💻', key: 'techZone' },
-  { title: 'Crafty Hands', slug: 'crafty-hands', icon: '🧶', key: 'craftyHands' },
-];
-
 function CaseStudiesPage() {
   const t = useTranslation();
-  const [cases, setCases] = useState(DEFAULT_CASES);
+  const [cases, setCases] = useState(CASE_STUDIES);
   const [isLoading, setIsLoading] = useState(false);
 
   const aliveRef = useRef(true);
@@ -81,7 +73,11 @@ function CaseStudiesPage() {
                 <motion.div key={c.slug || i} className="case-detail-card" initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
                   <div className="case-header">
                     <div className="case-header-icon" aria-hidden="true">
-                      {c.icon || '📊'}
+                      {c.icon && c.icon.includes('/') ? (
+                        <img src={c.icon} alt={c.title} />
+                      ) : (
+                        c.icon || '📊'
+                      )}
                     </div>
                     <div className="case-header-text">
                       <span className="case-category">

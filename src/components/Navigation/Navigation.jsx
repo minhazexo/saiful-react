@@ -22,15 +22,8 @@ const backdropVariants = {
   exit: { opacity: 0, transition: { duration: 0.15 } },
 };
 
-const Chevron = () => (
-  <svg className="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <polyline points="6 9 12 15 18 9" />
-  </svg>
-);
-
 function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [openMenu, setOpenMenu] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
   const t = useTranslation();
@@ -38,41 +31,7 @@ function Navigation() {
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
-    setOpenMenu(null);
   }, [location.pathname]);
-
-  const toggleDropdown = (key) => setOpenMenu((cur) => (cur === key ? null : key));
-
-  // Instant jump (the app sets a global scroll-behavior: smooth, which would
-  // otherwise restart its animation on every re-pin and crawl very slowly).
-  const jumpToPackages = () => {
-    const el = document.getElementById('packages');
-    if (!el) return;
-    const root = document.documentElement;
-    const prev = root.style.scrollBehavior;
-    root.style.scrollBehavior = 'auto';
-    el.scrollIntoView({ block: 'start' });
-    root.style.scrollBehavior = prev;
-  };
-
-  const goToPackages = (e) => {
-    e.preventDefault();
-    setIsMobileMenuOpen(false);
-    setOpenMenu(null);
-    if (location.pathname === '/') {
-      document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-      navigate('/');
-      // Re-pin during the post-navigation settling window so lazy content
-      // reflow above the section doesn't leave us short of the target.
-      let tries = 0;
-      const tick = () => {
-        jumpToPackages();
-        if (++tries < 10) setTimeout(tick, 120);
-      };
-      setTimeout(tick, 200);
-    }
-  };
 
   useEffect(() => {
     if (typeof document === 'undefined') return;
@@ -123,92 +82,24 @@ function Navigation() {
                 {t('nav.academy')}
               </Link>
             </li>
-
-            <li className={`nav-dropdown ${openMenu === 'services' ? 'open' : ''}`}>
-              <button
-                type="button"
-                className="nav-dropdown-toggle"
-                onClick={() => toggleDropdown('services')}
-                aria-expanded={openMenu === 'services'}
-                aria-haspopup="true"
-              >
-                {t('nav.services')}
-                <Chevron />
-              </button>
-              <ul className="nav-dropdown-menu">
-                <li>
-                  <Link to="/setup" onClick={closeMobileMenu}>
-                    <span className="nav-dd-icon" aria-hidden="true">🚀</span>
-                    {t('nav.setup')}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/growth" onClick={closeMobileMenu}>
-                    <span className="nav-dd-icon" aria-hidden="true">📈</span>
-                    {t('nav.growth')}
-                  </Link>
-                </li>
-              </ul>
-            </li>
-
             <li>
-              <Link to="/case-studies" onClick={closeMobileMenu}>
-                {t('nav.successStories')}
+              <Link to="/setup" onClick={closeMobileMenu}>
+                {t('nav.setup')}
               </Link>
             </li>
-
-            <li className={`nav-dropdown ${openMenu === 'more' ? 'open' : ''}`}>
-              <button
-                type="button"
-                className="nav-dropdown-toggle"
-                onClick={() => toggleDropdown('more')}
-                aria-expanded={openMenu === 'more'}
-                aria-haspopup="true"
-              >
-                {t('nav.more')}
-                <Chevron />
-              </button>
-              <ul className="nav-dropdown-menu">
-                <li>
-                  <a href="/#packages" onClick={goToPackages}>
-                    <span className="nav-dd-icon" aria-hidden="true">💳</span>
-                    {t('nav.pricing')}
-                  </a>
-                </li>
-                <li>
-                  <Link to="/ai" onClick={closeMobileMenu}>
-                    <span className="nav-dd-icon" aria-hidden="true">🤖</span>
-                    {t('nav.ai')}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/ai-workplace" onClick={closeMobileMenu}>
-                    <span className="nav-dd-icon" aria-hidden="true">⚡</span>
-                    {t('nav.aiWorkplace')}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/blog" onClick={closeMobileMenu}>
-                    <span className="nav-dd-icon" aria-hidden="true">✍️</span>
-                    {t('nav.blog')}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/contact" onClick={closeMobileMenu}>
-                    <span className="nav-dd-icon" aria-hidden="true">✉️</span>
-                    {t('nav.contact')}
-                  </Link>
-                </li>
-              </ul>
+            <li>
+              <Link to="/growth" onClick={closeMobileMenu}>
+                {t('nav.growth')}
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact" onClick={closeMobileMenu}>
+                {t('nav.contact')}
+              </Link>
             </li>
 
             <li className="nav-mobile-cta nav-mobile-lang">
               <LanguageSwitcher variant="mobile" />
-            </li>
-            <li className="nav-mobile-cta">
-              <Link to="/roadmap" className="btn btn-primary" onClick={closeMobileMenu}>
-                {t('nav.roadmap')}
-              </Link>
             </li>
           </motion.ul>
 

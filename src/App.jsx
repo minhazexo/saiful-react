@@ -18,6 +18,7 @@ const CaseStudiesPage = lazy(() => import('./pages/CaseStudies/CaseStudiesPage')
 const BlogPage = lazy(() => import('./pages/Blog/BlogPage'));
 const BlogDetailPage = lazy(() => import('./pages/BlogDetail/BlogDetailPage'));
 const RoadmapPage = lazy(() => import('./pages/Roadmap/RoadmapPage'));
+const PricingPage = lazy(() => import('./pages/Pricing/PricingPage'));
 const ContactPage = lazy(() => import('./pages/Contact/ContactPage'));
 const NotFound = lazy(() => import('./pages/NotFound/NotFound'));
 
@@ -48,6 +49,7 @@ function MetaManager() {
       '/case-studies': `${t('caseStudies.title')} · ${t('common.brandFull')}`,
       '/blog': `${t('blog.title')} · ${t('common.brandFull')}`,
       '/contact': `${t('contact.title')} · ${t('common.brandFull')}`,
+      '/pricing': `${t('nav.pricing')} · ${t('common.brandFull')}`,
       '/admin': `${t('admin.dashboard.title')} · ${t('common.brandFull')}`,
     };
     const base =
@@ -84,6 +86,7 @@ function AppRoutes() {
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogDetailPage />} />
           <Route path="/roadmap" element={<RoadmapPage />} />
+          <Route path="/pricing" element={<PricingPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Route>
 

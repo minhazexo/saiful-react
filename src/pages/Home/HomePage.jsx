@@ -8,6 +8,7 @@ import MobileCarousel from '../../components/MobileCarousel/MobileCarousel';
 import { MotionFadeUp, MotionStaggerContainer, MotionStaggerItem } from '../../motion/MotionFadeUp';
 import { fadeUp, fadeUpSmall, staggerContainer, buttonHover } from '../../motion/presets';
 import { assetPath } from '../../utils/assets';
+import { CASE_STUDIES } from '../../data/caseStudies';
 import { getWhatsAppUrl } from '../../utils/whatsapp';
 import './HomePage.css';
 
@@ -43,8 +44,9 @@ const WORKFLOW_KEYS = ['research', 'create', 'produce', 'distribute', 'optimize'
 const TESTIMONIAL_KEYS = ['rahim', 'farida', 'nusrat', 'kamal'];
 
 // Client results (rendered as case-study style cards)
+// Keys match homepage translations; icons come from shared case studies data
 const CLIENT_RESULT_KEYS = ['leathix', 'evoLeather', 'shopHouse'];
-const CLIENT_RESULT_ICONS = ['👜', '👞', '🛍️'];
+const CLIENT_RESULT_ICONS = CASE_STUDIES.slice(0, 3).map(c => c.icon);
 
 const HERO_DESKTOP_IMAGES = [
   { file: 'Founder-1.png', dir: 'pdf/All Imge Comprase Website' },
@@ -740,7 +742,7 @@ function HomePage() {
               <motion.div key={key} className="case-card" initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
                 <div className="case-header">
                   <div className="case-header-icon" aria-hidden="true">
-                    {CLIENT_RESULT_ICONS[i]}
+                    <img src={CLIENT_RESULT_ICONS[i]} alt={t(`home.clientResults.cards.${key}.title`)} />
                   </div>
                   <h3>{t(`home.clientResults.cards.${key}.title`)}</h3>
                 </div>
