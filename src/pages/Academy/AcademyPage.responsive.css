@@ -1,77 +1,39 @@
-/* Override global responsive to match HTML (HTML has no responsive changes to these) */
-@media (max-width: 768px) {
-  .section-head {
-    margin-bottom: 56px;
-  }
-  .section-head p {
-    font-size: 16px;
-  }
+@media (max-width: 980px) {
+  .academy-page h1 { font-size: 38px; }
+  .academy-page h2 { font-size: 30px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .academy-hero { padding-top: 30px; }
+  .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .ps-grid { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .module-grid { grid-template-columns: repeat(2, 1fr); }
+  .grid-bonus { grid-template-columns: repeat(2, 1fr); }
+  .mentor-grid { grid-template-columns: 1fr; gap: 36px; }
+  .mentor-photo { max-width: 340px; margin: 0 auto; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .roadmap { flex-direction: column; align-items: flex-start; gap: 26px; }
+  .roadmap::before { display: none; }
+  .road-step { flex-direction: row; text-align: left; gap: 16px; width: 100%; }
+  .road-dot { margin-bottom: 0; }
+  .enr-grid { grid-template-columns: 1fr 1fr; gap: 30px 0; }
+  .enr-step:nth-child(2n)::after { display: none; }
+  .form-2col { grid-template-columns: 1fr; }
+  .academy-page .section-pad { padding: 70px 0; }
+  .final-cta { padding: 56px 28px; }
+  .bonus-banner { padding: 36px 28px; flex-direction: column; text-align: center; }
+  .academy-page { padding-bottom: 78px; }
+  .sticky-cta { display: flex; gap: 10px; }
+  .eco-flow { font-size: 15px; gap: 10px; }
+  .eco-step { padding: 8px 14px; }
 }
 
-@media (max-width: 480px) {
-  .section-head {
-    margin-bottom: 56px;
-  }
-  .section-head p {
-    font-size: 16px;
-  }
-  .section-head h2 {
-    font-size: clamp(24px, 3.6vw, 36px);
-  }
-}
-
-@media (max-width: 375px) {
-  .section-head {
-    margin-bottom: 56px;
-  }
-  .section-head p {
-    font-size: 16px;
-  }
-}
-
-/* Match HTML responsive breakpoints */
-
-/* ≤1000px — module grid 2 cols */
-@media (max-width: 1000px) {
-  .module-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* ≤960px — testimonial grid 1 col */
-@media (max-width: 960px) {
-  .t-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ≤880px — enroll grid 1 col */
-@media (max-width: 880px) {
-  .enroll-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ≤760px — stat grid 2 cols, instructor stacked */
-@media (max-width: 760px) {
-  .stat-grid {
-    grid-template-columns: repeat(2, 1fr);
-    row-gap: 20px;
-  }
-
-  .instr-card {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .instr-tags {
-    justify-content: center;
-  }
-}
-
-/* ≤560px — module grid 1 col, smaller spacing */
 @media (max-width: 560px) {
-  .module-grid {
-    grid-template-columns: 1fr;
-  }
+  .module-grid,
+  .grid-bonus { grid-template-columns: 1fr; }
+  .trust-grid { grid-template-columns: 1fr 1fr; }
+  .academy-page h1 { font-size: 32px; }
+  .price-card { padding: 32px 24px; }
+  .form-wrap { padding: 32px 22px; }
+  .enr-grid { grid-template-columns: 1fr; }
+  .enr-step::after { display: none; }
 }
