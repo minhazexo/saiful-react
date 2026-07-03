@@ -1,9 +1,24 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { animate, motion, useInView } from 'framer-motion';
 import Seo from '../../components/Seo';
 import { staggerContainer, fadeUp } from '../../motion/presets';
 import './AcademyPage.css';
 import './AcademyPage.responsive.css';
+
+// --- Inline SVG icons used across the page ------------------------------
+const Icon = {
+  rocket: (<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09Z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22 22 0 0 1-4 2Z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>),
+  phone: (<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13 1 .37 1.97.72 2.9a2 2 0 0 1-.45 2.11L8.09 10.91a16 16 0 0 0 6 6l2.18-1.29a2 2 0 0 1 2.11-.45c.93.35 1.9.59 2.9.72A2 2 0 0 1 22 16.92Z"/></svg>),
+  user: (<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>),
+  mail: (<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>),
+  bag: (<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>),
+  video: (<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>),
+  users: (<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>),
+  folder: (<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2Z"/></svg>),
+  checkCircle: (<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>),
+  xCircle: (<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6M9 9l6 6"/></svg>),
+  whatsapp: (<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20.52 3.48A11.9 11.9 0 0 0 12.06 0C5.5 0 .07 5.42.07 12c0 2.12.55 4.18 1.6 6.01L0 24l6.18-1.62a12 12 0 0 0 5.88 1.5h.01c6.55 0 11.98-5.42 11.98-12 0-3.2-1.25-6.21-3.53-8.4ZM12.07 21.8h-.01a9.84 9.84 0 0 1-5.02-1.38l-.36-.21-3.67.96.98-3.58-.24-.37A9.85 9.85 0 1 1 21.9 12c0 5.42-4.41 9.8-9.83 9.8Z"/></svg>),
+};
 
 const MODULES = [
   { num: '01', title: 'Business Foundation', lessons: '৬ লেসন', resources: '৫ Resources', time: '২ ঘণ্টা' },
@@ -17,8 +32,13 @@ const MODULES = [
 ];
 
 const BONUS_ITEMS = [
-  'SOP Library', 'Business Templates', 'AI Prompt Library',
-  'Business Checklist', 'Marketing Swipe File', 'Business Reading Guide', 'Lifetime Update',
+  { icon: '📋', title: 'SOP Library' },
+  { icon: '📝', title: 'Business Templates' },
+  { icon: '🤖', title: 'AI Prompt Library' },
+  { icon: '✅', title: 'Business Checklist' },
+  { icon: '📂', title: 'Marketing Swipe File' },
+  { icon: '📚', title: 'Business Reading Guide' },
+  { icon: '♾️', title: 'Lifetime Update' },
 ];
 
 const ROADMAP = ['Mindset', 'Product Research', 'Brand Identity', 'Website', 'Content', 'Marketing', 'Sales', 'Automation', 'Scale'];
@@ -59,6 +79,27 @@ function MotionStagger({ children, className = '' }) {
   );
 }
 
+// Count-up stat that animates `0 -> end` (Bangla digits) once it scrolls in.
+function AnimatedStat({ end, suffix = '', decimals = 0, duration = 1.6 }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: '-40px' });
+  const [display, setDisplay] = useState(toBn(0));
+
+  useEffect(() => {
+    if (!inView) return undefined;
+    const controls = animate(0, end, {
+      duration,
+      ease: [0.22, 1, 0.36, 1],
+      onUpdate: (v) => {
+        setDisplay(decimals > 0 ? toBn(v.toFixed(decimals)) : toBn(Math.floor(v)));
+      },
+    });
+    return () => controls.stop();
+  }, [inView, end, decimals, duration]);
+
+  return <span ref={ref}>{display}{suffix}</span>;
+}
+
 function AcademyPage() {
   const [openFaq, setOpenFaq] = useState(null);
 
@@ -70,84 +111,46 @@ function AcademyPage() {
         path="/academy"
       />
 
-      {/* HERO */}
-      <section className="academy-hero">
-        <div className="wrap" style={{ paddingTop: 60, paddingBottom: 80 }}>
-          <div className="hero-grid">
-            <MotionStagger>
-              <motion.span className="eyebrow" variants={fadeUp}>🚀 বাংলাদেশের Complete Ecommerce Business Mentorship Program</motion.span>
-              <motion.h1 variants={fadeUp}>শূন্য থেকে নিজের সফল <span>ই-কমার্স ব্যবসা</span> শুরু করুন</motion.h1>
-              <motion.p className="hero-sub" variants={fadeUp}>ভিডিও দেখে শেখা নয়। লাইভ Google Meet ক্লাস, বাস্তব Assignment, Community Support, Business Roadmap এবং ব্যক্তিগত গাইডলাইনের মাধ্যমে ধাপে ধাপে নিজের ব্যবসা তৈরি করুন।</motion.p>
-              <motion.div className="hero-cta-row" variants={fadeUp}>
-                <a href="#pricing" className="btn btn-primary btn-lg">👉 এখনই ভর্তি হোন</a>
-                <a href="#enroll" className="btn btn-outline btn-lg">📞 ফ্রি কনসালটেশন নিন</a>
-              </motion.div>
-              <motion.div className="hero-trust" variants={fadeUp}>
-                <div className="avatars"><span>আ</span><span>র</span><span>স</span><span>ম</span></div>
-                <span>৩০০০+ শিক্ষার্থী একসাথে শিখছেন এই প্রোগ্রামে</span>
-              </motion.div>
-            </MotionStagger>
-
-            <MotionFade>
-              <div className="dash">
-                <div className="dash-top">
-                  <div className="dots"><span /><span /><span /></div>
-                  <div className="title">Student Dashboard</div>
-                  <div style={{ width: 40 }} />
-                </div>
-                <div className="dash-body">
-                  <div className="dash-live">
-                    <span className="pulse" />
-                    <div style={{ flex: 1 }}>
-                      <div style={{ fontSize: 13, color: '#9CA3AF' }}>আজকের লাইভ ক্লাস</div>
-                      <div style={{ fontWeight: 600 }}>মডিউল ০৪ — ই-কমার্স ওয়েবসাইট সেটআপ</div>
-                    </div>
-                    <span className="chip live-chip">LIVE</span>
-                  </div>
-                  <div className="dash-row">
-                    <div className="dash-card">
-                      <div className="label">সম্পূর্ণ অগ্রগতি</div>
-                      <div className="value">৬৪%</div>
-                      <div className="dash-progress"><div style={{ width: '64%' }} /></div>
-                    </div>
-                    <div className="dash-card">
-                      <div className="label">সম্পন্ন মডিউল</div>
-                      <div className="value">৫ / ৮</div>
-                      <div className="dash-progress"><div style={{ width: '62%' }} /></div>
-                    </div>
-                  </div>
-                  <div className="dash-list">
-                    <div className="dash-list-item"><div className="ic">📚 মডিউল ও লেসন</div><span className="chip">৮ মডিউল</span></div>
-                    <div className="dash-list-item"><div className="ic">👥 প্রাইভেট কমিউনিটি</div><span className="chip">নতুন পোস্ট</span></div>
-                    <div className="dash-list-item"><div className="ic">📁 SOP ও Resources</div><span className="chip">৪০+ ফাইল</span></div>
-                  </div>
-                </div>
-              </div>
-            </MotionFade>
-          </div>
-        </div>
-
-        <div className="eco-bar">
-          <div className="wrap">
-            <div className="eco-flow">
-              <div className="eco-step">🎓 Academy</div>
-              <span className="eco-arrow">→</span>
-              <div className="eco-step">🛠 Setup</div>
-              <span className="eco-arrow">→</span>
-              <div className="eco-step">📈 Growth</div>
+      {/* HERO (Premium Spec) */}
+      <section className="hero">
+        <div className="hero-content">
+          <div className="hero-left">
+            <div className="hero-tag">বাংলাদেশের সম্পূর্ণ ই-কমার্স বিজনেস মেন্টরশিপ প্রোগ্রাম</div>
+            <h1 className="hero-title">শূন্য থেকে নিজের সফল ই-কমার্স ব্যবসা শুরু করুন</h1>
+            <p className="hero-desc">লাইভ Google Meet ক্লাস, সাপ্তাহিক Assignment, Private Community, SOP Template, AI Prompt ও Business Mentorship-এর মাধ্যমে ধাপে ধাপে আপনার নিজের ব্যবসা তৈরি করুন।</p>
+            <div className="hero-buttons">
+              <a href="#pricing" className="btn btn-primary">এখনই ভর্তি হন</a>
+              <a href="#enroll" className="btn btn-dark">ফ্রি কনসালটেশন নিন</a>
             </div>
-            <p className="eco-caption">প্রথমে শিখুন → তারপর ব্যবসা সেটআপ করুন → এরপর আমাদের সাথে ব্যবসা গ্রোথ করুন।</p>
+          </div>
+
+          <div className="hero-image" aria-hidden="true">
+            <span className="hero-image-placeholder">সা</span>
           </div>
         </div>
+
+        <div className="process">
+          <div className="process-pill">🎓 Academy</div>
+          <span className="process-arrow">→</span>
+          <div className="process-pill">🛠 Setup</div>
+          <span className="process-arrow">→</span>
+          <div className="process-pill">📈 Growth</div>
+        </div>
+        <p className="process-text">এখানে শিখুন → আপনার ব্যবসা সেটআপ করুন → এরপর আমাদের সাথে ব্যবসা গ্রোথ করুন।</p>
       </section>
 
       {/* TRUST BAR */}
       <section className="trust-bar">
         <div className="wrap trust-grid">
-          {['২০০+', '৩০০০+', '৮+', '৪.৯★'].map((num, i) => (
-            <div key={i}>
-              <div className="trust-num"><span>{num}</span></div>
-              <div className="trust-label">{['ব্যবসা সফলভাবে গাইড করেছি', 'শিক্ষার্থী', 'বছরের অভিজ্ঞতা', 'গড় রেটিং'][i]}</div>
+          {[
+            { end: 200, suffix: '+', label: 'ব্যবসা সফলভাবে গাইড করেছি' },
+            { end: 3000, suffix: '+', label: 'শিক্ষার্থী' },
+            { end: 8, suffix: '+', label: 'বছরের অভিজ্ঞতা' },
+            { end: 4.9, suffix: '★', decimals: 1, label: 'গড় রেটিং' },
+          ].map((s, i) => (
+            <div key={i} className="trust-stat">
+              <div className="trust-num"><AnimatedStat end={s.end} suffix={s.suffix} decimals={s.decimals} /></div>
+              <div className="trust-label">{s.label}</div>
             </div>
           ))}
         </div>
@@ -164,15 +167,15 @@ function AcademyPage() {
             <div className="ps-card before">
               <div className="ps-tag red">🔴 আগে</div>
               <h3>ব্যবসার সাধারণ ভুল</h3>
-              {['না বুঝে ব্যবসা শুরু', 'Product Research নেই', 'Brand Identity নেই', 'Professional Website নেই', 'Content Strategy নেই', 'Marketing Plan নেই', 'Sales Funnel নেই'].map((item, i) => (
-                <div key={i} className="ps-item"><span className="ps-ic">❌</span>{item}</div>
+              {['কোনো সঠিক ব্যবসায়িক পরিকল্পনা নেই', 'পণ্য গবেষণা নেই', 'ব্র্যান্ড পরিচিতি নেই', 'পেশাদার ওয়েবসাইট নেই', 'কনটেন্ট কৌশল নেই', 'মার্কেটিং পরিকল্পনা নেই', 'সেলস ফানেল নেই'].map((item, i) => (
+                <div key={i} className="ps-item"><span className="ps-ic">{Icon.xCircle}</span>{item}</div>
               ))}
             </div>
             <div className="ps-card after">
               <div className="ps-tag green">🟢 পরে</div>
               <h3>আমাদের Mentorship-এ যা শিখবেন</h3>
-              {['Product Research Framework', 'Professional Branding', 'Ecommerce Website', 'Content Strategy', 'Digital Marketing', 'Sales System', 'Business Automation'].map((item, i) => (
-                <div key={i} className="ps-item"><span className="ps-ic">✅</span>{item}</div>
+              {['ব্যবসার সম্পূর্ণ রোডম্যাপ', 'প্রোডাক্ট রিসার্চ ফ্রেমওয়ার্ক', 'প্রফেশনাল ব্র্যান্ডিং', 'ইকমার্স ওয়েবসাইট', 'কন্টেন্ট ও মার্কেটিং কৌশল', 'সেলস সিস্টেম তৈরি করা', 'ব্যবসা অটোমেশন করা'].map((item, i) => (
+                <div key={i} className="ps-item"><span className="ps-ic">{Icon.checkCircle}</span>{item}</div>
               ))}
             </div>
           </div>
@@ -280,8 +283,8 @@ function AcademyPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
               >
-                <div className="ic">🎁</div>
-                <h3>{item}</h3>
+                <div className="ic">{item.icon}</div>
+                <h3>{item.title}</h3>
               </motion.div>
             ))}
           </div>
@@ -291,7 +294,11 @@ function AcademyPage() {
       {/* MENTOR */}
       <section className="section-pad bg-light" id="mentor">
         <div className="wrap mentor-grid">
-          <MotionFade className="mentor-photo">👨‍💼</MotionFade>
+          <MotionFade>
+            <div className="mentor-frame">
+              <div className="mentor-photo">👨‍💼</div>
+            </div>
+          </MotionFade>
           <MotionStagger>
             <motion.span className="eyebrow" variants={fadeUp}>আপনার মেন্টর</motion.span>
             <motion.h2 variants={fadeUp}>সাইফুল ইসলাম</motion.h2>
@@ -330,7 +337,7 @@ function AcademyPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
               >
-                <div className="testi-video"><div className="play-btn">▶</div></div>
+                <div className="testi-video"><div className="play-btn">{Icon.video}</div></div>
                 <div className="testi-stars">★★★★★</div>
                 <p>{t.quote}</p>
                 <div className="testi-result">{t.result}</div>
@@ -404,24 +411,36 @@ function AcademyPage() {
             <div className="form-2col">
               <div className="form-row">
                 <label>নাম</label>
-                <input type="text" placeholder="আপনার পূর্ণ নাম লিখুন" />
+                <div className="form-row-icon-stack">
+                  <input className="has-icon" type="text" placeholder="আপনার পূর্ণ নাম লিখুন" />
+                  <span className="form-icon" aria-hidden="true">{Icon.user}</span>
+                </div>
               </div>
               <div className="form-row">
                 <label>মোবাইল</label>
-                <input type="tel" placeholder="০১XXXXXXXXX" />
+                <div className="form-row-icon-stack">
+                  <input className="has-icon" type="tel" placeholder="০১XXXXXXXXX" />
+                  <span className="form-icon" aria-hidden="true">{Icon.phone}</span>
+                </div>
               </div>
             </div>
             <div className="form-row">
               <label>ইমেইল</label>
-              <input type="email" placeholder="you@example.com" />
+              <div className="form-row-icon-stack">
+                <input className="has-icon" type="email" placeholder="you@example.com" />
+                <span className="form-icon" aria-hidden="true">{Icon.mail}</span>
+              </div>
             </div>
             <div className="form-row">
               <label>বর্তমানে ব্যবসা করছেন?</label>
-              <select>
-                <option>হ্যাঁ, বর্তমানে ব্যবসা করছি</option>
-                <option>না, নতুন শুরু করতে চাই</option>
-                <option>পরিকল্পনা করছি</option>
-              </select>
+              <div className="form-row-icon-stack">
+                <select className="has-icon">
+                  <option>হ্যাঁ, বর্তমানে ব্যবসা করছি</option>
+                  <option>না, নতুন শুরু করতে চাই</option>
+                  <option>পরিকল্পনা করছি</option>
+                </select>
+                <span className="form-icon" aria-hidden="true">{Icon.bag}</span>
+              </div>
             </div>
             <button className="btn btn-primary btn-lg btn-block">Submit</button>
           </MotionFade>
@@ -461,11 +480,14 @@ function AcademyPage() {
       <section className="section-pad">
         <div className="wrap">
           <MotionFade className="final-cta">
+            <span className="cta-blob b1" aria-hidden="true" />
+            <span className="cta-blob b2" aria-hidden="true" />
+            <span className="cta-blob b3" aria-hidden="true" />
             <h2>আজই নিজের সফল ই-কমার্স ব্যবসার যাত্রা শুরু করুন।</h2>
             <p>একটি সঠিক সিদ্ধান্ত আপনার ভবিষ্যৎ বদলে দিতে পারে।</p>
             <div className="final-cta-row">
               <a href="#pricing" className="btn btn-white btn-lg">🚀 এখনই ভর্তি হোন</a>
-              <a href="#" className="btn btn-ghost-white btn-lg">💬 WhatsApp-এ কথা বলুন</a>
+              <a href="#" className="btn btn-ghost-white btn-lg"><span style={{ display:'inline-flex', alignItems:'center', gap:8 }}>{Icon.whatsapp} WhatsApp-এ কথা বলুন</span></a>
             </div>
           </MotionFade>
         </div>

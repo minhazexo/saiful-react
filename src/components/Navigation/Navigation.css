@@ -237,13 +237,21 @@
   flex-shrink: 0;
 }
 
-.btn-primary {
-  background: var(--green);
-  color: var(--dark);
+/* Navbar CTA lives on a dark navbar — use white bg + black text for visibility
+   while still honoring the site-wide "black or white" CTA contract. */
+.btn-primary,
+.nav .btn-primary {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid #ffffff !important;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255,255,255,0.10);
 }
 
-.btn-primary:hover {
-  background: var(--green-dark);
+.btn-primary:hover,
+.nav .btn-primary:hover {
+  background: #E5E7EB !important;
+  color: #000000 !important;
+  border-color: #E5E7EB !important;
   transform: translateY(-2px);
 }
 
@@ -254,11 +262,15 @@
 }
 
 .nav-cta-call {
-  background: var(--green) !important;
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid #ffffff !important;
 }
 
 .nav-cta-call:hover {
-  background: var(--green-dark) !important;
+  background: #E5E7EB !important;
+  color: #000000 !important;
+  border-color: #E5E7EB !important;
 }
 
 .btn-outline {

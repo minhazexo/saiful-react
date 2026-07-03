@@ -75,8 +75,8 @@
   cursor: pointer;
   font-family: inherit;
 }
-.growth-page .btn-primary { background: var(--lime); color: var(--void); }
-.growth-page .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 30px -8px rgba(198,255,61,.5); }
+.growth-page .btn-primary { background: #000000; color: #ffffff; border: 1px solid #1f1f1f; box-shadow: 0 10px 24px rgba(0,0,0,.40); }
+.growth-page .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 30px -6px rgba(0,0,0,.55); background: #1F2937; color: #ffffff; border-color: #1F2937; }
 .growth-page .btn-ghost { border-color: rgba(255,255,255,0.22); color: #fff; }
 .growth-page .btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,0.06); transform: translateY(-3px); }
 .growth-page .btn-sm { padding: 12px 22px; font-size: 14px; }
@@ -440,4 +440,27 @@
 .growth-page .on-dark .dash-title,
 .growth-page .on-dark-2 .dash-title { color: var(--muted); }
 .growth-page .on-dark .rm-step span,
-.growth-page .on-dark-2 .rm-step span { color: rgba(255,255,255,.75); }
+.growth-page .on-dark-2 .rm-step span
+
+/* ── Dark-section CTA visibility ──
+   Keep the user spec (black bg + white text) intact on every CTA, but add a
+   visible white edge + faint outer glow so the button still reads on near-black
+   sections (.hero / .on-dark / .on-dark-2 / .cta-wrap). */
+.growth-page .on-dark .btn-primary,
+.growth-page .on-dark-2 .btn-primary,
+.growth-page .cta-wrap .btn-primary,
+.growth-page .hero .btn-primary {
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #ffffff;
+  box-shadow: 0 10px 24px rgba(0,0,0,.40), inset 0 1px 0 rgba(255,255,255,.10);
+}
+.growth-page .on-dark .btn-primary:hover,
+.growth-page .on-dark-2 .btn-primary:hover,
+.growth-page .cta-wrap .btn-primary:hover,
+.growth-page .hero .btn-primary:hover {
+  background: #E5E7EB;
+  color: #000000;
+  border-color: #E5E7EB;
+  transform: translateY(-3px);
+} { color: rgba(255,255,255,.75); }

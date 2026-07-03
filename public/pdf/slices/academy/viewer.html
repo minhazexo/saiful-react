@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Academy PDF Slices Viewer</title>
+<style>
+  body { margin: 0; padding: 20px; background: #1a1a1a; font-family: sans-serif; }
+  .slice-container { margin-bottom: 20px; background: #333; border: 2px solid #555; border-radius: 8px; overflow: hidden; }
+  .slice-label { padding: 8px 16px; background: #222; color: #0f0; font-weight: bold; font-size: 14px; }
+  .slice-container img { display: block; width: 100%; }
+  h1 { color: #fff; text-align: center; }
+</style>
+</head>
+<body>
+<h1>Academy Page PDF - All Slices</h1>
+<script>
+const container = document.body;
+for (let i = 0; i <= 19; i++) {
+  const num = String(i).padStart(3, '0');
+  const div = document.createElement('div');
+  div.className = 'slice-container';
+  div.innerHTML = `<div class="slice-label">Slice ${num} (Y: ${i * 1400} - ${(i + 1) * 1400})</div><img src="page-p01-slice-${num}.png" loading="lazy">`;
+  container.appendChild(div);
+}
+</script>
+</body>
+</html>

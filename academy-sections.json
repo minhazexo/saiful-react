@@ -1,0 +1,9 @@
+{
+  "stride": 1400,
+  "_comment": "Y values are global scaled-px (single-page PDF, cumulative H=18132 at scale=2). Bands are non-overlapping. The right-column dashboard mockup intentionally lives inside the hero 'hero' band, so it is not extracted as a separate region — its PNG would just be a slice of hero.png. Calibrate by inspecting page-p01-slice-000.png through page-p01-slice-012.png against http://localhost:5173/academy/.",
+  "regions": [
+    ["hero",         0,     1600],
+    ["ecosystem",    1600,  2800],
+    ["trust-bar",    2800,  3800],    ["pricing",      12600,  14500]   
+  ]
+}

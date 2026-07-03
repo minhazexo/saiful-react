@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Academy PDF Slices - Navigation Viewer</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #111; font-family: system-ui; color: #fff; }
+.header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: #222; padding: 10px 20px; display: flex; align-items: center; gap: 16px; border-bottom: 2px solid #0f0; }
+.header h2 { font-size: 14px; color: #0f0; }
+.header .nav-btn { background: #0f0; color: #000; border: none; padding: 6px 16px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 13px; }
+.header .nav-btn:hover { background: #0a0; color: #fff; }
+.header .counter { color: #aaa; font-size: 13px; }
+.container { padding-top: 60px; display: flex; flex-direction: column; align-items: center; }
+.slice { display: none; text-align: center; padding: 20px; }
+.slice.active { display: block; }
+.slice img { max-width: 100%; max-height: 90vh; border: 2px solid #333; }
+.slice-label { color: #0f0; font-size: 16px; font-weight: bold; margin-bottom: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <button class="nav-btn" onclick="prev()">← PREV</button>
+  <button class="nav-btn" onclick="next()">NEXT →</button>
+  <span class="counter" id="counter">1 / 20</span>
+  <h2>Academy PDF Slices Viewer</h2>
+</div>
+<div class="container" id="container"></div>
+<script>
+const TOTAL = 20;
+let current = 0;
+const container = document.getElementById('container');
+const counter = document.getElementById('counter');
+
+for (let i = 0; i < TOTAL; i++) {
+  const num = String(i).padStart(3, '0');
+  const div = document.createElement('div');
+  div.className = 'slice' + (i === 0 ? ' active' : '');
+  div.id = 'slice-' + i;
+  div.innerHTML = `<div class="slice-label">Slice ${num} — Y: ${i * 1400}px to ${(i + 1) * 1400}px</div><img src="page-p01-slice-${num}.png">`;
+  container.appendChild(div);
+}
+
+function show(idx) {
+  document.querySelectorAll('.slice').forEach(s => s.classList.remove('active'));
+  document.getElementById('slice-' + idx).classList.add('active');
+  counter.textContent = (idx + 1) + ' / ' + TOTAL;
+}
+function next() { current = (current + 1) % TOTAL; show(current); }
+function prev() { current = (current - 1 + TOTAL) % TOTAL; show(current); }
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') next();
+  if (e.key === 'ArrowLeft') prev();
+});
+</script>
+</body>
+</html>

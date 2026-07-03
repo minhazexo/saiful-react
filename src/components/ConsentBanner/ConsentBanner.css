@@ -34,13 +34,15 @@
 }
 
 .consent-banner .btn-primary {
-  background: #7e14ff;
+  background: #000000;
   color: #fff;
-  border: 1px solid #7e14ff;
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
 }
 
 .consent-banner .btn-primary:hover {
-  background: #6910d6;
+  background: #1F2937;
+  border-color: #1F2937;
 }
 
 .consent-banner .btn-outline {

@@ -1,18 +1,30 @@
 @media (max-width: 980px) {
   .academy-page h1 { font-size: 38px; }
   .academy-page h2 { font-size: 30px; }
-  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
-  .academy-hero { padding-top: 30px; }
   .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
   .ps-grid { grid-template-columns: 1fr; }
   .grid-3 { grid-template-columns: 1fr; }
   .module-grid { grid-template-columns: repeat(2, 1fr); }
   .grid-bonus { grid-template-columns: repeat(2, 1fr); }
   .mentor-grid { grid-template-columns: 1fr; gap: 36px; }
-  .mentor-photo { max-width: 340px; margin: 0 auto; }
+  .mentor-frame { max-width: 340px; margin: 0 auto; padding: 14px; }
+  .mentor-photo { max-width: none; margin: 0; }
   .testi-grid { grid-template-columns: 1fr; }
-  .roadmap { flex-direction: column; align-items: flex-start; gap: 26px; }
-  .roadmap::before { display: none; }
+  .roadmap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    padding-left: 26px;
+  }
+  .roadmap::before {
+    display: block;
+    width: 2px;
+    height: calc(100% - 52px);
+    top: 26px;
+    left: 25px;
+    right: auto;
+    background: repeating-linear-gradient(180deg, var(--gray-300) 0 6px, transparent 6px 12px);
+  }
   .road-step { flex-direction: row; text-align: left; gap: 16px; width: 100%; }
   .road-dot { margin-bottom: 0; }
   .enr-grid { grid-template-columns: 1fr 1fr; gap: 30px 0; }
@@ -23,8 +35,8 @@
   .bonus-banner { padding: 36px 28px; flex-direction: column; text-align: center; }
   .academy-page { padding-bottom: 78px; }
   .sticky-cta { display: flex; gap: 10px; }
-  .eco-flow { font-size: 15px; gap: 10px; }
-  .eco-step { padding: 8px 14px; }
+  .academy-page .process { font-size: 15px; gap: 10px; }
+  .academy-page .process-pill { padding: 8px 14px; }
 }
 
 @media (max-width: 560px) {
@@ -36,4 +48,57 @@
   .form-wrap { padding: 32px 22px; }
   .enr-grid { grid-template-columns: 1fr; }
   .enr-step::after { display: none; }
+}
+
+/* ============================================================
+   HERO (Premium Spec) — dedicated responsive ladder
+   Tablet (≤1024):   smaller title, smaller circular image
+   Mobile (≤768):    single column, image above text, stacked buttons
+   ============================================================ */
+@media (max-width: 1024px) {
+  .academy-page .hero-title { font-size: 48px; letter-spacing: -1.5px; }
+  .academy-page .hero-image { width: 380px; height: 380px; }
+  .academy-page .hero-image-placeholder { font-size: 120px; }
+  .academy-page .hero-content { gap: 48px; }
+}
+
+@media (max-width: 768px) {
+  .academy-page .hero {
+    padding: 50px 20px;
+    text-align: center;
+  }
+  .academy-page .hero-content {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  /* image stacks above text on mobile */
+  .academy-page .hero-image {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto 30px;
+    order: -1;
+  }
+  .academy-page .hero-image-placeholder { font-size: 96px; }
+  .academy-page .hero-image::after { inset: 14px; }
+  .academy-page .hero-title {
+    font-size: 36px;
+    line-height: 1.12;
+    letter-spacing: -1.2px;
+    max-width: none;
+  }
+  .academy-page .hero-tag { font-size: 13px; }
+  .academy-page .hero-desc { font-size: 17px; line-height: 1.7; max-width: none; }
+  .academy-page .hero-buttons {
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 28px;
+  }
+  .academy-page .hero .btn { width: 100%; }
+  .academy-page .process { margin-top: 56px; gap: 10px; }
+  .academy-page .process-pill {
+    font-size: 14px;
+    padding: 10px 18px;
+  }
+  .academy-page .process-arrow { font-size: 18px; }
+  .academy-page .process-text { font-size: 14px; margin-top: 14px; }
 }

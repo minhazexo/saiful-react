@@ -1,0 +1,44 @@
+{
+  "sections": [
+    {
+      "name": "Hero Section",
+      "bg": "#f9f9f9",
+      "primary": "#2d3436",
+      "accent": "#6c5ce7",
+      "text": ["বাংলা একাডেমি", "আপনার শেখার জগত"],
+      "buttons": ["এখনই যুক্ত হন", "বিস্তারিত জানুন"],
+      "grid": "Full-width hero header, centered text, prominent CTA buttons",
+      "notes": "Focused on clear value proposition for the academy program."
+    },
+    {
+      "name": "Ecosystem Flow",
+      "bg": "#ffffff",
+      "primary": "#2d3436",
+      "accent": "#00b894",
+      "text": ["আমাদের ইকোসিস্টেম", "কিভাবে কাজ করে"],
+      "buttons": [],
+      "grid": "Horizontal progress/flow infographic (3-4 steps)",
+      "notes": "Steps represent the learning journey from registration to completion/certification."
+    },
+    {
+      "name": "Trust Bar",
+      "bg": "#f0f2f5",
+      "primary": "#2d3436",
+      "accent": "#fdcb6e",
+      "text": ["১০,০০০+ শিক্ষার্থী", "৫০০+ কোর্স"],
+      "buttons": [],
+      "grid": "Single row with metrics/icons",
+      "notes": "Social proof indicators for trust building."
+    },
+    {
+      "name": "Pricing Section",
+      "bg": "#ffffff",
+      "primary": "#2d3436",
+      "accent": "#e84393",
+      "text": ["সহজ পেমেন্ট প্ল্যান", "সাশ্রয়ী মূল্যে শিখুন"],
+      "buttons": ["কোর্স কিনুন"],
+      "grid": "Pricing card grid (3 pricing tiers)",
+      "notes": "Cards emphasize featured benefits and subscription models."
+    }
+  ]
+}

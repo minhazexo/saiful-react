@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<title>PDF Slices Viewer</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #000; color: #fff; font-family: system-ui; overflow-x: hidden; }
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 999; background: #111; padding: 8px 16px; display: flex; gap: 8px; align-items: center; border-bottom: 2px solid #22c55e; }
+.nav button { background: #22c55e; color: #000; border: none; padding: 4px 12px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 12px; }
+.nav button:hover { background: #16a34a; color: #fff; }
+.nav span { color: #aaa; font-size: 12px; margin-left: 8px; }
+.scroll-container { padding-top: 44px; }
+.slice { border-bottom: 1px solid #333; }
+.slice img { width: 100%; display: block; }
+.slice-label { background: #111; color: #22c55e; padding: 4px 12px; font-size: 11px; font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="nav">
+  <button onclick="scrollToSlice(0)">Hero</button>
+  <button onclick="scrollToSlice(1)">Trust</button>
+  <button onclick="scrollToSlice(2)">Problem</button>
+  <button onclick="scrollToSlice(3)">WhyUs</button>
+  <button onclick="scrollToSlice(4)">Roadmap</button>
+  <button onclick="scrollToSlice(5)">Modules</button>
+  <button onclick="scrollToSlice(6)">Bonus</button>
+  <button onclick="scrollToSlice(7)">Mentor</button>
+  <button onclick="scrollToSlice(8)">Testi</button>
+  <button onclick="scrollToSlice(9)">Pricing</button>
+  <button onclick="scrollToSlice(10)">FAQ</button>
+  <span id="info">Scroll to view all sections</span>
+</div>
+<div class="scroll-container" id="container"></div>
+<script>
+const slices = [];
+for (let i = 0; i <= 19; i++) {
+  slices.push(String(i).padStart(3, '0'));
+}
+const container = document.getElementById('container');
+slices.forEach((num, i) => {
+  const div = document.createElement('div');
+  div.className = 'slice';
+  div.id = 's' + i;
+  div.innerHTML = `<div class="slice-label">Slice ${num} — Y: ${i * 1400}px</div><img src="page-p01-slice-${num}.png" loading="lazy">`;
+  container.appendChild(div);
+});
+function scrollToSlice(i) {
+  const el = document.getElementById('s' + i);
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+</body>
+</html>

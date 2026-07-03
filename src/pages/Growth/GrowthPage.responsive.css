@@ -1,0 +1,177 @@
+/* ===========================================================
+   GROWTH PAGE — RESPONSIVE
+   Variables (--line-light, --void, --card, etc.) are all
+   defined inside the .growth-page block in GrowthPage.css,
+   so every selector here stays scoped under .growth-page.
+   =========================================================== */
+
+/* ===== Tablet (≤980px) ===== */
+@media (max-width: 980px) {
+  /* Section-pad already cascades from the original
+     GrowthPage.css rule at ≤768px (padding: 72px 0).
+     Don't override here so the 768–980px range keeps
+     the original 72px without an asymmetric jump. */
+  .growth-page .head { margin-bottom: 40px; }
+  .growth-page .head h2 { font-size: clamp(26px, 4vw, 34px); }
+
+  /* Hero */
+  .growth-page .hero { padding: 40px 0 70px; }
+  .growth-page .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .growth-page .hero h1 { font-size: clamp(30px, 6vw, 44px); }
+  .growth-page .hero p.lead { max-width: 100%; font-size: 16.5px; }
+  .growth-page .hero-ctas { gap: 12px; margin-bottom: 32px; }
+  .growth-page .hero-trust { gap: 18px; }
+  .growth-page .hero-trust b { font-size: 19px; }
+
+  /* Dashboard mock */
+  .growth-page .dash { padding: 18px; }
+  .growth-page .dash-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .growth-page .dash-chart { padding: 14px 14px 4px; }
+  .growth-page .dash-chart-head .rev-num { font-size: 22px; }
+
+  /* Challenge/Services/Results grids — collapse to 2-up */
+  .growth-page .chal-grid,
+  .growth-page .res-grid { grid-template-columns: repeat(2, 1fr); }
+  .growth-page .serv-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Case studies — stack cards, keep inner metrics row 4-col
+     but tighten padding/font so numbers don't clip. */
+  .growth-page .case-grid { grid-template-columns: 1fr; gap: 18px; }
+  .growth-page .case-metrics { grid-template-columns: repeat(4, 1fr); }
+  .growth-page .case-metrics div { padding: 14px 6px; }
+  .growth-page .case-metrics b { font-size: 15px; }
+  .growth-page .case-metrics small { font-size: 9.5px; }
+
+  /* Testimonials — single column */
+  .growth-page .test-grid { grid-template-columns: 1fr; }
+
+  /* Roadmap — tighten spacing (origin keeps arrows in place until 760px) */
+  .growth-page .roadmap { margin-top: 32px; gap: 12px; }
+
+  /* Industries — use original's 800px breakpoint to avoid double-switch.
+     At 980px the 4-col layout still fits, so leave it untouched here.
+     The collapse happens further down at ≤800px. */
+}
+
+/* ===== Tablet portrait (≤800px) — matches original ind-grid breakpoint ===== */
+@media (max-width: 800px) {
+  .growth-page .ind-grid { grid-template-columns: repeat(2, 1fr); }
+  .growth-page .fail-grid { gap: 18px; }
+
+  /* Case card metrics tighten further to keep 4 columns readable */
+  .growth-page .case-top { padding: 20px 22px; }
+  .growth-page .case-top h4 { font-size: 18px; }
+  .growth-page .case-body { padding: 20px 22px; }
+}
+
+/* ===== Phone (≤760px) ===== */
+@media (max-width: 760px) {
+  .growth-page .hero { padding: 28px 0 60px; }
+  .growth-page .hero-grid { gap: 32px; }
+  .growth-page .hero h1 { font-size: 30px; line-height: 1.12; }
+  .growth-page .hero p.lead { font-size: 15px; }
+  .growth-page .hero-ctas { flex-direction: column; align-items: stretch; }
+  .growth-page .hero-ctas .btn { width: 100%; }
+  .growth-page .hero-trust { flex-wrap: wrap; gap: 14px 24px; }
+  .growth-page .hero-trust b { font-size: 17px; }
+
+  /* Dashboard fits a phone screen */
+  .growth-page .dash { padding: 14px; border-radius: 18px; }
+  .growth-page .dash-top { margin-bottom: 14px; }
+  .growth-page .dash-title { font-size: 11px; }
+  .growth-page .dash-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .growth-page .dash-metric { padding: 10px 9px; border-radius: 10px; }
+  .growth-page .dash-metric .lbl { font-size: 9.5px; margin-bottom: 4px; }
+  .growth-page .dash-metric .val { font-size: 16px; }
+  .growth-page .dash-metric .diff { font-size: 9.5px; }
+  .growth-page .dash-chart-head .rev-num { font-size: 20px; }
+  .growth-page .dash-svg { height: 70px; }
+
+  /* Roadmap: vertical stack — original rotates arrows 90°, we keep that
+     to preserve the progression hint on phones. Hide further down at
+     ≤560px where the rotated arrow crowds the row. */
+  .growth-page .roadmap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .growth-page .roadmap::before { display: none; }
+  .growth-page .rm-step {
+    flex-direction: row;
+    text-align: left;
+    gap: 14px;
+    min-width: 0;
+    width: 100%;
+    align-items: center;
+  }
+  .growth-page .rm-step .circle { margin: 0; width: 52px; height: 52px; font-size: 20px; }
+  .growth-page .rm-step span { font-size: 12.5px; }
+
+  /* Case card metrics collapse to 2x2 for phone */
+  .growth-page .case-top { padding: 18px 20px; }
+  .growth-page .case-top h4 { font-size: 17px; }
+  .growth-page .case-body { padding: 18px 20px; }
+  .growth-page .case-metrics { grid-template-columns: repeat(2, 1fr); }
+  .growth-page .case-metrics div:nth-child(2n) { border-right: none; }
+  .growth-page .case-metrics div:nth-child(-n+2) { border-bottom: 1px solid var(--line-light); }
+}
+
+/* ===== Small phone (≤560px) ===== */
+@media (max-width: 560px) {
+  .growth-page .section-pad { padding: 60px 0; }
+  .growth-page .head { margin-bottom: 28px; }
+  .growth-page .head h2 { font-size: 24px; }
+  .growth-page .head p { font-size: 15px; }
+
+  /* Grids go fully single column */
+  .growth-page .chal-grid,
+  .growth-page .res-grid,
+  .growth-page .serv-grid { grid-template-columns: 1fr; }
+
+  /* Results/key-metric numbers tighten */
+  .growth-page .res-card { padding: 18px 14px; }
+  .growth-page .res-card .num { font-size: clamp(20px, 6vw, 26px); }
+
+  /* Fail/solve grid tightens */
+  .growth-page .fail-grid { gap: 18px; margin-top: 16px; }
+  .growth-page .fail-list li { font-size: 13.5px; padding: 12px 14px; }
+
+  /* Process timeline already vertical — tighten padding */
+  .growth-page .tl-item { padding: 16px 0; gap: 16px; }
+  .growth-page .tl-num { width: 48px; height: 48px; flex-basis: 48px; font-size: 14px; }
+  .growth-page .tl-line { left: 24px; }
+  .growth-page .tl-body h4 { font-size: 15px; }
+  .growth-page .tl-body p { font-size: 12.5px; }
+
+  /* Stack chips tighter */
+  .growth-page .stack-chip { padding: 9px 14px; font-size: 12px; }
+
+  /* FAQ padding */
+  .growth-page .faq-q { padding: 18px 4px; font-size: 14.5px; }
+  .growth-page .faq-q .plus { width: 22px; height: 22px; font-size: 12px; }
+  .growth-page .faq-a p { font-size: 13.5px; padding-bottom: 20px; }
+
+  /* Final CTA */
+  .growth-page .cta-wrap { padding: 70px 0; }
+  .growth-page .cta-wrap h2 { font-size: 26px; }
+  .growth-page .cta-wrap p { font-size: 15px; margin-bottom: 28px; }
+
+  /* Testimonial card padding */
+  .growth-page .test-card { padding: 22px 20px; }
+  .growth-page .test-card .quote-mark { font-size: 36px; }
+
+  /* Industries 2-up surviving here */
+  .growth-page .ind-card { padding: 16px 14px; }
+  .growth-page .ind-card .ic { font-size: 22px; }
+
+  /* Dashboard — switch to 2x3 (2 rows) for very narrow screens so values
+     like "৬.২%" don't clip. */
+  .growth-page .dash-grid { grid-template-columns: repeat(2, 1fr); }
+  .growth-page .dash-metric .val { font-size: 17px; }
+  .growth-page .dash-bars { height: 22px; }
+
+  /* Hide the now-vertical arrow only on the smallest screens —
+     the rotated glyph crowds stacked rows under 560px. */
+  .growth-page .rm-arrow { display: none; }
+}

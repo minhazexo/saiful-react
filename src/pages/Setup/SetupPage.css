@@ -84,11 +84,15 @@
   white-space: nowrap;
 }
 .sp .btn-primary {
-  background: var(--sp-green); color: #06170D;
+  background: #000000; color: #ffffff;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
 }
 .sp .btn-primary:hover {
-  transform: translateY(-2px); box-shadow: 0 10px 30px rgba(34,197,94,0.32);
-  background: var(--sp-green-bright);
+  transform: translateY(-2px); box-shadow: 0 14px 30px rgba(0, 0, 0, 0.36);
+  background: #1F2937;
+  color: #ffffff;
+  border-color: #1F2937;
 }
 .sp .btn-ghost {
   border: 1px solid var(--sp-border-strong); color: var(--sp-ink);

@@ -379,19 +379,24 @@ ul {
 }
 
 .btn-primary {
-  background: var(--green);
-  color: var(--dark);
-
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #1f1f1f;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
 }
 
 .btn-primary:hover {
-  background: var(--green-dark);
-
+  background: #1F2937;
+  color: #ffffff;
+  border-color: #1F2937;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.30);
 }
 
 @media (max-width: 1024px) {
   .btn-primary:hover {
-
+    background: #1F2937;
+    color: #ffffff;
+    transform: none !important;
   }
 }
 
@@ -439,15 +444,15 @@ ul {
 }
 
 .btn-primary.btn-block {
-  background: #ffffff;
-  color: #000000;
-  border: 1px solid #000000;
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #1f1f1f;
 }
 
 .btn-primary.btn-block:hover {
-  background: #000000 !important;
+  background: #1F2937 !important;
   color: #ffffff !important;
-  border-color: #000000 !important;
+  border-color: #1F2937 !important;
 }
 
 /* ===== Cards ===== */

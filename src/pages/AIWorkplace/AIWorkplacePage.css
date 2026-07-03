@@ -103,13 +103,24 @@
 }
 
 .aiw-btn-primary {
-  background: var(--green) !important;
-  color: var(--dark) !important;
+  background: #000000 !important;
+  color: #ffffff !important;
   font-weight: 700 !important;
   font-size: 15px !important;
   padding: 14px 32px !important;
   border-radius: 14px !important;
   height: auto !important;
+  /* Visible edge cues on the dark hero so the black button still reads as a button. */
+  border: 1.5px solid rgba(255, 255, 255, 0.45) !important;
+  box-shadow:
+    0 10px 26px rgba(0,0,0,.55),
+    inset 0 1px 0 rgba(255,255,255,0.12),
+    0 0 0 1px rgba(255,255,255,0.05);
+}
+.aiw-btn-primary:hover {
+  background: #1F2937 !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.75) !important;
 }
 
 .aiw-btn-outline {
@@ -714,11 +725,21 @@
 }
 
 .aiw-btn-cta {
-  background: var(--green) !important;
-  color: var(--dark) !important;
+  background: #000000 !important;
+  color: #ffffff !important;
   font-weight: 700 !important;
   font-size: 16px !important;
   padding: 16px 36px !important;
   border-radius: 14px !important;
   height: auto !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.45) !important;
+  box-shadow:
+    0 14px 32px rgba(0,0,0,.55),
+    inset 0 1px 0 rgba(255,255,255,0.12),
+    0 0 0 1px rgba(255,255,255,0.05);
+}
+.aiw-btn-cta:hover {
+  background: #1F2937 !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.75) !important;
 }
