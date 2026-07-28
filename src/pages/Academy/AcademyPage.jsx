@@ -155,6 +155,27 @@ function AcademyPage() {
             </div>
           ))}
         </div>
+        <div className="mobile-stats-marquee">
+          <div className="stats-marquee-track">
+            {[
+              { num: '২০০+', label: 'ব্যবসা সফলভাবে গাইড করেছি' },
+              { num: '৩০০০+', label: 'শিক্ষার্থী' },
+              { num: '৮+', label: 'বছরের অভিজ্ঞতা' },
+              { num: '৪.৯★', label: 'গড় রেটিং' },
+              { num: '২০০+', label: 'ব্যবসা সফলভাবে গাইড করেছি' },
+              { num: '৩০০০+', label: 'শিক্ষার্থী' },
+              { num: '৮+', label: 'বছরের অভিজ্ঞতা' },
+              { num: '৪.৯★', label: 'গড় রেটিং' },
+            ].map((s, i) => (
+              <div key={i} className="stat-card">
+                <div>
+                  <div className="stat-num">{s.num}</div>
+                  <div className="stat-label">{s.label}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* PROBLEM VS SOLUTION */}
@@ -272,7 +293,7 @@ function AcademyPage() {
         <div className="wrap mentor-grid">
           <MotionFade>
             <div className="mentor-frame">
-              <div className="mentor-photo">👨‍💼</div>
+              <img className="mentor-photo" src={assetPath('/images/Saiful Islam.png')} alt="Saiful Islam" loading="lazy" />
             </div>
           </MotionFade>
           <MotionStagger>
@@ -387,38 +408,26 @@ function AcademyPage() {
             <div className="form-2col">
               <div className="form-row">
                 <label>নাম</label>
-                <div className="form-row-icon-stack">
-                  <input className="has-icon" type="text" placeholder="আপনার পূর্ণ নাম লিখুন" />
-                  <span className="form-icon" aria-hidden="true">{Icon.user}</span>
-                </div>
+                <input type="text" placeholder="আপনার পূর্ণ নাম লিখুন" />
               </div>
               <div className="form-row">
                 <label>মোবাইল</label>
-                <div className="form-row-icon-stack">
-                  <input className="has-icon" type="tel" placeholder="০১XXXXXXXXX" />
-                  <span className="form-icon" aria-hidden="true">{Icon.phone}</span>
-                </div>
+                <input type="tel" placeholder="০১XXXXXXXXX" />
               </div>
             </div>
             <div className="form-row">
               <label>ইমেইল</label>
-              <div className="form-row-icon-stack">
-                <input className="has-icon" type="email" placeholder="you@example.com" />
-                <span className="form-icon" aria-hidden="true">{Icon.mail}</span>
-              </div>
+              <input type="email" placeholder="you@example.com" />
             </div>
             <div className="form-row">
               <label>বর্তমানে ব্যবসা করছেন?</label>
-              <div className="form-row-icon-stack">
-                <select className="has-icon">
-                  <option>হ্যাঁ, বর্তমানে ব্যবসা করছি</option>
-                  <option>না, নতুন শুরু করতে চাই</option>
-                  <option>পরিকল্পনা করছি</option>
-                </select>
-                <span className="form-icon" aria-hidden="true">{Icon.bag}</span>
-              </div>
+              <select>
+                <option>হ্যাঁ, বর্তমানে ব্যবসা করছি</option>
+                <option>না, নতুন শুরু করতে চাই</option>
+                <option>পরিকল্পনা করছি</option>
+              </select>
             </div>
-            <button className="btn btn-primary btn-lg btn-block">Submit</button>
+            <button className="form-submit-btn">Submit</button>
           </MotionFade>
         </div>
       </section>
@@ -441,7 +450,6 @@ function AcademyPage() {
               <div key={i} className={`faq-item${openFaq === i ? ' open' : ''}`}>
                 <div className="faq-q" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
                   {item.q}
-                  <span className="plus">+</span>
                 </div>
                 <div className="faq-a">
                   <div className="faq-a-inner">{item.a}</div>
