@@ -1,10 +1,10 @@
 @media (max-width: 980px) {
   .academy-page h1 { font-size: 38px; }
   .academy-page h2 { font-size: 30px; }
-  .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .academy-page .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
   .ps-grid { grid-template-columns: 1fr; }
   .grid-3 { grid-template-columns: 1fr; }
-  .module-grid { grid-template-columns: repeat(2, 1fr); }
+  .academy-page .module-grid { grid-template-columns: repeat(2, 1fr); }
   .grid-bonus { grid-template-columns: repeat(2, 1fr); }
   .mentor-grid { grid-template-columns: 1fr; gap: 36px; }
   .mentor-frame { max-width: 340px; margin: 0 auto; padding: 14px; }
@@ -40,9 +40,9 @@
 }
 
 @media (max-width: 560px) {
-  .module-grid,
+  .academy-page .module-grid,
   .grid-bonus { grid-template-columns: 1fr; }
-  .trust-grid { grid-template-columns: 1fr 1fr; }
+  .academy-page .trust-grid { grid-template-columns: 1fr 1fr; }
   .academy-page h1 { font-size: 32px; }
   .price-card { padding: 32px 24px; }
   .form-wrap { padding: 32px 22px; }

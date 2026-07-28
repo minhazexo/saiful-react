@@ -1,13 +1,140 @@
-@media (max-width: 900px) {
-  .sp .grid-3, .sp .solution-wrap, .sp .grid-4, .sp .grid-2, .sp .why-grid, .sp .incl-wrap, .sp .ba-wrap {
-    grid-template-columns: 1fr;
+/* ===== TABLET (<=1024px) ===== */
+@media (max-width: 1024px) {
+  .setup-what-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
-  .sp .console-body { grid-template-columns: repeat(2, 1fr); }
-  .sp-section { padding: 80px 0; }
-  .sp-hero { padding: 150px 0 80px; }
-  .sp .incl-card { position: static; }
+  .setup-who-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .setup-roadmap-steps {
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+  }
+  .setup-roadmap-step {
+    flex: 0 0 calc(33.33% - 16px);
+  }
 }
 
-@media (max-width: 600px) {
-  .sp .console-body { grid-template-columns: 1fr 1fr; }
+/* ===== MOBILE LARGE (<=900px) ===== */
+@media (max-width: 900px) {
+  .setup-hero { padding: 100px 0 50px; }
+  .setup-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  .setup-hero-right { order: -1; }
+  .setup-hero-circle {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+  }
+  .setup-hero-btns { justify-content: center; }
+  .setup-trust-row { justify-content: center; }
+  .setup-section { padding: 60px 0; }
+
+  .setup-ps-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .setup-what-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .setup-who-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .setup-portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .setup-roadmap-steps {
+    justify-content: center;
+  }
+  .setup-roadmap-step {
+    flex: 0 0 calc(33.33% - 16px);
+  }
+}
+
+/* ===== MOBILE (<=640px) ===== */
+@media (max-width: 640px) {
+  .setup-hero { padding: 80px 0 40px; }
+  .setup-hero-left h1 { font-size: 24px; }
+  .setup-hero-desc { font-size: 14px; }
+  .setup-hero-circle {
+    width: 240px;
+    height: 240px;
+  }
+  .setup-hero-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+  .setup-btn { width: 100%; max-width: 300px; }
+  .setup-trust-row {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+  .setup-section { padding: 48px 0; }
+
+  .setup-ps-col h2 { font-size: 20px; }
+  .setup-badge { font-size: 13px; padding: 6px 20px; }
+
+  .setup-roadmap-steps {
+    flex-direction: column;
+    align-items: center;
+  }
+  .setup-roadmap-step {
+    flex: 0 0 auto;
+    flex-direction: row;
+    gap: 16px;
+    width: 100%;
+    max-width: 300px;
+  }
+  .setup-roadmap-num {
+    width: 44px;
+    height: 44px;
+    font-size: 16px;
+  }
+  .setup-roadmap-label {
+    text-align: left;
+  }
+
+  .setup-what-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .setup-who-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .setup-portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .setup-portfolio-filters {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .setup-filter-btn {
+    flex-shrink: 0;
+  }
+
+  .setup-faq-q { font-size: 15px; }
+
+  .setup-cta-inner {
+    padding: 40px 20px;
+    border-radius: 16px;
+  }
+  .setup-cta-inner h2 { font-size: 22px; }
+  .setup-cta-inner p { font-size: 14px; }
+  .setup-cta-btns {
+    flex-direction: column;
+    align-items: center;
+  }
 }

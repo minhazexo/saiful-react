@@ -1,0 +1,351 @@
+/* ============================================================
+   AURORA X — DESIGN SYSTEM
+   All visual tokens must derive from this file.
+   ============================================================ */
+
+:root {
+  /* ---------- LAYOUT ---------- */
+  --max-width: 1440px;
+  --content-width: 1200px;
+
+  /* ---------- OVERRIDE existing saiful-react variables ---------- */
+  --bg: #050816;
+  --surface: #0C1017;
+  --surface-2: #15181E;
+  --accent-bg: #0C1017;
+  --border: rgba(255, 255, 255, 0.08);
+  --dark: #FFFFFF;
+  --dark-2: #A5B1C2;
+  --text: #FFFFFF;
+  --text-muted: #7C8798;
+  --text-light: #A5B1C2;
+  --green: var(--primary);
+  --green-bright: var(--primary);
+  --green-dark: var(--primary-secondary);
+  --green-light: rgba(255, 255, 255, 0.06);
+  --green-soft: rgba(255, 255, 255, 0.1);
+
+  /* ---------- SPACING (8-point system) ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+  --space-9: 48px;
+  --space-10: 56px;
+  --space-11: 64px;
+  --space-12: 72px;
+  --space-13: 80px;
+  --space-14: 96px;
+  --space-15: 120px;
+  --space-16: 144px;
+
+  /* ---------- BORDER RADIUS ---------- */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-glass: 28px;
+  --radius-full: 999px;
+
+  /* ---------- DARK SURFACE COLORS ---------- */
+  --background: #050816;
+  --surface: #0C1017;
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-hover: rgba(255, 255, 255, 0.07);
+  --glass-strong: rgba(5, 8, 22, 0.55);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.12);
+  --divider: rgba(255, 255, 255, 0.06);
+
+  /* ---------- TEXT COLORS ---------- */
+  --text: #FFFFFF;
+  --text-secondary: #A5B1C2;
+  --text-muted: #7C8798;
+
+  /* ---------- GLASS SYSTEM ---------- */
+  --glass-blur: 20px;
+  --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  --glass-saturation: 180%;
+
+  /* ---------- SHADOW SYSTEM ---------- */
+  --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.18);
+  --shadow-medium: 0 16px 40px rgba(0, 0, 0, 0.28);
+  --shadow-large: 0 24px 60px rgba(0, 0, 0, 0.36);
+  --shadow-floating: 0 30px 80px rgba(0, 0, 0, 0.45);
+
+  /* ---------- TYPOGRAPHY ---------- */
+  --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'JetBrains Mono', monospace;
+
+  /* ---------- FONT SCALE ---------- */
+  --text-display-xl: 80px;
+  --text-display-lg: 72px;
+  --text-display: 64px;
+  --text-h1: 56px;
+  --text-h2: 48px;
+  --text-h3: 40px;
+  --text-h4: 32px;
+  --text-h5: 24px;
+  --text-h6: 20px;
+  --text-body-lg: 18px;
+  --text-body: 16px;
+  --text-small: 14px;
+  --text-caption: 13px;
+  --text-tiny: 12px;
+
+  /* ---------- FONT WEIGHTS ---------- */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+
+  /* ---------- LINE HEIGHTS ---------- */
+  --leading-display: 1.1;
+  --leading-heading: 1.2;
+  --leading-body: 1.7;
+  --leading-caption: 1.6;
+
+  /* ---------- LETTER SPACING ---------- */
+  --tracking-heading-lg: -0.02em;
+  --tracking-heading: -0.01em;
+  --tracking-body: 0em;
+  --tracking-caps: 0.06em;
+
+  /* ---------- ANIMATION SPEEDS ---------- */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-medium: 400ms;
+  --duration-slow: 600ms;
+  --duration-aurora: 30s;
+  --duration-theme: 500ms;
+
+  /* ---------- EASING ---------- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* ---------- Z-INDEX ---------- */
+  --z-background: -10;
+  --z-aurora: -5;
+  --z-content: 1;
+  --z-cards: 5;
+  --z-nav: 100;
+  --z-drawer: 500;
+  --z-modal: 1000;
+  --z-toast: 1200;
+
+  /* ---------- GLOW SYSTEM ---------- */
+  --glow-sm: 12px;
+  --glow-md: 24px;
+  --glow-lg: 48px;
+  --glow-hero: 96px;
+  --glow-aurora: 160px;
+
+  /* ---------- BUTTON ---------- */
+  --button-height: 52px;
+  --button-padding: 16px 28px;
+  --button-radius: 999px;
+  --button-transition: 300ms;
+
+  /* ---------- ICON SIZES ---------- */
+  --icon-sm: 18px;
+  --icon-md: 20px;
+  --icon-lg: 24px;
+  --icon-xl: 28px;
+}
+
+/* ============================================================
+   THEME 01 — AURORA BLUE (Default)
+   ============================================================ */
+[data-theme="blue"] {
+  --primary: #00D5FF;
+  --primary-secondary: #3AA8FF;
+  --primary-accent: #805CFF;
+  --glow-color: rgba(0, 213, 255, 0.35);
+  --aurora-1: rgba(0, 213, 255, 0.25);
+  --aurora-2: rgba(58, 168, 255, 0.15);
+  --aurora-3: rgba(128, 92, 255, 0.12);
+  --beam-color: rgba(0, 213, 255, 0.12);
+  --pattern-color: #2ED0FF;
+  --gradient-primary: linear-gradient(135deg, #00D5FF, #3AA8FF, #805CFF);
+  --selection: rgba(0, 213, 255, 0.25);
+  --neon: 0 0 20px rgba(0, 213, 255, 0.25);
+}
+
+/* ============================================================
+   THEME 02 — AURORA GREEN
+   ============================================================ */
+[data-theme="green"] {
+  --primary: #00FFA3;
+  --primary-secondary: #10B981;
+  --primary-accent: #34D399;
+  --glow-color: rgba(0, 255, 163, 0.35);
+  --aurora-1: rgba(0, 255, 163, 0.25);
+  --aurora-2: rgba(16, 185, 129, 0.15);
+  --aurora-3: rgba(52, 211, 153, 0.12);
+  --beam-color: rgba(0, 255, 163, 0.12);
+  --pattern-color: #00FF99;
+  --gradient-primary: linear-gradient(135deg, #00FFA3, #10B981, #34D399);
+  --selection: rgba(0, 255, 163, 0.25);
+  --neon: 0 0 20px rgba(0, 255, 163, 0.25);
+}
+
+/* ============================================================
+   THEME 03 — AURORA ORANGE
+   ============================================================ */
+[data-theme="orange"] {
+  --primary: #FF7A00;
+  --primary-secondary: #FF5500;
+  --primary-accent: #FFB347;
+  --glow-color: rgba(255, 122, 0, 0.35);
+  --aurora-1: rgba(255, 122, 0, 0.25);
+  --aurora-2: rgba(255, 85, 0, 0.15);
+  --aurora-3: rgba(255, 179, 71, 0.12);
+  --beam-color: rgba(255, 122, 0, 0.12);
+  --pattern-color: #FF8A00;
+  --gradient-primary: linear-gradient(135deg, #FF7A00, #FF5500, #FFB347);
+  --selection: rgba(255, 122, 0, 0.25);
+  --neon: 0 0 20px rgba(255, 122, 0, 0.25);
+}
+
+/* ============================================================
+   THEME 04 — AURORA PURPLE
+   ============================================================ */
+[data-theme="purple"] {
+  --primary: #A855F7;
+  --primary-secondary: #7C3AED;
+  --primary-accent: #C084FC;
+  --glow-color: rgba(168, 85, 247, 0.35);
+  --aurora-1: rgba(168, 85, 247, 0.25);
+  --aurora-2: rgba(124, 58, 237, 0.15);
+  --aurora-3: rgba(192, 132, 252, 0.12);
+  --beam-color: rgba(168, 85, 247, 0.12);
+  --pattern-color: #A855F7;
+  --gradient-primary: linear-gradient(135deg, #A855F7, #7C3AED, #C084FC);
+  --selection: rgba(168, 85, 247, 0.25);
+  --neon: 0 0 20px rgba(168, 85, 247, 0.25);
+}
+
+/* ============================================================
+   THEME 05 — AURORA CYAN
+   ============================================================ */
+[data-theme="cyan"] {
+  --primary: #22D3EE;
+  --primary-secondary: #06B6D4;
+  --primary-accent: #38BDF8;
+  --glow-color: rgba(34, 211, 238, 0.35);
+  --aurora-1: rgba(34, 211, 238, 0.25);
+  --aurora-2: rgba(6, 182, 212, 0.15);
+  --aurora-3: rgba(56, 189, 248, 0.12);
+  --beam-color: rgba(34, 211, 238, 0.12);
+  --pattern-color: #2ED0FF;
+  --gradient-primary: linear-gradient(135deg, #22D3EE, #06B6D4, #38BDF8);
+  --selection: rgba(34, 211, 238, 0.25);
+  --neon: 0 0 20px rgba(34, 211, 238, 0.25);
+}
+
+/* ============================================================
+   THEME 06 — AURORA PINK
+   ============================================================ */
+[data-theme="pink"] {
+  --primary: #FF4CC7;
+  --primary-secondary: #EC4899;
+  --primary-accent: #FF79C6;
+  --glow-color: rgba(255, 76, 199, 0.35);
+  --aurora-1: rgba(255, 76, 199, 0.25);
+  --aurora-2: rgba(236, 72, 153, 0.15);
+  --aurora-3: rgba(255, 121, 198, 0.12);
+  --beam-color: rgba(255, 76, 199, 0.12);
+  --pattern-color: #FF4FCB;
+  --gradient-primary: linear-gradient(135deg, #FF4CC7, #EC4899, #FF79C6);
+  --selection: rgba(255, 76, 199, 0.25);
+  --neon: 0 0 20px rgba(255, 76, 199, 0.25);
+}
+
+/* ============================================================
+   THEME 07 — AURORA AMBER
+   ============================================================ */
+[data-theme="amber"] {
+  --primary: #FFD700;
+  --primary-secondary: #F59E0B;
+  --primary-accent: #F97316;
+  --glow-color: rgba(255, 215, 0, 0.35);
+  --aurora-1: rgba(255, 215, 0, 0.25);
+  --aurora-2: rgba(245, 158, 11, 0.15);
+  --aurora-3: rgba(249, 115, 22, 0.12);
+  --beam-color: rgba(255, 215, 0, 0.12);
+  --pattern-color: #FFC300;
+  --gradient-primary: linear-gradient(135deg, #FFD700, #F59E0B, #F97316);
+  --selection: rgba(255, 215, 0, 0.25);
+  --neon: 0 0 20px rgba(255, 215, 0, 0.25);
+}
+
+/* ============================================================
+   THEME 08 — AURORA SILVER
+   ============================================================ */
+[data-theme="silver"] {
+  --primary: #FFFFFF;
+  --primary-secondary: #8E8E93;
+  --primary-accent: #555555;
+  --glow-color: rgba(255, 255, 255, 0.30);
+  --aurora-1: rgba(255, 255, 255, 0.20);
+  --aurora-2: rgba(142, 142, 147, 0.12);
+  --aurora-3: rgba(85, 85, 85, 0.10);
+  --beam-color: rgba(255, 255, 255, 0.10);
+  --pattern-color: #C5C5C5;
+  --gradient-primary: linear-gradient(135deg, #FFFFFF, #8E8E93, #555555);
+  --selection: rgba(255, 255, 255, 0.25);
+  --neon: 0 0 20px rgba(255, 255, 255, 0.20);
+}
+
+/* ============================================================
+   AURORA KEYFRAMES
+   ============================================================ */
+@keyframes aurora-drift-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(3%, 2%) scale(1.05); }
+  66% { transform: translate(-2%, -1%) scale(0.95); }
+}
+
+@keyframes aurora-drift-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-3%, 1%) scale(0.95); }
+  66% { transform: translate(2%, -2%) scale(1.05); }
+}
+
+@keyframes aurora-drift-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(4%, -2%) scale(1.03); }
+  50% { transform: translate(-1%, 3%) scale(0.97); }
+  75% { transform: translate(2%, 1%) scale(1.02); }
+}
+
+@keyframes aurora-ribbon {
+  0%, 100% { transform: translateX(-5%) translateY(0); }
+  25% { transform: translateX(3%) translateY(-3%); }
+  50% { transform: translateX(-2%) translateY(2%); }
+  75% { transform: translateX(5%) translateY(-1%); }
+}
+
+@keyframes beam-pulse {
+  0%, 100% { opacity: var(--beam-opacity, 0.08); transform: scaleY(1); }
+  50% { opacity: calc(var(--beam-opacity, 0.08) * 1.5); transform: scaleY(1.05); }
+}
+
+@keyframes particle-float {
+  0%, 100% { transform: translate(0, 0); opacity: var(--particle-opacity, 0.15); }
+  25% { transform: translate(10px, -15px); }
+  50% { transform: translate(-5px, -25px); opacity: calc(var(--particle-opacity, 0.15) * 0.5); }
+  75% { transform: translate(8px, -10px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.25; }
+}

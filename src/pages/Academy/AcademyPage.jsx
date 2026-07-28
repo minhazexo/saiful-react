@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { animate, motion, useInView } from 'framer-motion';
 import Seo from '../../components/Seo';
 import { staggerContainer, fadeUp } from '../../motion/presets';
+import { assetPath } from '../../utils/assets';
 import './AcademyPage.css';
 import './AcademyPage.responsive.css';
 
@@ -21,14 +22,14 @@ const Icon = {
 };
 
 const MODULES = [
-  { num: '01', title: 'Business Foundation', lessons: '৬ লেসন', resources: '৫ Resources', time: '২ ঘণ্টা' },
-  { num: '02', title: 'Product Research', lessons: '৮ লেসন', resources: '৭ Resources', time: '৩ ঘণ্টা' },
-  { num: '03', title: 'Brand Identity', lessons: '৭ লেসন', resources: '৬ Resources', time: '২.৫ ঘণ্টা' },
-  { num: '04', title: 'Website', lessons: '৯ লেসন', resources: '৮ Resources', time: '৪ ঘণ্টা' },
-  { num: '05', title: 'Content Marketing', lessons: '১০ লেসন', resources: '৯ Resources', time: '৩.৫ ঘণ্টা' },
-  { num: '06', title: 'Facebook Ads', lessons: '৮ লেসন', resources: '৬ Resources', time: '৩ ঘণ্টা' },
-  { num: '07', title: 'Sales Funnel', lessons: '৭ লেসন', resources: '৫ Resources', time: '২.৫ ঘণ্টা' },
-  { num: '08', title: 'Business Growth', lessons: '৬ লেসন', resources: '৭ Resources', time: '৩ ঘণ্টা' },
+  { num: '01', title: 'ই-কমার্স বিজনেস ফাউন্ডেশন', icon: 'idea', desc: 'বিজনেস মডেল, মার্কেট রিসার্চ, নিশ নির্বাচন, প্রোডাক্ট আইডিয়া যাচাই।' },
+  { num: '02', title: 'ব্র্যান্ড আইডেন্টিটি ও ডিজাইন', icon: 'branding', desc: 'লোগো তৈরি, কালার সাইকোলজি, টাইপোগ্রাফি, এমন একটি ব্র্যান্ড গড়া যা গ্রাহকরা ভুলবে না।' },
+  { num: '03', title: 'ওয়েবসাইট ও অনলাইন স্টোর সেটআপ', icon: 'online-presence', desc: 'নো-কোড ই-কমার্স স্টোর, প্রোডাক্ট পেজ, পেমেন্ট সিস্টেম সেটআপ।' },
+  { num: '04', title: 'কনটেন্ট ক্রিয়েশন সিস্টেম', icon: 'fast-content', desc: 'হাই-কনভার্টিং কনটেন্ট তৈরি করতে Canva, ChatGPT, CapCut ব্যবহার।' },
+  { num: '05', title: 'সোশ্যাল মিডিয়া মার্কেটিং', icon: 'research', desc: 'ফেসবুক, ইনস্টাগ্রাম, টিকটক স্ট্র্যাটেজি — অর্গানিক গ্রোথ এবং কমিউনিটি বিল্ডিং।' },
+  { num: '06', title: 'ফেসবুক ও ইনস্টাগ্রাম অ্যাড', icon: 'grow', desc: 'ক্যাম্পেইন সেটআপ, অডিয়েন্স টার্গেটিং, বাজেট ম্যানেজমেন্ট, ROAS অপ্টিমাইজেশন।' },
+  { num: '07', title: 'এআই মার্কেটিং ও অটোমেশন', icon: 'scale', desc: 'ChatGPT-ভিত্তিক ইমেইল মার্কেটিং, Gemini ওয়ার্কফ্লো, মার্কেটিং সিস্টেম অটোমেশন।' },
+  { num: '08', title: 'স্কেলিং ও বিজনেস গ্রোথ', icon: 'launch', desc: 'ডেটা বিশ্লেষণ, সেলিং স্ট্র্যাটেজি, ফানেল, ডেলিগেশন, টেকসই গ্রোথ গড়া।' },
 ];
 
 const BONUS_ITEMS = [
@@ -191,12 +192,12 @@ function AcademyPage() {
           </MotionFade>
           <div className="grid-3">
             {[
-              { ic: '🎥', title: 'Live Google Meet Class', desc: 'প্রতি সপ্তাহে সরাসরি লাইভ ক্লাসে যুক্ত হয়ে প্রশ্ন করার সুযোগ পাবেন।' },
-              { ic: '👥', title: 'Private Community', desc: 'একই লক্ষ্যের উদ্যোক্তাদের সাথে যুক্ত থেকে একে অপরকে সহায়তা করুন।' },
-              { ic: '📋', title: 'SOP Library', desc: 'রেডিমেড Standard Operating Procedure দিয়ে ব্যবসা দ্রুত গুছিয়ে নিন।' },
-              { ic: '🤖', title: 'AI Prompt Library', desc: 'কন্টেন্ট, মার্কেটিং ও কাস্টমার সার্ভিসের জন্য প্রস্তুত AI প্রম্পট পাবেন।' },
-              { ic: '📚', title: 'Assignment Review', desc: 'প্রতিটি অ্যাসাইনমেন্ট মেন্টর সরাসরি রিভিউ করে ফিডব্যাক দেবেন।' },
-              { ic: '💬', title: 'Lifetime Support', desc: 'কোর্স শেষেও আজীবন সাপোর্ট ও আপডেট পেতে থাকবেন।' },
+              { ic: '🎥', title: 'লাইভ গুগল মিট ক্লাস', desc: 'প্রতি সপ্তাহে সমস্যার লাইভ ক্লাসে যুক্ত হয়ে ঘরে বসে করার সুযোগ পাবেন।' },
+              { ic: '👥', title: 'প্রাইভেট কমিউনিটি', desc: 'একই লক্ষ্যের উদ্যোক্তাদের সাথে যুক্ত থেকে একে অপরকে সহায়তা করুন।' },
+              { ic: '📋', title: 'এসওপি লাইব্রেরি', desc: 'রেডিমেড Standard Operating Procedure দিয়ে ব্যবসা দ্রুত গুছিয়ে নিন।' },
+              { ic: '📄', title: 'ফ্রি রিসোর্সেস', desc: 'ই বুক, বিজনেস টেমপ্লেট, চেকলিস্ট, ল্যান্ডিং পেজ এসবই ফ্রিপাবে পাবেন।' },
+              { ic: '📝', title: 'এসাইনমেন্ট রিভিউ', desc: 'প্রতিটি অ্যাসাইনমেন্ট মেন্টর সমস্যার রিভিউ করে ফিডব্যাক দেবেন।' },
+              { ic: '💬', title: 'লাইফটাইম সাপোর্ট', desc: 'কোর্স শেষে আজীবন সাপোর্ট ও আপডেট পেতে থাকবেন।' },
             ].map((f, i) => (
               <motion.div
                 key={i}
@@ -238,7 +239,7 @@ function AcademyPage() {
         <div className="wrap">
           <MotionFade className="section-head">
             <h2>কোর্সের Module</h2>
-            <p>৮টি গোছানো মডিউল, যা একে অপরের সাথে যুক্ত হয়ে আপনার ব্যবসাকে দাঁড় করাবে।</p>
+            <p>৮টি গেমচেঞ্জার মডিউল, যা একে অপরের সাথে যুক্ত হয়ে আপনার ব্যবসাকে দাঁড় করাবে।</p>
           </MotionFade>
           <div className="module-grid">
             {MODULES.map((m, i) => (
@@ -250,46 +251,21 @@ function AcademyPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
               >
-                <span className="module-num">Module {m.num}</span>
-                <h3>{m.title}</h3>
-                <div className="module-meta">
-                  <span>🎬 {m.lessons}</span>
-                  <span>📁 {m.resources}</span>
-                  <span>⏱ {m.time}</span>
+                <div className="module-top">
+                  <div className="module-icon">
+                    <img src={assetPath(`/images/icons/${m.icon}.svg`)} alt="" />
+                  </div>
+                  <span className="module-num">{m.num}</span>
                 </div>
+                <h3 className="module-title">{m.title}</h3>
+                <p>{m.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* BONUS */}
-      <section className="section-pad">
-        <div className="wrap">
-          <MotionFade className="bonus-banner">
-            <div>
-              <h2>আপনি Bonus হিসেবে যা পাবেন</h2>
-              <p>ভর্তি হলেই সম্পূর্ণ ফ্রি — অতিরিক্ত কোনো খরচ ছাড়াই।</p>
-            </div>
-            <div className="bonus-price">Worth ২০,০০০+ টাকা</div>
-          </MotionFade>
-          <div className="grid-bonus">
-            {BONUS_ITEMS.map((item, i) => (
-              <motion.div
-                key={i}
-                className="bonus-card"
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <div className="ic">{item.icon}</div>
-                <h3>{item.title}</h3>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* MENTOR */}
       <section className="section-pad bg-light" id="mentor">
