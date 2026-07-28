@@ -23,7 +23,7 @@ jobs:
 
       - name: Install server deps
         working-directory: server
-        run: npm ci
+        run: bun install --frozen-lockfile
 
       - name: Build frontend
         run: bun run build
