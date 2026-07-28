@@ -264,34 +264,36 @@
   cursor: pointer;
 }
 
-.academy-page .hero .btn-primary {
-  background: #ffffff;
-  color: #222222;
-  border: 2px solid var(--primary);
-  box-shadow: none;
+/* ========== HERO BUTTONS — dedicated .hero-btn class ========== */
+.academy-page .hero .hero-btn.btn {
+  border: 2px solid var(--primary) !important;
+  box-shadow: none !important;
+  border-radius: 999px;
 }
 
-.academy-page .hero .btn-primary:hover {
-  border-color: #000;
-  background: #222222;
-  color: #ffffff;
+/* Left: white bg */
+.academy-page .hero .btn-primary.hero-btn {
+  background: #ffffff !important;
+  color: #222222 !important;
+}
+
+/* Right: dark bg */
+.academy-page .hero .btn-dark.hero-btn {
+  background: #262626 !important;
+  color: #ffffff !important;
+}
+
+.academy-page .hero .hero-btn.btn:hover {
+  background: #E5E7EB !important;
+  color: #111827 !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08) !important;
   transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
-.academy-page .hero .btn-dark {
-  background: #262626;
-  color: #ffffff;
-  border: 2px solid #2ED35A;
-  box-shadow: none;
-}
-
-.academy-page .hero .btn-dark:hover {
-  background: #2ED35A;
-  color: #ffffff;
-  border-color: #2ED35A;
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+.academy-page .hero .hero-btn.btn:active {
+  transform: translateY(0) scale(0.985);
+  transition-duration: 0.08s;
 }
 
 /* ========== JOURNEY PILLS (bottom of hero) ========== */

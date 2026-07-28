@@ -120,8 +120,8 @@ function AcademyPage() {
             <h1 className="hero-title">শূন্য থেকে নিজের সফল ই-কমার্স ব্যবসা শুরু করুন</h1>
             <p className="hero-desc">লাইভ Google Meet ক্লাস, সাপ্তাহিক Assignment, Private Community, SOP Template, AI Prompt ও Business Mentorship-এর মাধ্যমে ধাপে ধাপে আপনার নিজের ব্যবসা তৈরি করুন।</p>
             <div className="hero-buttons">
-              <a href="#pricing" className="btn btn-primary">এখনই ভর্তি হন</a>
-              <a href="#enroll" className="btn btn-dark">ফ্রি কনসালটেশন নিন</a>
+              <a href="#pricing" className="btn btn-primary hero-btn">এখনই ভর্তি হন</a>
+              <a href="#enroll" className="btn btn-dark hero-btn">ফ্রি কনসালটেশন নিন</a>
             </div>
           </div>
 
