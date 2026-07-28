@@ -1,10 +1,10 @@
-.ai-tools-grid {
+.ai-page .ai-tools-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
 }
 
-.ai-tool-card {
+.ai-page .ai-tool-card {
   background: #fff;
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -12,34 +12,34 @@
   transition: all var(--t);
 }
 
-.ai-tool-card:hover {
+.ai-page .ai-tool-card:hover {
   transform: translateY(-4px);
 
   border-color: var(--border);
 }
 
 @media (max-width: 1024px) {
-  .ai-tool-card:hover {
+  .ai-page .ai-tool-card:hover {
     transform: none !important;
 
   }
 
-  .ai-tool-card:active {
+  .ai-page .ai-tool-card:active {
 
   }
 }
 
-.ai-tool-icon {
+.ai-page .ai-tool-icon {
   font-size: 56px;
   margin-bottom: 16px;
 }
 
-.ai-tool-card h3 {
+.ai-page .ai-tool-card h3 {
   font-size: 26px;
   margin-bottom: 4px;
 }
 
-.ai-tool-role {
+.ai-page .ai-tool-role {
   display: inline-block;
   background: var(--orange-light);
   border: 1px solid var(--orange-soft);
@@ -53,20 +53,20 @@
   letter-spacing: 0.5px;
 }
 
-.ai-tool-card > p {
+.ai-page .ai-tool-card > p {
   color: var(--text-muted);
   margin-bottom: 20px;
   line-height: 1.7;
 }
 
-.ai-tool-benefits {
+.ai-page .ai-tool-benefits {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.ai-tool-benefits li {
+.ai-page .ai-tool-benefits li {
   display: flex;
   gap: 10px;
   align-items: center;
@@ -74,33 +74,33 @@
   color: var(--text);
 }
 
-.workflow-section {
+.ai-page .workflow-section {
   background: var(--dark);
   color: #fff;
 }
 
-.workflow-section .eyebrow {
+.ai-page .workflow-section .eyebrow {
   background: var(--orange-light);
   color: #000;
   border-color: var(--orange-soft);
 }
 
-.workflow-section .section-head h2,
-.workflow-section .section-head p {
+.ai-page .workflow-section .section-head h2,
+.ai-page .workflow-section .section-head p {
   color: #fff;
 }
 
-.workflow-section .section-head p {
+.ai-page .workflow-section .section-head p {
   color: rgba(255, 255, 255, 0.7);
 }
 
-.ai-workflow {
+.ai-page .ai-workflow {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 16px;
 }
 
-.ai-workflow-step {
+.ai-page .ai-workflow-step {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius);
@@ -109,7 +109,7 @@
   position: relative;
 }
 
-.ai-workflow-day {
+.ai-page .ai-workflow-day {
   display: inline-block;
   background: var(--orange);
   color: #fff;
@@ -120,18 +120,18 @@
   margin-bottom: 16px;
 }
 
-.ai-workflow-icon {
+.ai-page .ai-workflow-icon {
   font-size: 40px;
   margin-bottom: 12px;
 }
 
-.ai-workflow-step h3 {
+.ai-page .ai-workflow-step h3 {
   color: #fff;
   font-size: 18px;
   margin-bottom: 8px;
 }
 
-.ai-workflow-step p {
+.ai-page .ai-workflow-step p {
   color: rgba(255, 255, 255, 0.8);
   font-size: 13px;
   line-height: 1.6;

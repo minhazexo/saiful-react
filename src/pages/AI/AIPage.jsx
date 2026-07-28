@@ -26,7 +26,7 @@ function AIPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="page">
+    <div className="page ai-page">
       <Seo title={t('ai.title')} description={t('ai.subtitle')} path="/ai" />
       <section className="page-hero">
         <div className="container">

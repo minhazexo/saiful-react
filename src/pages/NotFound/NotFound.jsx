@@ -5,7 +5,7 @@ import Seo from '../../components/Seo';
 export default function NotFound() {
   const t = useTranslation();
   return (
-    <div className="page">
+    <div className="page not-found-page">
       <Seo title={t('notFound.subtitle')} description={t('notFound.description')} noIndex />
       <div className="container not-found-wrap">
         <h1 className="not-found-code">{t('notFound.title')}</h1>

@@ -127,7 +127,6 @@ function FaqItem({ item }) {
     <div className={`setup-faq-item ${open ? 'active' : ''}`}>
       <button className="setup-faq-q" onClick={() => setOpen(!open)}>
         <span>{item.q}</span>
-        <span className="setup-faq-plus">{open ? '−' : '+'}</span>
       </button>
       <AnimatePresence>
         {open && (

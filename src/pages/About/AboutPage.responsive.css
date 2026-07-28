@@ -1,7 +1,7 @@
 /* ===== Tablet (≤1024px) ===== */
 @media (max-width: 1024px) {
-  .about-story,
-  .values-grid {
+  .about-page .about-story,
+  .about-page .values-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
@@ -9,27 +9,27 @@
 
 /* ===== Tablet Portrait (≤768px) ===== */
 @media (max-width: 768px) {
-  .about-image-wrap {
+  .about-page .about-image-wrap {
     max-width: 320px;
     margin: 0 auto;
     aspect-ratio: 3 / 4;
   }
 
-  .about-image-stat {
+  .about-page .about-image-stat {
     left: 0;
     bottom: -16px;
     padding: 14px 18px;
   }
 
-  .about-image-stat strong {
+  .about-page .about-image-stat strong {
     font-size: 22px;
   }
 
-  .value-card {
+  .about-page .value-card {
     padding: 24px 20px;
   }
 
-  .value-icon {
+  .about-page .value-icon {
     width: 48px;
     height: 48px;
     font-size: 22px;
@@ -37,22 +37,22 @@
     margin-bottom: 16px;
   }
 
-  .timeline-item {
+  .about-page .timeline-item {
     padding-left: 56px;
     margin-bottom: 32px;
   }
 
-  .timeline::before {
+  .about-page .timeline::before {
     left: 18px;
   }
 
-  .timeline-dot {
+  .about-page .timeline-dot {
     left: 6px;
     width: 22px;
     height: 22px;
   }
 
-  .about-image-stat {
+  .about-page .about-image-stat {
     right: 0;
     left: auto;
     text-align: center;
@@ -61,61 +61,61 @@
 
 /* ===== Phone (≤480px) ===== */
 @media (max-width: 480px) {
-  .about-image-stat {
+  .about-page .about-image-stat {
     position: static;
     margin-top: 16px;
     text-align: center;
   }
 
-  .about-image-wrap {
+  .about-page .about-image-wrap {
     max-width: 260px;
   }
 
-  .about-story {
+  .about-page .about-story {
     gap: 24px;
   }
 
-  .about-story-content p {
+  .about-page .about-story-content p {
     font-size: 14px;
   }
 
-  .value-card {
+  .about-page .value-card {
     padding: 20px 18px;
   }
 
-  .value-card h3 {
+  .about-page .value-card h3 {
     font-size: 16px;
   }
 
-  .value-card p {
+  .about-page .value-card p {
     font-size: 13px;
   }
 
-  .value-icon {
+  .about-page .value-icon {
     width: 44px;
     height: 44px;
     font-size: 20px;
     margin-bottom: 14px;
   }
 
-  .timeline-item {
+  .about-page .timeline-item {
     padding-left: 46px;
     margin-bottom: 24px;
   }
 
-  .timeline-item h3 {
+  .about-page .timeline-item h3 {
     font-size: 17px;
   }
 
-  .timeline-item p {
+  .about-page .timeline-item p {
     font-size: 13px;
   }
 
-  .timeline::before {
+  .about-page .timeline::before {
     left: 14px;
   }
 
-  .timeline-dot {
+  .about-page .timeline-dot {
     left: 2px;
     width: 20px;
     height: 20px;
@@ -124,39 +124,39 @@
 
 /* ===== Small Phone (≤375px) ===== */
 @media (max-width: 375px) {
-  .about-image-wrap {
+  .about-page .about-image-wrap {
     max-width: 220px;
   }
 
-  .about-story-content p {
+  .about-page .about-story-content p {
     font-size: 13px;
   }
 
-  .values-grid {
+  .about-page .values-grid {
     gap: 16px;
   }
 
-  .value-card {
+  .about-page .value-card {
     padding: 16px 14px;
   }
 
-  .value-card h3 {
+  .about-page .value-card h3 {
     font-size: 15px;
   }
 
-  .value-card p {
+  .about-page .value-card p {
     font-size: 12px;
   }
 
-  .timeline-item {
+  .about-page .timeline-item {
     padding-left: 40px;
   }
 
-  .timeline-item h3 {
+  .about-page .timeline-item h3 {
     font-size: 15px;
   }
 
-  .timeline-item p {
+  .about-page .timeline-item p {
     font-size: 12px;
   }
 }

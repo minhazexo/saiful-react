@@ -87,7 +87,7 @@ function BlogPage() {
     activeIndex === 0 ? posts : posts.filter((p) => p.category === categories[activeIndex]);
 
   return (
-    <div className="page">
+    <div className="page blog-page">
       <Seo title={t('blog.title')} description={t('blog.subtitle')} path="/blog" />
       <section className="page-hero">
         <div className="container">

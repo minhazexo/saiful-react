@@ -45,7 +45,7 @@ function CaseStudiesPage() {
   }, []);
 
   return (
-    <div className="page">
+    <div className="page case-studies-page">
       <Seo
         title={t('caseStudies.title')}
         description={t('caseStudies.subtitle')}
@@ -66,7 +66,7 @@ function CaseStudiesPage() {
       <section className="section">
         <div className="container">
           {isLoading ? (
-            <div className="blog-loading">{t('common.loadingCases')}</div>
+            <div className="cases-loading">{t('common.loadingCases')}</div>
           ) : (
             <MobileCarousel className="cases-grid">
               {cases.map((c, i) => (

@@ -1,60 +1,60 @@
 /* ===== Tablet (≤1024px) ===== */
 @media (max-width: 1024px) {
-  .ai-tools-grid {
+  .ai-page .ai-tools-grid {
     grid-template-columns: 1fr;
   }
 
-  .ai-workflow {
+  .ai-page .ai-workflow {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 /* ===== Tablet Portrait (≤768px) ===== */
 @media (max-width: 768px) {
-  .ai-tool-card {
+  .ai-page .ai-tool-card {
     padding: 28px 24px;
   }
 
-  .ai-tool-card h3 {
+  .ai-page .ai-tool-card h3 {
     font-size: 22px;
   }
 
-  .ai-tool-card > p {
+  .ai-page .ai-tool-card > p {
     font-size: 14px;
   }
 
-  .ai-tool-icon {
+  .ai-page .ai-tool-icon {
     font-size: 44px;
     margin-bottom: 14px;
   }
 
-  .ai-tool-role {
+  .ai-page .ai-tool-role {
     font-size: 11px;
     margin-bottom: 14px;
   }
 
-  .ai-tool-benefits li {
+  .ai-page .ai-tool-benefits li {
     font-size: 13px;
   }
 
-  .ai-workflow {
+  .ai-page .ai-workflow {
     grid-template-columns: repeat(3, 1fr);
     gap: 14px;
   }
 
-  .ai-workflow-step {
+  .ai-page .ai-workflow-step {
     padding: 22px 16px;
   }
 
-  .ai-workflow-step h3 {
+  .ai-page .ai-workflow-step h3 {
     font-size: 16px;
   }
 
-  .ai-workflow-step p {
+  .ai-page .ai-workflow-step p {
     font-size: 12px;
   }
 
-  .ai-workflow-icon {
+  .ai-page .ai-workflow-icon {
     font-size: 32px;
     margin-bottom: 10px;
   }
@@ -62,49 +62,49 @@
 
 /* ===== Phone (≤480px) ===== */
 @media (max-width: 480px) {
-  .ai-tool-card {
+  .ai-page .ai-tool-card {
     padding: 22px 18px;
   }
 
-  .ai-tool-card h3 {
+  .ai-page .ai-tool-card h3 {
     font-size: 19px;
   }
 
-  .ai-tool-card > p {
+  .ai-page .ai-tool-card > p {
     font-size: 13px;
   }
 
-  .ai-tool-icon {
+  .ai-page .ai-tool-icon {
     font-size: 38px;
     margin-bottom: 12px;
   }
 
-  .ai-tool-benefits li {
+  .ai-page .ai-tool-benefits li {
     font-size: 13px;
   }
 
-  .ai-workflow {
+  .ai-page .ai-workflow {
     grid-template-columns: 1fr;
     gap: 12px;
   }
 
-  .ai-workflow-step {
+  .ai-page .ai-workflow-step {
     padding: 18px 14px;
   }
 
-  .ai-workflow-step h3 {
+  .ai-page .ai-workflow-step h3 {
     font-size: 15px;
   }
 
-  .ai-workflow-step p {
+  .ai-page .ai-workflow-step p {
     font-size: 12px;
   }
 
-  .ai-workflow-icon {
+  .ai-page .ai-workflow-icon {
     font-size: 28px;
   }
 
-  .ai-workflow-day {
+  .ai-page .ai-workflow-day {
     font-size: 11px;
     margin-bottom: 12px;
   }
@@ -112,27 +112,27 @@
 
 /* ===== Small Phone (≤375px) ===== */
 @media (max-width: 375px) {
-  .ai-tool-card {
+  .ai-page .ai-tool-card {
     padding: 16px 14px;
   }
 
-  .ai-tool-card h3 {
+  .ai-page .ai-tool-card h3 {
     font-size: 17px;
   }
 
-  .ai-tool-card > p {
+  .ai-page .ai-tool-card > p {
     font-size: 12px;
   }
 
-  .ai-workflow-step {
+  .ai-page .ai-workflow-step {
     padding: 14px 12px;
   }
 
-  .ai-workflow-step h3 {
+  .ai-page .ai-workflow-step h3 {
     font-size: 14px;
   }
 
-  .ai-workflow-step p {
+  .ai-page .ai-workflow-step p {
     font-size: 11px;
   }
 }

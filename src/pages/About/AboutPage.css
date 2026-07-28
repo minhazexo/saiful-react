@@ -1,38 +1,38 @@
-.about-story {
+.about-page .about-story {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: center;
 }
 
-.about-story-content h2 {
+.about-page .about-story-content h2 {
   margin-bottom: 20px;
 }
 
-.about-story-content p {
+.about-page .about-story-content p {
   color: var(--text-muted);
   margin-bottom: 16px;
   line-height: 1.8;
 }
 
-.about-image-wrap {
+.about-page .about-image-wrap {
   position: relative;
 }
 
-.about-image-card {
+.about-page .about-image-card {
   aspect-ratio: 4/5;
   border-radius: var(--radius-lg);
   overflow: hidden;
 
 }
 
-.about-image-card img {
+.about-page .about-image-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.about-image-stat {
+.about-page .about-image-stat {
   position: absolute;
   bottom: -20px;
   left: -20px;
@@ -43,7 +43,7 @@
   border: 1px solid var(--border);
 }
 
-.about-image-stat strong {
+.about-page .about-image-stat strong {
   display: block;
   font-family: var(--font-heading);
   font-size: 28px;
@@ -51,22 +51,22 @@
   line-height: 1;
 }
 
-.about-image-stat span {
+.about-page .about-image-stat span {
   font-size: 12px;
   color: var(--text-muted);
 }
 
-.values-section {
+.about-page .values-section {
   background: var(--surface);
 }
 
-.values-grid {
+.about-page .values-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
-.value-card {
+.about-page .value-card {
   background: #fff;
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -75,24 +75,24 @@
   text-align: left;
 }
 
-.value-card:hover {
+.about-page .value-card:hover {
   transform: translateY(-4px);
 
   border-color: var(--border);
 }
 
 @media (max-width: 1024px) {
-  .value-card:hover {
+  .about-page .value-card:hover {
     transform: none !important;
 
   }
 
-  .value-card:active {
+  .about-page .value-card:active {
 
   }
 }
 
-.value-icon {
+.about-page .value-icon {
   width: 56px;
   height: 56px;
   background: var(--orange-light);
@@ -104,28 +104,28 @@
   margin-bottom: 20px;
 }
 
-.value-card h3 {
+.about-page .value-card h3 {
   margin-bottom: 10px;
   font-size: 18px;
 }
 
-.value-card p {
+.about-page .value-card p {
   color: var(--text-muted);
   font-size: 14px;
   line-height: 1.7;
 }
 
-.timeline-section {
+.about-page .timeline-section {
   background: #fff;
 }
 
-.timeline {
+.about-page .timeline {
   max-width: 800px;
   margin: 0 auto;
   position: relative;
 }
 
-.timeline::before {
+.about-page .timeline::before {
   content: '';
   position: absolute;
   left: 24px;
@@ -135,17 +135,17 @@
   background: var(--border);
 }
 
-.timeline-item {
+.about-page .timeline-item {
   position: relative;
   padding-left: 70px;
   margin-bottom: 40px;
 }
 
-.timeline-item:last-child {
+.about-page .timeline-item:last-child {
   margin-bottom: 0;
 }
 
-.timeline-dot {
+.about-page .timeline-dot {
   position: absolute;
   left: 12px;
   top: 4px;
@@ -157,7 +157,7 @@
 
 }
 
-.timeline-year {
+.about-page .timeline-year {
   display: inline-block;
   font-family: var(--font-heading);
   font-weight: 700;
@@ -166,12 +166,12 @@
   margin-bottom: 6px;
 }
 
-.timeline-item h3 {
+.about-page .timeline-item h3 {
   font-size: 20px;
   margin-bottom: 8px;
 }
 
-.timeline-item p {
+.about-page .timeline-item p {
   color: var(--text-muted);
   line-height: 1.7;
 }

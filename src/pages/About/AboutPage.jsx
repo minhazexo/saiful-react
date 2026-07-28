@@ -19,7 +19,7 @@ function AboutPage() {
   const t = useTranslation();
 
   return (
-    <div className="page">
+    <div className="page about-page">
       <Seo title={t('about.title')} description={t('about.subtitle')} path="/about" />
       <section className="page-hero">
         <div className="container">

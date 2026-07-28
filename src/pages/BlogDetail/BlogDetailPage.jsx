@@ -9,8 +9,7 @@ import { useTranslation } from '../../context/LanguageContext';
 import Seo from '../../components/Seo';
 import { fadeUp, fadeUpSmall, staggerContainer } from '../../motion/presets';
 import { formatDate } from '../../utils/date';
-import '../Blog/BlogPage.css';
-import '../Blog/BlogPage.responsive.css';
+import './BlogDetailPage.css';
 import Packages from '../../components/Packages/Packages';
 import './BlogDetailPage.responsive.css';
 
@@ -85,7 +84,7 @@ function BlogDetailPage() {
   }
 
   return (
-    <div className="page">
+    <div className="page blog-detail-page">
       <Seo
         title={post.title}
         description={post.excerpt || `${post.title} – ${t('seo.defaultTitle')}`}

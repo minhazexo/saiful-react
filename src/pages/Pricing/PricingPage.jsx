@@ -8,7 +8,7 @@ function PricingPage() {
   const t = useTranslation();
 
   return (
-    <div className="page">
+    <div className="page pricing-page">
       <Seo
         title={t('nav.pricing')}
         description={t('home.packages.subtitle')}
