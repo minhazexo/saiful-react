@@ -206,7 +206,7 @@
   right: 0 !important;
   bottom: 0 !important;
   background: #000000 !important;
-  z-index: 99997 !important;
+  z-index: 99999 !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
