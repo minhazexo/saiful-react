@@ -1,7 +1,7 @@
 import { Suspense, useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import Navigation from './Navigation/Navigation';
+import NavPortal from './NavPortal';
 import Footer from './Footer/Footer';
 import ConsentBanner from './ConsentBanner/ConsentBanner';
 import WhatsAppFloat from './WhatsAppFloat/WhatsAppFloat';
@@ -32,7 +32,7 @@ export default function PublicLayout() {
 
   return (
     <>
-      <Navigation />
+      <NavPortal />
       <AnimatePresence mode="wait">
         {shouldReduceMotion ? (
           <div key={location.pathname}>

@@ -4,6 +4,7 @@
 
 .home-page {
   padding-top: var(--nav-h);
+  overflow-x: hidden;
 }
 
 /* ============ HERO ============ */

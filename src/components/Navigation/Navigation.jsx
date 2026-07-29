@@ -116,24 +116,23 @@ function Navigation() {
                 📞
               </span>
               <span className="nav-cta-label">{t('nav.roadmap')}</span>
-            </button>
+            </button>            </div>
+
           </div>
-
-        </div>
-
-          <button
-            type="button"
-            className="nav-toggle"
-            onClick={toggleMobileMenu}
-            aria-label={isMobileMenuOpen ? t('common.closeMenu') : t('common.openMenu')}
-            aria-expanded={isMobileMenuOpen}
-            aria-controls="primary-nav"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
       </div>
+
+      <button
+        type="button"
+        className="nav-toggle"
+        onClick={toggleMobileMenu}
+        aria-label={isMobileMenuOpen ? t('common.closeMenu') : t('common.openMenu')}
+        aria-expanded={isMobileMenuOpen}
+        aria-controls="primary-nav"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
       <AnimatePresence>
         {isMobileMenuOpen && (

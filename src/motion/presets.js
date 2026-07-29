@@ -107,9 +107,9 @@ export const iconPopHover = {
 /* ============== PAGE TRANSITION ============== */
 
 export const pageTransition = {
-  initial: { opacity: 0, y: 16 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.4, ease: EASE } },
-  exit: { opacity: 0, y: -8, transition: { duration: 0.25, ease: EASE } },
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { duration: 0.4, ease: EASE } },
+  exit: { opacity: 0, transition: { duration: 0.25, ease: EASE } },
 };
 
 /* ============== HELPERS ============== */

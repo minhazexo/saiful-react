@@ -1,0 +1,355 @@
+/* ========================================================
+   NavPortal — COMPLETELY ISOLATED NAVIGATION
+   Renders via React Portal at document.body level.
+   All z-index values are EXTREMELY HIGH to beat anything.
+   ======================================================== */
+
+/* ── NAV BAR ── */
+.np-nav {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 99999 !important;
+  background: #000000 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  height: var(--nav-h, 90px);
+  pointer-events: auto !important;
+  overflow: hidden !important;
+}
+
+.np-inner {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  height: 100% !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding: 0 18px !important;
+  gap: 12px !important;
+  min-width: 0 !important;
+}
+
+/* ── LOGO ── */
+.np-logo {
+  display: flex !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+  text-decoration: none !important;
+}
+
+.np-logo img {
+  height: 32px !important;
+  width: auto !important;
+  max-width: 100% !important;
+  display: block !important;
+}
+
+/* ── CENTER WRAPPER (desktop links + CTA) ── */
+.np-center {
+  display: flex !important;
+  align-items: center !important;
+  flex: 1 !important;
+  gap: 12px !important;
+  min-width: 0 !important;
+}
+
+/* ── DESKTOP LINKS ── */
+.np-links {
+  display: flex !important;
+  list-style: none !important;
+  gap: 20px !important;
+  align-items: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+}
+
+.np-links a {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease !important;
+}
+
+.np-links a:hover {
+  color: #ffffff !important;
+}
+
+/* ── CTA ── */
+.np-cta {
+  display: flex !important;
+  gap: 8px !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+  margin-left: auto !important;
+}
+
+.np-cta-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 10px 20px !important;
+  border-radius: 12px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid #ffffff !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  font-family: inherit !important;
+}
+
+.np-cta-btn:hover {
+  background: #E5E7EB !important;
+  border-color: #E5E7EB !important;
+}
+
+/* ── HAMBURGER TOGGLE ── */
+.np-toggle {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 4px !important;
+  width: 50px !important;
+  min-width: 50px !important;
+  height: 46px !important;
+  min-height: 46px !important;
+  padding: 0 0 2px !important;
+  background: #10b981 !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 14px !important;
+  cursor: pointer !important;
+  position: absolute !important;
+  right: 18px !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  margin: auto 0 !important;
+  z-index: 999999 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 10px !important;
+  letter-spacing: 0.5px !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  /* Prevent iOS Safari zoom on tap — font-size < 16px triggers zoom */
+  touch-action: manipulation !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+
+
+.np-toggle:hover {
+  background: #059669 !important;
+  border-color: #ffffff !important;
+}
+
+.np-toggle:active {
+  background: #047857 !important;
+}
+
+.np-toggle span {
+  display: block !important;
+  width: 20px !important;
+  height: 2.5px !important;
+  background: #ffffff !important;
+  border-radius: 2px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transform-origin: center !important;
+}
+
+/* Hamburger -> X animation */
+.np-toggle[aria-expanded='true'] span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg) !important;
+}
+
+.np-toggle[aria-expanded='true'] span:nth-child(2) {
+  opacity: 0 !important;
+  transform: scaleX(0) !important;
+}
+
+.np-toggle[aria-expanded='true'] span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg) !important;
+}
+
+/* Hide on desktop */
+@media (min-width: 1025px) {
+  .np-toggle {
+    display: none !important;
+  }
+}
+
+/* ── BACKDROP ── */
+.np-backdrop {
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  border: none !important;
+  cursor: pointer !important;
+  z-index: 99998 !important;
+  backdrop-filter: blur(2px) !important;
+  -webkit-backdrop-filter: blur(2px) !important;
+  pointer-events: auto !important;
+}
+
+/* ── MOBILE MENU ── */
+.np-mobile-menu {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: #000000 !important;
+  z-index: 99997 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  padding: 80px 20px !important;
+  overflow-y: auto !important;
+  pointer-events: auto !important;
+}
+
+.np-mobile-links {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 6px !important;
+  width: 100% !important;
+  max-width: 400px !important;
+}
+
+.np-mobile-links a {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  padding: 14px 24px !important;
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  text-decoration: none !important;
+  border-radius: 12px !important;
+  min-height: 48px !important;
+  transition: background 0.2s ease, color 0.2s ease !important;
+}
+
+.np-mobile-links a:hover,
+.np-mobile-links a:active {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #00FF00 !important;
+}
+
+.np-mobile-lang {
+  width: 100% !important;
+  max-width: 400px !important;
+  display: flex !important;
+  justify-content: center !important;
+  padding: 16px 0 !important;
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Hide desktop links + CTA on mobile */
+@media (max-width: 1024px) {
+  .np-nav {
+    height: var(--nav-h, 70px);
+  }
+
+  .np-cta {
+    display: none !important;
+  }
+
+  .np-links {
+    display: none !important;
+  }
+
+  .np-mobile-menu {
+    /* Framer Motion handles visibility */
+  }
+
+  /* Prevent iOS Safari zoom on tap for all nav buttons/links with font-size < 16px */
+  .np-toggle,
+  .np-cta-btn,
+  .np-mobile-links a {
+    touch-action: manipulation !important;
+  }
+}
+
+/* Tablet portrait */
+@media (max-width: 768px) {
+  .np-nav {
+    height: var(--nav-h, 70px);
+  }
+
+  .np-inner {
+    padding: 0 16px !important;
+    gap: 10px !important;
+  }
+
+  .np-mobile-menu {
+    padding: 70px 16px !important;
+  }
+
+  .np-mobile-links a {
+    font-size: 16px !important;
+    padding: 12px 20px !important;
+    max-width: 360px !important;
+  }
+
+  .np-mobile-lang {
+    max-width: 360px !important;
+  }
+}
+
+/* Phone */
+@media (max-width: 480px) {
+  .np-nav {
+    height: var(--nav-h, 64px);
+  }
+
+  .np-inner {
+    padding: 0 12px !important;
+    gap: 8px !important;
+  }
+
+  .np-mobile-menu {
+    padding: 60px 14px !important;
+  }
+
+  .np-mobile-links a {
+    font-size: 15px !important;
+    padding: 10px 16px !important;
+  }
+}
+
+/* Small phone */
+@media (max-width: 375px) {
+  .np-nav {
+    height: var(--nav-h, 60px);
+  }
+
+  .np-inner {
+    padding: 0 10px !important;
+    gap: 6px !important;
+  }
+
+  .np-mobile-menu {
+    padding: 56px 12px !important;
+  }
+
+  .np-mobile-links a {
+    font-size: 14px !important;
+    padding: 10px 14px !important;
+  }
+}

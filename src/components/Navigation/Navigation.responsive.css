@@ -8,16 +8,6 @@
     display: block;
   }
 
-  .nav-inner {
-    justify-content: space-between;
-    gap: 12px;
-    padding: 0 18px;
-  }
-
-  .nav-toggle {
-    display: flex;
-  }
-
   .nav-links {
     position: fixed;
     top: 0;
