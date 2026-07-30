@@ -442,6 +442,9 @@
   font-size: 12px;
   font-weight: 500;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 @keyframes academyStatsScroll {
@@ -455,6 +458,8 @@
   font-size: 15px;
   font-weight: 400;
   margin-top: 6px;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 /* ========== PROBLEM / SOLUTION ========== */
@@ -543,6 +548,7 @@
   height: 52px;
   border-radius: 50%;
   background: var(--primary-soft);
+  border: 2px solid var(--gray-300);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -676,6 +682,7 @@
   background: var(--primary-soft);
   padding: 4px 14px;
   border-radius: 999px;
+  border: 1px solid var(--gray-300);
   white-space: nowrap;
   line-height: 1.5;
 }
@@ -1223,7 +1230,7 @@
 
 .btn-ghost-white {
   background: transparent;
-  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border: 1.5px solid var(--gray-300);
   color: #fff;
 }
 

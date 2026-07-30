@@ -90,19 +90,16 @@ function Footer() {
             <h4>{t('footer.services')}</h4>
             <ul className="footer-links">
               <li>
-                <Link to="/academy">{t('footer.academy')}</Link>
+                <Link to="/academy">{t('nav.academy')}</Link>
               </li>
               <li>
-                <Link to="/setup">{t('footer.businessSetup')}</Link>
+                <Link to="/setup">{t('nav.setup')}</Link>
               </li>
               <li>
-                <Link to="/growth">{t('footer.growthServices')}</Link>
+                <Link to="/growth">{t('nav.growth')}</Link>
               </li>
               <li>
-                <Link to="/pricing">{t('nav.pricing')}</Link>
-              </li>
-              <li>
-                <Link to="/ai">{t('footer.aiMarketing')}</Link>
+                <Link to="/contact">{t('nav.contact')}</Link>
               </li>
             </ul>
           </div>
@@ -119,24 +116,7 @@ function Footer() {
               <li>
                 <Link to="/blog">{t('footer.blog')}</Link>
               </li>
-              <li>
-                <Link to="/contact">{t('nav.contact')}</Link>
-              </li>
             </ul>
-          </div>
-
-          <div className="footer-col">
-            <h4>{t('footer.contact')}</h4>
-            <div className="footer-contact">
-              <div className="footer-contact-item">
-                <span aria-hidden="true">📧</span>{' '}
-                <a href="mailto:saifulstudios@gmail.com">saifulstudios@gmail.com</a>
-              </div>
-              <div className="footer-contact-item">
-                <span aria-hidden="true">📍</span> {t('footer.locationValue')}
-              </div>
-              <div className="footer-contact-item">⏰ {t('footer.businessHours')}</div>
-            </div>
           </div>
         </div>
 

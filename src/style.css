@@ -303,16 +303,16 @@ ul {
 /* ===== Eyebrow (shared across all pages) ===== */
 .eyebrow {
   display: inline-block;
-  background: var(--orange-light);
+  background: var(--green-light);
   color: #000;
   padding: 6px 14px;
   border-radius: var(--radius-pill);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   margin-bottom: 16px;
-  border: 1px solid var(--orange-soft);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  border: 1px solid var(--green-soft);
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 /* ===== Layout ===== */

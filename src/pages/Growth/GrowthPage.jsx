@@ -317,9 +317,9 @@ function GrowthPage() {
               <div key={i}>
                 <div className="rm-step">
                   <div className="circle" dangerouslySetInnerHTML={{ __html: roadmapIcons[i] || '' }} />
-                  <span>{step}</span>
+                  <div className="step-num">{String(i + 1).padStart(2, '0')}</div>
+                  <span className="step-label">{step}</span>
                 </div>
-                {i < approachSteps.length - 1 && <div className="rm-arrow">→</div>}
               </div>
             ))}
           </div>

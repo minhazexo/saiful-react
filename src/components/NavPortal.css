@@ -11,7 +11,7 @@
   left: 0 !important;
   right: 0 !important;
   width: 100% !important;
-  z-index: 99999 !important;
+  z-index: 100000 !important;
   background: #000000 !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
   height: var(--nav-h, 90px);
@@ -37,6 +37,7 @@
   align-items: center !important;
   flex-shrink: 0 !important;
   text-decoration: none !important;
+  z-index: 2 !important;
 }
 
 .np-logo img {
@@ -178,10 +179,30 @@
   transform: translateY(-6.5px) rotate(-45deg) !important;
 }
 
-/* Hide on desktop */
+/* Desktop adjustments — center links, keep logo left, CTA right */
 @media (min-width: 1025px) {
   .np-toggle {
     display: none !important;
+  }
+
+  .np-inner {
+    justify-content: center !important;
+  }
+
+  .np-logo {
+    position: absolute !important;
+    left: 18px !important;
+  }
+
+  .np-center {
+    flex: 0 1 auto !important;
+    width: auto !important;
+  }
+
+  .np-cta {
+    position: absolute !important;
+    right: 18px !important;
+    margin-left: 0 !important;
   }
 }
 
@@ -240,8 +261,9 @@
   color: rgba(255, 255, 255, 0.85) !important;
   text-decoration: none !important;
   border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
   min-height: 48px !important;
-  transition: background 0.2s ease, color 0.2s ease !important;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
 }
 
 .np-mobile-links a:hover,
@@ -256,6 +278,18 @@
   display: flex !important;
   justify-content: center !important;
   padding: 16px 0 !important;
+}
+
+.np-mobile-lang .lang-switcher--mobile .lang-switcher-btn {
+  background: #e5e7eb !important;
+  color: #000 !important;
+  border-color: transparent !important;
+}
+
+.np-mobile-lang .lang-switcher--mobile .lang-switcher-btn.active {
+  background: #9ca3af !important;
+  color: #000 !important;
+  border-color: transparent !important;
 }
 
 /* ===== RESPONSIVE ===== */

@@ -471,7 +471,7 @@ function AcademyPage() {
             <p>একটি সঠিক সিদ্ধান্ত আপনার ভবিষ্যৎ বদলে দিতে পারে।</p>
             <div className="final-cta-row">
               <a href="#pricing" className="btn btn-white btn-lg">🚀 এখনই ভর্তি হোন</a>
-              <a href="#" className="btn btn-ghost-white btn-lg"><span style={{ display:'inline-flex', alignItems:'center', gap:8 }}>{Icon.whatsapp} WhatsApp-এ কথা বলুন</span></a>
+              <a href="https://wa.me/8801866290587" target="_blank" rel="noopener noreferrer" className="btn btn-ghost-white btn-lg"><span style={{ display:'inline-flex', alignItems:'center', gap:8 }}>{Icon.whatsapp} WhatsApp-এ কথা বলুন</span></a>
             </div>
           </MotionFade>
         </div>

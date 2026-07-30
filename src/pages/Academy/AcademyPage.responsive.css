@@ -135,5 +135,28 @@
     font-size: 15px;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.8);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  .mentor-stats {
+    justify-content: center;
+    text-align: center;
+    border-top: 2px solid var(--gray-300);
+    border-bottom: 2px solid var(--gray-300);
+    padding: 24px 0;
+  }
+
+  .ps-card {
+    text-align: center;
+  }
+
+  .mentor-grid .btn-lg {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 12px 28px;
+    font-size: 15px;
   }
 }

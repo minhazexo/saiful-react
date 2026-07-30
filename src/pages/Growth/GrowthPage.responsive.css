@@ -87,26 +87,7 @@
   .growth-page .dash-chart-head .rev-num { font-size: 20px; }
   .growth-page .dash-svg { height: 70px; }
 
-  /* Roadmap: vertical stack — original rotates arrows 90°, we keep that
-     to preserve the progression hint on phones. Hide further down at
-     ≤560px where the rotated arrow crowds the row. */
-  .growth-page .roadmap {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    margin-top: 20px;
-  }
-  .growth-page .roadmap::before { display: none; }
-  .growth-page .rm-step {
-    flex-direction: row;
-    text-align: left;
-    gap: 14px;
-    min-width: 0;
-    width: 100%;
-    align-items: center;
-  }
-  .growth-page .rm-step .circle { margin: 0; width: 52px; height: 52px; font-size: 20px; }
-  .growth-page .rm-step span { font-size: 12.5px; }
+  /* Roadmap responsive is now handled in GrowthPage.css (980px & 560px breakpoints) */
 
   /* Case card metrics collapse to 2x2 for phone */
   .growth-page .case-top { padding: 18px 20px; }
@@ -171,7 +152,4 @@
   .growth-page .dash-metric .val { font-size: 17px; }
   .growth-page .dash-bars { height: 22px; }
 
-  /* Hide the now-vertical arrow only on the smallest screens —
-     the rotated glyph crowds stacked rows under 560px. */
-  .growth-page .rm-arrow { display: none; }
 }
